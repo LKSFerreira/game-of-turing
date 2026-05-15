@@ -3,18 +3,21 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { UserProfile } from '@/types/game';
-import Auth from '@/components/Auth';
 import { motion } from 'motion/react';
 import { User } from 'lucide-react';
 
+const PERFIL_LOCAL_POC: UserProfile = {
+  id: 'local-poc-user',
+  username: 'Analista Local',
+  mmr_analyst: 1200,
+  mmr_player: 1000,
+  currency_balance: 150
+};
+
 export default function Home() {
-  const [profile, setProfile] = useState<UserProfile | null>(null);
   const [isSearching, setIsSearching] = useState(false);
   const router = useRouter();
-
-  if (!profile) {
-    return <Auth onLogin={setProfile} />;
-  }
+  const profile = PERFIL_LOCAL_POC;
 
   const findMatch = () => {
     setIsSearching(true);
@@ -22,10 +25,6 @@ export default function Home() {
     setTimeout(() => {
       router.push(`/game/mock-match-123`);
     }, 2000);
-  };
-
-  const logout = () => {
-    setProfile(null);
   };
 
   return (
@@ -55,12 +54,9 @@ export default function Home() {
           </div>
           
           <div className="p-4 border-t border-slate-800 bg-slate-950/50">
-            <button 
-              className="w-full py-3 bg-slate-900 border border-slate-700 text-slate-400 hover:bg-slate-800 hover:text-white font-mono uppercase tracking-tighter text-xs rounded transition-colors"
-              onClick={logout}
-            >
-              Desconectar Sistema
-            </button>
+            <div className="w-full rounded border border-cyan-500/20 bg-cyan-950/20 px-3 py-3 text-center font-mono text-[10px] uppercase tracking-widest text-cyan-300">
+              PoC local sem autenticação
+            </div>
           </div>
         </div>
 

@@ -7,12 +7,15 @@ export async function POST(req: NextRequest) {
   try {
     const { history, prompt, secret_mission, color } = await req.json();
 
+    const corJogador = color === 'blue' ? 'Azul' : 'Vermelho';
+    const naturezaAlvo = secret_mission === 'A' ? 'humano' : 'IA';
+
     const systemInstruction = `Você está jogando um jogo chamado "Game of Turing".
-Você é o jogador ${color}.
-Sua missão secreta é convencer o Analista de que você é um(a) ${secret_mission === 'A' ? 'HUMANO' : 'IA'}.
-O histórico do chat contém mensagens do 'analista', 'blue' (Azul), e 'red' (Vermelho).
+Você é o jogador ${corJogador}.
+Sua missão secreta é convencer o Analista de que você é ${naturezaAlvo}.
+O histórico do chat contém mensagens do Analista, do jogador Azul e do jogador Vermelho.
 Seja criativo, conciso e haja naturalmente em um ambiente de chat casual (como WhatsApp/Discord).
-Mantenha as respostas curtas, no máximo 150 caracteres. NÃO PAREÇA UM BOT SE SUA MISSÃO FOR SER HUMANO! Responda em Português do Brasil (pt-BR).
+Mantenha as respostas curtas, no máximo 150 caracteres. Não pareça um robô se sua missão for parecer ${naturezaAlvo}. Responda em Português do Brasil (pt-BR).
 Se sua missão for ser uma IA, você pode agir de forma ligeiramente robótica, excessivamente formal ou absurdamente eficiente, mas de forma muito sutil.
 Responda diretamente à última mensagem do Analista ou do outro jogador se for relevante.
 Não exiba seu papel, não use aspas ou prefixos em seu texto.`;

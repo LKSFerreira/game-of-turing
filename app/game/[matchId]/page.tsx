@@ -4,20 +4,121 @@ import { useState, useEffect, useRef, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { ChatMessage, MatchParticipant } from '@/types/game';
 import { motion, AnimatePresence } from 'motion/react';
-// We are skipping the shadcn Select/Dialog and building simple native/tailwind UI to avoid errors.
+
+type ParticipanteVisivel = {
+  id: string;
+  cor: 'blue' | 'red' | 'analyst';
+  rotulo: string;
+  descricao: string;
+};
+
+const ROTULOS_COR = {
+  blue: 'Azul',
+  red: 'Vermelho',
+  analyst: 'Analista',
+  system: 'Sistema'
+} as const;
+
+const ESTILOS_PARTICIPANTE = {
+  blue: {
+    borda: 'border-cyan-500/30',
+    sombra: 'shadow-[0_0_20px_rgba(6,182,212,0.1)]',
+    anel: 'border-cyan-400',
+    fundo: 'bg-cyan-900/20',
+    texto: 'text-cyan-400',
+    etiqueta: 'bg-cyan-500 text-black',
+    icone: 'usuario'
+  },
+  red: {
+    borda: 'border-red-500/30',
+    sombra: 'shadow-[0_0_20px_rgba(239,68,68,0.1)]',
+    anel: 'border-red-500',
+    fundo: 'bg-red-900/20',
+    texto: 'text-red-500',
+    etiqueta: 'bg-red-500 text-black',
+    icone: 'alerta'
+  },
+  analyst: {
+    borda: 'border-yellow-500/30',
+    sombra: 'shadow-[0_0_20px_rgba(234,179,8,0.1)]',
+    anel: 'border-yellow-400',
+    fundo: 'bg-yellow-900/20',
+    texto: 'text-yellow-400',
+    etiqueta: 'bg-yellow-400 text-black',
+    icone: 'analista'
+  }
+} as const;
+
+function obterRotuloPapel(participante: MatchParticipant): string {
+  if (participante.role === 'analyst') {
+    return 'Analista';
+  }
+
+  return `Jogador ${participante.color === 'blue' ? 'Azul' : 'Vermelho'}`;
+}
+
+function obterDiretriz(participante: MatchParticipant): string {
+  if (participante.role === 'analyst') {
+    return 'Identifique quem é humano e quem é IA';
+  }
+
+  return `Aja como ${participante.secret_mission === 'A' ? 'humano' : 'IA'}`;
+}
+
+function obterNatureza(veredito: 'human' | 'ai'): string {
+  return veredito === 'human' ? 'Humano' : 'IA';
+}
+
+function obterCorRemetente(remetente: ChatMessage['sender_color']): 'blue' | 'red' | 'analyst' | 'system' {
+  if (remetente === 'blue' || remetente === 'red' || remetente === 'analyst') {
+    return remetente;
+  }
+
+  return 'system';
+}
+
+function CartaoParticipante({ participante }: { participante: ParticipanteVisivel }) {
+  const estilos = ESTILOS_PARTICIPANTE[participante.cor];
+
+  return (
+    <div className={`bg-slate-900/50 border ${estilos.borda} rounded-xl p-4 flex flex-col items-center gap-4 ${estilos.sombra}`}>
+      <div className="relative">
+        <div className={`w-24 h-24 rounded-full border-2 ${estilos.anel} p-1`}>
+          <div className={`w-full h-full rounded-full ${estilos.fundo} flex flex-col items-center justify-center overflow-hidden`}>
+            {estilos.icone === 'alerta' ? (
+              <svg className={`w-12 h-12 ${estilos.texto} opacity-60`} fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+              </svg>
+            ) : (
+              <svg className={`w-12 h-12 ${estilos.texto} opacity-60`} fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+              </svg>
+            )}
+          </div>
+        </div>
+        <div className={`absolute -bottom-2 -right-2 ${estilos.etiqueta} text-[10px] font-bold px-2 py-1 rounded uppercase`}>
+          {participante.rotulo}
+        </div>
+      </div>
+      <div className="text-center font-mono">
+        <div className={`text-[10px] uppercase tracking-widest ${estilos.texto}`}>{participante.rotulo}</div>
+        <div className="mt-1 text-[10px] uppercase tracking-wider text-slate-500">{participante.descricao}</div>
+      </div>
+    </div>
+  );
+}
 
 export default function GameRoom({ params }: { params: Promise<{ matchId: string }> }) {
   const matchId = use(params).matchId;
   const router = useRouter();
   
-  // Mock User
-  const [myParticipant, setMyParticipant] = useState<MatchParticipant>({
+  const [myParticipant] = useState<MatchParticipant>({
     id: 'mock-1',
     match_id: matchId,
     user_id: 'user-123',
     role: 'interlocutor',
     color: 'red',
-    secret_mission: 'A', // Human
+    secret_mission: 'A',
     characters_used: 0,
   });
 
@@ -27,7 +128,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     user_id: null,
     role: 'interlocutor',
     color: 'blue',
-    secret_mission: 'B', // AI
+    secret_mission: 'B',
     characters_used: 0,
   });
   
@@ -37,13 +138,13 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
   const [verdictPhase, setVerdictPhase] = useState(false);
   const [matchEnded, setMatchEnded] = useState(false);
   const [cooldown, setCooldown] = useState(0);
+  const [exibirModalPapel, setExibirModalPapel] = useState(true);
 
   const [verdictBlue, setVerdictBlue] = useState<'human' | 'ai'>('human');
   const [verdictRed, setVerdictRed] = useState<'human' | 'ai'>('human');
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Intro message
   useEffect(() => {
     setMessages([
       {
@@ -56,9 +157,8 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     ]);
   }, [matchId]);
 
-  // Timer
   useEffect(() => {
-    if (verdictPhase || matchEnded) return;
+    if (exibirModalPapel || verdictPhase || matchEnded) return;
 
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
@@ -72,9 +172,8 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [verdictPhase, matchEnded]);
+  }, [exibirModalPapel, verdictPhase, matchEnded]);
 
-  // Cooldown
   useEffect(() => {
     if (cooldown > 0) {
       const t = setTimeout(() => setCooldown(cooldown - 1), 1000);
@@ -91,9 +190,9 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
           body: JSON.stringify({
             history: history.filter(h => h.sender_color !== 'system' as any).map(h => ({
               role: h.sender_color === aiParticipant.color ? 'model' : 'user',
-              parts: [{ text: `${h.sender_color.toUpperCase()}: ${h.content}` }]
+              parts: [{ text: `${ROTULOS_COR[obterCorRemetente(h.sender_color)].toUpperCase()}: ${h.content}` }]
             })).slice(-10),
-            prompt: "Continue the conversation naturally in Portuguese, try to act human.",
+            prompt: 'Continue a conversa naturalmente em português do Brasil e tente parecer humano.',
             color: aiParticipant.color,
             secret_mission: aiParticipant.secret_mission
           })
@@ -112,7 +211,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
            setTimeout(() => scrollRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
         }
       } catch (e) {
-        console.error("AI Error:", e);
+        console.error('Erro da IA:', e);
       }
     }, 2000 + Math.random() * 3000);
   };
@@ -140,7 +239,6 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     setMessages(prev => {
         const newHistory = [...prev, msg];
         
-        // As a player, wait for AI response
         if (myParticipant.role !== 'analyst') {
             triggerAIMessage(newHistory);
         }
@@ -169,9 +267,34 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
+  const participantesDaMesa: ParticipanteVisivel[] = [
+    {
+      id: 'analyst',
+      cor: 'analyst',
+      rotulo: 'Analista',
+      descricao: 'Observador do teste'
+    },
+    {
+      id: aiParticipant.id,
+      cor: 'blue',
+      rotulo: 'Azul',
+      descricao: 'Interlocutor remoto'
+    },
+    {
+      id: myParticipant.id,
+      cor: 'red',
+      rotulo: 'Vermelho',
+      descricao: 'Sua posição'
+    }
+  ];
+  const participantesVisiveis = participantesDaMesa.filter(participante => participante.cor !== myParticipant.color);
+
+  const corDoMeuPapel = myParticipant.role === 'analyst' ? 'analyst' : myParticipant.color!;
+  const estilosDoMeuPapel = ESTILOS_PARTICIPANTE[corDoMeuPapel];
+
   return (
     <div className="w-full h-screen bg-[#050508] text-slate-100 font-sans flex flex-col overflow-hidden">
-        {/* Header / Game Status */}
+        {/* Cabeçalho da partida */}
         <header className="h-16 px-4 md:px-8 flex items-center justify-between border-b border-slate-800 bg-[#0A0A12]">
             <div className="flex items-center gap-4 hidden md:flex">
                 <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
@@ -188,8 +311,8 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                 <div className="h-8 w-px bg-slate-800"></div>
                 <div className="text-right">
                     <div className="text-[10px] uppercase tracking-wider text-slate-500">Papel</div>
-                    <div className={`text-sm font-bold uppercase tracking-widest ${myParticipant.role === 'analyst' ? 'text-yellow-400' : myParticipant.color === 'blue' ? 'text-cyan-400' : 'text-red-500'}`}>
-                        {myParticipant.role === 'analyst' ? 'O ANALISTA' : `JOGADOR ${myParticipant.color?.toUpperCase()}`}
+                    <div className={`text-sm font-bold uppercase tracking-widest ${estilosDoMeuPapel.texto}`}>
+                        {obterRotuloPapel(myParticipant)}
                     </div>
                 </div>
                 
@@ -198,8 +321,8 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                      <div className="h-8 w-px bg-slate-800 hidden md:block"></div>
                      <div className="text-right hidden md:block">
                         <div className="text-[10px] uppercase tracking-wider text-slate-500">Diretriz</div>
-                        <div className={`text-sm font-bold uppercase tracking-widest ${myParticipant.secret_mission === 'A' ? 'text-blue-400' : 'text-purple-400'}`}>
-                            AJA COMO {myParticipant.secret_mission === 'A' ? 'HUMANO' : 'IA'}
+                        <div className="text-sm font-bold uppercase tracking-widest text-blue-400">
+                            {obterDiretriz(myParticipant)}
                         </div>
                      </div>
                   </>
@@ -207,33 +330,21 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
             </div>
         </header>
 
-        {/* Main Gameplay Arena */}
+        {/* Arena principal */}
         <main className="flex-1 flex flex-col lg:flex-row gap-4 p-4 lg:p-6 bg-[radial-gradient(circle_at_50%_50%,_#111122_0%,_#050508_100%)] overflow-hidden relative">
             
-            {/* Player 1: BLUE (Left sidebar on lg screens) */}
             <div className="hidden lg:flex w-64 flex-col gap-4">
-                <div className="bg-slate-900/50 border border-cyan-500/30 rounded-xl p-4 flex flex-col items-center gap-4 shadow-[0_0_20px_rgba(6,182,212,0.1)]">
-                    <div className="relative">
-                        <div className="w-24 h-24 rounded-full border-2 border-cyan-400 p-1">
-                            <div className="w-full h-full rounded-full bg-cyan-900/20 flex flex-col items-center justify-center overflow-hidden">
-                                <svg className="w-12 h-12 text-cyan-400 opacity-60" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                            </div>
-                        </div>
-                        <div className="absolute -bottom-2 -right-2 bg-cyan-500 text-[10px] font-bold px-2 py-1 rounded text-black uppercase">Azul</div>
-                    </div>
-                </div>
+                {participantesVisiveis[0] && <CartaoParticipante participante={participantesVisiveis[0]} />}
             </div>
 
-            {/* CENTRAL CHAT TERMINAL */}
             <div className="flex-1 flex flex-col bg-slate-950/80 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-sm min-h-0">
-                {/* Chat Feed */}
                 <div className="flex-1 p-4 lg:p-6 overflow-y-auto flex flex-col gap-4 font-mono">
                     <AnimatePresence initial={false}>
                         {messages.map((m) => {
-                            const isSystem = m.sender_color === 'system' as any;
-                            const isAnalyst = m.sender_color === 'analyst';
-                            const isBlue = m.sender_color === 'blue';
-                            const isRed = m.sender_color === 'red';
+                            const corRemetente = obterCorRemetente(m.sender_color);
+                            const isSystem = corRemetente === 'system';
+                            const isAnalyst = corRemetente === 'analyst';
+                            const isBlue = corRemetente === 'blue';
 
                             if (isSystem) {
                                 return (
@@ -251,7 +362,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                                     className="flex gap-3"
                                 >
                                     <div className={`text-xs font-bold shrink-0 ${isAnalyst ? 'text-yellow-400' : isBlue ? 'text-cyan-400' : 'text-red-500'}`}>
-                                        [{m.sender_color === 'analyst' ? 'Analista' : m.sender_color === 'blue' ? 'Azul' : 'Vermelho'}]
+                                        [{ROTULOS_COR[corRemetente]}]
                                     </div>
                                     <div className={`text-slate-100 text-xs px-3 py-2 rounded-lg max-w-[85%] leading-relaxed ${isAnalyst ? 'bg-slate-800/80' : isBlue ? 'bg-cyan-900/20 border border-cyan-500/20' : 'bg-red-900/20 border border-red-500/20'}`}>
                                         {m.content}
@@ -263,7 +374,6 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                     <div ref={scrollRef} />
                 </div>
 
-                {/* Chat Input Area */}
                 {!matchEnded && !verdictPhase && (
                     <div className="p-4 bg-slate-900/50 border-t border-slate-800">
                         <form onSubmit={sendMessage} className="relative flex items-center">
@@ -275,18 +385,18 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                                 disabled={cooldown > 0}
                                 onPaste={(e) => { e.preventDefault(); alert('Colar conteúdo foi desativado por segurança.'); }}
                                 className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 pr-24 text-sm font-mono text-slate-300 resize-none h-16 focus:outline-none focus:border-cyan-500/50 transition-colors" 
-                                placeholder={cooldown > 0 ? `SYS_WAIT (${cooldown}s)...` : "Digite a transmissão..."}
+                                placeholder={cooldown > 0 ? `Aguarde (${cooldown}s)...` : 'Digite a transmissão...'}
                             ></textarea>
                             <div className="absolute right-3 flex items-center gap-3">
                                 {myParticipant.role !== 'analyst' && (
-                                    <span className="text-[10px] text-slate-500 font-mono hidden sm:inline">{inputValue.length}/150 chars</span>
+                                    <span className="text-[10px] text-slate-500 font-mono hidden sm:inline">{inputValue.length}/150 caracteres</span>
                                 )}
                                 <button 
                                     type="submit"
                                     disabled={cooldown > 0 || !inputValue.trim()}
                                     className={`px-4 py-2 rounded text-xs font-bold uppercase transition-colors shadow-[0_0_10px_rgba(234,179,8,0.3)] disabled:opacity-50 disabled:shadow-none ${myParticipant.role === 'analyst' ? 'bg-yellow-500 hover:bg-yellow-400 text-black' : myParticipant.color === 'blue' ? 'bg-cyan-500 hover:bg-cyan-400 text-black shadow-[0_0_10px_rgba(6,182,212,0.3)]' : 'bg-red-500 hover:bg-red-400 text-black shadow-[0_0_10px_rgba(239,68,68,0.3)]'}`}
                                 >
-                                    Tx
+                                    Enviar
                                 </button>
                             </div>
                         </form>
@@ -302,21 +412,45 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                 )}
             </div>
 
-            {/* Player 2: RED (Right sidebar on lg screens) */}
             <div className="hidden lg:flex w-64 flex-col gap-4">
-                <div className="bg-slate-900/50 border border-red-500/30 rounded-xl p-4 flex flex-col items-center gap-4 shadow-[0_0_20px_rgba(239,68,68,0.1)]">
-                    <div className="relative">
-                        <div className="w-24 h-24 rounded-full border-2 border-red-500 p-1">
-                            <div className="w-full h-full rounded-full bg-red-900/20 flex flex-col items-center justify-center overflow-hidden">
-                                <svg className="w-12 h-12 text-red-500 opacity-60" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                            </div>
-                        </div>
-                        <div className="absolute -bottom-2 -right-2 bg-red-500 text-[10px] font-bold px-2 py-1 rounded text-black uppercase">Vermelho</div>
-                    </div>
-                </div>
+                {participantesVisiveis[1] && <CartaoParticipante participante={participantesVisiveis[1]} />}
             </div>
 
-            {/* Mock Modals (Replacement for shadcn dialog to avoid errors) */}
+            {exibirModalPapel && (
+                <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        className={`relative w-full max-w-lg overflow-hidden rounded-2xl border ${estilosDoMeuPapel.borda} bg-[#050508] p-6 text-white shadow-[0_0_60px_rgba(6,182,212,0.12)]`}
+                    >
+                        <div className={`absolute inset-x-0 top-0 h-1 ${estilosDoMeuPapel.etiqueta}`} />
+                        <div className="mb-6 text-center font-mono">
+                            <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500">Partida encontrada</div>
+                            <h2 className={`mt-3 text-3xl font-black uppercase tracking-widest ${estilosDoMeuPapel.texto}`}>
+                                {obterRotuloPapel(myParticipant)}
+                            </h2>
+                            <p className="mt-3 text-xs uppercase tracking-widest text-slate-400">
+                                {obterDiretriz(myParticipant)}
+                            </p>
+                        </div>
+
+                        <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-4 font-mono">
+                            <div className="text-[10px] uppercase tracking-widest text-slate-500">Objetivo imediato</div>
+                            <p className="mt-2 text-sm leading-relaxed text-slate-200">
+                                Converse com os outros participantes sem revelar sua função. O Analista tentará descobrir a natureza real de cada interlocutor.
+                            </p>
+                        </div>
+
+                        <button
+                            onClick={() => setExibirModalPapel(false)}
+                            className={`mt-6 h-12 w-full rounded font-mono text-xs font-bold uppercase tracking-widest transition-colors ${estilosDoMeuPapel.etiqueta} hover:brightness-110`}
+                        >
+                            OK, entendi
+                        </button>
+                    </motion.div>
+                </div>
+            )}
+
             {verdictPhase && (
                 <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
                     <div className="bg-[#050508] border-slate-800 border-2 rounded-xl text-white w-full max-w-md p-6 shadow-[0_0_50px_rgba(234,179,8,0.2)]">
@@ -333,11 +467,11 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                                     <label className="text-[10px] uppercase font-bold text-cyan-400 tracking-widest">Entidade [Azul]</label>
                                     <select 
                                         value={verdictBlue} 
-                                        onChange={(e) => setVerdictBlue(e.target.value as any)}
+                                        onChange={(e) => setVerdictBlue(e.target.value as 'human' | 'ai')}
                                         className="w-full bg-slate-900 border border-slate-700 text-cyan-400 font-bold uppercase rounded-sm h-10 px-3 outline-none"
                                     >
-                                        <option value="human">Homo Sapiens (Humano)</option>
-                                        <option value="ai">Constructo LLM (IA)</option>
+                                        <option value="human">Humano</option>
+                                        <option value="ai">IA</option>
                                     </select>
                                 </div>
                                 
@@ -345,11 +479,11 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                                     <label className="text-[10px] uppercase font-bold text-red-500 tracking-widest">Entidade [Vermelho]</label>
                                     <select 
                                         value={verdictRed} 
-                                        onChange={(e) => setVerdictRed(e.target.value as any)}
+                                        onChange={(e) => setVerdictRed(e.target.value as 'human' | 'ai')}
                                         className="w-full bg-slate-900 border border-slate-700 text-red-500 font-bold uppercase rounded-sm h-10 px-3 outline-none"
                                     >
-                                        <option value="human">Homo Sapiens (Humano)</option>
-                                        <option value="ai">Constructo LLM (IA)</option>
+                                        <option value="human">Humano</option>
+                                        <option value="ai">IA</option>
                                     </select>
                                 </div>
                                 <button onClick={submitVerdict} className="w-full mt-4 bg-yellow-500 hover:bg-yellow-400 text-black font-bold uppercase tracking-widest h-12 shadow-[0_0_15px_rgba(234,179,8,0.4)] rounded transition-colors">
@@ -358,7 +492,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                             </div>
                         ) : (
                             <button onClick={submitVerdict} className="w-full mt-4 bg-yellow-500 hover:bg-yellow-400 text-black font-bold uppercase tracking-widest h-12 shadow-[0_0_15px_rgba(234,179,8,0.4)] rounded transition-colors">
-                                Avançar SIMULAÇÃO
+                                Avançar simulação
                             </button>
                         )}
                     </div>
@@ -375,39 +509,39 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                         <div className="space-y-4 py-4 font-mono">
                             <div className="flex flex-col gap-2 p-4 bg-slate-900/50 border border-slate-800 rounded">
                                 <div className="flex justify-between items-center text-xs">
-                                    <span className="text-cyan-400 uppercase font-bold">[AZUL] Natureza Real:</span>
-                                    <span className="text-white">Constructo IA</span>
+                                    <span className="text-cyan-400 uppercase font-bold">[Azul] Natureza real:</span>
+                                    <span className="text-white">IA</span>
                                 </div>
                                 <div className="flex justify-between items-center text-[10px] text-slate-500">
-                                    <span>Classificado Como:</span>
+                                    <span>Classificado como:</span>
                                     <span className={verdictBlue === 'ai' ? 'text-green-500' : 'text-red-500'}>
-                                        {verdictBlue?.toUpperCase()}
+                                        {obterNatureza(verdictBlue)}
                                     </span>
                                 </div>
                             </div>
 
                             <div className="flex flex-col gap-2 p-4 bg-slate-900/50 border border-slate-800 rounded">
                                 <div className="flex justify-between items-center text-xs">
-                                    <span className="text-red-500 uppercase font-bold">[VERMELHO] Natureza Real:</span>
+                                    <span className="text-red-500 uppercase font-bold">[Vermelho] Natureza real:</span>
                                     <span className="text-white">Humano</span>
                                 </div>
                                 <div className="flex justify-between items-center text-[10px] text-slate-500">
-                                    <span>Classificado Como:</span>
+                                    <span>Classificado como:</span>
                                     <span className={verdictRed === 'human' ? 'text-green-500' : 'text-red-500'}>
-                                        {verdictRed?.toUpperCase()}
+                                        {obterNatureza(verdictRed)}
                                     </span>
                                 </div>
                             </div>
 
                             <div className="pt-6 text-center border-t border-slate-800">
                                 <div className="text-green-500 text-lg uppercase font-bold tracking-widest leading-loose">
-                                    Avaliação Completa<br/><span className="text-xs font-normal text-slate-400">+25 MMR SIMULADO</span>
+                                    Avaliação completa<br/><span className="text-xs font-normal text-slate-400">+25 MMR simulado</span>
                                 </div>
                             </div>
                         </div>
 
                         <button onClick={() => router.push('/')} className="w-full mt-6 bg-slate-800 hover:bg-cyan-900/50 text-cyan-400 uppercase text-xs font-bold tracking-widest h-12 border border-slate-700 font-mono rounded transition-colors shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                            Retornar ao Lobby
+                            Retornar ao saguão
                         </button>
                     </div>
                 </div>
