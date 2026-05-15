@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: .docker/Dockerfile.python
+      target: dev
+    volumes:
+      - ../:/app
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    env_file:
+      - ../.env
+    environment:
+      - PYTHON_ENV=development
+      - APP_ENV=development

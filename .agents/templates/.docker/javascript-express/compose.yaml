@@ -1,0 +1,20 @@
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: .docker/Dockerfile.node
+      target: dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../:/app
+      - /app/node_modules
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    env_file:
+      - ../.env
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+      - HOST_IP=${HOST_IP:-}

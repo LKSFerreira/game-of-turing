@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: .docker/Dockerfile.rust
+      target: dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../:/app
+      - cargo-cache:/usr/local/cargo/registry
+      - target-cache:/app/target
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    env_file:
+      - ../.env
+    environment:
+      - RUST_ENV=development
+
+volumes:
+  cargo-cache:
+  target-cache:

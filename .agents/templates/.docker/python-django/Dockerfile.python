@@ -1,0 +1,31 @@
+FROM python:3.12-slim AS base
+
+LABEL maintainer="Ambiente python django"
+LABEL description="Ambiente de desenvolvimento Python para Django"
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libpq5 curl \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir uv
+
+FROM base AS dev
+
+EXPOSE 8000
+
+CMD ["sh", "-c", "if [ -f pyproject.toml ]; then uv sync || true; elif [ -f requirements.txt ]; then uv pip install --system -r requirements.txt; fi; if [ -f manage.py ]; then python manage.py runserver 0.0.0.0:8000; else tail -f /dev/null; fi"]
+
+FROM base AS prod
+
+COPY . .
+
+RUN if [ -f pyproject.toml ]; then uv sync --no-dev || true; elif [ -f requirements.txt ]; then uv pip install --system -r requirements.txt; fi
+
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

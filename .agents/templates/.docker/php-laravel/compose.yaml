@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: .docker/Dockerfile.php
+      target: dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../:/var/www/html
+    working_dir: /var/www/html
+    stdin_open: true
+    tty: true
+    env_file:
+      - ../.env
+    environment:
+      - APP_ENV=local
