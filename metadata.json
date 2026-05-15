@@ -1,0 +1,6 @@
+{
+  "name": "Game of Turing",
+  "description": "Um jogo multiplayer de dedução social baseado em texto, inspirado no Teste de Turing, onde jogadores humanos e LLMs interagem para enganar e descobrir identidades.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
