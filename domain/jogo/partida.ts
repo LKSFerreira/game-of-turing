@@ -113,6 +113,18 @@ export function avancarParaVeredito(partida: Partida): Partida {
   };
 }
 
+export function atualizarFasePorTempo(partida: Partida, agora: Date): Partida {
+  if (partida.fase !== 'em_andamento') {
+    return partida;
+  }
+
+  if (calcularSegundosRestantes(partida, agora) > 0) {
+    return partida;
+  }
+
+  return avancarParaVeredito(partida);
+}
+
 export function reiniciarPartida(partida: Partida): Partida {
   return criarPartidaPoc({
     id: partida.id,

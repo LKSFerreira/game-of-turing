@@ -6,6 +6,7 @@ export type EstatisticasParticipante = {
   caracteresUsados: number;
   palavrasPorMinuto: number;
   percentualOrcamentoUsado: number;
+  inativo: boolean;
 };
 
 function contarPalavras(mensagens: MensagemPartida[]): number {
@@ -41,5 +42,6 @@ export function calcularEstatisticasParticipante(
     caracteresUsados: participante.caracteresUsados,
     palavrasPorMinuto: Number((palavras / duracaoMinutos).toFixed(1)),
     percentualOrcamentoUsado,
+    inativo: participante.papel === 'interlocutor' && mensagensDoParticipante.length === 0,
   };
 }

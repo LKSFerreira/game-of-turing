@@ -9,7 +9,9 @@ import type {
   ParticipantePartida,
   Partida,
   ResultadoPartida,
+  ResultadoValidacaoVeredito,
   VereditoAnalista,
+  VereditoAnalistaParcial,
 } from './tipos';
 
 function buscarPorCor(participantes: ParticipantePartida[], cor: 'azul' | 'vermelho') {
@@ -37,19 +39,44 @@ function missaoFoiCumprida(
   return false;
 }
 
+export function validarVereditoAnalista(
+  vereditoAnalista: VereditoAnalistaParcial,
+): ResultadoValidacaoVeredito {
+  if (!vereditoAnalista.azul || !vereditoAnalista.vermelho) {
+    return {
+      valido: false,
+      motivo: 'Classifique Azul e Vermelho antes de finalizar o julgamento.',
+    };
+  }
+
+  return {
+    valido: true,
+    veredito: {
+      azul: vereditoAnalista.azul,
+      vermelho: vereditoAnalista.vermelho,
+    },
+  };
+}
+
 export function finalizarPartidaComVeredito(
   partida: Partida,
-  vereditoAnalista: VereditoAnalista,
+  vereditoAnalista: VereditoAnalistaParcial,
   encerradaEm: string,
 ): Partida {
   if (partida.fase !== 'veredito' && partida.fase !== 'em_andamento') {
     throw new Error('A partida não pode receber veredito nesta fase.');
   }
 
+  const validacaoVeredito = validarVereditoAnalista(vereditoAnalista);
+
+  if (!validacaoVeredito.valido) {
+    throw new Error(validacaoVeredito.motivo);
+  }
+
   return {
     ...partida,
     fase: 'revelacao',
-    vereditoAnalista,
+    vereditoAnalista: validacaoVeredito.veredito,
     encerradaEm,
   };
 }
@@ -81,6 +108,7 @@ export function calcularResultadoPartida(partida: Partida): ResultadoPartida {
       return {
         participanteId: participante.id,
         venceu: analistaVenceu,
+        inativo: false,
         ajusteMmr: calcularAjusteMmrAnalista(analistaVenceu),
         bonusParticipacao: 0,
         caracteresUsados: participante.caracteresUsados,
@@ -100,6 +128,7 @@ export function calcularResultadoPartida(partida: Partida): ResultadoPartida {
     return {
       participanteId: participante.id,
       venceu,
+      inativo: estatisticas.inativo,
       ajusteMmr: calcularAjusteMmrInterlocutor(participante, venceu, bonusParticipacao),
       bonusParticipacao,
       caracteresUsados: participante.caracteresUsados,

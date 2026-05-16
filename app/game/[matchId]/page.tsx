@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 
 import {
   avancarParaVeredito,
+  atualizarFasePorTempo,
   buscarParticipanteObrigatorio,
   calcularResultadoPartida,
   calcularSegundosRestantes,
@@ -14,6 +15,7 @@ import {
   finalizarPartidaComVeredito,
   registrarMensagem,
   validarMensagem,
+  validarVereditoAnalista,
 } from '@/domain/jogo';
 import type {
   CorParticipante,
@@ -188,8 +190,9 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
   const [segundosCooldown, setSegundosCooldown] = useState(0);
   const [erroMensagem, setErroMensagem] = useState<string | null>(null);
   const [exibirModalPapel, setExibirModalPapel] = useState(true);
-  const [vereditoAzul, setVereditoAzul] = useState<NaturezaParticipante>('humano');
-  const [vereditoVermelho, setVereditoVermelho] = useState<NaturezaParticipante>('humano');
+  const [vereditoAzul, setVereditoAzul] = useState<NaturezaParticipante | ''>('');
+  const [vereditoVermelho, setVereditoVermelho] = useState<NaturezaParticipante | ''>('');
+  const [interlocutoresPensando, setInterlocutoresPensando] = useState<CorInterlocutor[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const analista = buscarParticipantePorCor(partida, 'analista');
@@ -211,7 +214,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
       setSegundosRestantes(proximosSegundosRestantes);
 
       if (proximosSegundosRestantes <= 0) {
-        setPartida(partidaAtual => avancarParaVeredito(partidaAtual));
+        setPartida(partidaAtual => atualizarFasePorTempo(partidaAtual, new Date()));
       }
     }, 1000);
 
@@ -243,13 +246,21 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
       return;
     }
 
+    const corInterlocutor = participanteIa.cor;
+
+    setInterlocutoresPensando(interlocutoresAtuais =>
+      interlocutoresAtuais.includes(corInterlocutor)
+        ? interlocutoresAtuais
+        : [...interlocutoresAtuais, corInterlocutor],
+    );
+
     window.setTimeout(async () => {
       try {
         const resposta = await fetch('/api/ai', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            cor: participanteIa.cor,
+            cor: corInterlocutor,
             missaoSecreta: participanteIa.missaoSecreta,
             historico: partidaReferencia.mensagens.slice(-12),
           }),
@@ -292,6 +303,10 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
       } catch (erro) {
         const mensagem = erro instanceof Error ? erro.message : 'Falha ao acionar IA fake.';
         setErroMensagem(mensagem);
+      } finally {
+        setInterlocutoresPensando(interlocutoresAtuais =>
+          interlocutoresAtuais.filter(corAtual => corAtual !== corInterlocutor),
+        );
       }
     }, atrasoMs);
   }
@@ -335,9 +350,19 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
   function submeterVeredito() {
     const partidaEmVeredito =
       partida.fase === 'em_andamento' ? avancarParaVeredito(partida) : partida;
+    const validacaoVeredito = validarVereditoAnalista({
+      azul: vereditoAzul || undefined,
+      vermelho: vereditoVermelho || undefined,
+    });
+
+    if (!validacaoVeredito.valido) {
+      setErroMensagem(validacaoVeredito.motivo);
+      return;
+    }
+
     const partidaFinalizada = finalizarPartidaComVeredito(
       partidaEmVeredito,
-      { azul: vereditoAzul, vermelho: vereditoVermelho },
+      validacaoVeredito.veredito,
       new Date().toISOString(),
     );
 
@@ -355,8 +380,9 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     setSegundosCooldown(0);
     setErroMensagem(null);
     setExibirModalPapel(true);
-    setVereditoAzul('humano');
-    setVereditoVermelho('humano');
+    setVereditoAzul('');
+    setVereditoVermelho('');
+    setInterlocutoresPensando([]);
   }
 
   const participantesDaMesa: ParticipanteVisivel[] = [
@@ -519,6 +545,26 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                 );
               })}
             </AnimatePresence>
+            {interlocutoresPensando.length > 0 && partida.fase === 'em_andamento' && (
+              <div className="flex flex-wrap gap-2 px-1">
+                {interlocutoresPensando.map(corInterlocutor => {
+                  const isAzulPensando = corInterlocutor === 'azul';
+
+                  return (
+                    <div
+                      className={`rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-widest ${
+                        isAzulPensando
+                          ? 'border-cyan-500/30 bg-cyan-950/30 text-cyan-400'
+                          : 'border-red-500/30 bg-red-950/30 text-red-500'
+                      }`}
+                      key={corInterlocutor}
+                    >
+                      {ROTULOS_COR[corInterlocutor]} está digitando...
+                    </div>
+                  );
+                })}
+              </div>
+            )}
             <div ref={scrollRef} />
           </div>
 
@@ -642,10 +688,11 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                   <select
                     className="h-10 w-full rounded-sm border border-slate-700 bg-slate-900 px-3 font-bold uppercase text-cyan-400 outline-none"
                     onChange={evento =>
-                      setVereditoAzul(evento.target.value as NaturezaParticipante)
+                      setVereditoAzul(evento.target.value as NaturezaParticipante | '')
                     }
                     value={vereditoAzul}
                   >
+                    <option value="">Selecionar</option>
                     <option value="humano">Humano</option>
                     <option value="ia">IA</option>
                   </select>
@@ -658,14 +705,20 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                   <select
                     className="h-10 w-full rounded-sm border border-slate-700 bg-slate-900 px-3 font-bold uppercase text-red-500 outline-none"
                     onChange={evento =>
-                      setVereditoVermelho(evento.target.value as NaturezaParticipante)
+                      setVereditoVermelho(evento.target.value as NaturezaParticipante | '')
                     }
                     value={vereditoVermelho}
                   >
+                    <option value="">Selecionar</option>
                     <option value="humano">Humano</option>
                     <option value="ia">IA</option>
                   </select>
                 </div>
+                {erroMensagem && (
+                  <div className="rounded border border-red-500/30 bg-red-950/30 px-3 py-2 text-[10px] uppercase tracking-widest text-red-400">
+                    {erroMensagem}
+                  </div>
+                )}
                 <button
                   className="mt-4 h-12 w-full rounded bg-yellow-500 font-bold uppercase tracking-widest text-black shadow-[0_0_15px_rgba(234,179,8,0.4)] transition-colors hover:bg-yellow-400"
                   onClick={submeterVeredito}
@@ -732,6 +785,12 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                         <span>Resultado do interlocutor:</span>
                         <span className={participanteVenceu?.venceu ? 'text-green-500' : 'text-red-500'}>
                           {participanteVenceu?.venceu ? 'Venceu' : 'Perdeu'}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-[10px] text-slate-500">
+                        <span>Atividade:</span>
+                        <span className={participanteVenceu?.inativo ? 'text-red-500' : 'text-green-500'}>
+                          {participanteVenceu?.inativo ? 'Inativo' : 'Participou'}
                         </span>
                       </div>
                     </div>

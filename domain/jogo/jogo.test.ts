@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   avancarParaVeredito,
+  atualizarFasePorTempo,
   buscarParticipanteObrigatorio,
   calcularAjusteMmrAnalista,
   calcularAjusteMmrInterlocutor,
@@ -12,6 +13,7 @@ import {
   finalizarPartidaComVeredito,
   registrarMensagem,
   validarMensagem,
+  validarVereditoAnalista,
 } from './index';
 import type { ParticipantePartida, Partida } from './tipos';
 
@@ -66,6 +68,7 @@ describe('validação e registro de mensagens', () => {
 
     expect(validarMensagem(partida, analista, ' ', new Date(DATA_BASE))).toMatchObject({
       valido: false,
+      motivo: 'A mensagem precisa ter pelo menos 15 caracteres.',
     });
     expect(validarMensagem(partida, analista, 'x'.repeat(151), new Date(DATA_BASE))).toMatchObject(
       {
@@ -93,6 +96,22 @@ describe('validação e registro de mensagens', () => {
     });
   });
 
+  it('bloqueia mais de 5 caracteres repetidos em sequência', () => {
+    const partida = criarPartidaTeste();
+    const analista = buscarPorCor(partida, 'analista');
+
+    expect(
+      validarMensagem(partida, analista, 'Isso tem aaaaaa repetido', new Date(DATA_BASE)),
+    ).toEqual({
+      valido: false,
+      motivo: 'A mensagem não pode ter mais de 5 caracteres repetidos em sequência.',
+    });
+    expect(validarMensagem(partida, analista, 'Cinco aaaaa passam', new Date(DATA_BASE))).toEqual({
+      valido: true,
+      conteudoNormalizado: 'Cinco aaaaa passam',
+    });
+  });
+
   it('controla orçamento de caracteres apenas para interlocutores', () => {
     const partida = {
       ...criarPartidaTeste(),
@@ -104,7 +123,7 @@ describe('validação e registro de mensagens', () => {
     };
     const analista = buscarPorCor(partida, 'analista');
 
-    expect(validarMensagem(partida, azul, 'ok', new Date(DATA_BASE))).toEqual({
+    expect(validarMensagem(partida, azul, 'Mensagem grande', new Date(DATA_BASE))).toEqual({
       valido: false,
       motivo: 'O orçamento de caracteres acabou.',
     });
@@ -116,6 +135,29 @@ describe('validação e registro de mensagens', () => {
 });
 
 describe('veredito, estatísticas e MMR', () => {
+  it('avança para veredito quando o tempo da partida esgota', () => {
+    const partida = criarPartidaTeste();
+
+    expect(atualizarFasePorTempo(partida, new Date('2026-05-16T12:00:59.000Z')).fase).toBe(
+      'em_andamento',
+    );
+    expect(atualizarFasePorTempo(partida, new Date('2026-05-16T12:01:00.000Z')).fase).toBe(
+      'veredito',
+    );
+  });
+
+  it('bloqueia veredito incompleto antes de finalizar julgamento', () => {
+    expect(validarVereditoAnalista({ azul: 'ia' })).toEqual({
+      valido: false,
+      motivo: 'Classifique Azul e Vermelho antes de finalizar o julgamento.',
+    });
+    expect(() =>
+      finalizarPartidaComVeredito(avancarParaVeredito(criarPartidaTeste()), {
+        vermelho: 'ia',
+      }, DATA_BASE),
+    ).toThrow('Classifique Azul e Vermelho antes de finalizar o julgamento.');
+  });
+
   it('calcula vitória do analista e resultados dos interlocutores pelo domínio', () => {
     const partida = criarPartidaTeste();
     const partidaFinalizada = finalizarPartidaComVeredito(
@@ -167,7 +209,27 @@ describe('veredito, estatísticas e MMR', () => {
       caracteresUsados: 19,
       palavrasPorMinuto: 3,
       percentualOrcamentoUsado: 1,
+      inativo: false,
     });
+  });
+
+  it('marca interlocutor sem mensagem como inativo no resultado', () => {
+    const partida = criarPartidaTeste();
+    const partidaFinalizada = finalizarPartidaComVeredito(
+      avancarParaVeredito(partida),
+      { azul: 'ia', vermelho: 'ia' },
+      '2026-05-16T12:01:00.000Z',
+    );
+    const resultado = calcularResultadoPartida(partidaFinalizada);
+
+    expect(
+      resultado.participantes.find(
+        participante => participante.participanteId === 'interlocutor-azul',
+      ),
+    ).toMatchObject({ inativo: true, mensagensEnviadas: 0 });
+    expect(
+      resultado.participantes.find(participante => participante.participanteId === 'analista-local'),
+    ).toMatchObject({ inativo: false });
   });
 
   it('mantém ajustes de MMR e bônus de participação previsíveis', () => {

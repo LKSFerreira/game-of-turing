@@ -16,6 +16,8 @@ export type VereditoAnalista = {
   vermelho: NaturezaParticipante;
 };
 
+export type VereditoAnalistaParcial = Partial<VereditoAnalista>;
+
 export type ParticipantePartida = {
   id: string;
   nome: string;
@@ -56,9 +58,14 @@ export type ResultadoValidacao =
   | { valido: true; conteudoNormalizado: string }
   | { valido: false; motivo: string };
 
+export type ResultadoValidacaoVeredito =
+  | { valido: true; veredito: VereditoAnalista }
+  | { valido: false; motivo: string };
+
 export type ResultadoParticipante = {
   participanteId: string;
   venceu: boolean;
+  inativo: boolean;
   ajusteMmr: number;
   bonusParticipacao: number;
   caracteresUsados: number;
