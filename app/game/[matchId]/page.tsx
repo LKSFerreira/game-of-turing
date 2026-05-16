@@ -1,108 +1,179 @@
 'use client';
 
-import { useState, useEffect, useRef, use } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { Bot, BrainCircuit, User } from 'lucide-react';
+import { use, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ChatMessage, MatchParticipant } from '@/types/game';
-import { motion, AnimatePresence } from 'motion/react';
+
+import {
+  avancarParaVeredito,
+  buscarParticipanteObrigatorio,
+  calcularResultadoPartida,
+  calcularSegundosRestantes,
+  criarPartidaPoc,
+  finalizarPartidaComVeredito,
+  registrarMensagem,
+  validarMensagem,
+} from '@/domain/jogo';
+import type {
+  CorParticipante,
+  MensagemPartida,
+  NaturezaParticipante,
+  ParticipantePartida,
+  Partida,
+  ResultadoPartida,
+} from '@/domain/jogo';
+
+type CorInterlocutor = Extract<CorParticipante, 'azul' | 'vermelho'>;
+type CorVisual = Extract<CorParticipante, 'analista' | 'azul' | 'vermelho'>;
 
 type ParticipanteVisivel = {
   id: string;
-  cor: 'blue' | 'red' | 'analyst';
+  cor: CorVisual;
   rotulo: string;
   descricao: string;
 };
 
-const ROTULOS_COR = {
-  blue: 'Azul',
-  red: 'Vermelho',
-  analyst: 'Analista',
-  system: 'Sistema'
-} as const;
+type RespostaApiIa = {
+  texto?: string;
+  provider?: string;
+  error?: string;
+};
+
+const ROTULOS_COR: Record<CorParticipante, string> = {
+  analista: 'Analista',
+  azul: 'Azul',
+  vermelho: 'Vermelho',
+  sistema: 'Sistema',
+};
 
 const ESTILOS_PARTICIPANTE = {
-  blue: {
-    borda: 'border-cyan-500/30',
-    sombra: 'shadow-[0_0_20px_rgba(6,182,212,0.1)]',
-    anel: 'border-cyan-400',
-    fundo: 'bg-cyan-900/20',
-    texto: 'text-cyan-400',
-    etiqueta: 'bg-cyan-500 text-black',
-    icone: 'usuario'
-  },
-  red: {
-    borda: 'border-red-500/30',
-    sombra: 'shadow-[0_0_20px_rgba(239,68,68,0.1)]',
-    anel: 'border-red-500',
-    fundo: 'bg-red-900/20',
-    texto: 'text-red-500',
-    etiqueta: 'bg-red-500 text-black',
-    icone: 'alerta'
-  },
-  analyst: {
+  analista: {
     borda: 'border-yellow-500/30',
     sombra: 'shadow-[0_0_20px_rgba(234,179,8,0.1)]',
     anel: 'border-yellow-400',
     fundo: 'bg-yellow-900/20',
     texto: 'text-yellow-400',
     etiqueta: 'bg-yellow-400 text-black',
-    icone: 'analista'
-  }
+    icone: BrainCircuit,
+  },
+  azul: {
+    borda: 'border-cyan-500/30',
+    sombra: 'shadow-[0_0_20px_rgba(6,182,212,0.1)]',
+    anel: 'border-cyan-400',
+    fundo: 'bg-cyan-900/20',
+    texto: 'text-cyan-400',
+    etiqueta: 'bg-cyan-500 text-black',
+    icone: Bot,
+  },
+  vermelho: {
+    borda: 'border-red-500/30',
+    sombra: 'shadow-[0_0_20px_rgba(239,68,68,0.1)]',
+    anel: 'border-red-500',
+    fundo: 'bg-red-900/20',
+    texto: 'text-red-500',
+    etiqueta: 'bg-red-500 text-black',
+    icone: User,
+  },
 } as const;
 
-function obterRotuloPapel(participante: MatchParticipant): string {
-  if (participante.role === 'analyst') {
+function buscarParticipantePorCor(partida: Partida, cor: CorVisual): ParticipantePartida {
+  const participante = partida.participantes.find(
+    participanteAtual => participanteAtual.cor === cor,
+  );
+
+  if (!participante) {
+    throw new Error(`Participante ${cor} não encontrado.`);
+  }
+
+  return participante;
+}
+
+function isCorInterlocutor(cor: CorParticipante): cor is CorInterlocutor {
+  return cor === 'azul' || cor === 'vermelho';
+}
+
+function obterRotuloPapel(participante: ParticipantePartida): string {
+  if (participante.papel === 'analista') {
     return 'Analista';
   }
 
-  return `Jogador ${participante.color === 'blue' ? 'Azul' : 'Vermelho'}`;
+  return `Jogador ${ROTULOS_COR[participante.cor]}`;
 }
 
-function obterDiretriz(participante: MatchParticipant): string {
-  if (participante.role === 'analyst') {
-    return 'Identifique quem é humano e quem é IA';
+function obterDiretriz(participante: ParticipantePartida): string {
+  if (participante.papel === 'analista') {
+    return 'Identifique a natureza real de Azul e Vermelho';
   }
 
-  return `Aja como ${participante.secret_mission === 'A' ? 'humano' : 'IA'}`;
+  return participante.missaoSecreta === 'convencer_humano'
+    ? 'Convença o Analista de que você é humano'
+    : 'Convença o Analista de que você é IA';
 }
 
-function obterNatureza(veredito: 'human' | 'ai'): string {
-  return veredito === 'human' ? 'Humano' : 'IA';
+function obterNatureza(natureza: NaturezaParticipante): string {
+  return natureza === 'humano' ? 'Humano' : 'IA';
 }
 
-function obterCorRemetente(remetente: ChatMessage['sender_color']): 'blue' | 'red' | 'analyst' | 'system' {
-  if (remetente === 'blue' || remetente === 'red' || remetente === 'analyst') {
-    return remetente;
-  }
+function obterResultadoParticipante(
+  resultado: ResultadoPartida,
+  participante: ParticipantePartida,
+) {
+  return resultado.participantes.find(
+    resultadoParticipante => resultadoParticipante.participanteId === participante.id,
+  );
+}
 
-  return 'system';
+function formatarTempo(segundos: number): string {
+  const minutos = Math.floor(segundos / 60);
+  const segundosRestantes = segundos % 60;
+
+  return `${minutos.toString().padStart(2, '0')}:${segundosRestantes
+    .toString()
+    .padStart(2, '0')}`;
+}
+
+function formatarTimestamp(dataIso: string): string {
+  const data = new Date(dataIso);
+  const dia = data.getDate().toString().padStart(2, '0');
+  const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+  const ano = data.getFullYear();
+  const hora = data.getHours().toString().padStart(2, '0');
+  const minuto = data.getMinutes().toString().padStart(2, '0');
+  const segundo = data.getSeconds().toString().padStart(2, '0');
+
+  return `${dia}-${mes}-${ano} ${hora}:${minuto}:${segundo}`;
 }
 
 function CartaoParticipante({ participante }: { participante: ParticipanteVisivel }) {
   const estilos = ESTILOS_PARTICIPANTE[participante.cor];
+  const Icone = estilos.icone;
 
   return (
-    <div className={`bg-slate-900/50 border ${estilos.borda} rounded-xl p-4 flex flex-col items-center gap-4 ${estilos.sombra}`}>
+    <div
+      className={`flex flex-col items-center gap-4 rounded-xl border bg-slate-900/50 p-4 ${estilos.borda} ${estilos.sombra}`}
+    >
       <div className="relative">
-        <div className={`w-24 h-24 rounded-full border-2 ${estilos.anel} p-1`}>
-          <div className={`w-full h-full rounded-full ${estilos.fundo} flex flex-col items-center justify-center overflow-hidden`}>
-            {estilos.icone === 'alerta' ? (
-              <svg className={`w-12 h-12 ${estilos.texto} opacity-60`} fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-              </svg>
-            ) : (
-              <svg className={`w-12 h-12 ${estilos.texto} opacity-60`} fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-              </svg>
-            )}
+        <div className={`h-24 w-24 rounded-full border-2 p-1 ${estilos.anel}`}>
+          <div
+            className={`flex h-full w-full items-center justify-center rounded-full ${estilos.fundo}`}
+          >
+            <Icone className={`h-12 w-12 ${estilos.texto} opacity-70`} />
           </div>
         </div>
-        <div className={`absolute -bottom-2 -right-2 ${estilos.etiqueta} text-[10px] font-bold px-2 py-1 rounded uppercase`}>
+        <div
+          className={`absolute -bottom-2 -right-2 rounded px-2 py-1 text-[10px] font-bold uppercase ${estilos.etiqueta}`}
+        >
           {participante.rotulo}
         </div>
       </div>
       <div className="text-center font-mono">
-        <div className={`text-[10px] uppercase tracking-widest ${estilos.texto}`}>{participante.rotulo}</div>
-        <div className="mt-1 text-[10px] uppercase tracking-wider text-slate-500">{participante.descricao}</div>
+        <div className={`text-[10px] uppercase tracking-widest ${estilos.texto}`}>
+          {participante.rotulo}
+        </div>
+        <div className="mt-1 text-[10px] uppercase tracking-wider text-slate-500">
+          {participante.descricao}
+        </div>
       </div>
     </div>
   );
@@ -111,450 +182,610 @@ function CartaoParticipante({ participante }: { participante: ParticipanteVisive
 export default function GameRoom({ params }: { params: Promise<{ matchId: string }> }) {
   const matchId = use(params).matchId;
   const router = useRouter();
-  
-  const [myParticipant] = useState<MatchParticipant>({
-    id: 'mock-1',
-    match_id: matchId,
-    user_id: 'user-123',
-    role: 'interlocutor',
-    color: 'red',
-    secret_mission: 'A',
-    characters_used: 0,
-  });
-
-  const [aiParticipant] = useState<MatchParticipant>({
-    id: 'mock-2',
-    match_id: matchId,
-    user_id: null,
-    role: 'interlocutor',
-    color: 'blue',
-    secret_mission: 'B',
-    characters_used: 0,
-  });
-  
-  const [messages, setMessages] = useState<ChatMessage[]>(() => [
-    {
-      id: 'sys-1',
-      match_id: matchId,
-      sender_color: 'system' as any,
-      content: 'SISTEMA: Conexão neural estabelecida. Iniciando testes Turing.',
-      created_at: new Date().toISOString()
-    }
-  ]);
-  const [inputValue, setInputValue] = useState('');
-  const [timeLeft, setTimeLeft] = useState(180);
-  const [verdictPhase, setVerdictPhase] = useState(false);
-  const [matchEnded, setMatchEnded] = useState(false);
-  const [cooldown, setCooldown] = useState(0);
+  const [partida, setPartida] = useState(() => criarPartidaPoc({ id: matchId }));
+  const [entradaMensagem, setEntradaMensagem] = useState('');
+  const [segundosRestantes, setSegundosRestantes] = useState(partida.duracaoSegundos);
+  const [segundosCooldown, setSegundosCooldown] = useState(0);
+  const [erroMensagem, setErroMensagem] = useState<string | null>(null);
   const [exibirModalPapel, setExibirModalPapel] = useState(true);
-
-  const [verdictBlue, setVerdictBlue] = useState<'human' | 'ai'>('human');
-  const [verdictRed, setVerdictRed] = useState<'human' | 'ai'>('human');
-
+  const [vereditoAzul, setVereditoAzul] = useState<NaturezaParticipante>('humano');
+  const [vereditoVermelho, setVereditoVermelho] = useState<NaturezaParticipante>('humano');
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (exibirModalPapel || verdictPhase || matchEnded) return;
+  const analista = buscarParticipantePorCor(partida, 'analista');
+  const participanteAzul = buscarParticipantePorCor(partida, 'azul');
+  const participanteVermelho = buscarParticipantePorCor(partida, 'vermelho');
+  const resultado =
+    partida.fase === 'revelacao' && partida.vereditoAnalista
+      ? calcularResultadoPartida(partida)
+      : null;
+  const estilosAnalista = ESTILOS_PARTICIPANTE.analista;
 
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          setVerdictPhase(true);
-          return 0;
-        }
-        return prev - 1;
-      });
+  useEffect(() => {
+    if (exibirModalPapel || partida.fase !== 'em_andamento') {
+      return;
+    }
+
+    const intervalo = window.setInterval(() => {
+      const proximosSegundosRestantes = calcularSegundosRestantes(partida, new Date());
+      setSegundosRestantes(proximosSegundosRestantes);
+
+      if (proximosSegundosRestantes <= 0) {
+        setPartida(partidaAtual => avancarParaVeredito(partidaAtual));
+      }
     }, 1000);
 
-    return () => clearInterval(timer);
-  }, [exibirModalPapel, verdictPhase, matchEnded]);
+    return () => window.clearInterval(intervalo);
+  }, [exibirModalPapel, partida]);
 
   useEffect(() => {
-    if (cooldown > 0) {
-      const t = setTimeout(() => setCooldown(cooldown - 1), 1000);
-      return () => clearTimeout(t);
+    if (segundosCooldown <= 0) {
+      return;
     }
-  }, [cooldown]);
 
-  const triggerAIMessage = async (history: ChatMessage[]) => {
-    setTimeout(async () => {
+    const timeout = window.setTimeout(() => {
+      setSegundosCooldown(segundosAtuais => Math.max(0, segundosAtuais - 1));
+    }, 1000);
+
+    return () => window.clearTimeout(timeout);
+  }, [segundosCooldown]);
+
+  function rolarChatParaFim() {
+    window.setTimeout(() => scrollRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
+  }
+
+  function agendarRespostaIa(
+    partidaReferencia: Partida,
+    participanteIa: ParticipantePartida,
+    atrasoMs: number,
+  ) {
+    if (!isCorInterlocutor(participanteIa.cor) || !participanteIa.missaoSecreta) {
+      return;
+    }
+
+    window.setTimeout(async () => {
       try {
-        const response = await fetch('/api/ai', {
+        const resposta = await fetch('/api/ai', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            history: history.filter(h => h.sender_color !== 'system' as any).map(h => ({
-              role: h.sender_color === aiParticipant.color ? 'model' : 'user',
-              parts: [{ text: `${ROTULOS_COR[obterCorRemetente(h.sender_color)].toUpperCase()}: ${h.content}` }]
-            })).slice(-10),
-            prompt: 'Continue a conversa naturalmente em português do Brasil e tente parecer humano.',
-            color: aiParticipant.color,
-            secret_mission: aiParticipant.secret_mission
-          })
+            cor: participanteIa.cor,
+            missaoSecreta: participanteIa.missaoSecreta,
+            historico: partidaReferencia.mensagens.slice(-12),
+          }),
         });
+        const dados = (await resposta.json()) as RespostaApiIa;
 
-        const data = await response.json();
-        if (data.text) {
-           const msg: ChatMessage = {
-              id: Date.now().toString(),
-              match_id: matchId,
-              sender_color: aiParticipant.color!,
-              content: data.text,
-              created_at: new Date().toISOString()
-           };
-           setMessages(prev => [...prev, msg]);
-           setTimeout(() => scrollRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
+        if (!resposta.ok || !dados.texto) {
+          throw new Error(dados.error ?? 'Provider de IA não retornou resposta.');
         }
-      } catch (e) {
-        console.error('Erro da IA:', e);
+
+        setPartida(partidaAtual => {
+          if (partidaAtual.fase !== 'em_andamento') {
+            return partidaAtual;
+          }
+
+          const participanteAtual = buscarParticipanteObrigatorio(
+            partidaAtual,
+            participanteIa.id,
+          );
+          const criadaEm = new Date().toISOString();
+          const validacao = validarMensagem(
+            partidaAtual,
+            participanteAtual,
+            dados.texto!,
+            new Date(criadaEm),
+          );
+
+          if (!validacao.valido) {
+            return partidaAtual;
+          }
+
+          return registrarMensagem(
+            partidaAtual,
+            participanteAtual,
+            validacao.conteudoNormalizado,
+            criadaEm,
+          );
+        });
+        rolarChatParaFim();
+      } catch (erro) {
+        const mensagem = erro instanceof Error ? erro.message : 'Falha ao acionar IA fake.';
+        setErroMensagem(mensagem);
       }
-    }, 2000 + Math.random() * 3000);
-  };
+    }, atrasoMs);
+  }
 
-  const sendMessage = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!inputValue.trim() || cooldown > 0 || verdictPhase || matchEnded) return;
+  function enviarMensagem(evento: React.FormEvent<HTMLFormElement>) {
+    evento.preventDefault();
 
-    if (inputValue.length < 2 || inputValue.length > 150) {
-        return;
+    if (partida.fase !== 'em_andamento' || segundosCooldown > 0) {
+      return;
     }
 
-    const text = inputValue.trim();
-    setInputValue('');
-    setCooldown(3);
+    const enviadaEm = new Date();
+    const validacao = validarMensagem(partida, analista, entradaMensagem, enviadaEm);
 
-    const msg: ChatMessage = {
-      id: Date.now().toString(),
-      match_id: matchId,
-      sender_color: myParticipant.color!,
-      content: text,
-      created_at: new Date().toISOString()
-    };
+    if (!validacao.valido) {
+      setErroMensagem(validacao.motivo);
+      return;
+    }
 
-    setMessages(prev => {
-        const newHistory = [...prev, msg];
-        
-        if (myParticipant.role !== 'analyst') {
-            triggerAIMessage(newHistory);
-        }
+    const partidaComMensagem = registrarMensagem(
+      partida,
+      analista,
+      validacao.conteudoNormalizado,
+      enviadaEm.toISOString(),
+    );
 
-        return newHistory;
-    });
-    setTimeout(() => scrollRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
-  };
+    setPartida(partidaComMensagem);
+    setEntradaMensagem('');
+    setErroMensagem(null);
+    setSegundosCooldown(partida.cooldownSegundos);
+    agendarRespostaIa(partidaComMensagem, participanteAzul, 1200);
+    agendarRespostaIa(partidaComMensagem, participanteVermelho, 2200);
+    rolarChatParaFim();
+  }
 
-  const submitVerdict = () => {
-      setVerdictPhase(false);
-      setMatchEnded(true);
-      setMessages(prev => [...prev, {
-          id: Date.now().toString(), 
-          match_id: matchId, 
-          sender_color: 'system' as any, 
-          content: 'SISTEMA: O Analista tomou sua decisão!', 
-          created_at: new Date().toISOString()
-      }]);
-      setTimeout(() => scrollRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
-  };
+  function encerrarInterrogatorio() {
+    setPartida(partidaAtual => avancarParaVeredito(partidaAtual));
+    setSegundosRestantes(0);
+  }
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
+  function submeterVeredito() {
+    const partidaEmVeredito =
+      partida.fase === 'em_andamento' ? avancarParaVeredito(partida) : partida;
+    const partidaFinalizada = finalizarPartidaComVeredito(
+      partidaEmVeredito,
+      { azul: vereditoAzul, vermelho: vereditoVermelho },
+      new Date().toISOString(),
+    );
+
+    setPartida(partidaFinalizada);
+    setErroMensagem(null);
+    rolarChatParaFim();
+  }
+
+  function reiniciarSimulacao() {
+    const novaPartida = criarPartidaPoc({ id: matchId });
+
+    setPartida(novaPartida);
+    setEntradaMensagem('');
+    setSegundosRestantes(novaPartida.duracaoSegundos);
+    setSegundosCooldown(0);
+    setErroMensagem(null);
+    setExibirModalPapel(true);
+    setVereditoAzul('humano');
+    setVereditoVermelho('humano');
+  }
 
   const participantesDaMesa: ParticipanteVisivel[] = [
     {
-      id: 'analyst',
-      cor: 'analyst',
-      rotulo: 'Analista',
-      descricao: 'Observador do teste'
-    },
-    {
-      id: aiParticipant.id,
-      cor: 'blue',
+      id: participanteAzul.id,
+      cor: 'azul',
       rotulo: 'Azul',
-      descricao: 'Interlocutor remoto'
+      descricao: 'IA fake local',
     },
     {
-      id: myParticipant.id,
-      cor: 'red',
+      id: participanteVermelho.id,
+      cor: 'vermelho',
       rotulo: 'Vermelho',
-      descricao: 'Sua posição'
-    }
+      descricao: 'IA fake local',
+    },
   ];
-  const participantesVisiveis = participantesDaMesa.filter(participante => participante.cor !== myParticipant.color);
-
-  const corDoMeuPapel = myParticipant.role === 'analyst' ? 'analyst' : myParticipant.color!;
-  const estilosDoMeuPapel = ESTILOS_PARTICIPANTE[corDoMeuPapel];
 
   return (
-    <div className="w-full h-screen bg-[#050508] text-slate-100 font-sans flex flex-col overflow-hidden">
-        {/* Cabeçalho da partida */}
-        <header className="h-16 px-4 md:px-8 flex items-center justify-between border-b border-slate-800 bg-[#0A0A12] relative">
-            <div className="flex items-center gap-4 hidden md:flex absolute left-4 md:left-8">
-                <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                <h1 className="text-[10px] font-mono tracking-[0.3em] uppercase text-slate-400">ID Sessão: GT-{matchId.slice(0, 4).toUpperCase()}</h1>
+    <div className="flex h-screen w-full flex-col overflow-hidden bg-[#050508] font-sans text-slate-100">
+      <header className="relative flex h-16 items-center justify-between border-b border-slate-800 bg-[#0A0A12] px-4 md:px-8">
+        <div className="absolute left-4 hidden items-center gap-4 md:left-8 md:flex">
+          <div className="h-3 w-3 animate-pulse rounded-full bg-red-500" />
+          <h1 className="font-mono text-[10px] uppercase tracking-[0.3em] text-slate-400">
+            ID Sessão: GT-{matchId.slice(0, 4).toUpperCase()}
+          </h1>
+        </div>
+
+        <div className="flex w-full items-center justify-center gap-6 md:gap-12">
+          <div className="flex flex-col items-center">
+            <span className="text-[10px] uppercase tracking-wider text-slate-500">
+              Temporizador Global
+            </span>
+            <span
+              className={`font-mono text-2xl font-bold leading-none ${
+                segundosRestantes <= 30 && partida.fase === 'em_andamento'
+                  ? 'animate-pulse text-red-500'
+                  : 'text-cyan-400'
+              }`}
+            >
+              {partida.fase === 'revelacao' ? '00:00' : formatarTempo(segundosRestantes)}
+            </span>
+          </div>
+          <div className="h-8 w-px bg-slate-800" />
+          <div className="flex flex-col items-center">
+            <div className="text-[10px] uppercase tracking-wider text-slate-500">Papel</div>
+            <div
+              className={`text-center text-sm font-bold uppercase tracking-widest ${estilosAnalista.texto}`}
+            >
+              {obterRotuloPapel(analista)}
             </div>
-            
-            <div className="flex items-center gap-6 md:gap-12 w-full justify-center">
-                <div className="flex flex-col items-center">
-                    <span className="text-[10px] uppercase tracking-wider text-slate-500">Temporizador Global</span>
-                    <span className={`text-2xl font-mono font-bold leading-none ${timeLeft <= 30 && !matchEnded ? 'text-red-500 animate-pulse' : 'text-cyan-400'}`}>
-                        {matchEnded ? '00:00' : formatTime(timeLeft)}
-                    </span>
-                </div>
-                <div className="h-8 w-px bg-slate-800"></div>
-                <div className="flex flex-col items-center">
-                    <div className="text-[10px] uppercase tracking-wider text-slate-500">Papel</div>
-                    <div className={`text-sm font-bold uppercase tracking-widest ${estilosDoMeuPapel.texto} text-center`}>
-                        {obterRotuloPapel(myParticipant)}
-                    </div>
-                </div>
-                
-                {myParticipant.role === 'interlocutor' && (
-                  <>
-                     <div className="h-8 w-px bg-slate-800 hidden md:block"></div>
-                     <div className="flex flex-col items-center hidden md:flex">
-                        <div className="text-[10px] uppercase tracking-wider text-slate-500">Diretriz</div>
-                        <div className="text-sm font-bold uppercase tracking-widest text-blue-400 text-center">
-                            {obterDiretriz(myParticipant)}
-                        </div>
-                     </div>
-                  </>
-                )}
+          </div>
+          <div className="hidden h-8 w-px bg-slate-800 md:block" />
+          <div className="hidden flex-col items-center md:flex">
+            <div className="text-[10px] uppercase tracking-wider text-slate-500">Objetivo</div>
+            <div className="text-center text-sm font-bold uppercase tracking-widest text-yellow-400">
+              Classifique Azul e Vermelho
             </div>
-        </header>
+          </div>
+        </div>
+      </header>
 
-        {/* Arena principal */}
-        <main className="flex-1 flex flex-col lg:flex-row gap-4 p-4 lg:p-6 bg-[radial-gradient(circle_at_50%_50%,_#111122_0%,_#050508_100%)] overflow-hidden relative">
-            
-            <div className="hidden lg:flex w-64 flex-col gap-4">
-                {participantesVisiveis[0] && <CartaoParticipante participante={participantesVisiveis[0]} />}
-            </div>
+      <main className="relative flex flex-1 flex-col gap-4 overflow-hidden bg-[radial-gradient(circle_at_50%_50%,_#111122_0%,_#050508_100%)] p-4 lg:flex-row lg:p-6">
+        <div className="hidden w-64 flex-col gap-4 lg:flex">
+          <CartaoParticipante participante={participantesDaMesa[0]} />
+        </div>
 
-            <div className="flex-1 flex flex-col bg-slate-950/80 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-sm min-h-0">
-                <div className="flex-1 p-4 lg:p-6 overflow-y-auto flex flex-col gap-4 font-mono">
-                    <AnimatePresence initial={false}>
-                        {messages.map((m) => {
-                            const corRemetente = obterCorRemetente(m.sender_color);
-                            const isSystem = corRemetente === 'system';
-                            const isAnalyst = corRemetente === 'analyst';
-                            const isBlue = corRemetente === 'blue';
+        <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/80 shadow-2xl backdrop-blur-sm">
+          <div className="flex flex-1 flex-col gap-4 overflow-y-auto p-4 font-mono lg:p-6">
+            <AnimatePresence initial={false}>
+              {partida.mensagens.map((mensagem: MensagemPartida) => {
+                const remetenteCor = mensagem.remetenteCor;
+                const isSistema = remetenteCor === 'sistema';
+                const isAnalista = remetenteCor === 'analista';
+                const isAzul = remetenteCor === 'azul';
+                const isVermelho = remetenteCor === 'vermelho';
+                const alinhamentoMensagem = isAnalista
+                  ? 'items-center'
+                  : isAzul
+                    ? 'items-start'
+                    : 'items-end';
+                const larguraBalao = isAnalista ? 'max-w-[56%]' : 'max-w-[78%]';
+                const estiloRemetente = isAnalista
+                  ? 'text-yellow-400'
+                  : isAzul
+                    ? 'text-cyan-400'
+                    : 'text-red-500';
+                const estiloBalao = isAnalista
+                  ? 'rounded-3xl rounded-t-2xl border-yellow-500/35 bg-slate-800/95 shadow-[0_0_20px_rgba(234,179,8,0.14)]'
+                  : isAzul
+                    ? 'rounded-[22px] rounded-tl-[3px] border-cyan-400/40 bg-cyan-950/50 shadow-[0_0_22px_rgba(6,182,212,0.14)]'
+                    : 'rounded-[22px] rounded-tr-[3px] border-red-400/40 bg-red-950/50 shadow-[0_0_22px_rgba(239,68,68,0.14)]';
 
-                            if (isSystem) {
-                                return (
-                                    <motion.div key={m.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-center my-2">
-                                        <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">{m.content}</span>
-                                    </motion.div>
-                                );
-                            }
-
-                            return (
-                                <motion.div 
-                                    key={m.id} 
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="flex gap-3"
-                                >
-                                    <div className={`text-xs font-bold shrink-0 ${isAnalyst ? 'text-yellow-400' : isBlue ? 'text-cyan-400' : 'text-red-500'}`}>
-                                        [{ROTULOS_COR[corRemetente]}]
-                                    </div>
-                                    <div className={`text-slate-100 text-xs px-3 py-2 rounded-lg max-w-[85%] leading-relaxed ${isAnalyst ? 'bg-slate-800/80' : isBlue ? 'bg-cyan-900/20 border border-cyan-500/20' : 'bg-red-900/20 border border-red-500/20'}`}>
-                                        {m.content}
-                                    </div>
-                                </motion.div>
-                            );
-                        })}
-                    </AnimatePresence>
-                    <div ref={scrollRef} />
-                </div>
-
-                {!matchEnded && !verdictPhase && (
-                    <div className="p-4 bg-slate-900/50 border-t border-slate-800">
-                        <form onSubmit={sendMessage} className="relative flex items-center">
-                            <textarea 
-                                value={inputValue}
-                                onChange={(e) => setInputValue(e.target.value)}
-                                onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(e as unknown as React.FormEvent); } }}
-                                maxLength={150}
-                                disabled={cooldown > 0}
-                                onPaste={(e) => { e.preventDefault(); alert('Colar conteúdo foi desativado por segurança.'); }}
-                                className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 pr-24 text-sm font-mono text-slate-300 resize-none h-16 focus:outline-none focus:border-cyan-500/50 transition-colors" 
-                                placeholder={cooldown > 0 ? `Aguarde (${cooldown}s)...` : 'Digite a transmissão...'}
-                            ></textarea>
-                            <div className="absolute right-3 flex items-center gap-3">
-                                {myParticipant.role !== 'analyst' && (
-                                    <span className="text-[10px] text-slate-500 font-mono hidden sm:inline">{inputValue.length}/150 caracteres</span>
-                                )}
-                                <button 
-                                    type="submit"
-                                    disabled={cooldown > 0 || !inputValue.trim()}
-                                    className={`px-4 py-2 rounded text-xs font-bold uppercase transition-colors shadow-[0_0_10px_rgba(234,179,8,0.3)] disabled:opacity-50 disabled:shadow-none ${myParticipant.role === 'analyst' ? 'bg-yellow-500 hover:bg-yellow-400 text-black' : myParticipant.color === 'blue' ? 'bg-cyan-500 hover:bg-cyan-400 text-black shadow-[0_0_10px_rgba(6,182,212,0.3)]' : 'bg-red-500 hover:bg-red-400 text-black shadow-[0_0_10px_rgba(239,68,68,0.3)]'}`}
-                                >
-                                    Enviar
-                                </button>
-                            </div>
-                        </form>
-                        <div className="mt-3 flex justify-between items-center px-1">
-                            <div className="text-[10px] font-mono text-slate-500">
-                                {myParticipant.role !== 'analyst' && "Dica: Respostas curtas parecem mais 'humanas'."}
-                            </div>
-                            <div className="text-[10px] font-mono text-yellow-500">
-                                ESTADO DO SISTEMA: {cooldown > 0 ? 'RESFRIANDO TRANSFORMAÇÃO' : 'PRONTO'}
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </div>
-
-            <div className="hidden lg:flex w-64 flex-col gap-4">
-                {participantesVisiveis[1] && <CartaoParticipante participante={participantesVisiveis[1]} />}
-            </div>
-
-            {exibirModalPapel && (
-                <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4">
+                if (isSistema) {
+                  return (
                     <motion.div
-                        initial={{ opacity: 0, y: 20, scale: 0.96 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        className={`relative w-full max-w-lg overflow-hidden rounded-2xl border ${estilosDoMeuPapel.borda} bg-[#050508] p-6 text-white shadow-[0_0_60px_rgba(6,182,212,0.12)]`}
+                      key={mensagem.id}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="my-2 flex justify-center text-center"
+                      initial={{ opacity: 0, y: 10 }}
                     >
-                        <div className={`absolute inset-x-0 top-0 h-1 ${estilosDoMeuPapel.etiqueta}`} />
-                        <div className="mb-6 text-center font-mono">
-                            <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500">Partida encontrada</div>
-                            <h2 className={`mt-3 text-3xl font-black uppercase tracking-widest ${estilosDoMeuPapel.texto}`}>
-                                {obterRotuloPapel(myParticipant)}
-                            </h2>
-                            <p className="mt-3 text-xs uppercase tracking-widest text-slate-400">
-                                {obterDiretriz(myParticipant)}
-                            </p>
+                      <div className="rounded-full border border-slate-800 bg-slate-950/80 px-4 py-2">
+                        <div className="font-mono text-[10px] uppercase tracking-widest text-slate-500">
+                          {mensagem.conteudo}
                         </div>
-
-                        <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-4 font-mono">
-                            <div className="text-[10px] uppercase tracking-widest text-slate-500">Objetivo imediato</div>
-                            <p className="mt-2 text-sm leading-relaxed text-slate-200">
-                                Converse com os outros participantes sem revelar sua função. O Analista tentará descobrir a natureza real de cada interlocutor.
-                            </p>
+                        <div className="mt-1 font-mono text-[9px] uppercase tracking-widest text-slate-700">
+                          {formatarTimestamp(mensagem.criadaEm)}
                         </div>
-
-                        <button
-                            onClick={() => setExibirModalPapel(false)}
-                            className={`mt-6 h-12 w-full rounded font-mono text-xs font-bold uppercase tracking-widest transition-colors ${estilosDoMeuPapel.etiqueta} hover:brightness-110`}
-                        >
-                            OK, entendi
-                        </button>
+                      </div>
                     </motion.div>
-                </div>
-            )}
+                  );
+                }
 
-            {verdictPhase && (
-                <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-                    <div className="bg-[#050508] border-slate-800 border-2 rounded-xl text-white w-full max-w-md p-6 shadow-[0_0_50px_rgba(234,179,8,0.2)]">
-                        <div className="mb-6">
-                            <h2 className="text-2xl font-mono text-yellow-400 tracking-widest">TEMPO ESGOTADO</h2>
-                            <p className="text-slate-400 font-mono text-xs mt-2">
-                                Sistema bloqueado. As identidades devem ser inseridas.
-                            </p>
-                        </div>
-                        
-                        {myParticipant.role === 'analyst' ? (
-                            <div className="space-y-6 pt-4 font-mono">
-                                <div className="space-y-2">
-                                    <label className="text-[10px] uppercase font-bold text-cyan-400 tracking-widest">Entidade [Azul]</label>
-                                    <select 
-                                        value={verdictBlue} 
-                                        onChange={(e) => setVerdictBlue(e.target.value as 'human' | 'ai')}
-                                        className="w-full bg-slate-900 border border-slate-700 text-cyan-400 font-bold uppercase rounded-sm h-10 px-3 outline-none"
-                                    >
-                                        <option value="human">Humano</option>
-                                        <option value="ai">IA</option>
-                                    </select>
-                                </div>
-                                
-                                <div className="space-y-2">
-                                    <label className="text-[10px] uppercase font-bold text-red-500 tracking-widest">Entidade [Vermelho]</label>
-                                    <select 
-                                        value={verdictRed} 
-                                        onChange={(e) => setVerdictRed(e.target.value as 'human' | 'ai')}
-                                        className="w-full bg-slate-900 border border-slate-700 text-red-500 font-bold uppercase rounded-sm h-10 px-3 outline-none"
-                                    >
-                                        <option value="human">Humano</option>
-                                        <option value="ai">IA</option>
-                                    </select>
-                                </div>
-                                <button onClick={submitVerdict} className="w-full mt-4 bg-yellow-500 hover:bg-yellow-400 text-black font-bold uppercase tracking-widest h-12 shadow-[0_0_15px_rgba(234,179,8,0.4)] rounded transition-colors">
-                                    Finalizar Julgamento
-                                </button>
-                            </div>
-                        ) : (
-                            <button onClick={submitVerdict} className="w-full mt-4 bg-yellow-500 hover:bg-yellow-400 text-black font-bold uppercase tracking-widest h-12 shadow-[0_0_15px_rgba(234,179,8,0.4)] rounded transition-colors">
-                                Avançar simulação
-                            </button>
+                return (
+                  <motion.div
+                    key={mensagem.id}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`flex w-full flex-col ${alinhamentoMensagem}`}
+                    initial={{ opacity: 0, y: 10 }}
+                  >
+                    {isAnalista ? (
+                      <div className="mb-2 flex w-full max-w-[56%] flex-col items-center gap-1">
+                        <span className="font-mono text-[9px] uppercase tracking-widest text-slate-600">
+                          {formatarTimestamp(mensagem.criadaEm)}
+                        </span>
+                        <span
+                          className={`font-mono text-[10px] font-bold uppercase tracking-widest ${estiloRemetente}`}
+                        >
+                          {ROTULOS_COR[remetenteCor]}
+                        </span>
+                      </div>
+                    ) : (
+                      <div
+                        className={`mb-2 flex w-full max-w-[78%] items-center gap-2 ${
+                          isAzul ? 'justify-start' : 'justify-end'
+                        }`}
+                      >
+                        {isVermelho && (
+                          <span className="font-mono text-[9px] uppercase tracking-widest text-slate-600">
+                            {formatarTimestamp(mensagem.criadaEm)}
+                          </span>
                         )}
+                        <span
+                          className={`font-mono text-[10px] font-bold uppercase tracking-widest ${estiloRemetente}`}
+                        >
+                          {ROTULOS_COR[remetenteCor]}
+                        </span>
+                        {isAzul && (
+                          <span className="font-mono text-[9px] uppercase tracking-widest text-slate-600">
+                            {formatarTimestamp(mensagem.criadaEm)}
+                          </span>
+                        )}
+                      </div>
+                    )}
+                    <div
+                      className={`${larguraBalao} border px-5 py-3.5 text-left text-sm leading-relaxed text-slate-100 ${estiloBalao}`}
+                    >
+                      {mensagem.conteudo}
                     </div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+            <div ref={scrollRef} />
+          </div>
+
+          {partida.fase === 'em_andamento' && (
+            <div className="border-t border-slate-800 bg-slate-900/50 p-4">
+              <form className="relative flex items-center" onSubmit={enviarMensagem}>
+                <textarea
+                  className="h-16 w-full resize-none rounded-lg border border-slate-700 bg-slate-950 p-3 pr-28 font-mono text-sm text-slate-300 transition-colors focus:border-cyan-500/50 focus:outline-none"
+                  disabled={segundosCooldown > 0}
+                  maxLength={150}
+                  onChange={evento => setEntradaMensagem(evento.target.value)}
+                  onKeyDown={evento => {
+                    if (evento.key === 'Enter' && !evento.shiftKey) {
+                      evento.preventDefault();
+                      evento.currentTarget.form?.requestSubmit();
+                    }
+                  }}
+                  onPaste={evento => {
+                    evento.preventDefault();
+                    setErroMensagem('Colar conteúdo foi desativado por segurança.');
+                  }}
+                  placeholder={
+                    segundosCooldown > 0
+                      ? `Aguarde (${segundosCooldown}s)...`
+                      : 'Digite a pergunta do Analista...'
+                  }
+                  value={entradaMensagem}
+                />
+                <div className="absolute right-3 flex items-center gap-3">
+                  <span className="hidden font-mono text-[10px] text-slate-500 sm:inline">
+                    {entradaMensagem.length}/150
+                  </span>
+                  <button
+                    className="rounded bg-yellow-500 px-4 py-2 text-xs font-bold uppercase text-black shadow-[0_0_10px_rgba(234,179,8,0.3)] transition-colors hover:bg-yellow-400 disabled:opacity-50 disabled:shadow-none"
+                    disabled={segundosCooldown > 0 || !entradaMensagem.trim()}
+                    type="submit"
+                  >
+                    Enviar
+                  </button>
                 </div>
-            )}
+              </form>
+              <div className="mt-3 flex items-center justify-between gap-4 px-1">
+                <div className="font-mono text-[10px] text-red-400">
+                  {erroMensagem ?? 'Perguntas curtas ajudam a comparar padrões de resposta.'}
+                </div>
+                <button
+                  className="rounded border border-yellow-500/40 px-3 py-2 font-mono text-[10px] font-bold uppercase tracking-widest text-yellow-400 transition-colors hover:bg-yellow-500/10"
+                  onClick={encerrarInterrogatorio}
+                  type="button"
+                >
+                  Encerrar interrogatório
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
 
-            {matchEnded && (
-                <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-                    <div className="bg-[#050508] border-slate-800 border-2 rounded-xl text-white w-full max-w-lg p-6 shadow-[0_0_50px_rgba(6,182,212,0.1)]">
-                        <div className="text-center mb-6">
-                            <h2 className="text-3xl font-black font-mono text-slate-100 tracking-widest uppercase">Conclusão</h2>
-                        </div>
-                        
-                        <div className="space-y-4 py-4 font-mono">
-                            <div className="flex flex-col gap-2 p-4 bg-slate-900/50 border border-slate-800 rounded">
-                                <div className="flex justify-between items-center text-xs">
-                                    <span className="text-cyan-400 uppercase font-bold">[Azul] Natureza real:</span>
-                                    <span className="text-white">IA</span>
-                                </div>
-                                <div className="flex justify-between items-center text-[10px] text-slate-500">
-                                    <span>Classificado como:</span>
-                                    <span className={verdictBlue === 'ai' ? 'text-green-500' : 'text-red-500'}>
-                                        {obterNatureza(verdictBlue)}
-                                    </span>
-                                </div>
-                            </div>
+        <div className="hidden w-64 flex-col gap-4 lg:flex">
+          <CartaoParticipante participante={participantesDaMesa[1]} />
+        </div>
 
-                            <div className="flex flex-col gap-2 p-4 bg-slate-900/50 border border-slate-800 rounded">
-                                <div className="flex justify-between items-center text-xs">
-                                    <span className="text-red-500 uppercase font-bold">[Vermelho] Natureza real:</span>
-                                    <span className="text-white">Humano</span>
-                                </div>
-                                <div className="flex justify-between items-center text-[10px] text-slate-500">
-                                    <span>Classificado como:</span>
-                                    <span className={verdictRed === 'human' ? 'text-green-500' : 'text-red-500'}>
-                                        {obterNatureza(verdictRed)}
-                                    </span>
-                                </div>
-                            </div>
+        {exibirModalPapel && (
+          <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md">
+            <motion.div
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              className={`relative w-full max-w-lg overflow-hidden rounded-2xl border ${estilosAnalista.borda} bg-[#050508] p-6 text-white shadow-[0_0_60px_rgba(6,182,212,0.12)]`}
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            >
+              <div className={`absolute inset-x-0 top-0 h-1 ${estilosAnalista.etiqueta}`} />
+              <div className="mb-6 text-center font-mono">
+                <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500">
+                  Partida local encontrada
+                </div>
+                <h2
+                  className={`mt-3 text-3xl font-black uppercase tracking-widest ${estilosAnalista.texto}`}
+                >
+                  {obterRotuloPapel(analista)}
+                </h2>
+                <p className="mt-3 text-xs uppercase tracking-widest text-slate-400">
+                  {obterDiretriz(analista)}
+                </p>
+              </div>
 
-                            <div className="pt-6 text-center border-t border-slate-800">
-                                <div className="text-green-500 text-lg uppercase font-bold tracking-widest leading-loose">
-                                    Avaliação completa<br/><span className="text-xs font-normal text-slate-400">+25 MMR simulado</span>
-                                </div>
-                            </div>
-                        </div>
+              <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-4 font-mono">
+                <div className="text-[10px] uppercase tracking-widest text-slate-500">
+                  Objetivo imediato
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-slate-200">
+                  Faça perguntas aos interlocutores e decida se Azul e Vermelho são humanos ou
+                  IAs. Nesta PoC, ambos respondem por provider fake local.
+                </p>
+              </div>
 
-                        <button onClick={() => router.push('/')} className="w-full mt-6 bg-slate-800 hover:bg-cyan-900/50 text-cyan-400 uppercase text-xs font-bold tracking-widest h-12 border border-slate-700 font-mono rounded transition-colors shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                            Retornar ao saguão
-                        </button>
+              <button
+                className={`mt-6 h-12 w-full rounded font-mono text-xs font-bold uppercase tracking-widest transition-colors ${estilosAnalista.etiqueta} hover:brightness-110`}
+                onClick={() => setExibirModalPapel(false)}
+              >
+                Iniciar interrogatório
+              </button>
+            </motion.div>
+          </div>
+        )}
+
+        {partida.fase === 'veredito' && (
+          <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
+            <div className="w-full max-w-md rounded-xl border-2 border-slate-800 bg-[#050508] p-6 text-white shadow-[0_0_50px_rgba(234,179,8,0.2)]">
+              <div className="mb-6">
+                <h2 className="font-mono text-2xl tracking-widest text-yellow-400">
+                  VEREDITO DO ANALISTA
+                </h2>
+                <p className="mt-2 font-mono text-xs text-slate-400">
+                  O chat está bloqueado. Classifique a natureza real dos interlocutores.
+                </p>
+              </div>
+
+              <div className="space-y-6 pt-4 font-mono">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-cyan-400">
+                    Entidade [Azul]
+                  </label>
+                  <select
+                    className="h-10 w-full rounded-sm border border-slate-700 bg-slate-900 px-3 font-bold uppercase text-cyan-400 outline-none"
+                    onChange={evento =>
+                      setVereditoAzul(evento.target.value as NaturezaParticipante)
+                    }
+                    value={vereditoAzul}
+                  >
+                    <option value="humano">Humano</option>
+                    <option value="ia">IA</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-red-500">
+                    Entidade [Vermelho]
+                  </label>
+                  <select
+                    className="h-10 w-full rounded-sm border border-slate-700 bg-slate-900 px-3 font-bold uppercase text-red-500 outline-none"
+                    onChange={evento =>
+                      setVereditoVermelho(evento.target.value as NaturezaParticipante)
+                    }
+                    value={vereditoVermelho}
+                  >
+                    <option value="humano">Humano</option>
+                    <option value="ia">IA</option>
+                  </select>
+                </div>
+                <button
+                  className="mt-4 h-12 w-full rounded bg-yellow-500 font-bold uppercase tracking-widest text-black shadow-[0_0_15px_rgba(234,179,8,0.4)] transition-colors hover:bg-yellow-400"
+                  onClick={submeterVeredito}
+                >
+                  Finalizar julgamento
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {partida.fase === 'revelacao' && resultado && (
+          <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
+            <div className="w-full max-w-lg rounded-xl border-2 border-slate-800 bg-[#050508] p-6 text-white shadow-[0_0_50px_rgba(6,182,212,0.1)]">
+              <div className="mb-6 text-center">
+                <h2 className="font-mono text-3xl font-black uppercase tracking-widest text-slate-100">
+                  Revelação
+                </h2>
+                <p
+                  className={`mt-2 font-mono text-sm uppercase tracking-widest ${
+                    resultado.analistaVenceu ? 'text-green-500' : 'text-red-500'
+                  }`}
+                >
+                  {resultado.analistaVenceu ? 'Analista venceu' : 'Analista perdeu'}
+                </p>
+              </div>
+
+              <div className="space-y-4 py-4 font-mono">
+                {[participanteAzul, participanteVermelho].map(participante => {
+                  const veredito =
+                    participante.cor === 'azul'
+                      ? partida.vereditoAnalista!.azul
+                      : partida.vereditoAnalista!.vermelho;
+                  const participanteVenceu = obterResultadoParticipante(resultado, participante);
+                  const corTexto =
+                    participante.cor === 'azul' ? 'text-cyan-400' : 'text-red-500';
+
+                  return (
+                    <div
+                      className="flex flex-col gap-2 rounded border border-slate-800 bg-slate-900/50 p-4"
+                      key={participante.id}
+                    >
+                      <div className="flex items-center justify-between text-xs">
+                        <span className={`${corTexto} font-bold uppercase`}>
+                          [{ROTULOS_COR[participante.cor]}] Natureza real:
+                        </span>
+                        <span className="text-white">{obterNatureza(participante.natureza)}</span>
+                      </div>
+                      <div className="flex items-center justify-between text-[10px] text-slate-500">
+                        <span>Classificado como:</span>
+                        <span
+                          className={
+                            veredito === participante.natureza ? 'text-green-500' : 'text-red-500'
+                          }
+                        >
+                          {obterNatureza(veredito)}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-[10px] text-slate-500">
+                        <span>Missão:</span>
+                        <span className="text-slate-300">{obterDiretriz(participante)}</span>
+                      </div>
+                      <div className="flex items-center justify-between text-[10px] text-slate-500">
+                        <span>Resultado do interlocutor:</span>
+                        <span className={participanteVenceu?.venceu ? 'text-green-500' : 'text-red-500'}>
+                          {participanteVenceu?.venceu ? 'Venceu' : 'Perdeu'}
+                        </span>
+                      </div>
                     </div>
-                </div>
-            )}
-        </main>
+                  );
+                })}
 
-        {/* Footer / System Console */}
-        <footer className="h-10 px-4 md:px-8 flex items-center justify-between bg-black border-t border-slate-800">
-            <div className="flex gap-4 md:gap-6">
-                <div className="text-[10px] font-mono text-slate-500 hidden sm:block">PROTOCOLO: <span className="text-slate-300 italic uppercase">Turing-Web-2</span></div>
-                <div className="text-[10px] font-mono text-slate-500">CRIPTOGRAFIA: <span className="text-cyan-500 uppercase">AES-256-GCM</span></div>
+                <div className="border-t border-slate-800 pt-6 text-center">
+                  <div className="text-lg font-bold uppercase leading-loose tracking-widest text-slate-100">
+                    MMR do Analista:{' '}
+                    <span className={resultado.analistaVenceu ? 'text-green-500' : 'text-red-500'}>
+                      {resultado.participantes.find(
+                        participante => participante.participanteId === analista.id,
+                      )?.ajusteMmr ?? 0}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                <button
+                  className="h-12 rounded border border-cyan-500/40 bg-cyan-950/20 font-mono text-xs font-bold uppercase tracking-widest text-cyan-400 transition-colors hover:bg-cyan-900/40"
+                  onClick={reiniciarSimulacao}
+                >
+                  Jogar novamente
+                </button>
+                <button
+                  className="h-12 rounded border border-slate-700 bg-slate-800 font-mono text-xs font-bold uppercase tracking-widest text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)] transition-colors hover:bg-cyan-900/50"
+                  onClick={() => router.push('/')}
+                >
+                  Retornar ao saguão
+                </button>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                <span className="text-[10px] font-mono text-green-500 tracking-widest uppercase hidden sm:block">Conexão Estável</span>
-            </div>
-        </footer>
+          </div>
+        )}
+      </main>
+
+      <footer className="flex h-10 items-center justify-between border-t border-slate-800 bg-black px-4 md:px-8">
+        <div className="flex gap-4 md:gap-6">
+          <div className="hidden font-mono text-[10px] text-slate-500 sm:block">
+            PROTOCOLO:{' '}
+            <span className="uppercase italic text-slate-300">Turing-Domain-PoC</span>
+          </div>
+          <div className="font-mono text-[10px] text-slate-500">
+            IA: <span className="uppercase text-cyan-500">fake/server-side</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-green-500" />
+          <span className="hidden font-mono text-[10px] uppercase tracking-widest text-green-500 sm:block">
+            Domínio conectado
+          </span>
+        </div>
+      </footer>
     </div>
   );
 }
