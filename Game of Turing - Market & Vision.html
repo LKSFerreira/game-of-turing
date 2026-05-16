@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of Turing - Vision & Market Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfbf7;
+            color: #2d2a26;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(220, 214, 200, 0.5);
+            border-radius: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tab-active {
+            border-bottom: 3px solid #d97706;
+            color: #d97706;
+        }
+
+        .mission-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- Chosen Palette: Warm Neutrals & Amber Accents -->
+    <!-- Application Structure Plan:
+        Apresentar o "Porquê" o jogo é único através de uma SPA interativa.
+        Dividido em: Análise de Mercado (Market Fit), Mecânica Core (Interactive Flow) e Arquitetura Técnica (TCC Ready).
+        O usuário pode alternar entre as visões para entender o potencial de negócio e técnico.
+    -->
+    <!-- Visualization & Content Choices:
+        - Comparativo de Mercado -> Radar Chart (Chart.js) -> Mostrar superioridade do Game of Turing.
+        - Fluxo de Partida -> Timeline Interativa -> Explicar os 3 minutos.
+        - Arquitetura de Dados -> Cards Dinâmicos -> Detalhar Supabase.
+        CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+
+    <div class="max-w-5xl mx-auto">
+
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-700 text-amber-900 mb-2">Game of Turing</h1>
+            <p class="text-lg text-amber-700 italic">O Primeiro Jogo de Dedução Social Híbrido (Humano + LLM)</p>
+            <div class="mt-4 flex justify-center gap-2">
+                <span class="mission-badge bg-amber-100 text-amber-800">SaaS Potential</span>
+                <span class="mission-badge bg-blue-100 text-blue-800">TCC Grade</span>
+                <span class="mission-badge bg-green-100 text-green-800">Zero Pay-to-Win</span>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex justify-center border-b border-gray-200 mb-8 space-x-8">
+            <button onclick="switchTab('market')" id="tab-market" class="pb-4 px-2 font-semibold tab-active">Análise de Mercado</button>
+            <button onclick="switchTab('gameplay')" id="tab-gameplay" class="pb-4 px-2 font-semibold text-gray-500">Mecânica Única</button>
+            <button onclick="switchTab('tech')" id="tab-tech" class="pb-4 px-2 font-semibold text-gray-500">Arquitetura Técnica</button>
+        </nav>
+
+        <!-- Tab Content: Market -->
+        <section id="content-market" class="space-y-8">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h2 class="text-2xl font-bold mb-4 text-amber-900">Por que o mercado está pronto?</h2>
+                <p class="mb-6 leading-relaxed">
+                    Experimentos como o <i>"Human or Not"</i> provaram que existe um apetite global por testar a nossa percepção contra IAs. No entanto, esses experimentos foram efêmeros. O <b>Game of Turing</b> transforma essa curiosidade em um produto sustentável com ranking, cosméticos e profundidade estratégica.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="font-bold text-lg mb-4">Comparativo de Engajamento</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="text-amber-600 font-bold">1.</span>
+                                <div>
+                                    <p class="font-semibold">Competitividade Real</p>
+                                    <p class="text-sm text-gray-600">Diferente de chats 1x1, aqui temos o Analista como juiz e oponentes tentando enganar um ao outro.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-amber-600 font-bold">2.</span>
+                                <div>
+                                    <p class="font-semibold">O Twist da Identidade</p>
+                                    <p class="text-sm text-gray-600">A missão "Finja ser IA" resolve o maior problema do gênero: a previsibilidade.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="marketChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Content: Gameplay -->
+        <section id="content-gameplay" class="hidden space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="glass-card p-6 text-center border-l-4 border-amber-500">
+                    <h3 class="font-bold text-amber-800 mb-2">O Analista</h3>
+                    <p class="text-sm text-gray-600">Investiga, questiona e julga. Seu objetivo é a verdade absoluta.</p>
+                </div>
+                <div class="glass-card p-6 text-center border-l-4 border-red-500">
+                    <h3 class="font-bold text-red-800 mb-2">O Jogador</h3>
+                    <p class="text-sm text-gray-600">Blefa, atua e manipula. Segue sua missão secreta custe o que custar.</p>
+                </div>
+                <div class="glass-card p-6 text-center border-l-4 border-blue-500">
+                    <h3 class="font-bold text-blue-800 mb-2">A IA (LLM)</h3>
+                    <p class="text-sm text-gray-600">Processamento natural, imitação de erros humanos e persuasão digital.</p>
+                </div>
+            </div>
+
+            <div class="bg-amber-900 text-white p-8 rounded-2xl">
+                <h3 class="text-xl font-bold mb-4">O Fluxo dos 3 Minutos</h3>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-amber-500 h-8 w-8 rounded-full flex items-center justify-center font-bold text-xs">01</div>
+                        <p class="flex-1"><b>Transição Dimensional:</b> Saída do quarto customizado e entrada na sala de chat isométrica.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="bg-amber-500 h-8 w-8 rounded-full flex items-center justify-center font-bold text-xs">02</div>
+                        <p class="flex-1"><b>Blefe de Caracteres:</b> Gerenciamento dos 3.000 caracteres. "Falo pouco para parecer IA ou falo muito para parecer humano?"</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="bg-amber-500 h-8 w-8 rounded-full flex items-center justify-center font-bold text-xs">03</div>
+                        <p class="flex-1"><b>O Veredito:</b> O tempo acaba. O Analista rotula as identidades. O suspensa da revelação visual.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Content: Tech -->
+        <section id="content-tech" class="hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                <h2 class="text-2xl font-bold mb-6 text-amber-900">Engenharia de Software (TCC Ready)</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-bold text-amber-700 uppercase text-xs mb-2">Real-time Layer</h4>
+                            <p class="text-sm"><b>Supabase Channels:</b> Utiliza o conceito de <i>Broadcast</i> para mensagens efêmeras, garantindo latência < 100ms sem custo de armazenamento pesado.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-bold text-amber-700 uppercase text-xs mb-2">IA Integration</h4>
+                            <p class="text-sm"><b>Groq API (Llama 3 / Mixtral):</b> Respostas instantâneas para simular velocidade de digitação humana, custando frações de centavos por partida.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-bold text-amber-700 uppercase text-xs mb-2">Security</h4>
+                            <p class="text-sm"><b>Bloqueio de Clipboard:</b> Implementação nativa no Front-end para impedir Paste-Bots e garantir que humanos digitem seus próprios blefes.</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="techChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Call to Action -->
+        <footer class="mt-16 text-center text-gray-500 pb-12">
+            <p>Projeto Idealizado para TCC e SaaS Comercial - Game of Turing © 2024</p>
+            <div class="mt-4 flex justify-center gap-4">
+                <span class="text-xs bg-gray-200 px-3 py-1 rounded">Next.js</span>
+                <span class="text-xs bg-gray-200 px-3 py-1 rounded">Supabase</span>
+                <span class="text-xs bg-gray-200 px-3 py-1 rounded">Groq LLM</span>
+                <span class="text-xs bg-gray-200 px-3 py-1 rounded">Tailwind CSS</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Tab Navigation Logic
+        function switchTab(tabId) {
+            const tabs = ['market', 'gameplay', 'tech'];
+            tabs.forEach(t => {
+                document.getElementById('content-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).classList.remove('tab-active');
+                document.getElementById('tab-' + t).classList.add('text-gray-500');
+            });
+            document.getElementById('content-' + tabId).classList.remove('hidden');
+            document.getElementById('tab-' + tabId).classList.add('tab-active');
+            document.getElementById('tab-' + tabId).classList.remove('text-gray-500');
+        }
+
+        // Market Chart Implementation
+        const ctxMarket = document.getElementById('marketChart').getContext('2d');
+        new Chart(ctxMarket, {
+            type: 'radar',
+            data: {
+                labels: ['Gamificação', 'Replayability', 'Monetização', 'Profundidade', 'Inovação'],
+                datasets: [{
+                    label: 'Game of Turing',
+                    data: [95, 90, 85, 95, 100],
+                    fill: true,
+                    backgroundColor: 'rgba(217, 119, 6, 0.2)',
+                    borderColor: '#d97706',
+                    pointBackgroundColor: '#d97706',
+                }, {
+                    label: 'Human or Not (Competidor)',
+                    data: [30, 40, 10, 20, 70],
+                    fill: true,
+                    backgroundColor: 'rgba(156, 163, 175, 0.2)',
+                    borderColor: '#9ca3af',
+                    pointBackgroundColor: '#9ca3af',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { display: false },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+
+        // Tech Chart Implementation
+        const ctxTech = document.getElementById('techChart').getContext('2d');
+        new Chart(ctxTech, {
+            type: 'bar',
+            data: {
+                labels: ['Auth', 'Realtime', 'Database', 'Assets', 'Hosting'],
+                datasets: [{
+                    label: 'Esforço de Desenvolvimento (MVP)',
+                    data: [15, 35, 20, 25, 5],
+                    backgroundColor: '#451a03',
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

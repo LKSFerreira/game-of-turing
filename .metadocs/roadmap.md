@@ -10,10 +10,10 @@ A estratégia é gameplay primeiro, arquitetura limpa desde o início e infraest
 
 ## Estado Atual
 
-- [ ] Aplicação Next/React na raiz do projeto.
-- [ ] `.metadocs/` reservado para roadmap, histórico, features, ADRs e walkthroughs.
-- [ ] Login original do AI Studio removido do caminho crítico da PoC.
-- [ ] Prioridade atual: provar o loop jogável local sem autenticação.
+- [x] Aplicação Next/React na raiz do projeto.
+- [x] `.metadocs/` reservado para roadmap, histórico, features, ADRs e walkthroughs.
+- [x] Login original do AI Studio removido do caminho crítico da PoC.
+- [x] Prioridade atual: provar o loop jogável local sem autenticação.
 
 ## Problemas Identificados
 
@@ -41,20 +41,20 @@ Objetivo: transformar o projeto em uma base organizada e compreensível.
 
 Entregas:
 
-- [ ] Reescrever este roadmap.
-- [ ] Atualizar `AGENTS.md` para `JavaScript/TypeScript`.
-- [ ] Corrigir `README.md` com setup real.
-- [ ] Renomear package para `game-of-turing`.
-- [ ] Definir scripts: `dev`, `build`, `lint`, `typecheck`, `test`.
-- [ ] Corrigir `.env.example` para separar variáveis públicas e secrets server-side.
+- [x] Reescrever este roadmap.
+- [x] Atualizar `AGENTS.md` para `JavaScript/TypeScript`.
+- [x] Corrigir `README.md` com setup real.
+- [x] Renomear package para `game-of-turing`.
+- [x] Definir scripts: `dev`, `build`, `lint`, `typecheck`, `test`.
+- [x] Corrigir `.env.example` para separar variáveis públicas e secrets server-side.
 
 Critérios de aceite:
 
-- [ ] Qualquer pessoa entende objetivo, stack, comandos e próxima etapa lendo a documentação.
-- [ ] Dependências instalam e validações básicas rodam.
-- [ ] Nenhuma chave sensível fica exposta como `NEXT_PUBLIC`.
+- [x] Qualquer pessoa entende objetivo, stack, comandos e próxima etapa lendo a documentação.
+- [x] Dependências instalam e validações básicas rodam.
+- [x] Nenhuma chave sensível de IA fica exposta como `NEXT_PUBLIC`.
 
-Status: em execução.
+Status: concluída.
 
 ## M1 - PoC Jogável Sem Auth
 
@@ -62,21 +62,21 @@ Objetivo: validar se o jogo é divertido antes de investir em conta, banco e Saa
 
 Escopo:
 
-- [ ] Uma partida jogável localmente.
-- [ ] Sem login obrigatório.
-- [ ] Sala manual/local.
-- [ ] Papéis visíveis na interface: Analista, Azul e Vermelho.
-- [ ] Timer, chat, missões secretas, veredito e revelação.
-- [ ] IA via Strategy Pattern.
-- [ ] Provider fake/local obrigatório para testes, fallback e desenvolvimento sem custo.
+- [x] Uma partida jogável localmente.
+- [x] Sem login obrigatório.
+- [x] Sala manual/local.
+- [x] Papéis visíveis na interface: Analista, Azul e Vermelho.
+- [x] Timer, chat, missões secretas, veredito e revelação.
+- [x] IA via Strategy Pattern.
+- [x] Provider fake/local obrigatório para testes, fallback e desenvolvimento sem custo.
 - [ ] Providers Groq e OpenRouter preparados para uso via API server-side.
 
 Critérios de aceite:
 
-- [ ] O jogador inicia a partida sem passar por login.
-- [ ] O Analista conversa com pelo menos um interlocutor IA.
-- [ ] O jogo chega até veredito e revelação.
-- [ ] Regras principais têm testes unitários.
+- [x] O jogador inicia a partida sem passar por login.
+- [x] O Analista conversa com pelo menos um interlocutor IA.
+- [x] O jogo chega até veredito e revelação.
+- [x] Regras principais têm testes unitários.
 
 ## M2 - Motor de Regras
 
@@ -84,20 +84,20 @@ Objetivo: separar definitivamente jogo de interface.
 
 Módulos:
 
-- [ ] Criação de partida.
-- [ ] Papéis e missões.
-- [ ] Validação de mensagem: mínimo 2 e máximo 150 caracteres.
-- [ ] Cooldown.
-- [ ] Orçamento total de caracteres dos interlocutores.
-- [ ] Fases: lobby, em andamento, veredito, revelação e encerrada.
-- [ ] Cálculo de vitória.
-- [ ] Cálculo inicial de MMR.
-- [ ] Estatísticas: mensagens, caracteres usados, WPM aproximado e participação.
+- [x] Criação de partida.
+- [x] Papéis e missões.
+- [x] Validação de mensagem: mínimo 2 e máximo 150 caracteres.
+- [x] Cooldown.
+- [x] Orçamento total de caracteres dos interlocutores.
+- [x] Fases: lobby, em andamento, veredito, revelação e encerrada.
+- [x] Cálculo de vitória.
+- [x] Cálculo inicial de MMR.
+- [x] Estatísticas: mensagens, caracteres usados, WPM aproximado e participação.
 
 Critérios de aceite:
 
-- [ ] Regras rodam em testes sem navegador.
-- [ ] UI usa o motor em vez de duplicar regras.
+- [x] Regras rodam em testes sem navegador.
+- [x] UI usa o motor em vez de duplicar regras.
 - [ ] Casos extremos cobertos: tempo esgotado, mensagem inválida, veredito parcial e jogador inativo.
 
 ## M3 - MVP Local Completo
