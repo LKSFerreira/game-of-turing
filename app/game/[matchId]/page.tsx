@@ -132,7 +132,15 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     characters_used: 0,
   });
   
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [messages, setMessages] = useState<ChatMessage[]>(() => [
+    {
+      id: 'sys-1',
+      match_id: matchId,
+      sender_color: 'system' as any,
+      content: 'SISTEMA: Conexão neural estabelecida. Iniciando testes Turing.',
+      created_at: new Date().toISOString()
+    }
+  ]);
   const [inputValue, setInputValue] = useState('');
   const [timeLeft, setTimeLeft] = useState(180);
   const [verdictPhase, setVerdictPhase] = useState(false);
@@ -144,18 +152,6 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
   const [verdictRed, setVerdictRed] = useState<'human' | 'ai'>('human');
 
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setMessages([
-      {
-        id: 'sys-1',
-        match_id: matchId,
-        sender_color: 'system' as any,
-        content: 'SISTEMA: Conexão neural estabelecida. Iniciando testes Turing.',
-        created_at: new Date().toISOString()
-      }
-    ]);
-  }, [matchId]);
 
   useEffect(() => {
     if (exibirModalPapel || verdictPhase || matchEnded) return;
@@ -295,13 +291,13 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
   return (
     <div className="w-full h-screen bg-[#050508] text-slate-100 font-sans flex flex-col overflow-hidden">
         {/* Cabeçalho da partida */}
-        <header className="h-16 px-4 md:px-8 flex items-center justify-between border-b border-slate-800 bg-[#0A0A12]">
-            <div className="flex items-center gap-4 hidden md:flex">
+        <header className="h-16 px-4 md:px-8 flex items-center justify-between border-b border-slate-800 bg-[#0A0A12] relative">
+            <div className="flex items-center gap-4 hidden md:flex absolute left-4 md:left-8">
                 <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
                 <h1 className="text-[10px] font-mono tracking-[0.3em] uppercase text-slate-400">ID Sessão: GT-{matchId.slice(0, 4).toUpperCase()}</h1>
             </div>
             
-            <div className="flex items-center gap-6 md:gap-12 w-full md:w-auto justify-between md:justify-end">
+            <div className="flex items-center gap-6 md:gap-12 w-full justify-center">
                 <div className="flex flex-col items-center">
                     <span className="text-[10px] uppercase tracking-wider text-slate-500">Temporizador Global</span>
                     <span className={`text-2xl font-mono font-bold leading-none ${timeLeft <= 30 && !matchEnded ? 'text-red-500 animate-pulse' : 'text-cyan-400'}`}>
@@ -309,9 +305,9 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                     </span>
                 </div>
                 <div className="h-8 w-px bg-slate-800"></div>
-                <div className="text-right">
+                <div className="flex flex-col items-center">
                     <div className="text-[10px] uppercase tracking-wider text-slate-500">Papel</div>
-                    <div className={`text-sm font-bold uppercase tracking-widest ${estilosDoMeuPapel.texto}`}>
+                    <div className={`text-sm font-bold uppercase tracking-widest ${estilosDoMeuPapel.texto} text-center`}>
                         {obterRotuloPapel(myParticipant)}
                     </div>
                 </div>
@@ -319,9 +315,9 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                 {myParticipant.role === 'interlocutor' && (
                   <>
                      <div className="h-8 w-px bg-slate-800 hidden md:block"></div>
-                     <div className="text-right hidden md:block">
+                     <div className="flex flex-col items-center hidden md:flex">
                         <div className="text-[10px] uppercase tracking-wider text-slate-500">Diretriz</div>
-                        <div className="text-sm font-bold uppercase tracking-widest text-blue-400">
+                        <div className="text-sm font-bold uppercase tracking-widest text-blue-400 text-center">
                             {obterDiretriz(myParticipant)}
                         </div>
                      </div>
