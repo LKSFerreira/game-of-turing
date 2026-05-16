@@ -1,40 +1,62 @@
-import { GoogleGenAI } from '@google/genai';
 import { NextRequest, NextResponse } from 'next/server';
 
-const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY });
+import { LIMITE_MAXIMO_CARACTERES_MENSAGEM } from '@/domain/jogo';
+import type { CorParticipante, MensagemPartida, MissaoSecreta } from '@/domain/jogo';
+import { obterProvedorIa } from '@/lib/ia';
 
-export async function POST(req: NextRequest) {
+type CorpoRequisicaoIa = {
+  cor: Extract<CorParticipante, 'azul' | 'vermelho'>;
+  missaoSecreta: MissaoSecreta;
+  historico: MensagemPartida[];
+};
+
+function isCorInterlocutor(cor: unknown): cor is Extract<CorParticipante, 'azul' | 'vermelho'> {
+  return cor === 'azul' || cor === 'vermelho';
+}
+
+function isMissaoSecreta(missaoSecreta: unknown): missaoSecreta is MissaoSecreta {
+  return missaoSecreta === 'convencer_humano' || missaoSecreta === 'convencer_ia';
+}
+
+function validarCorpoRequisicao(corpo: unknown): CorpoRequisicaoIa {
+  if (!corpo || typeof corpo !== 'object') {
+    throw new Error('Payload da IA inválido.');
+  }
+
+  const corpoRequisicao = corpo as Partial<CorpoRequisicaoIa>;
+
+  if (!isCorInterlocutor(corpoRequisicao.cor)) {
+    throw new Error('Cor do interlocutor inválida.');
+  }
+
+  if (!isMissaoSecreta(corpoRequisicao.missaoSecreta)) {
+    throw new Error('Missão secreta inválida.');
+  }
+
+  if (!Array.isArray(corpoRequisicao.historico)) {
+    throw new Error('Histórico de mensagens inválido.');
+  }
+
+  return {
+    cor: corpoRequisicao.cor,
+    missaoSecreta: corpoRequisicao.missaoSecreta,
+    historico: corpoRequisicao.historico,
+  };
+}
+
+export async function POST(requisicao: NextRequest) {
   try {
-    const { history, prompt, secret_mission, color } = await req.json();
-
-    const corJogador = color === 'blue' ? 'Azul' : 'Vermelho';
-    const naturezaAlvo = secret_mission === 'A' ? 'humano' : 'IA';
-
-    const systemInstruction = `Você está jogando um jogo chamado "Game of Turing".
-Você é o jogador ${corJogador}.
-Sua missão secreta é convencer o Analista de que você é ${naturezaAlvo}.
-O histórico do chat contém mensagens do Analista, do jogador Azul e do jogador Vermelho.
-Seja criativo, conciso e haja naturalmente em um ambiente de chat casual (como WhatsApp/Discord).
-Mantenha as respostas curtas, no máximo 150 caracteres. Não pareça um robô se sua missão for parecer ${naturezaAlvo}. Responda em Português do Brasil (pt-BR).
-Se sua missão for ser uma IA, você pode agir de forma ligeiramente robótica, excessivamente formal ou absurdamente eficiente, mas de forma muito sutil.
-Responda diretamente à última mensagem do Analista ou do outro jogador se for relevante.
-Não exiba seu papel, não use aspas ou prefixos em seu texto.`;
-
-    const response = await ai.models.generateContent({
-      model: 'gemini-3.1-pro-preview',
-      contents: [
-        ...history,
-        { role: 'user', parts: [{ text: prompt }] }
-      ],
-      config: {
-        systemInstruction,
-        temperature: 0.9,
-      }
+    const corpo = validarCorpoRequisicao(await requisicao.json());
+    const provedorIa = obterProvedorIa();
+    const resposta = await provedorIa.gerarResposta({
+      ...corpo,
+      limiteCaracteres: LIMITE_MAXIMO_CARACTERES_MENSAGEM,
     });
 
-    return NextResponse.json({ text: response.text });
-  } catch (error: any) {
-    console.error(error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(resposta);
+  } catch (erro) {
+    const mensagem = erro instanceof Error ? erro.message : 'Erro desconhecido ao acionar IA.';
+
+    return NextResponse.json({ error: mensagem }, { status: 400 });
   }
 }

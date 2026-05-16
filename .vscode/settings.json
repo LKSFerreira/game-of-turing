@@ -18,5 +18,6 @@
   "python.analysis.diagnosticSeverityOverrides": {
     "reportMissingImports": "none",
     "reportMissingModuleSource": "none"
-  }
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
