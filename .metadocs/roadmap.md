@@ -86,7 +86,7 @@ Módulos:
 
 - [x] Criação de partida.
 - [x] Papéis e missões.
-- [x] Validação de mensagem: mínimo 2 e máximo 150 caracteres.
+- [x] Validação de mensagem: mínimo 15, máximo 150 e bloqueio de mais de 5 caracteres repetidos em sequência.
 - [x] Cooldown.
 - [x] Orçamento total de caracteres dos interlocutores.
 - [x] Fases: lobby, em andamento, veredito, revelação e encerrada.
@@ -98,7 +98,7 @@ Critérios de aceite:
 
 - [x] Regras rodam em testes sem navegador.
 - [x] UI usa o motor em vez de duplicar regras.
-- [ ] Casos extremos cobertos: tempo esgotado, mensagem inválida, veredito parcial e jogador inativo.
+- [x] Casos extremos cobertos: tempo esgotado, mensagem inválida, veredito parcial e jogador inativo.
 
 ## M3 - MVP Local Completo
 
@@ -235,4 +235,4 @@ Critérios de aceite:
 
 ## Próxima Entrega
 
-Concluir M1/M2 com PoC local jogável, motor de regras puro, Strategy Pattern para IA e testes unitários.
+Iniciar M3: consolidar o MVP local completo com fluxo de jogar novamente, refinamento visual, estados de loading/erro/cooldown, histórico em memória e validação manual demonstrável sem credenciais.
