@@ -13,6 +13,7 @@ import {
   calcularResultadoPartida,
   criarPartidaPoc,
   finalizarPartidaComVeredito,
+  finalizarPartidaPorTempoVeredito,
   registrarMensagem,
   validarMensagem,
   validarVereditoAnalista,
@@ -149,16 +150,16 @@ describe('veredito, estatísticas e MMR', () => {
     );
   });
 
-  it('bloqueia veredito incompleto antes de finalizar julgamento', () => {
+  it('bloqueia veredito incompleto antes de finalizar análise', () => {
     expect(validarVereditoAnalista({ azul: 'ia' })).toEqual({
       valido: false,
-      motivo: 'Classifique Azul e Vermelho antes de finalizar o julgamento.',
+      motivo: 'Classifique Azul e Vermelho antes de finalizar a análise.',
     });
     expect(() =>
       finalizarPartidaComVeredito(avancarParaVeredito(criarPartidaTeste()), {
         vermelho: 'ia',
       }, DATA_BASE),
-    ).toThrow('Classifique Azul e Vermelho antes de finalizar o julgamento.');
+    ).toThrow('Classifique Azul e Vermelho antes de finalizar a análise.');
   });
 
   it('calcula vitória do analista e resultados dos jogadores pelo domínio', () => {
@@ -186,6 +187,24 @@ describe('veredito, estatísticas e MMR', () => {
         participante => participante.participanteId === 'interlocutor-vermelho',
       ),
     ).toMatchObject({ venceu: true, ajustePdr: 20, ajusteMmr: 14 });
+  });
+
+  it('finaliza veredito por tempo como derrota automática do analista', () => {
+    const partidaFinalizada = finalizarPartidaPorTempoVeredito(
+      avancarParaVeredito(criarPartidaTeste()),
+      '2026-05-16T12:01:15.000Z',
+    );
+    const resultado = calcularResultadoPartida(partidaFinalizada);
+
+    expect(partidaFinalizada.vereditoAnalista).toEqual({
+      azul: 'humano',
+      vermelho: 'humano',
+    });
+    expect(resultado).toMatchObject({
+      analistaVenceu: false,
+      vereditoCorretoAzul: false,
+      vereditoCorretoVermelho: false,
+    });
   });
 
   it('calcula estatísticas por participante com base nas mensagens registradas', () => {
