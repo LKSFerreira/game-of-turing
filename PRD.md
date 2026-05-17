@@ -27,14 +27,14 @@ A composição da sala é oculta para todos até o fim da partida. O jogo não �
 - **Poder:** Fazer as perguntas. Ele guia a conversa.
 - **Condição de Vitória:** Ao final do tempo, o Analista precisa rotular corretamente ambos os jogadores (Ex: Azul = IA, Vermelho = Humano). Se errar pelo menos um, perde a partida (para evitar "chutes" pela metade).
 
-#### Os Interlocutores (Jogador Azul e Jogador Vermelho):
+#### Os Jogadores (Jogador Azul e Jogador Vermelho):
 
 - **Composição Possível da Mesa:** (Humano + LLM), (Humano + Humano), (LLM + LLM).
-- **O Twist (Missões Secretas):** Para garantir que não seja um jogo de soma zero e adicionar complexidade, cada Interlocutor (seja Humano ou LLM) recebe um Objetivo Secreto no início da partida:
+- **O Twist (Missões Secretas):** Para garantir que não seja um jogo de soma zero e adicionar complexidade, cada Jogador (seja Humano ou LLM) recebe um Objetivo Secreto no início da partida:
   - **Objetivo A:** "Convença o Analista de que você é HUMANO."
   - **Objetivo B:** "Convença o Analista de que você é uma IA (LLM)."
-- **Condição de Vitória do Interlocutor:** O Interlocutor vence se o Analista dar a ele o rótulo igual ao do seu Objetivo Secreto, independentemente do que ele realmente seja. (Exemplo: Um Humano com o Objetivo B ganha se o Analista rotulá-lo como IA).
-- **Regra de Engajamento:** Interlocutores não sabem a natureza nem o objetivo do outro Interlocutor.
+- **Condição de Vitória do Jogador:** O Jogador vence se o Analista dar a ele o rótulo igual ao do seu Objetivo Secreto, independentemente do que ele realmente seja. (Exemplo: Um Humano com o Objetivo B ganha se o Analista rotulá-lo como IA).
+- **Regra de Engajamento:** Os Jogadores não sabem a natureza nem o objetivo do outro Jogador.
 
 ### 3.2. Dinâmica e Regras da Partida (O Jogo do Engano)
 
@@ -57,7 +57,7 @@ A composição da sala é oculta para todos até o fim da partida. O jogo não �
 - **Mínimo de Caracteres por Mensagem:** O sistema exigirá no mínimo 2 caracteres válidos por envio (evitando spam de espaços em branco ou envios vazios acidentais que poluem o chat e gastam o cooldown).
 - **Bloqueio de Área de Transferência:** A função "Colar" (Ctrl+V / Paste) é bloqueada no campo de texto durante o jogo para impedir que humanos colem respostas de abas externas com o ChatGPT.
 - **Cooldown Rigoroso:** Um tempo de espera obrigatório de 2 a 3 segundos entre o envio de mensagens. Isso se aplica tanto aos humanos quanto aos LLMs para impedir flood no chat, garantindo que o Analista tenha tempo de ler e processar as informações.
-- **Obrigatoriedade e Estímulo de Resposta:** Para evitar a "tática do silêncio" (onde um jogador não fala nada para não se incriminar), Interlocutores (Humanos e IA) não são obrigados a responder, mas são fortemente incentivados pelo sistema de pontuação. Se um Interlocutor ignorar perguntas diretas e manter um perfil muito baixo (baixa atividade no chat), ele perderá bônus e, caso não use um percentual mínimo do seu "Orçamento de Palavras", poderá ser penalizado por "inatividade tática" ao final.
+- **Obrigatoriedade e Estímulo de Resposta:** Para evitar a "tática do silêncio" (onde um jogador não fala nada para não se incriminar), os Jogadores (Humanos e IA) não são obrigados a responder, mas são fortemente incentivados pelo sistema de pontuação. Se um Jogador ignorar perguntas diretas e manter um perfil muito baixo (baixa atividade no chat), ele perderá bônus e, caso não use um percentual mínimo do seu "Orçamento de Palavras", poderá ser penalizado por "inatividade tática" ao final.
 
 #### Fim do Tempo (Fase de Veredito - 15 Segundos):
 
@@ -73,21 +73,25 @@ A composição da sala é oculta para todos até o fim da partida. O jogo não �
 - **Estatísticas da Partida:** Exibição do WPM (Words Per Minute) de cada jogador, mostrando quem digitou mais rápido (fator de desconfiança comum) e o quanto cada um consumiu do seu "Orçamento de Palavras".
 - Distribuição de Pontos e Botão de "Jogar Novamente".
 
-### 3.3. Sistema de Rank (ELO/MMR) e Pontuação
+### 3.3. Sistema de Rank, PDR e MMR
 
-O sistema de Rank é global e categorizado. Um jogador possui estatísticas separadas para quando joga como Analista e quando joga como Interlocutor.
+O sistema de Rank é global e categorizado. Um jogador possui estatísticas separadas para quando joga como Analista e quando joga como Jogador. A pontuação é dividida em duas camadas:
+
+- **PDR:** pontuação visível do jogador. É exibida na interface, pode ser acumulada, ganha e perdida ao fim da partida.
+- **MMR:** pontuação oculta usada pelo algoritmo de matchmaking para formar partidas mais equilibradas. Ela não deve ser exibida como recompensa pública.
 
 #### Rank de Analista (Foco em Dedução):
 
-- **Vitória (+25 MMR):** Acertou a natureza dos dois Interlocutores.
-- **Derrota (-15 MMR):** Errou um ou ambos.
+- **Vitória (+25 PDR):** Acertou a natureza dos dois Jogadores.
+- **Derrota (-15 PDR):** Errou um ou ambos.
 
-#### Rank de Jogador/Interlocutor (Foco em Atuação/Engano):
+#### Rank de Jogador (Foco em Atuação/Engano):
 
-- **Vitória (+20 MMR):** Enganou o Analista ou provou sua natureza conforme seu Objetivo Secreto.
-- **Derrota (-10 MMR):** O Analista votou contra seu Objetivo Secreto.
-- **Bônus de Mestre do Disfarce (+10 MMR extra):** Se for Humano, tirar o Objetivo "Fingir ser IA" e conseguir enganar o Analista (considerado o feito mais difícil).
-- **Bônus de Eloquência / Participação (+5 a +10 MMR extra):** Concedido aos Interlocutores (Humanos e IAs) que efetivamente responderam às perguntas do Analista e mantiveram uma alta interatividade, garantindo que a partida não se torne silenciosa. Jogadores passivos, mesmo ganhando a partida base, perdem este bônus, incentivando ativamente a conversa.
+- **Vitória (+20 PDR):** Enganou o Analista ou provou sua natureza conforme seu Objetivo Secreto.
+- **Derrota (-10 PDR):** O Analista votou contra seu Objetivo Secreto.
+- **Bônus de Mestre do Disfarce (+10 PDR extra):** Se for Humano, tirar o Objetivo "Fingir ser IA" e conseguir enganar o Analista (considerado o feito mais difícil).
+- **Bônus de Eloquência / Participação (+5 a +10 PDR extra):** Concedido aos Jogadores (Humanos e IAs) que efetivamente responderam às perguntas do Analista e mantiveram uma alta interatividade, garantindo que a partida não se torne silenciosa. Jogadores passivos, mesmo ganhando a partida base, perdem este bônus, incentivando ativamente a conversa.
+- **Ajuste de MMR oculto:** calculado em paralelo para matchmaking, com variação própria e sem depender da camada visual de PDR.
 
 #### O "Rank das IAs" (Leaderboard Público):
 
@@ -166,7 +170,7 @@ Para viabilizar o projeto (especialmente para um TCC), o desenvolvimento será d
   - Botão "Buscar Partida" com Matchmaking funcional.
   - O servidor completa mesas com LLMs dinamicamente.
   - Chat em tempo real com todas as travas de segurança (cooldown, anti-paste, limite de caracteres de 2 a 150 e orçamento total).
-  - Telas de Vitória/Derrota e cálculo de MMR (Ranking básico numérico e bônus de participação).
+  - Telas de Vitória/Derrota e cálculo de PDR visível, MMR oculto para matchmaking e bônus de participação.
   - Interface 2D limpa e bonita (mas ainda sem customização profunda isométrica).
 - **Lançamento:** Hospedagem em nuvem (Vercel) e divulgação inicial para coletar métricas reais.
 
@@ -216,7 +220,8 @@ O modelo relacional deverá suportar alta concorrência e consultas rápidas par
 ### Tabela `users` (Perfis):
 
 - `id` (UUID), `username` (único), `email`, `created_at`.
-- `mmr_analyst` (Int), `mmr_player` (Int) -> Para os leaderboards.
+- `pdr_analyst` (Int), `pdr_player` (Int) -> Pontuação visível e leaderboards.
+- `mmr_analyst` (Int), `mmr_player` (Int) -> Pontuação oculta para matchmaking.
 - `currency_balance` (Int) -> Moedas in-game para cosméticos.
 
 ### Tabela `matches` (Partidas):
@@ -228,7 +233,7 @@ O modelo relacional deverá suportar alta concorrência e consultas rápidas par
 ### Tabela `match_participants` (Participantes da Partida):
 
 - `match_id` (UUID), `user_id` (UUID, null se for IA).
-- `role` (analyst, interlocutor), `color` (blue, red).
+- `role` (analyst, player), `color` (blue, red).
 - `secret_mission` (A, B).
 - `characters_used` (Int) -> Controle do "Orçamento de Palavras".
 

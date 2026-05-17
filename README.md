@@ -14,7 +14,7 @@
 
 ## Visão Geral
 
-**Game of Turing** é um jogo web de dedução social baseado em texto. Em partidas curtas, um Analista conversa com dois Interlocutores e tenta descobrir quem é humano e quem é IA. O problema é que cada Interlocutor também recebe uma missão secreta: convencer o Analista de uma identidade específica, mesmo que ela não corresponda à sua natureza real.
+**Game of Turing** é um jogo web de dedução social baseado em texto. Em partidas curtas, um Analista conversa com dois Jogadores e tenta descobrir quem é humano e quem é IA. O problema é que cada Jogador também recebe uma missão secreta: convencer o Analista de uma identidade específica, mesmo que ela não corresponda à sua natureza real.
 
 O projeto está sendo construído com uma estratégia pragmática: primeiro validar se o loop de jogo é divertido, depois evoluir para autenticação, persistência, multiplayer em tempo real, ranking, cosméticos e operação SaaS.
 
@@ -26,7 +26,7 @@ O repositório está na fase de consolidação da PoC local.
 | --- | --- |
 | Aplicação web | Base em Next.js App Router com interface cyber/neon |
 | Lobby | Fluxo local com autenticação mock |
-| Partida | Sala mock com timer, chat, cooldown, antipaste, veredito e revelação |
+| Partida | Sala mock com timer, chat, cooldown, antipaste, veredito, revelação e PDR visível |
 | Domínio | Motor de regras em TypeScript puro em `domain/jogo` |
 | IA | Endpoint experimental em API route, com migração planejada para Strategy Pattern |
 | Banco e auth real | Supabase planejado para milestones futuras |
@@ -41,8 +41,8 @@ Uma partida tem três papéis principais:
 | Papel | Objetivo |
 | --- | --- |
 | Analista | Interrogar Azul e Vermelho e classificar corretamente a natureza de ambos: Humano ou IA |
-| Interlocutor Azul | Conversar, blefar e cumprir sua missão secreta |
-| Interlocutor Vermelho | Conversar, blefar e cumprir sua missão secreta |
+| Jogador Azul | Conversar, blefar e cumprir sua missão secreta |
+| Jogador Vermelho | Conversar, blefar e cumprir sua missão secreta |
 
 Regras centrais da experiência:
 
@@ -51,7 +51,7 @@ Regras centrais da experiência:
 - Mensagens curtas, com limite de 2 a 150 caracteres.
 - Cooldown entre envios para evitar flood e simular ritmo humano.
 - Bloqueio de colagem no campo de mensagem durante a partida.
-- Orçamento de caracteres para Interlocutores.
+- Orçamento de caracteres para Jogadores.
 - Fase final de veredito, seguida por revelação das naturezas reais e missões.
 
 ## Stack
@@ -86,7 +86,7 @@ domain/jogo/
   constantes.ts        # Parâmetros centrais da partida
   estatisticas.ts      # Métricas de participação
   mensagens.ts         # Validação e regras de mensagem
-  mmr.ts               # Cálculo inicial de ranking
+  mmr.ts               # Cálculo de PDR visível e MMR oculto
   partida.ts           # Criação e transição de partida
   tipos.ts             # Tipos do domínio
   veredito.ts          # Avaliação de vitória e derrota
@@ -183,7 +183,7 @@ Princípios técnicos do projeto:
 - Providers externos devem ficar atrás de interfaces, permitindo troca sem reescrever gameplay.
 - Secrets de IA devem ser server-side.
 - Supabase será introduzido com RLS, migrações versionadas e separação entre client público e operações privilegiadas.
-- Testes unitários devem cobrir motor de regras, validação de mensagens, veredito, MMR e estatísticas.
+- Testes unitários devem cobrir motor de regras, validação de mensagens, veredito, PDR, MMR oculto e estatísticas.
 
 ## Roadmap
 
