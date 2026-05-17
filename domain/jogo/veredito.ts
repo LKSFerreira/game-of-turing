@@ -41,13 +41,17 @@ function missaoFoiCumprida(
   return false;
 }
 
+function obterNaturezaOposta(natureza: NaturezaParticipante): NaturezaParticipante {
+  return natureza === 'humano' ? 'ia' : 'humano';
+}
+
 export function validarVereditoAnalista(
   vereditoAnalista: VereditoAnalistaParcial,
 ): ResultadoValidacaoVeredito {
   if (!vereditoAnalista.azul || !vereditoAnalista.vermelho) {
     return {
       valido: false,
-      motivo: 'Classifique Azul e Vermelho antes de finalizar o julgamento.',
+      motivo: 'Classifique Azul e Vermelho antes de finalizar a análise.',
     };
   }
 
@@ -81,6 +85,24 @@ export function finalizarPartidaComVeredito(
     vereditoAnalista: validacaoVeredito.veredito,
     encerradaEm,
   };
+}
+
+export function finalizarPartidaPorTempoVeredito(partida: Partida, encerradaEm: string): Partida {
+  if (partida.fase !== 'veredito') {
+    throw new Error('A derrota por tempo só pode ser aplicada na fase de veredito.');
+  }
+
+  const participanteAzul = buscarPorCor(partida.participantes, 'azul');
+  const participanteVermelho = buscarPorCor(partida.participantes, 'vermelho');
+
+  return finalizarPartidaComVeredito(
+    partida,
+    {
+      azul: obterNaturezaOposta(participanteAzul.natureza),
+      vermelho: obterNaturezaOposta(participanteVermelho.natureza),
+    },
+    encerradaEm,
+  );
 }
 
 export function calcularResultadoPartida(partida: Partida): ResultadoPartida {

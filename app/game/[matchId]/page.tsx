@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
-import { BrainCircuit, User } from 'lucide-react';
+import { BrainCircuit, Cpu, User } from 'lucide-react';
 import { use, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -13,6 +13,7 @@ import {
   calcularSegundosRestantes,
   criarPartidaPoc,
   finalizarPartidaComVeredito,
+  finalizarPartidaPorTempoVeredito,
   registrarMensagem,
   validarMensagem,
   validarVereditoAnalista,
@@ -181,12 +182,69 @@ function CartaoParticipante({ participante }: { participante: ParticipanteVisive
   );
 }
 
+function BotaoNatureza({
+  cor,
+  natureza,
+  selecionado,
+  onSelecionar,
+}: {
+  cor: CorJogador;
+  natureza: NaturezaParticipante;
+  selecionado: boolean;
+  onSelecionar: (natureza: NaturezaParticipante) => void;
+}) {
+  const Icone = natureza === 'humano' ? User : Cpu;
+  const textoCor = cor === 'azul' ? 'text-cyan-300' : 'text-red-400';
+  const bordaSelecionada = cor === 'azul' ? 'border-cyan-300/80' : 'border-red-400/80';
+  const fundoSelecionado = cor === 'azul' ? 'bg-cyan-950/45' : 'bg-red-950/45';
+  const sombraSelecionada =
+    cor === 'azul'
+      ? 'shadow-[0_0_26px_rgba(34,211,238,0.18)]'
+      : 'shadow-[0_0_26px_rgba(239,68,68,0.18)]';
+
+  return (
+    <button
+      aria-pressed={selecionado}
+      className={`flex min-h-20 flex-1 items-center gap-3 rounded-lg border px-4 py-3 text-left font-mono transition-all ${
+        selecionado
+          ? `${bordaSelecionada} ${fundoSelecionado} ${sombraSelecionada}`
+          : 'border-slate-800 bg-slate-950/70 hover:border-slate-600 hover:bg-slate-900/80'
+      }`}
+      onClick={() => onSelecionar(natureza)}
+      type="button"
+    >
+      <span
+        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md border ${
+          selecionado ? `${bordaSelecionada} ${textoCor}` : 'border-slate-700 text-slate-500'
+        }`}
+      >
+        <Icone className="h-5 w-5 stroke-[1.8]" />
+      </span>
+      <span className="min-w-0">
+        <span
+          className={`block text-sm font-black uppercase tracking-widest ${
+            selecionado ? textoCor : 'text-slate-300'
+          }`}
+        >
+          {obterNatureza(natureza)}
+        </span>
+        <span className="mt-1.5 block text-[9px] font-bold uppercase leading-relaxed tracking-widest text-slate-500">
+          {natureza === 'humano' ? 'Pessoa real jogando' : 'LLM simulando'}
+        </span>
+      </span>
+    </button>
+  );
+}
+
 export default function GameRoom({ params }: { params: Promise<{ matchId: string }> }) {
   const matchId = use(params).matchId;
   const router = useRouter();
   const [partida, setPartida] = useState(() => criarPartidaPoc({ id: matchId }));
   const [entradaMensagem, setEntradaMensagem] = useState('');
   const [segundosRestantes, setSegundosRestantes] = useState(partida.duracaoSegundos);
+  const [segundosVereditoRestantes, setSegundosVereditoRestantes] = useState(
+    partida.faseVereditoSegundos,
+  );
   const [segundosCooldown, setSegundosCooldown] = useState(0);
   const [erroMensagem, setErroMensagem] = useState<string | null>(null);
   const [exibirModalPapel, setExibirModalPapel] = useState(true);
@@ -214,6 +272,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
       setSegundosRestantes(proximosSegundosRestantes);
 
       if (proximosSegundosRestantes <= 0) {
+        setSegundosVereditoRestantes(partida.faseVereditoSegundos);
         setPartida(partidaAtual => atualizarFasePorTempo(partidaAtual, new Date()));
       }
     }, 1000);
@@ -232,6 +291,32 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
 
     return () => window.clearTimeout(timeout);
   }, [segundosCooldown]);
+
+  useEffect(() => {
+    if (partida.fase !== 'veredito' || segundosVereditoRestantes <= 0) {
+      return;
+    }
+
+    const timeout = window.setTimeout(() => {
+      setSegundosVereditoRestantes(segundosAtuais => {
+        if (segundosAtuais <= 1) {
+          setPartida(partidaAtual => {
+            if (partidaAtual.fase !== 'veredito') {
+              return partidaAtual;
+            }
+
+            return finalizarPartidaPorTempoVeredito(partidaAtual, new Date().toISOString());
+          });
+          setErroMensagem('Tempo esgotado. O Analista perdeu a análise.');
+          return 0;
+        }
+
+        return segundosAtuais - 1;
+      });
+    }, 1000);
+
+    return () => window.clearTimeout(timeout);
+  }, [partida.fase, segundosVereditoRestantes]);
 
   function rolarChatParaFim() {
     window.setTimeout(() => scrollRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
@@ -343,6 +428,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
   }
 
   function encerrarInterrogatorio() {
+    setSegundosVereditoRestantes(partida.faseVereditoSegundos);
     setPartida(partidaAtual => avancarParaVeredito(partidaAtual));
     setSegundosRestantes(0);
   }
@@ -371,12 +457,23 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     rolarChatParaFim();
   }
 
+  function selecionarVeredito(cor: CorJogador, natureza: NaturezaParticipante) {
+    if (cor === 'azul') {
+      setVereditoAzul(natureza);
+    } else {
+      setVereditoVermelho(natureza);
+    }
+
+    setErroMensagem(null);
+  }
+
   function reiniciarSimulacao() {
     const novaPartida = criarPartidaPoc({ id: matchId });
 
     setPartida(novaPartida);
     setEntradaMensagem('');
     setSegundosRestantes(novaPartida.duracaoSegundos);
+    setSegundosVereditoRestantes(novaPartida.faseVereditoSegundos);
     setSegundosCooldown(0);
     setErroMensagem(null);
     setExibirModalPapel(true);
@@ -670,7 +767,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
 
         {partida.fase === 'veredito' && (
           <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
-            <div className="w-full max-w-md rounded-xl border-2 border-slate-800 bg-[#050508] p-6 text-white shadow-[0_0_50px_rgba(234,179,8,0.2)]">
+            <div className="w-full max-w-lg rounded-xl border-2 border-slate-800 bg-[#050508] p-6 text-white shadow-[0_0_50px_rgba(234,179,8,0.2)]">
               <div className="mb-6">
                 <h2 className="font-mono text-2xl tracking-widest text-yellow-400">
                   VEREDITO DO ANALISTA
@@ -682,37 +779,41 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
 
               <div className="space-y-6 pt-4 font-mono">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-cyan-400">
+                  <div className="text-sm font-black uppercase tracking-[0.22em] text-cyan-300">
                     Entidade [Azul]
-                  </label>
-                  <select
-                    className="h-10 w-full rounded-sm border border-slate-700 bg-slate-900 px-3 font-bold uppercase text-cyan-400 outline-none"
-                    onChange={evento =>
-                      setVereditoAzul(evento.target.value as NaturezaParticipante | '')
-                    }
-                    value={vereditoAzul}
-                  >
-                    <option value="">Selecionar</option>
-                    <option value="humano">Humano</option>
-                    <option value="ia">IA</option>
-                  </select>
+                  </div>
+                  <div className="grid gap-3 min-[460px]:grid-cols-2">
+                    {(['humano', 'ia'] as NaturezaParticipante[]).map(natureza => (
+                      <BotaoNatureza
+                        cor="azul"
+                        key={natureza}
+                        natureza={natureza}
+                        onSelecionar={naturezaSelecionada =>
+                          selecionarVeredito('azul', naturezaSelecionada)
+                        }
+                        selecionado={vereditoAzul === natureza}
+                      />
+                    ))}
+                  </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-red-500">
+                  <div className="text-sm font-black uppercase tracking-[0.22em] text-red-400">
                     Entidade [Vermelho]
-                  </label>
-                  <select
-                    className="h-10 w-full rounded-sm border border-slate-700 bg-slate-900 px-3 font-bold uppercase text-red-500 outline-none"
-                    onChange={evento =>
-                      setVereditoVermelho(evento.target.value as NaturezaParticipante | '')
-                    }
-                    value={vereditoVermelho}
-                  >
-                    <option value="">Selecionar</option>
-                    <option value="humano">Humano</option>
-                    <option value="ia">IA</option>
-                  </select>
+                  </div>
+                  <div className="grid gap-3 min-[460px]:grid-cols-2">
+                    {(['humano', 'ia'] as NaturezaParticipante[]).map(natureza => (
+                      <BotaoNatureza
+                        cor="vermelho"
+                        key={natureza}
+                        natureza={natureza}
+                        onSelecionar={naturezaSelecionada =>
+                          selecionarVeredito('vermelho', naturezaSelecionada)
+                        }
+                        selecionado={vereditoVermelho === natureza}
+                      />
+                    ))}
+                  </div>
                 </div>
                 {erroMensagem && (
                   <div className="rounded border border-red-500/30 bg-red-950/30 px-3 py-2 text-[10px] uppercase tracking-widest text-red-400">
@@ -720,10 +821,11 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                   </div>
                 )}
                 <button
-                  className="mt-4 h-12 w-full rounded bg-yellow-500 font-bold uppercase tracking-widest text-black shadow-[0_0_15px_rgba(234,179,8,0.4)] transition-colors hover:bg-yellow-400"
+                  className="mt-4 h-12 w-full rounded bg-yellow-500 font-bold uppercase tracking-widest text-black shadow-[0_0_15px_rgba(234,179,8,0.4)] transition-colors hover:bg-yellow-400 disabled:cursor-not-allowed disabled:bg-slate-800 disabled:text-slate-500 disabled:shadow-none"
+                  disabled={!vereditoAzul || !vereditoVermelho}
                   onClick={submeterVeredito}
                 >
-                  Finalizar julgamento
+                  ({segundosVereditoRestantes}) Finalizar análise
                 </button>
               </div>
             </div>
