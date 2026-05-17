@@ -33,7 +33,7 @@ CREATE TABLE public.match_participants (
   id UUID default gen_random_uuid() primary key,
   match_id UUID references public.matches(id) on delete cascade not null,
   user_id UUID references public.profiles(id), -- null for AI
-  role TEXT not null check (role in ('analyst', 'interlocutor')),
+  role TEXT not null check (role in ('analyst', 'player')),
   color TEXT check (color in ('blue', 'red', null)),
   secret_mission TEXT check (secret_mission in ('A', 'B', null)), -- A: Convince is human, B: Convince is AI
   characters_used INTEGER default 0,

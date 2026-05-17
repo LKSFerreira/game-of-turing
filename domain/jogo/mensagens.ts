@@ -38,7 +38,7 @@ export function validarMensagem(
   const conteudoNormalizado = conteudo.trim().replace(/\s+/g, ' ');
 
   if (conteudoNormalizado.length < LIMITE_MINIMO_CARACTERES_MENSAGEM) {
-    return { valido: false, motivo: 'A mensagem precisa ter pelo menos 15 caracteres.' };
+    return { valido: false, motivo: `A mensagem precisa ter pelo menos ${LIMITE_MINIMO_CARACTERES_MENSAGEM} caracteres.` };
   }
 
   if (conteudoNormalizado.length > LIMITE_MAXIMO_CARACTERES_MENSAGEM) {
@@ -52,10 +52,10 @@ export function validarMensagem(
     };
   }
 
-  if (participante.papel === 'interlocutor') {
+  if (participante.papel === 'jogador') {
     const proximoTotalCaracteres = participante.caracteresUsados + conteudoNormalizado.length;
 
-    if (proximoTotalCaracteres > partida.orcamentoCaracteresInterlocutor) {
+    if (proximoTotalCaracteres > partida.orcamentoCaracteresJogador) {
       return { valido: false, motivo: 'O orçamento de caracteres acabou.' };
     }
   }
@@ -102,7 +102,7 @@ export function registrarMensagem(
     return {
       ...participanteAtual,
       caracteresUsados:
-        participanteAtual.papel === 'interlocutor'
+        participanteAtual.papel === 'jogador'
           ? participanteAtual.caracteresUsados + conteudo.length
           : participanteAtual.caracteresUsados,
       ultimoEnvioEm: criadaEm,

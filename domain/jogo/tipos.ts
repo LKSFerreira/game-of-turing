@@ -5,7 +5,7 @@ export type FasePartida =
   | 'revelacao'
   | 'encerrada';
 
-export type PapelParticipante = 'analista' | 'interlocutor';
+export type PapelParticipante = 'analista' | 'jogador';
 export type CorParticipante = 'analista' | 'azul' | 'vermelho' | 'sistema';
 export type NaturezaParticipante = 'humano' | 'ia';
 export type ControleParticipante = 'humano' | 'ia' | 'sistema';
@@ -48,7 +48,7 @@ export type Partida = {
   duracaoSegundos: number;
   faseVereditoSegundos: number;
   cooldownSegundos: number;
-  orcamentoCaracteresInterlocutor: number;
+  orcamentoCaracteresJogador: number;
   participantes: ParticipantePartida[];
   mensagens: MensagemPartida[];
   vereditoAnalista: VereditoAnalista | null;
@@ -66,6 +66,7 @@ export type ResultadoParticipante = {
   participanteId: string;
   venceu: boolean;
   inativo: boolean;
+  ajustePdr: number;
   ajusteMmr: number;
   bonusParticipacao: number;
   caracteresUsados: number;

@@ -30,9 +30,9 @@ export function calcularEstatisticasParticipante(
   const palavras = contarPalavras(mensagensDoParticipante);
   const duracaoMinutos = Math.max(partida.duracaoSegundos / 60, 1);
   const percentualOrcamentoUsado =
-    participante.papel === 'interlocutor'
+    participante.papel === 'jogador'
       ? Math.round(
-          (participante.caracteresUsados / partida.orcamentoCaracteresInterlocutor) * 100,
+          (participante.caracteresUsados / partida.orcamentoCaracteresJogador) * 100,
         )
       : 0;
 
@@ -42,6 +42,6 @@ export function calcularEstatisticasParticipante(
     caracteresUsados: participante.caracteresUsados,
     palavrasPorMinuto: Number((palavras / duracaoMinutos).toFixed(1)),
     percentualOrcamentoUsado,
-    inativo: participante.papel === 'interlocutor' && mensagensDoParticipante.length === 0,
+    inativo: participante.papel === 'jogador' && mensagensDoParticipante.length === 0,
   };
 }

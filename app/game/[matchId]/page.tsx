@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
-import { Bot, BrainCircuit, User } from 'lucide-react';
+import { BrainCircuit, User } from 'lucide-react';
 import { use, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -26,7 +26,7 @@ import type {
   ResultadoPartida,
 } from '@/domain/jogo';
 
-type CorInterlocutor = Extract<CorParticipante, 'azul' | 'vermelho'>;
+type CorJogador = Extract<CorParticipante, 'azul' | 'vermelho'>;
 type CorVisual = Extract<CorParticipante, 'analista' | 'azul' | 'vermelho'>;
 
 type ParticipanteVisivel = {
@@ -66,7 +66,7 @@ const ESTILOS_PARTICIPANTE = {
     fundo: 'bg-cyan-900/20',
     texto: 'text-cyan-400',
     etiqueta: 'bg-cyan-500 text-black',
-    icone: Bot,
+    icone: User,
   },
   vermelho: {
     borda: 'border-red-500/30',
@@ -91,7 +91,7 @@ function buscarParticipantePorCor(partida: Partida, cor: CorVisual): Participant
   return participante;
 }
 
-function isCorInterlocutor(cor: CorParticipante): cor is CorInterlocutor {
+function isCorJogador(cor: CorParticipante): cor is CorJogador {
   return cor === 'azul' || cor === 'vermelho';
 }
 
@@ -192,7 +192,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
   const [exibirModalPapel, setExibirModalPapel] = useState(true);
   const [vereditoAzul, setVereditoAzul] = useState<NaturezaParticipante | ''>('');
   const [vereditoVermelho, setVereditoVermelho] = useState<NaturezaParticipante | ''>('');
-  const [interlocutoresPensando, setInterlocutoresPensando] = useState<CorInterlocutor[]>([]);
+  const [jogadoresPensando, setJogadoresPensando] = useState<CorJogador[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const analista = buscarParticipantePorCor(partida, 'analista');
@@ -242,16 +242,16 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     participanteIa: ParticipantePartida,
     atrasoMs: number,
   ) {
-    if (!isCorInterlocutor(participanteIa.cor) || !participanteIa.missaoSecreta) {
+    if (!isCorJogador(participanteIa.cor) || !participanteIa.missaoSecreta) {
       return;
     }
 
-    const corInterlocutor = participanteIa.cor;
+    const corJogador = participanteIa.cor;
 
-    setInterlocutoresPensando(interlocutoresAtuais =>
-      interlocutoresAtuais.includes(corInterlocutor)
-        ? interlocutoresAtuais
-        : [...interlocutoresAtuais, corInterlocutor],
+    setJogadoresPensando(jogadoresAtuais =>
+      jogadoresAtuais.includes(corJogador)
+        ? jogadoresAtuais
+        : [...jogadoresAtuais, corJogador],
     );
 
     window.setTimeout(async () => {
@@ -260,7 +260,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            cor: corInterlocutor,
+            cor: corJogador,
             missaoSecreta: participanteIa.missaoSecreta,
             historico: partidaReferencia.mensagens.slice(-12),
           }),
@@ -304,8 +304,8 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
         const mensagem = erro instanceof Error ? erro.message : 'Falha ao acionar IA fake.';
         setErroMensagem(mensagem);
       } finally {
-        setInterlocutoresPensando(interlocutoresAtuais =>
-          interlocutoresAtuais.filter(corAtual => corAtual !== corInterlocutor),
+        setJogadoresPensando(jogadoresAtuais =>
+          jogadoresAtuais.filter(corAtual => corAtual !== corJogador),
         );
       }
     }, atrasoMs);
@@ -382,7 +382,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     setExibirModalPapel(true);
     setVereditoAzul('');
     setVereditoVermelho('');
-    setInterlocutoresPensando([]);
+    setJogadoresPensando([]);
   }
 
   const participantesDaMesa: ParticipanteVisivel[] = [
@@ -545,10 +545,10 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                 );
               })}
             </AnimatePresence>
-            {interlocutoresPensando.length > 0 && partida.fase === 'em_andamento' && (
+            {jogadoresPensando.length > 0 && partida.fase === 'em_andamento' && (
               <div className="flex flex-wrap gap-2 px-1">
-                {interlocutoresPensando.map(corInterlocutor => {
-                  const isAzulPensando = corInterlocutor === 'azul';
+                {jogadoresPensando.map(corJogador => {
+                  const isAzulPensando = corJogador === 'azul';
 
                   return (
                     <div
@@ -557,9 +557,9 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                           ? 'border-cyan-500/30 bg-cyan-950/30 text-cyan-400'
                           : 'border-red-500/30 bg-red-950/30 text-red-500'
                       }`}
-                      key={corInterlocutor}
+                      key={corJogador}
                     >
-                      {ROTULOS_COR[corInterlocutor]} está digitando...
+                      {ROTULOS_COR[corJogador]} está digitando...
                     </div>
                   );
                 })}
@@ -653,7 +653,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                   Objetivo imediato
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-200">
-                  Faça perguntas aos interlocutores e decida se Azul e Vermelho são humanos ou
+                  Faça perguntas aos jogadores e decida se Azul e Vermelho são humanos ou
                   IAs. Nesta PoC, ambos respondem por provider fake local.
                 </p>
               </div>
@@ -676,7 +676,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                   VEREDITO DO ANALISTA
                 </h2>
                 <p className="mt-2 font-mono text-xs text-slate-400">
-                  O chat está bloqueado. Classifique a natureza real dos interlocutores.
+                  O chat está bloqueado. Classifique a natureza real dos jogadores.
                 </p>
               </div>
 
@@ -782,7 +782,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                         <span className="text-slate-300">{obterDiretriz(participante)}</span>
                       </div>
                       <div className="flex items-center justify-between text-[10px] text-slate-500">
-                        <span>Resultado do interlocutor:</span>
+                        <span>Resultado do jogador:</span>
                         <span className={participanteVenceu?.venceu ? 'text-green-500' : 'text-red-500'}>
                           {participanteVenceu?.venceu ? 'Venceu' : 'Perdeu'}
                         </span>
@@ -799,11 +799,11 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
 
                 <div className="border-t border-slate-800 pt-6 text-center">
                   <div className="text-lg font-bold uppercase leading-loose tracking-widest text-slate-100">
-                    MMR do Analista:{' '}
+                    PDR do Analista:{' '}
                     <span className={resultado.analistaVenceu ? 'text-green-500' : 'text-red-500'}>
                       {resultado.participantes.find(
                         participante => participante.participanteId === analista.id,
-                      )?.ajusteMmr ?? 0}
+                      )?.ajustePdr ?? 0}
                     </span>
                   </div>
                 </div>

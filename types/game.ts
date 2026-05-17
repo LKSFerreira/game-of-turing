@@ -1,6 +1,8 @@
 export type UserProfile = {
   id: string;
   username: string;
+  pdr_analyst: number;
+  pdr_player: number;
   mmr_analyst: number;
   mmr_player: number;
   currency_balance: number;
@@ -8,7 +10,7 @@ export type UserProfile = {
 
 export type MatchStatus = 'waiting' | 'in_progress' | 'finished';
 export type PlayerType = 'human' | 'ai';
-export type PlayerRole = 'analyst' | 'interlocutor';
+export type PlayerRole = 'analyst' | 'player';
 export type PlayerColor = 'blue' | 'red' | 'analyst';
 export type SecretMission = 'A' | 'B';
 

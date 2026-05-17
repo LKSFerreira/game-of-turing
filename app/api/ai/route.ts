@@ -10,7 +10,7 @@ type CorpoRequisicaoIa = {
   historico: MensagemPartida[];
 };
 
-function isCorInterlocutor(cor: unknown): cor is Extract<CorParticipante, 'azul' | 'vermelho'> {
+function isCorJogador(cor: unknown): cor is Extract<CorParticipante, 'azul' | 'vermelho'> {
   return cor === 'azul' || cor === 'vermelho';
 }
 
@@ -25,8 +25,8 @@ function validarCorpoRequisicao(corpo: unknown): CorpoRequisicaoIa {
 
   const corpoRequisicao = corpo as Partial<CorpoRequisicaoIa>;
 
-  if (!isCorInterlocutor(corpoRequisicao.cor)) {
-    throw new Error('Cor do interlocutor inválida.');
+  if (!isCorJogador(corpoRequisicao.cor)) {
+    throw new Error('Cor do jogador inválida.');
   }
 
   if (!isMissaoSecreta(corpoRequisicao.missaoSecreta)) {

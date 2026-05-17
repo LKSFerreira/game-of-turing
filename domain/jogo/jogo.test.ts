@@ -5,7 +5,9 @@ import {
   atualizarFasePorTempo,
   buscarParticipanteObrigatorio,
   calcularAjusteMmrAnalista,
-  calcularAjusteMmrInterlocutor,
+  calcularAjusteMmrJogador,
+  calcularAjustePdrAnalista,
+  calcularAjustePdrJogador,
   calcularBonusParticipacao,
   calcularEstatisticasParticipante,
   calcularResultadoPartida,
@@ -14,6 +16,7 @@ import {
   registrarMensagem,
   validarMensagem,
   validarVereditoAnalista,
+  LIMITE_MINIMO_CARACTERES_MENSAGEM,
 } from './index';
 import type { ParticipantePartida, Partida } from './tipos';
 
@@ -68,7 +71,7 @@ describe('validação e registro de mensagens', () => {
 
     expect(validarMensagem(partida, analista, ' ', new Date(DATA_BASE))).toMatchObject({
       valido: false,
-      motivo: 'A mensagem precisa ter pelo menos 15 caracteres.',
+      motivo: `A mensagem precisa ter pelo menos ${LIMITE_MINIMO_CARACTERES_MENSAGEM} caracteres.`,
     });
     expect(validarMensagem(partida, analista, 'x'.repeat(151), new Date(DATA_BASE))).toMatchObject(
       {
@@ -112,10 +115,10 @@ describe('validação e registro de mensagens', () => {
     });
   });
 
-  it('controla orçamento de caracteres apenas para interlocutores', () => {
+  it('controla orçamento de caracteres apenas para jogadores', () => {
     const partida = {
       ...criarPartidaTeste(),
-      orcamentoCaracteresInterlocutor: 10,
+      orcamentoCaracteresJogador: 10,
     };
     const azul = {
       ...buscarPorCor(partida, 'azul'),
@@ -158,7 +161,7 @@ describe('veredito, estatísticas e MMR', () => {
     ).toThrow('Classifique Azul e Vermelho antes de finalizar o julgamento.');
   });
 
-  it('calcula vitória do analista e resultados dos interlocutores pelo domínio', () => {
+  it('calcula vitória do analista e resultados dos jogadores pelo domínio', () => {
     const partida = criarPartidaTeste();
     const partidaFinalizada = finalizarPartidaComVeredito(
       avancarParaVeredito(partida),
@@ -172,17 +175,17 @@ describe('veredito, estatísticas e MMR', () => {
     expect(resultado.vereditoCorretoVermelho).toBe(true);
     expect(
       resultado.participantes.find(participante => participante.participanteId === 'analista-local'),
-    ).toMatchObject({ venceu: true, ajusteMmr: 25 });
+    ).toMatchObject({ venceu: true, ajustePdr: 25, ajusteMmr: 18 });
     expect(
       resultado.participantes.find(
         participante => participante.participanteId === 'interlocutor-azul',
       ),
-    ).toMatchObject({ venceu: false, ajusteMmr: -10 });
+    ).toMatchObject({ venceu: false, ajustePdr: -10, ajusteMmr: -8 });
     expect(
       resultado.participantes.find(
         participante => participante.participanteId === 'interlocutor-vermelho',
       ),
-    ).toMatchObject({ venceu: true, ajusteMmr: 20 });
+    ).toMatchObject({ venceu: true, ajustePdr: 20, ajusteMmr: 14 });
   });
 
   it('calcula estatísticas por participante com base nas mensagens registradas', () => {
@@ -213,7 +216,7 @@ describe('veredito, estatísticas e MMR', () => {
     });
   });
 
-  it('marca interlocutor sem mensagem como inativo no resultado', () => {
+  it('marca jogador sem mensagem como inativo no resultado', () => {
     const partida = criarPartidaTeste();
     const partidaFinalizada = finalizarPartidaComVeredito(
       avancarParaVeredito(partida),
@@ -232,7 +235,7 @@ describe('veredito, estatísticas e MMR', () => {
     ).toMatchObject({ inativo: false });
   });
 
-  it('mantém ajustes de MMR e bônus de participação previsíveis', () => {
+  it('mantém ajustes de PDR, MMR oculto e bônus de participação previsíveis', () => {
     const partida = criarPartidaTeste();
     const vermelho = {
       ...buscarPorCor(partida, 'vermelho'),
@@ -240,12 +243,16 @@ describe('veredito, estatísticas e MMR', () => {
       missaoSecreta: 'convencer_ia' as const,
     };
 
-    expect(calcularAjusteMmrAnalista(true)).toBe(25);
-    expect(calcularAjusteMmrAnalista(false)).toBe(-15);
+    expect(calcularAjustePdrAnalista(true)).toBe(25);
+    expect(calcularAjustePdrAnalista(false)).toBe(-15);
+    expect(calcularAjusteMmrAnalista(true)).toBe(18);
+    expect(calcularAjusteMmrAnalista(false)).toBe(-12);
     expect(calcularBonusParticipacao(6, 15)).toBe(10);
     expect(calcularBonusParticipacao(3, 8)).toBe(5);
     expect(calcularBonusParticipacao(2, 30)).toBe(0);
-    expect(calcularAjusteMmrInterlocutor(vermelho, true, 10)).toBe(40);
-    expect(calcularAjusteMmrInterlocutor(vermelho, false, 10)).toBe(0);
+    expect(calcularAjustePdrJogador(vermelho, true, 10)).toBe(40);
+    expect(calcularAjustePdrJogador(vermelho, false, 10)).toBe(0);
+    expect(calcularAjusteMmrJogador(vermelho, true, 10)).toBe(25);
+    expect(calcularAjusteMmrJogador(vermelho, false, 10)).toBe(-3);
   });
 });

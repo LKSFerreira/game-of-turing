@@ -2,7 +2,7 @@ import {
   COOLDOWN_PADRAO_SEGUNDOS,
   DURACAO_PADRAO_PARTIDA_SEGUNDOS,
   DURACAO_PADRAO_VEREDITO_SEGUNDOS,
-  ORCAMENTO_PADRAO_INTERLOCUTOR,
+  ORCAMENTO_PADRAO_JOGADOR,
 } from './constantes';
 import type { ParticipantePartida, Partida } from './tipos';
 
@@ -31,7 +31,7 @@ export function criarPartidaPoc(parametros: CriarPartidaPocParametros = {}): Par
     {
       id: 'interlocutor-azul',
       nome: 'Jogador Azul',
-      papel: 'interlocutor',
+      papel: 'jogador',
       cor: 'azul',
       natureza: 'ia',
       controle: 'ia',
@@ -42,7 +42,7 @@ export function criarPartidaPoc(parametros: CriarPartidaPocParametros = {}): Par
     {
       id: 'interlocutor-vermelho',
       nome: 'Jogador Vermelho',
-      papel: 'interlocutor',
+      papel: 'jogador',
       cor: 'vermelho',
       natureza: 'ia',
       controle: 'ia',
@@ -61,7 +61,7 @@ export function criarPartidaPoc(parametros: CriarPartidaPocParametros = {}): Par
     duracaoSegundos: parametros.duracaoSegundos ?? DURACAO_PADRAO_PARTIDA_SEGUNDOS,
     faseVereditoSegundos: DURACAO_PADRAO_VEREDITO_SEGUNDOS,
     cooldownSegundos: COOLDOWN_PADRAO_SEGUNDOS,
-    orcamentoCaracteresInterlocutor: ORCAMENTO_PADRAO_INTERLOCUTOR,
+    orcamentoCaracteresJogador: ORCAMENTO_PADRAO_JOGADOR,
     participantes,
     mensagens: [
       {

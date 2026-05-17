@@ -1,10 +1,10 @@
 import type { ParticipantePartida } from './tipos';
 
-export function calcularAjusteMmrAnalista(venceu: boolean): number {
+export function calcularAjustePdrAnalista(venceu: boolean): number {
   return venceu ? 25 : -15;
 }
 
-export function calcularAjusteMmrInterlocutor(
+export function calcularAjustePdrJogador(
   participante: ParticipantePartida,
   venceu: boolean,
   bonusParticipacao: number,
@@ -18,6 +18,27 @@ export function calcularAjusteMmrInterlocutor(
       : 0;
 
   return ajusteBase + bonusParticipacao + bonusMestreDisfarce;
+}
+
+export function calcularAjusteMmrAnalista(venceu: boolean): number {
+  return venceu ? 18 : -12;
+}
+
+export function calcularAjusteMmrJogador(
+  participante: ParticipantePartida,
+  venceu: boolean,
+  bonusParticipacao: number,
+): number {
+  const ajusteBase = venceu ? 14 : -8;
+  const bonusMestreDisfarce =
+    venceu &&
+    participante.natureza === 'humano' &&
+    participante.missaoSecreta === 'convencer_ia'
+      ? 6
+      : 0;
+  const bonusMmrParticipacao = Math.floor(bonusParticipacao / 2);
+
+  return ajusteBase + bonusMmrParticipacao + bonusMestreDisfarce;
 }
 
 export function calcularBonusParticipacao(mensagensEnviadas: number, percentualOrcamentoUsado: number): number {

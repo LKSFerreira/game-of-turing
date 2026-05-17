@@ -1,7 +1,9 @@
 import { calcularEstatisticasParticipante } from './estatisticas';
 import {
+  calcularAjustePdrAnalista,
+  calcularAjustePdrJogador,
   calcularAjusteMmrAnalista,
-  calcularAjusteMmrInterlocutor,
+  calcularAjusteMmrJogador,
   calcularBonusParticipacao,
 } from './mmr';
 import type {
@@ -109,6 +111,7 @@ export function calcularResultadoPartida(partida: Partida): ResultadoPartida {
         participanteId: participante.id,
         venceu: analistaVenceu,
         inativo: false,
+        ajustePdr: calcularAjustePdrAnalista(analistaVenceu),
         ajusteMmr: calcularAjusteMmrAnalista(analistaVenceu),
         bonusParticipacao: 0,
         caracteresUsados: participante.caracteresUsados,
@@ -129,7 +132,8 @@ export function calcularResultadoPartida(partida: Partida): ResultadoPartida {
       participanteId: participante.id,
       venceu,
       inativo: estatisticas.inativo,
-      ajusteMmr: calcularAjusteMmrInterlocutor(participante, venceu, bonusParticipacao),
+      ajustePdr: calcularAjustePdrJogador(participante, venceu, bonusParticipacao),
+      ajusteMmr: calcularAjusteMmrJogador(participante, venceu, bonusParticipacao),
       bonusParticipacao,
       caracteresUsados: participante.caracteresUsados,
       mensagensEnviadas: estatisticas.mensagensEnviadas,
