@@ -18,15 +18,17 @@ export default function Auth({ onLogin }: { onLogin: (profile: UserProfile) => v
     try {
       // Mocking delay
       await new Promise(resolve => setTimeout(resolve, 800));
-      
+
       const mockProfile: UserProfile = {
         id: 'mock-user-123',
         username: isSignUp ? (username || email.split('@')[0]) : 'Analista',
+        pdr_analyst: 0,
+        pdr_player: 0,
         mmr_analyst: 1200,
         mmr_player: 1000,
         currency_balance: 150
       };
-      
+
       onLogin(mockProfile);
     } catch (err: any) {
       console.error(err);
@@ -38,15 +40,9 @@ export default function Auth({ onLogin }: { onLogin: (profile: UserProfile) => v
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-[radial-gradient(circle_at_50%_50%,_#111122_0%,_#050508_100%)] p-4 font-sans text-slate-100">
       <div className="w-full max-w-md bg-slate-950/80 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-sm">
-        
-        {/* Header styling like the template */}
-        <div className="h-16 px-6 flex items-center justify-between border-b border-slate-800 bg-[#0A0A12]">
-          <div className="flex items-center gap-4">
-            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
-            <h1 className="text-[12px] font-mono tracking-[0.3em] uppercase text-slate-400">Turing Protocol</h1>
-          </div>
-        </div>
 
+        {/* Header styling like the template */}
+    
         <form onSubmit={handleAuth} className="p-6 flex flex-col gap-5" suppressHydrationWarning>
            <div className="text-center mb-2">
              <h2 className="text-xl font-bold font-mono tracking-widest text-cyan-400 uppercase">
@@ -56,7 +52,7 @@ export default function Auth({ onLogin }: { onLogin: (profile: UserProfile) => v
                {isSignUp ? 'Registre-se para iniciar simulações' : 'Autentique-se para acessar o lobby'}
              </p>
            </div>
-          
+
           {isSignUp && (
             <div className="space-y-1 relative" suppressHydrationWarning>
               <label htmlFor="username" className="text-slate-400 uppercase text-[10px] tracking-wider font-bold">Apelido</label>
@@ -71,7 +67,7 @@ export default function Auth({ onLogin }: { onLogin: (profile: UserProfile) => v
               />
             </div>
           )}
-          
+
           <div className="space-y-1 relative" suppressHydrationWarning>
             <label htmlFor="email" className="text-slate-400 uppercase text-[10px] tracking-wider font-bold">E-mail</label>
             <input
@@ -85,7 +81,7 @@ export default function Auth({ onLogin }: { onLogin: (profile: UserProfile) => v
               className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-sm font-mono text-cyan-400 focus:outline-none focus:border-cyan-500 transition-colors"
             />
           </div>
-          
+
           <div className="space-y-1 relative" suppressHydrationWarning>
             <label htmlFor="password" className="text-slate-400 uppercase text-[10px] tracking-wider font-bold">Senha de Acesso</label>
             <input
@@ -100,8 +96,8 @@ export default function Auth({ onLogin }: { onLogin: (profile: UserProfile) => v
           </div>
 
           <div className="flex flex-col gap-3 mt-4">
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="bg-cyan-500 text-black px-4 py-3 rounded text-xs font-bold uppercase hover:bg-cyan-400 transition-colors shadow-[0_0_15px_rgba(6,182,212,0.2)] disabled:opacity-50"
               disabled={loading}
             >

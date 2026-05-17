@@ -91,7 +91,7 @@ Módulos:
 - [x] Orçamento total de caracteres dos interlocutores.
 - [x] Fases: lobby, em andamento, veredito, revelação e encerrada.
 - [x] Cálculo de vitória.
-- [x] Cálculo inicial de MMR.
+- [x] Cálculo inicial de PDR visível e MMR oculto.
 - [x] Estatísticas: mensagens, caracteres usados, WPM aproximado e participação.
 
 Critérios de aceite:
@@ -192,7 +192,7 @@ Métricas:
 Critérios de aceite:
 
 - [ ] Dashboard interno simples ou queries documentadas.
-- [ ] MMR separado para Analista e Interlocutor.
+- [ ] Matchmaking com MMR oculto separado para Analista e Jogador.
 - [ ] Rank das IAs baseado em dados reais.
 
 ## M8 - Alpha SaaS
