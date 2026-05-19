@@ -1,0 +1,34 @@
+# .graphifyignore
+node_modules/
+.next/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+*.tsbuildinfo
+
+# Ignorar tudo por padrão, depois liberar o que queremos indexar
+*
+
+# Permitir pastas do projeto
+!app/
+!app/**
+!components/
+!components/**
+!domain/
+!domain/**
+!hooks/
+!hooks/**
+!lib/
+!lib/**
+!types/
+!types/**
+!.metadocs/
+!.metadocs/**
+
+# Permitir arquivos importantes na raiz
+!README.md
+!PRD.md
+!database_schema.sql

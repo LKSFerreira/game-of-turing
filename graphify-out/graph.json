@@ -1,0 +1,6040 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "layout.tsx",
+      "id": "app_layout_tsx"
+    },
+    {
+      "label": "geist",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L6",
+      "community": 0,
+      "norm_label": "geist",
+      "id": "app_layout_geist"
+    },
+    {
+      "label": "inter",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L8",
+      "community": 0,
+      "norm_label": "inter",
+      "id": "app_layout_inter"
+    },
+    {
+      "label": "jetbrainsMono",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L13",
+      "community": 0,
+      "norm_label": "jetbrainsmono",
+      "id": "app_layout_jetbrainsmono"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L18",
+      "community": 0,
+      "norm_label": "metadata",
+      "id": "app_layout_metadata"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L23",
+      "community": 0,
+      "norm_label": "rootlayout()",
+      "id": "app_layout_rootlayout"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "page.tsx",
+      "id": "app_page_tsx"
+    },
+    {
+      "label": "PreferenciaFila",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L26",
+      "community": 3,
+      "norm_label": "preferenciafila",
+      "id": "app_page_preferenciafila"
+    },
+    {
+      "label": "PERFIL_LOCAL_POC",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L28",
+      "community": 3,
+      "norm_label": "perfil_local_poc",
+      "id": "app_page_perfil_local_poc"
+    },
+    {
+      "label": "MODOS_LOBBY",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L38",
+      "community": 3,
+      "norm_label": "modos_lobby",
+      "id": "app_page_modos_lobby"
+    },
+    {
+      "label": "PREFERENCIAS",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L65",
+      "community": 3,
+      "norm_label": "preferencias",
+      "id": "app_page_preferencias"
+    },
+    {
+      "label": "REGRAS_CHAVE",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L75",
+      "community": 3,
+      "norm_label": "regras_chave",
+      "id": "app_page_regras_chave"
+    },
+    {
+      "label": "PortalPareamento()",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L82",
+      "community": 3,
+      "norm_label": "portalpareamento()",
+      "id": "app_page_portalpareamento"
+    },
+    {
+      "label": "BotaoModo()",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L253",
+      "community": 3,
+      "norm_label": "botaomodo()",
+      "id": "app_page_botaomodo"
+    },
+    {
+      "label": "Home()",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L280",
+      "community": 3,
+      "norm_label": "home()",
+      "id": "app_page_home"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "route.ts",
+      "id": "app_api_ai_route_ts"
+    },
+    {
+      "label": "CorpoRequisicaoIa",
+      "file_type": "code",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L7",
+      "community": 2,
+      "norm_label": "corporequisicaoia",
+      "id": "ai_route_corporequisicaoia"
+    },
+    {
+      "label": "isCorJogador()",
+      "file_type": "code",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L13",
+      "community": 2,
+      "norm_label": "iscorjogador()",
+      "id": "ai_route_iscorjogador"
+    },
+    {
+      "label": "isMissaoSecreta()",
+      "file_type": "code",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L17",
+      "community": 2,
+      "norm_label": "ismissaosecreta()",
+      "id": "ai_route_ismissaosecreta"
+    },
+    {
+      "label": "validarCorpoRequisicao()",
+      "file_type": "code",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L21",
+      "community": 2,
+      "norm_label": "validarcorporequisicao()",
+      "id": "ai_route_validarcorporequisicao"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L47",
+      "community": 2,
+      "norm_label": "post()",
+      "id": "ai_route_post"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "page.tsx",
+      "id": "app_game_matchid_page_tsx"
+    },
+    {
+      "label": "CorVisual",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L31",
+      "community": 6,
+      "norm_label": "corvisual",
+      "id": "matchid_page_corvisual"
+    },
+    {
+      "label": "ParticipanteVisivel",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L33",
+      "community": 6,
+      "norm_label": "participantevisivel",
+      "id": "matchid_page_participantevisivel"
+    },
+    {
+      "label": "RespostaApiIa",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L40",
+      "community": 6,
+      "norm_label": "respostaapiia",
+      "id": "matchid_page_respostaapiia"
+    },
+    {
+      "label": "ROTULOS_COR",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L46",
+      "community": 6,
+      "norm_label": "rotulos_cor",
+      "id": "matchid_page_rotulos_cor"
+    },
+    {
+      "label": "ESTILOS_PARTICIPANTE",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L53",
+      "community": 6,
+      "norm_label": "estilos_participante",
+      "id": "matchid_page_estilos_participante"
+    },
+    {
+      "label": "buscarParticipantePorCor()",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L83",
+      "community": 6,
+      "norm_label": "buscarparticipanteporcor()",
+      "id": "matchid_page_buscarparticipanteporcor"
+    },
+    {
+      "label": "isCorJogador()",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L95",
+      "community": 6,
+      "norm_label": "iscorjogador()",
+      "id": "matchid_page_iscorjogador"
+    },
+    {
+      "label": "obterRotuloPapel()",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L99",
+      "community": 6,
+      "norm_label": "obterrotulopapel()",
+      "id": "matchid_page_obterrotulopapel"
+    },
+    {
+      "label": "obterDiretriz()",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L107",
+      "community": 6,
+      "norm_label": "obterdiretriz()",
+      "id": "matchid_page_obterdiretriz"
+    },
+    {
+      "label": "obterNatureza()",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L117",
+      "community": 6,
+      "norm_label": "obternatureza()",
+      "id": "matchid_page_obternatureza"
+    },
+    {
+      "label": "obterResultadoParticipante()",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L121",
+      "community": 6,
+      "norm_label": "obterresultadoparticipante()",
+      "id": "matchid_page_obterresultadoparticipante"
+    },
+    {
+      "label": "formatarTempo()",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L130",
+      "community": 6,
+      "norm_label": "formatartempo()",
+      "id": "matchid_page_formatartempo"
+    },
+    {
+      "label": "formatarTimestamp()",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L139",
+      "community": 6,
+      "norm_label": "formatartimestamp()",
+      "id": "matchid_page_formatartimestamp"
+    },
+    {
+      "label": "CartaoParticipante()",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L151",
+      "community": 6,
+      "norm_label": "cartaoparticipante()",
+      "id": "matchid_page_cartaoparticipante"
+    },
+    {
+      "label": "BotaoNatureza()",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L185",
+      "community": 6,
+      "norm_label": "botaonatureza()",
+      "id": "matchid_page_botaonatureza"
+    },
+    {
+      "label": "GameRoom()",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L239",
+      "community": 6,
+      "norm_label": "gameroom()",
+      "id": "matchid_page_gameroom"
+    },
+    {
+      "label": "Auth.tsx",
+      "file_type": "code",
+      "source_file": "components/Auth.tsx",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "auth.tsx",
+      "id": "components_auth_tsx"
+    },
+    {
+      "label": "Auth()",
+      "file_type": "code",
+      "source_file": "components/Auth.tsx",
+      "source_location": "L6",
+      "community": 3,
+      "norm_label": "auth()",
+      "id": "components_auth_auth"
+    },
+    {
+      "label": "avatar.tsx",
+      "file_type": "code",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "avatar.tsx",
+      "id": "components_ui_avatar_tsx"
+    },
+    {
+      "label": "Avatar()",
+      "file_type": "code",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L8",
+      "community": 0,
+      "norm_label": "avatar()",
+      "id": "ui_avatar_avatar"
+    },
+    {
+      "label": "AvatarImage()",
+      "file_type": "code",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L28",
+      "community": 0,
+      "norm_label": "avatarimage()",
+      "id": "ui_avatar_avatarimage"
+    },
+    {
+      "label": "AvatarFallback()",
+      "file_type": "code",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L41",
+      "community": 0,
+      "norm_label": "avatarfallback()",
+      "id": "ui_avatar_avatarfallback"
+    },
+    {
+      "label": "AvatarBadge()",
+      "file_type": "code",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L57",
+      "community": 0,
+      "norm_label": "avatarbadge()",
+      "id": "ui_avatar_avatarbadge"
+    },
+    {
+      "label": "AvatarGroup()",
+      "file_type": "code",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L73",
+      "community": 0,
+      "norm_label": "avatargroup()",
+      "id": "ui_avatar_avatargroup"
+    },
+    {
+      "label": "AvatarGroupCount()",
+      "file_type": "code",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L86",
+      "community": 0,
+      "norm_label": "avatargroupcount()",
+      "id": "ui_avatar_avatargroupcount"
+    },
+    {
+      "label": "badge.tsx",
+      "file_type": "code",
+      "source_file": "components/ui/badge.tsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "badge.tsx",
+      "id": "components_ui_badge_tsx"
+    },
+    {
+      "label": "badgeVariants",
+      "file_type": "code",
+      "source_file": "components/ui/badge.tsx",
+      "source_location": "L7",
+      "community": 0,
+      "norm_label": "badgevariants",
+      "id": "ui_badge_badgevariants"
+    },
+    {
+      "label": "Badge()",
+      "file_type": "code",
+      "source_file": "components/ui/badge.tsx",
+      "source_location": "L30",
+      "community": 0,
+      "norm_label": "badge()",
+      "id": "ui_badge_badge"
+    },
+    {
+      "label": "button.tsx",
+      "file_type": "code",
+      "source_file": "components/ui/button.tsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "button.tsx",
+      "id": "components_ui_button_tsx"
+    },
+    {
+      "label": "buttonVariants",
+      "file_type": "code",
+      "source_file": "components/ui/button.tsx",
+      "source_location": "L6",
+      "community": 0,
+      "norm_label": "buttonvariants",
+      "id": "ui_button_buttonvariants"
+    },
+    {
+      "label": "Button()",
+      "file_type": "code",
+      "source_file": "components/ui/button.tsx",
+      "source_location": "L43",
+      "community": 0,
+      "norm_label": "button()",
+      "id": "ui_button_button"
+    },
+    {
+      "label": "card.tsx",
+      "file_type": "code",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "card.tsx",
+      "id": "components_ui_card_tsx"
+    },
+    {
+      "label": "Card()",
+      "file_type": "code",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L5",
+      "community": 0,
+      "norm_label": "card()",
+      "id": "ui_card_card"
+    },
+    {
+      "label": "CardHeader()",
+      "file_type": "code",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L23",
+      "community": 0,
+      "norm_label": "cardheader()",
+      "id": "ui_card_cardheader"
+    },
+    {
+      "label": "CardTitle()",
+      "file_type": "code",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L36",
+      "community": 0,
+      "norm_label": "cardtitle()",
+      "id": "ui_card_cardtitle"
+    },
+    {
+      "label": "CardDescription()",
+      "file_type": "code",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L49",
+      "community": 0,
+      "norm_label": "carddescription()",
+      "id": "ui_card_carddescription"
+    },
+    {
+      "label": "CardAction()",
+      "file_type": "code",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L59",
+      "community": 0,
+      "norm_label": "cardaction()",
+      "id": "ui_card_cardaction"
+    },
+    {
+      "label": "CardContent()",
+      "file_type": "code",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L72",
+      "community": 0,
+      "norm_label": "cardcontent()",
+      "id": "ui_card_cardcontent"
+    },
+    {
+      "label": "CardFooter()",
+      "file_type": "code",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L82",
+      "community": 0,
+      "norm_label": "cardfooter()",
+      "id": "ui_card_cardfooter"
+    },
+    {
+      "label": "dialog.tsx",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "dialog.tsx",
+      "id": "components_ui_dialog_tsx"
+    },
+    {
+      "label": "Dialog()",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L10",
+      "community": 0,
+      "norm_label": "dialog()",
+      "id": "ui_dialog_dialog"
+    },
+    {
+      "label": "DialogTrigger()",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L14",
+      "community": 0,
+      "norm_label": "dialogtrigger()",
+      "id": "ui_dialog_dialogtrigger"
+    },
+    {
+      "label": "DialogPortal()",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L18",
+      "community": 0,
+      "norm_label": "dialogportal()",
+      "id": "ui_dialog_dialogportal"
+    },
+    {
+      "label": "DialogClose()",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L22",
+      "community": 0,
+      "norm_label": "dialogclose()",
+      "id": "ui_dialog_dialogclose"
+    },
+    {
+      "label": "DialogOverlay()",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L26",
+      "community": 0,
+      "norm_label": "dialogoverlay()",
+      "id": "ui_dialog_dialogoverlay"
+    },
+    {
+      "label": "DialogContent()",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L42",
+      "community": 0,
+      "norm_label": "dialogcontent()",
+      "id": "ui_dialog_dialogcontent"
+    },
+    {
+      "label": "DialogHeader()",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L83",
+      "community": 0,
+      "norm_label": "dialogheader()",
+      "id": "ui_dialog_dialogheader"
+    },
+    {
+      "label": "DialogFooter()",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L93",
+      "community": 0,
+      "norm_label": "dialogfooter()",
+      "id": "ui_dialog_dialogfooter"
+    },
+    {
+      "label": "DialogTitle()",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L120",
+      "community": 0,
+      "norm_label": "dialogtitle()",
+      "id": "ui_dialog_dialogtitle"
+    },
+    {
+      "label": "DialogDescription()",
+      "file_type": "code",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L133",
+      "community": 0,
+      "norm_label": "dialogdescription()",
+      "id": "ui_dialog_dialogdescription"
+    },
+    {
+      "label": "input.tsx",
+      "file_type": "code",
+      "source_file": "components/ui/input.tsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "input.tsx",
+      "id": "components_ui_input_tsx"
+    },
+    {
+      "label": "Input()",
+      "file_type": "code",
+      "source_file": "components/ui/input.tsx",
+      "source_location": "L6",
+      "community": 0,
+      "norm_label": "input()",
+      "id": "ui_input_input"
+    },
+    {
+      "label": "label.tsx",
+      "file_type": "code",
+      "source_file": "components/ui/label.tsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "label.tsx",
+      "id": "components_ui_label_tsx"
+    },
+    {
+      "label": "Label()",
+      "file_type": "code",
+      "source_file": "components/ui/label.tsx",
+      "source_location": "L7",
+      "community": 0,
+      "norm_label": "label()",
+      "id": "ui_label_label"
+    },
+    {
+      "label": "scroll-area.tsx",
+      "file_type": "code",
+      "source_file": "components/ui/scroll-area.tsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "scroll-area.tsx",
+      "id": "components_ui_scroll_area_tsx"
+    },
+    {
+      "label": "ScrollArea()",
+      "file_type": "code",
+      "source_file": "components/ui/scroll-area.tsx",
+      "source_location": "L8",
+      "community": 0,
+      "norm_label": "scrollarea()",
+      "id": "ui_scroll_area_scrollarea"
+    },
+    {
+      "label": "ScrollBar()",
+      "file_type": "code",
+      "source_file": "components/ui/scroll-area.tsx",
+      "source_location": "L31",
+      "community": 0,
+      "norm_label": "scrollbar()",
+      "id": "ui_scroll_area_scrollbar"
+    },
+    {
+      "label": "select.tsx",
+      "file_type": "code",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "select.tsx",
+      "id": "components_ui_select_tsx"
+    },
+    {
+      "label": "SelectGroup()",
+      "file_type": "code",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "selectgroup()",
+      "id": "ui_select_selectgroup"
+    },
+    {
+      "label": "SelectValue()",
+      "file_type": "code",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L21",
+      "community": 0,
+      "norm_label": "selectvalue()",
+      "id": "ui_select_selectvalue"
+    },
+    {
+      "label": "SelectTrigger()",
+      "file_type": "code",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L31",
+      "community": 0,
+      "norm_label": "selecttrigger()",
+      "id": "ui_select_selecttrigger"
+    },
+    {
+      "label": "SelectContent()",
+      "file_type": "code",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L59",
+      "community": 0,
+      "norm_label": "selectcontent()",
+      "id": "ui_select_selectcontent"
+    },
+    {
+      "label": "SelectLabel()",
+      "file_type": "code",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L98",
+      "community": 0,
+      "norm_label": "selectlabel()",
+      "id": "ui_select_selectlabel"
+    },
+    {
+      "label": "SelectItem()",
+      "file_type": "code",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L111",
+      "community": 0,
+      "norm_label": "selectitem()",
+      "id": "ui_select_selectitem"
+    },
+    {
+      "label": "SelectSeparator()",
+      "file_type": "code",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L139",
+      "community": 0,
+      "norm_label": "selectseparator()",
+      "id": "ui_select_selectseparator"
+    },
+    {
+      "label": "SelectScrollUpButton()",
+      "file_type": "code",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L152",
+      "community": 0,
+      "norm_label": "selectscrollupbutton()",
+      "id": "ui_select_selectscrollupbutton"
+    },
+    {
+      "label": "SelectScrollDownButton()",
+      "file_type": "code",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L171",
+      "community": 0,
+      "norm_label": "selectscrolldownbutton()",
+      "id": "ui_select_selectscrolldownbutton"
+    },
+    {
+      "label": "constantes.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/constantes.ts",
+      "source_location": "L1",
+      "community": 8,
+      "norm_label": "constantes.ts",
+      "id": "domain_jogo_constantes_ts"
+    },
+    {
+      "label": "estatisticas.test.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "estatisticas.test.ts",
+      "id": "domain_jogo_estatisticas_test_ts"
+    },
+    {
+      "label": "criarPartidaTeste()",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L13",
+      "community": 8,
+      "norm_label": "criarpartidateste()",
+      "id": "jogo_estatisticas_test_criarpartidateste"
+    },
+    {
+      "label": "buscarPorCor()",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L17",
+      "community": 1,
+      "norm_label": "buscarporcor()",
+      "id": "jogo_estatisticas_test_buscarporcor"
+    },
+    {
+      "label": "partida",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L23",
+      "community": 1,
+      "norm_label": "partida",
+      "id": "jogo_estatisticas_test_partida"
+    },
+    {
+      "label": "azul",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L24",
+      "community": 1,
+      "norm_label": "azul",
+      "id": "jogo_estatisticas_test_azul"
+    },
+    {
+      "label": "stats",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L25",
+      "community": 1,
+      "norm_label": "stats",
+      "id": "jogo_estatisticas_test_stats"
+    },
+    {
+      "label": "analista",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L35",
+      "community": 1,
+      "norm_label": "analista",
+      "id": "jogo_estatisticas_test_analista"
+    },
+    {
+      "label": "vermelho",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L63",
+      "community": 1,
+      "norm_label": "vermelho",
+      "id": "jogo_estatisticas_test_vermelho"
+    },
+    {
+      "label": "estatisticas.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "estatisticas.ts",
+      "id": "domain_jogo_estatisticas_ts"
+    },
+    {
+      "label": "EstatisticasParticipante",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L3",
+      "community": 1,
+      "norm_label": "estatisticasparticipante",
+      "id": "jogo_estatisticas_estatisticasparticipante"
+    },
+    {
+      "label": "contarPalavras()",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L12",
+      "community": 1,
+      "norm_label": "contarpalavras()",
+      "id": "jogo_estatisticas_contarpalavras"
+    },
+    {
+      "label": "calcularEstatisticasParticipante()",
+      "file_type": "code",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L23",
+      "community": 1,
+      "norm_label": "calcularestatisticasparticipante()",
+      "id": "jogo_estatisticas_calcularestatisticasparticipante"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/index.ts",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "index.ts",
+      "id": "domain_jogo_index_ts"
+    },
+    {
+      "label": "jogo.test.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "jogo.test.ts",
+      "id": "domain_jogo_jogo_test_ts"
+    },
+    {
+      "label": "criarPartidaTeste()",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L26",
+      "community": 8,
+      "norm_label": "criarpartidateste()",
+      "id": "jogo_jogo_test_criarpartidateste"
+    },
+    {
+      "label": "buscarPorCor()",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L34",
+      "community": 5,
+      "norm_label": "buscarporcor()",
+      "id": "jogo_jogo_test_buscarporcor"
+    },
+    {
+      "label": "partida",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L48",
+      "community": 5,
+      "norm_label": "partida",
+      "id": "jogo_jogo_test_partida"
+    },
+    {
+      "label": "analista",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L49",
+      "community": 5,
+      "norm_label": "analista",
+      "id": "jogo_jogo_test_analista"
+    },
+    {
+      "label": "resultado",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L50",
+      "community": 5,
+      "norm_label": "resultado",
+      "id": "jogo_jogo_test_resultado"
+    },
+    {
+      "label": "partidaComMensagem",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L66",
+      "community": 5,
+      "norm_label": "partidacommensagem",
+      "id": "jogo_jogo_test_partidacommensagem"
+    },
+    {
+      "label": "azul",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L124",
+      "community": 5,
+      "norm_label": "azul",
+      "id": "jogo_jogo_test_azul"
+    },
+    {
+      "label": "partidaFinalizada",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L167",
+      "community": 5,
+      "norm_label": "partidafinalizada",
+      "id": "jogo_jogo_test_partidafinalizada"
+    },
+    {
+      "label": "vermelho",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L212",
+      "community": 5,
+      "norm_label": "vermelho",
+      "id": "jogo_jogo_test_vermelho"
+    },
+    {
+      "label": "vermelhoAtualizado",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L219",
+      "community": 5,
+      "norm_label": "vermelhoatualizado",
+      "id": "jogo_jogo_test_vermelhoatualizado"
+    },
+    {
+      "label": "estatisticas",
+      "file_type": "code",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L223",
+      "community": 5,
+      "norm_label": "estatisticas",
+      "id": "jogo_jogo_test_estatisticas"
+    },
+    {
+      "label": "criarPartidaTeste()",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L13",
+      "community": 8,
+      "norm_label": "criarpartidateste()",
+      "id": "jogo_mensagens_test_criarpartidateste"
+    },
+    {
+      "label": "buscarPorCor()",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L21",
+      "community": 4,
+      "norm_label": "buscarporcor()",
+      "id": "jogo_mensagens_test_buscarporcor"
+    },
+    {
+      "label": "partida",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L35",
+      "community": 4,
+      "norm_label": "partida",
+      "id": "jogo_mensagens_test_partida"
+    },
+    {
+      "label": "analista",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L36",
+      "community": 4,
+      "norm_label": "analista",
+      "id": "jogo_mensagens_test_analista"
+    },
+    {
+      "label": "resultado",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L39",
+      "community": 4,
+      "norm_label": "resultado",
+      "id": "jogo_mensagens_test_resultado"
+    },
+    {
+      "label": "conteudo",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L57",
+      "community": 4,
+      "norm_label": "conteudo",
+      "id": "jogo_mensagens_test_conteudo"
+    },
+    {
+      "label": "partidaComMensagem",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L104",
+      "community": 4,
+      "norm_label": "partidacommensagem",
+      "id": "jogo_mensagens_test_partidacommensagem"
+    },
+    {
+      "label": "analistaAtualizado",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L110",
+      "community": 4,
+      "norm_label": "analistaatualizado",
+      "id": "jogo_mensagens_test_analistaatualizado"
+    },
+    {
+      "label": "treSegundosDepois",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L111",
+      "community": 4,
+      "norm_label": "tresegundosdepois",
+      "id": "jogo_mensagens_test_tresegundosdepois"
+    },
+    {
+      "label": "zeroSegundosDepois",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L133",
+      "community": 4,
+      "norm_label": "zerosegundosdepois",
+      "id": "jogo_mensagens_test_zerosegundosdepois"
+    },
+    {
+      "label": "azul",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L152",
+      "community": 4,
+      "norm_label": "azul",
+      "id": "jogo_mensagens_test_azul"
+    },
+    {
+      "label": "azulAtualizado",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L189",
+      "community": 4,
+      "norm_label": "azulatualizado",
+      "id": "jogo_mensagens_test_azulatualizado"
+    },
+    {
+      "label": "partidaComMensagemAnalista",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L193",
+      "community": 4,
+      "norm_label": "partidacommensagemanalista",
+      "id": "jogo_mensagens_test_partidacommensagemanalista"
+    },
+    {
+      "label": "partidaAtualizada",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L204",
+      "community": 4,
+      "norm_label": "partidaatualizada",
+      "id": "jogo_mensagens_test_partidaatualizada"
+    },
+    {
+      "label": "vermelhoAtualizado",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L231",
+      "community": 4,
+      "norm_label": "vermelhoatualizado",
+      "id": "jogo_mensagens_test_vermelhoatualizado"
+    },
+    {
+      "label": "mensagens.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "mensagens.ts",
+      "id": "domain_jogo_mensagens_ts"
+    },
+    {
+      "label": "possuiCaracteresRepetidosEmSequencia()",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L8",
+      "community": 4,
+      "norm_label": "possuicaracteresrepetidosemsequencia()",
+      "id": "jogo_mensagens_possuicaracteresrepetidosemsequencia"
+    },
+    {
+      "label": "validarMensagem()",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L28",
+      "community": 4,
+      "norm_label": "validarmensagem()",
+      "id": "jogo_mensagens_validarmensagem"
+    },
+    {
+      "label": "registrarMensagem()",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L82",
+      "community": 4,
+      "norm_label": "registrarmensagem()",
+      "id": "jogo_mensagens_registrarmensagem"
+    },
+    {
+      "label": "mmr.test.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "mmr.test.ts",
+      "id": "domain_jogo_mmr_test_ts"
+    },
+    {
+      "label": "criarJogadorBase()",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L12",
+      "community": 1,
+      "norm_label": "criarjogadorbase()",
+      "id": "jogo_mmr_test_criarjogadorbase"
+    },
+    {
+      "label": "jogador",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L68",
+      "community": 1,
+      "norm_label": "jogador",
+      "id": "jogo_mmr_test_jogador"
+    },
+    {
+      "label": "humanoDisfarce",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L84",
+      "community": 1,
+      "norm_label": "humanodisfarce",
+      "id": "jogo_mmr_test_humanodisfarce"
+    },
+    {
+      "label": "iaDisfarce",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L92",
+      "community": 1,
+      "norm_label": "iadisfarce",
+      "id": "jogo_mmr_test_iadisfarce"
+    },
+    {
+      "label": "humanoNormal",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L108",
+      "community": 1,
+      "norm_label": "humanonormal",
+      "id": "jogo_mmr_test_humanonormal"
+    },
+    {
+      "label": "mmr.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "mmr.ts",
+      "id": "domain_jogo_mmr_ts"
+    },
+    {
+      "label": "calcularAjustePdrAnalista()",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L3",
+      "community": 1,
+      "norm_label": "calcularajustepdranalista()",
+      "id": "jogo_mmr_calcularajustepdranalista"
+    },
+    {
+      "label": "calcularAjustePdrJogador()",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L7",
+      "community": 1,
+      "norm_label": "calcularajustepdrjogador()",
+      "id": "jogo_mmr_calcularajustepdrjogador"
+    },
+    {
+      "label": "calcularBonusParticipacao()",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L44",
+      "community": 1,
+      "norm_label": "calcularbonusparticipacao()",
+      "id": "jogo_mmr_calcularbonusparticipacao"
+    },
+    {
+      "label": "partida.test.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "partida.test.ts",
+      "id": "domain_jogo_partida_test_ts"
+    },
+    {
+      "label": "partida",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L20",
+      "community": 5,
+      "norm_label": "partida",
+      "id": "jogo_partida_test_partida"
+    },
+    {
+      "label": "cores",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L41",
+      "community": 5,
+      "norm_label": "cores",
+      "id": "jogo_partida_test_cores"
+    },
+    {
+      "label": "analista",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L49",
+      "community": 5,
+      "norm_label": "analista",
+      "id": "jogo_partida_test_analista"
+    },
+    {
+      "label": "original",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L143",
+      "community": 5,
+      "norm_label": "original",
+      "id": "jogo_partida_test_original"
+    },
+    {
+      "label": "reiniciada",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L144",
+      "community": 5,
+      "norm_label": "reiniciada",
+      "id": "jogo_partida_test_reiniciada"
+    },
+    {
+      "label": "partida.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L1",
+      "community": 8,
+      "norm_label": "partida.ts",
+      "id": "domain_jogo_partida_ts"
+    },
+    {
+      "label": "criarPartidaPoc()",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L15",
+      "community": 8,
+      "norm_label": "criarpartidapoc()",
+      "id": "jogo_partida_criarpartidapoc"
+    },
+    {
+      "label": "buscarParticipanteObrigatorio()",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L80",
+      "community": 8,
+      "norm_label": "buscarparticipanteobrigatorio()",
+      "id": "jogo_partida_buscarparticipanteobrigatorio"
+    },
+    {
+      "label": "calcularSegundosRestantes()",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L95",
+      "community": 8,
+      "norm_label": "calcularsegundosrestantes()",
+      "id": "jogo_partida_calcularsegundosrestantes"
+    },
+    {
+      "label": "avancarParaVeredito()",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L105",
+      "community": 8,
+      "norm_label": "avancarparaveredito()",
+      "id": "jogo_partida_avancarparaveredito"
+    },
+    {
+      "label": "atualizarFasePorTempo()",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L116",
+      "community": 8,
+      "norm_label": "atualizarfaseportempo()",
+      "id": "jogo_partida_atualizarfaseportempo"
+    },
+    {
+      "label": "reiniciarPartida()",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L128",
+      "community": 8,
+      "norm_label": "reiniciarpartida()",
+      "id": "jogo_partida_reiniciarpartida"
+    },
+    {
+      "label": "tipos.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "tipos.ts",
+      "id": "domain_jogo_tipos_ts"
+    },
+    {
+      "label": "FasePartida",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "fasepartida",
+      "id": "jogo_tipos_fasepartida"
+    },
+    {
+      "label": "PapelParticipante",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L8",
+      "community": 1,
+      "norm_label": "papelparticipante",
+      "id": "jogo_tipos_papelparticipante"
+    },
+    {
+      "label": "CorParticipante",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L9",
+      "community": 1,
+      "norm_label": "corparticipante",
+      "id": "jogo_tipos_corparticipante"
+    },
+    {
+      "label": "NaturezaParticipante",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L10",
+      "community": 1,
+      "norm_label": "naturezaparticipante",
+      "id": "jogo_tipos_naturezaparticipante"
+    },
+    {
+      "label": "ControleParticipante",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L11",
+      "community": 1,
+      "norm_label": "controleparticipante",
+      "id": "jogo_tipos_controleparticipante"
+    },
+    {
+      "label": "MissaoSecreta",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L12",
+      "community": 1,
+      "norm_label": "missaosecreta",
+      "id": "jogo_tipos_missaosecreta"
+    },
+    {
+      "label": "VereditoAnalista",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L14",
+      "community": 1,
+      "norm_label": "vereditoanalista",
+      "id": "jogo_tipos_vereditoanalista"
+    },
+    {
+      "label": "VereditoAnalistaParcial",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L19",
+      "community": 1,
+      "norm_label": "vereditoanalistaparcial",
+      "id": "jogo_tipos_vereditoanalistaparcial"
+    },
+    {
+      "label": "ParticipantePartida",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L21",
+      "community": 1,
+      "norm_label": "participantepartida",
+      "id": "jogo_tipos_participantepartida"
+    },
+    {
+      "label": "MensagemPartida",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L33",
+      "community": 1,
+      "norm_label": "mensagempartida",
+      "id": "jogo_tipos_mensagempartida"
+    },
+    {
+      "label": "Partida",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L42",
+      "community": 1,
+      "norm_label": "partida",
+      "id": "jogo_tipos_partida"
+    },
+    {
+      "label": "ResultadoValidacao",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L57",
+      "community": 1,
+      "norm_label": "resultadovalidacao",
+      "id": "jogo_tipos_resultadovalidacao"
+    },
+    {
+      "label": "ResultadoValidacaoVeredito",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L61",
+      "community": 1,
+      "norm_label": "resultadovalidacaoveredito",
+      "id": "jogo_tipos_resultadovalidacaoveredito"
+    },
+    {
+      "label": "ResultadoParticipante",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L65",
+      "community": 1,
+      "norm_label": "resultadoparticipante",
+      "id": "jogo_tipos_resultadoparticipante"
+    },
+    {
+      "label": "ResultadoPartida",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L77",
+      "community": 1,
+      "norm_label": "resultadopartida",
+      "id": "jogo_tipos_resultadopartida"
+    },
+    {
+      "label": "criarPartidaTeste()",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L17",
+      "community": 8,
+      "norm_label": "criarpartidateste()",
+      "id": "jogo_veredito_test_criarpartidateste"
+    },
+    {
+      "label": "buscarPorCor()",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L21",
+      "community": 1,
+      "norm_label": "buscarporcor()",
+      "id": "jogo_veredito_test_buscarporcor"
+    },
+    {
+      "label": "resultado",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L39",
+      "community": 1,
+      "norm_label": "resultado",
+      "id": "jogo_veredito_test_resultado"
+    },
+    {
+      "label": "partida",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L49",
+      "community": 1,
+      "norm_label": "partida",
+      "id": "jogo_veredito_test_partida"
+    },
+    {
+      "label": "finalizada",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L64",
+      "community": 1,
+      "norm_label": "finalizada",
+      "id": "jogo_veredito_test_finalizada"
+    },
+    {
+      "label": "azul",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L151",
+      "community": 1,
+      "norm_label": "azul",
+      "id": "jogo_veredito_test_azul"
+    },
+    {
+      "label": "resultadoAzul",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L160",
+      "community": 1,
+      "norm_label": "resultadoazul",
+      "id": "jogo_veredito_test_resultadoazul"
+    },
+    {
+      "label": "vermelho",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L167",
+      "community": 1,
+      "norm_label": "vermelho",
+      "id": "jogo_veredito_test_vermelho"
+    },
+    {
+      "label": "resultadoVermelho",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L176",
+      "community": 1,
+      "norm_label": "resultadovermelho",
+      "id": "jogo_veredito_test_resultadovermelho"
+    },
+    {
+      "label": "dataEnvio",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L203",
+      "community": 1,
+      "norm_label": "dataenvio",
+      "id": "jogo_veredito_test_dataenvio"
+    },
+    {
+      "label": "veredito.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "veredito.ts",
+      "id": "domain_jogo_veredito_ts"
+    },
+    {
+      "label": "buscarPorCor()",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L19",
+      "community": 1,
+      "norm_label": "buscarporcor()",
+      "id": "jogo_veredito_buscarporcor"
+    },
+    {
+      "label": "missaoFoiCumprida()",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L29",
+      "community": 1,
+      "norm_label": "missaofoicumprida()",
+      "id": "jogo_veredito_missaofoicumprida"
+    },
+    {
+      "label": "obterNaturezaOposta()",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L44",
+      "community": 1,
+      "norm_label": "obternaturezaoposta()",
+      "id": "jogo_veredito_obternaturezaoposta"
+    },
+    {
+      "label": "validarVereditoAnalista()",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L48",
+      "community": 1,
+      "norm_label": "validarvereditoanalista()",
+      "id": "jogo_veredito_validarvereditoanalista"
+    },
+    {
+      "label": "finalizarPartidaComVeredito()",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L67",
+      "community": 1,
+      "norm_label": "finalizarpartidacomveredito()",
+      "id": "jogo_veredito_finalizarpartidacomveredito"
+    },
+    {
+      "label": "finalizarPartidaPorTempoVeredito()",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L90",
+      "community": 1,
+      "norm_label": "finalizarpartidaportempoveredito()",
+      "id": "jogo_veredito_finalizarpartidaportempoveredito"
+    },
+    {
+      "label": "calcularResultadoPartida()",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L108",
+      "community": 1,
+      "norm_label": "calcularresultadopartida()",
+      "id": "jogo_veredito_calcularresultadopartida"
+    },
+    {
+      "label": "use-mobile.ts",
+      "file_type": "code",
+      "source_file": "hooks/use-mobile.ts",
+      "source_location": "L1",
+      "community": 10,
+      "norm_label": "use-mobile.ts",
+      "id": "hooks_use_mobile_ts"
+    },
+    {
+      "label": "useIsMobile()",
+      "file_type": "code",
+      "source_file": "hooks/use-mobile.ts",
+      "source_location": "L5",
+      "community": 10,
+      "norm_label": "useismobile()",
+      "id": "hooks_use_mobile_useismobile"
+    },
+    {
+      "label": "supabase.ts",
+      "file_type": "code",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L1",
+      "community": 11,
+      "norm_label": "supabase.ts",
+      "id": "lib_supabase_ts"
+    },
+    {
+      "label": "supabase",
+      "file_type": "code",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L6",
+      "community": 11,
+      "norm_label": "supabase",
+      "id": "lib_supabase_supabase"
+    },
+    {
+      "label": "utils.ts",
+      "file_type": "code",
+      "source_file": "lib/utils.ts",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "utils.ts",
+      "id": "lib_utils_ts"
+    },
+    {
+      "label": "cn()",
+      "file_type": "code",
+      "source_file": "lib/utils.ts",
+      "source_location": "L4",
+      "community": 0,
+      "norm_label": "cn()",
+      "id": "lib_utils_cn"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "lib/ia/index.ts",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "index.ts",
+      "id": "lib_ia_index_ts"
+    },
+    {
+      "label": "PROVEDORES_IA",
+      "file_type": "code",
+      "source_file": "lib/ia/index.ts",
+      "source_location": "L4",
+      "community": 2,
+      "norm_label": "provedores_ia",
+      "id": "ia_index_provedores_ia"
+    },
+    {
+      "label": "obterProvedorIa()",
+      "file_type": "code",
+      "source_file": "lib/ia/index.ts",
+      "source_location": "L8",
+      "community": 2,
+      "norm_label": "obterprovedoria()",
+      "id": "ia_index_obterprovedoria"
+    },
+    {
+      "label": "provedor-fake.test.ts",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-fake.test.ts",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "provedor-fake.test.ts",
+      "id": "lib_ia_provedor_fake_test_ts"
+    },
+    {
+      "label": "criarParametrosBase()",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-fake.test.ts",
+      "source_location": "L6",
+      "community": 2,
+      "norm_label": "criarparametrosbase()",
+      "id": "ia_provedor_fake_test_criarparametrosbase"
+    },
+    {
+      "label": "parametros",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-fake.test.ts",
+      "source_location": "L63",
+      "community": 2,
+      "norm_label": "parametros",
+      "id": "ia_provedor_fake_test_parametros"
+    },
+    {
+      "label": "provedor-fake.ts",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "provedor-fake.ts",
+      "id": "lib_ia_provedor_fake_ts"
+    },
+    {
+      "label": "RESPOSTAS_CONVENCER_HUMANO",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L3",
+      "community": 2,
+      "norm_label": "respostas_convencer_humano",
+      "id": "ia_provedor_fake_respostas_convencer_humano"
+    },
+    {
+      "label": "RESPOSTAS_CONVENCER_IA",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L10",
+      "community": 2,
+      "norm_label": "respostas_convencer_ia",
+      "id": "ia_provedor_fake_respostas_convencer_ia"
+    },
+    {
+      "label": "obterUltimaMensagemDoAnalista()",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L17",
+      "community": 2,
+      "norm_label": "obterultimamensagemdoanalista()",
+      "id": "ia_provedor_fake_obterultimamensagemdoanalista"
+    },
+    {
+      "label": "escolherResposta()",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L25",
+      "community": 2,
+      "norm_label": "escolherresposta()",
+      "id": "ia_provedor_fake_escolherresposta"
+    },
+    {
+      "label": "limitarResposta()",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L38",
+      "community": 2,
+      "norm_label": "limitarresposta()",
+      "id": "ia_provedor_fake_limitarresposta"
+    },
+    {
+      "label": "provedorFakeIa",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L46",
+      "community": 2,
+      "norm_label": "provedorfakeia",
+      "id": "ia_provedor_fake_provedorfakeia"
+    },
+    {
+      "label": "provedor-ia.test.ts",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-ia.test.ts",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "provedor-ia.test.ts",
+      "id": "lib_ia_provedor_ia_test_ts"
+    },
+    {
+      "label": "provedor",
+      "file_type": "code",
+      "source_file": "lib/ia/provedor-ia.test.ts",
+      "source_location": "L7",
+      "community": 2,
+      "norm_label": "provedor",
+      "id": "ia_provedor_ia_test_provedor"
+    },
+    {
+      "label": "tipos.ts",
+      "file_type": "code",
+      "source_file": "lib/ia/tipos.ts",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "tipos.ts",
+      "id": "lib_ia_tipos_ts"
+    },
+    {
+      "label": "SolicitarRespostaIaParametros",
+      "file_type": "code",
+      "source_file": "lib/ia/tipos.ts",
+      "source_location": "L3",
+      "community": 2,
+      "norm_label": "solicitarrespostaiaparametros",
+      "id": "ia_tipos_solicitarrespostaiaparametros"
+    },
+    {
+      "label": "RespostaIa",
+      "file_type": "code",
+      "source_file": "lib/ia/tipos.ts",
+      "source_location": "L10",
+      "community": 2,
+      "norm_label": "respostaia",
+      "id": "ia_tipos_respostaia"
+    },
+    {
+      "label": "ProvedorIa",
+      "file_type": "code",
+      "source_file": "lib/ia/tipos.ts",
+      "source_location": "L15",
+      "community": 2,
+      "norm_label": "provedoria",
+      "id": "ia_tipos_provedoria"
+    },
+    {
+      "label": "game.ts",
+      "file_type": "code",
+      "source_file": "types/game.ts",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "game.ts",
+      "id": "types_game_ts"
+    },
+    {
+      "label": "UserProfile",
+      "file_type": "code",
+      "source_file": "types/game.ts",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "userprofile",
+      "id": "types_game_userprofile"
+    },
+    {
+      "label": "MatchStatus",
+      "file_type": "code",
+      "source_file": "types/game.ts",
+      "source_location": "L11",
+      "community": 3,
+      "norm_label": "matchstatus",
+      "id": "types_game_matchstatus"
+    },
+    {
+      "label": "PlayerType",
+      "file_type": "code",
+      "source_file": "types/game.ts",
+      "source_location": "L12",
+      "community": 3,
+      "norm_label": "playertype",
+      "id": "types_game_playertype"
+    },
+    {
+      "label": "PlayerRole",
+      "file_type": "code",
+      "source_file": "types/game.ts",
+      "source_location": "L13",
+      "community": 3,
+      "norm_label": "playerrole",
+      "id": "types_game_playerrole"
+    },
+    {
+      "label": "PlayerColor",
+      "file_type": "code",
+      "source_file": "types/game.ts",
+      "source_location": "L14",
+      "community": 3,
+      "norm_label": "playercolor",
+      "id": "types_game_playercolor"
+    },
+    {
+      "label": "SecretMission",
+      "file_type": "code",
+      "source_file": "types/game.ts",
+      "source_location": "L15",
+      "community": 3,
+      "norm_label": "secretmission",
+      "id": "types_game_secretmission"
+    },
+    {
+      "label": "Match",
+      "file_type": "code",
+      "source_file": "types/game.ts",
+      "source_location": "L17",
+      "community": 3,
+      "norm_label": "match",
+      "id": "types_game_match"
+    },
+    {
+      "label": "MatchParticipant",
+      "file_type": "code",
+      "source_file": "types/game.ts",
+      "source_location": "L29",
+      "community": 3,
+      "norm_label": "matchparticipant",
+      "id": "types_game_matchparticipant"
+    },
+    {
+      "label": "ChatMessage",
+      "file_type": "code",
+      "source_file": "types/game.ts",
+      "source_location": "L39",
+      "community": 3,
+      "norm_label": "chatmessage",
+      "id": "types_game_chatmessage"
+    },
+    {
+      "label": "Game of Turing",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "game of turing",
+      "id": "prd_game_of_turing"
+    },
+    {
+      "label": "Analista",
+      "file_type": "concept",
+      "source_file": "PRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "analista",
+      "id": "prd_analista"
+    },
+    {
+      "label": "Jogador",
+      "file_type": "concept",
+      "source_file": "PRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "jogador",
+      "id": "prd_jogador"
+    },
+    {
+      "label": "LLM",
+      "file_type": "concept",
+      "source_file": "PRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "llm",
+      "id": "prd_llm"
+    },
+    {
+      "label": "PDR (Pontua\u00e7\u00e3o Vis\u00edvel)",
+      "file_type": "concept",
+      "source_file": "PRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 9,
+      "norm_label": "pdr (pontuacao visivel)",
+      "id": "prd_pdr"
+    },
+    {
+      "label": "MMR (Pontua\u00e7\u00e3o Oculta)",
+      "file_type": "concept",
+      "source_file": "PRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 9,
+      "norm_label": "mmr (pontuacao oculta)",
+      "id": "prd_mmr"
+    },
+    {
+      "label": "Strategy Pattern (IA)",
+      "file_type": "concept",
+      "source_file": "PRD.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "strategy pattern (ia)",
+      "id": "prd_strategy_pattern"
+    },
+    {
+      "label": "Next.js 15",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "next.js 15",
+      "id": "readme_nextjs"
+    },
+    {
+      "label": "Supabase",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "supabase",
+      "id": "readme_supabase"
+    },
+    {
+      "label": "Groq",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "groq",
+      "id": "readme_groq"
+    },
+    {
+      "label": "domain/jogo/partida.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "domain/jogo/partida.ts",
+      "id": "domain_jogo_partida"
+    },
+    {
+      "label": "domain/jogo/tipos.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "domain/jogo/tipos.ts",
+      "id": "domain_jogo_tipos"
+    },
+    {
+      "label": "domain/jogo/mensagens.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "domain/jogo/mensagens.ts",
+      "id": "domain_jogo_mensagens"
+    },
+    {
+      "label": "domain/jogo/mmr.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 9,
+      "norm_label": "domain/jogo/mmr.ts",
+      "id": "domain_jogo_mmr"
+    },
+    {
+      "label": "ADR 0001 - Gameplay Primeiro",
+      "file_type": "rationale",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "adr 0001 - gameplay primeiro",
+      "id": "adr_0001"
+    },
+    {
+      "label": "ADR 0002 - IA Com Strategy Pattern",
+      "file_type": "rationale",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "adr 0002 - ia com strategy pattern",
+      "id": "adr_0002"
+    },
+    {
+      "label": "Walkthrough: Renomea\u00e7\u00e3o de Interlocutor para Jogador",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "walkthrough: renomeacao de interlocutor para jogador",
+      "id": "walkthrough_renomeacao"
+    }
+  ],
+  "links": [
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_layout_tsx",
+      "target": "lib_utils_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_layout_tsx",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_layout_tsx",
+      "target": "app_layout_geist"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_layout_tsx",
+      "target": "app_layout_inter"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_layout_tsx",
+      "target": "app_layout_jetbrainsmono"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_layout_tsx",
+      "target": "app_layout_metadata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_layout_tsx",
+      "target": "app_layout_rootlayout"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/layout.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "app_layout_rootlayout",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "types_game_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "types_game_userprofile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_page_preferenciafila"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_page_perfil_local_poc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_page_modos_lobby"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L65",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_page_preferencias"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_page_regras_chave"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_page_portalpareamento"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L253",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_page_botaomodo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L280",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_page_home"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_ai_route_ts",
+      "target": "domain_jogo_index_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_ai_route_ts",
+      "target": "lib_ia_index_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_ai_route_ts",
+      "target": "ia_index_obterprovedoria"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_ai_route_ts",
+      "target": "ai_route_corporequisicaoia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_ai_route_ts",
+      "target": "ai_route_iscorjogador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_ai_route_ts",
+      "target": "ai_route_ismissaosecreta"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_ai_route_ts",
+      "target": "ai_route_validarcorporequisicao"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_api_ai_route_ts",
+      "target": "ai_route_post"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_route_validarcorporequisicao",
+      "target": "ai_route_iscorjogador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "ai_route_iscorjogador"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_route_validarcorporequisicao",
+      "target": "ai_route_ismissaosecreta"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ai_route_post",
+      "target": "ai_route_validarcorporequisicao"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/ai/route.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "ai_route_post",
+      "target": "ia_index_obterprovedoria"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "domain_jogo_index_ts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_corvisual"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_participantevisivel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_respostaapiia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_rotulos_cor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_estilos_participante"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_buscarparticipanteporcor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_iscorjogador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L99",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_obterrotulopapel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_obterdiretriz"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L117",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_obternatureza"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_obterresultadoparticipante"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L130",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_formatartempo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L139",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_formatartimestamp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_cartaoparticipante"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L185",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_botaonatureza"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L239",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_gameroom"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L256",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "matchid_page_gameroom",
+      "target": "matchid_page_buscarparticipanteporcor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L531",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "matchid_page_gameroom",
+      "target": "matchid_page_obterrotulopapel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L744",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "matchid_page_gameroom",
+      "target": "matchid_page_obterdiretriz"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L229",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "matchid_page_botaonatureza",
+      "target": "matchid_page_obternatureza"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L522",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "matchid_page_gameroom",
+      "target": "matchid_page_formatartempo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L261",
+      "weight": 1.0,
+      "source": "matchid_page_gameroom",
+      "target": "jogo_veredito_calcularresultadopartida"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Auth.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_auth_tsx",
+      "target": "types_game_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Auth.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_auth_tsx",
+      "target": "types_game_userprofile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Auth.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_auth_tsx",
+      "target": "components_auth_auth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_avatar_tsx",
+      "target": "lib_utils_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_avatar_tsx",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_avatar_tsx",
+      "target": "ui_avatar_avatar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_avatar_tsx",
+      "target": "ui_avatar_avatarimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_avatar_tsx",
+      "target": "ui_avatar_avatarfallback"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_avatar_tsx",
+      "target": "ui_avatar_avatarbadge"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_avatar_tsx",
+      "target": "ui_avatar_avatargroup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L86",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_avatar_tsx",
+      "target": "ui_avatar_avatargroupcount"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "ui_avatar_avatar",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "ui_avatar_avatarimage",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "ui_avatar_avatarfallback",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "ui_avatar_avatarbadge",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "ui_avatar_avatargroup",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/avatar.tsx",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "ui_avatar_avatargroupcount",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/badge.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_badge_tsx",
+      "target": "lib_utils_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/badge.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_badge_tsx",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/badge.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_badge_tsx",
+      "target": "ui_badge_badgevariants"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/badge.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_badge_tsx",
+      "target": "ui_badge_badge"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/badge.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_badge_badge",
+      "target": "ui_badge_badgevariants"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/badge.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "ui_badge_badge",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/button.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_button_tsx",
+      "target": "lib_utils_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/button.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_button_tsx",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/button.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_button_tsx",
+      "target": "ui_button_buttonvariants"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/button.tsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_button_tsx",
+      "target": "ui_button_button"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "components_ui_button_tsx"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/button.tsx",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_button_button",
+      "target": "ui_button_buttonvariants"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "ui_button_button"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/button.tsx",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "ui_button_button",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_card_tsx",
+      "target": "lib_utils_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_card_tsx",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_card_tsx",
+      "target": "ui_card_card"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_card_tsx",
+      "target": "ui_card_cardheader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_card_tsx",
+      "target": "ui_card_cardtitle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_card_tsx",
+      "target": "ui_card_carddescription"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_card_tsx",
+      "target": "ui_card_cardaction"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_card_tsx",
+      "target": "ui_card_cardcontent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_card_tsx",
+      "target": "ui_card_cardfooter"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "ui_card_card",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "ui_card_cardheader",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "ui_card_cardtitle",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "ui_card_carddescription",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "ui_card_cardaction",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "ui_card_cardcontent",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/card.tsx",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "ui_card_cardfooter",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "lib_utils_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "ui_dialog_dialog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "ui_dialog_dialogtrigger"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "ui_dialog_dialogportal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "ui_dialog_dialogclose"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "ui_dialog_dialogoverlay"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "ui_dialog_dialogcontent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "ui_dialog_dialogheader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "ui_dialog_dialogfooter"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L120",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "ui_dialog_dialogtitle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L133",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_dialog_tsx",
+      "target": "ui_dialog_dialogdescription"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "ui_dialog_dialogoverlay",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "ui_dialog_dialogcontent",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "ui_dialog_dialogheader",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "ui_dialog_dialogfooter",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "ui_dialog_dialogtitle",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/dialog.tsx",
+      "source_location": "L140",
+      "weight": 1.0,
+      "source": "ui_dialog_dialogdescription",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/input.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_input_tsx",
+      "target": "lib_utils_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/input.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_input_tsx",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/input.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_input_tsx",
+      "target": "ui_input_input"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/input.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "ui_input_input",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/label.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_label_tsx",
+      "target": "lib_utils_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/label.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_label_tsx",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/label.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_label_tsx",
+      "target": "ui_label_label"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/label.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "ui_label_label",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/scroll-area.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_scroll_area_tsx",
+      "target": "lib_utils_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/scroll-area.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_scroll_area_tsx",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/scroll-area.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_scroll_area_tsx",
+      "target": "ui_scroll_area_scrollarea"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/scroll-area.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_scroll_area_tsx",
+      "target": "ui_scroll_area_scrollbar"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/scroll-area.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "ui_scroll_area_scrollarea",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/scroll-area.tsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "ui_scroll_area_scrollbar",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_select_tsx",
+      "target": "lib_utils_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_select_tsx",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_select_tsx",
+      "target": "ui_select_selectgroup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_select_tsx",
+      "target": "ui_select_selectvalue"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_select_tsx",
+      "target": "ui_select_selecttrigger"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_select_tsx",
+      "target": "ui_select_selectcontent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L98",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_select_tsx",
+      "target": "ui_select_selectlabel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_select_tsx",
+      "target": "ui_select_selectitem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L139",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_select_tsx",
+      "target": "ui_select_selectseparator"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L152",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_select_tsx",
+      "target": "ui_select_selectscrollupbutton"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L171",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_ui_select_tsx",
+      "target": "ui_select_selectscrolldownbutton"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "ui_select_selectgroup",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "ui_select_selectvalue",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "ui_select_selecttrigger",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "ui_select_selectcontent",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "ui_select_selectlabel",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "ui_select_selectitem",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "ui_select_selectseparator",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L159",
+      "weight": 1.0,
+      "source": "ui_select_selectscrollupbutton",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ui/select.tsx",
+      "source_location": "L178",
+      "weight": 1.0,
+      "source": "ui_select_selectscrolldownbutton",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "domain_jogo_constantes_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_ts",
+      "target": "domain_jogo_constantes_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_test_ts",
+      "target": "domain_jogo_index_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_test_ts",
+      "target": "domain_jogo_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_test_ts",
+      "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_test_ts",
+      "target": "jogo_tipos_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_test_ts",
+      "target": "jogo_estatisticas_test_criarpartidateste"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_test_ts",
+      "target": "jogo_estatisticas_test_buscarporcor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_test_ts",
+      "target": "jogo_estatisticas_test_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_test_ts",
+      "target": "jogo_estatisticas_test_azul"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_test_ts",
+      "target": "jogo_estatisticas_test_stats"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_test_ts",
+      "target": "jogo_estatisticas_test_analista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_test_ts",
+      "target": "jogo_estatisticas_test_vermelho"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "domain/jogo/estatisticas.test.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "jogo_estatisticas_test_criarpartidateste",
+      "target": "jogo_partida_criarpartidapoc"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_ts",
+      "target": "domain_jogo_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_ts",
+      "target": "jogo_tipos_mensagempartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_ts",
+      "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_ts",
+      "target": "jogo_tipos_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_ts",
+      "target": "jogo_estatisticas_estatisticasparticipante"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_ts",
+      "target": "jogo_estatisticas_contarpalavras"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_estatisticas_ts",
+      "target": "jogo_estatisticas_calcularestatisticasparticipante"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "domain_jogo_estatisticas_ts"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/estatisticas.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "jogo_estatisticas_calcularestatisticasparticipante",
+      "target": "jogo_estatisticas_contarpalavras"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_estatisticas_calcularestatisticasparticipante"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "domain_jogo_index_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "domain_jogo_index_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_test_ts",
+      "target": "domain_jogo_index_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "domain_jogo_index_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/tipos.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_tipos_ts",
+      "target": "domain_jogo_index_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "domain_jogo_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_tipos_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_jogo_test_criarpartidateste"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_jogo_test_buscarporcor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L258",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_jogo_test_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L128",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_jogo_test_analista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L245",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_jogo_test_resultado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L213",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_jogo_test_partidacommensagem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L124",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_jogo_test_azul"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L240",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_jogo_test_partidafinalizada"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L259",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_jogo_test_vermelho"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L219",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_jogo_test_vermelhoatualizado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L223",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_jogo_test_ts",
+      "target": "jogo_jogo_test_estatisticas"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "domain/jogo/jogo.test.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "jogo_jogo_test_criarpartidateste",
+      "target": "jogo_partida_criarpartidapoc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L188",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_jogo_test_partidacommensagem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_criarpartidateste"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "jogo_mensagens_test_criarpartidateste",
+      "target": "jogo_partida_criarpartidapoc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_buscarporcor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L227",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L212",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_analista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L175",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_resultado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_conteudo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L215",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_partidacommensagem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L205",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_analistaatualizado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_tresegundosdepois"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L133",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_zerosegundosdepois"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L228",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_azul"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L189",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_azulatualizado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L193",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_partidacommensagemanalista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L230",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_partidaatualizada"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L231",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_vermelhoatualizado"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "domain_jogo_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_tipos_partida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_tipos_mensagempartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_tipos_resultadovalidacao"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_possuicaracteresrepetidosemsequencia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_validarmensagem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_registrarmensagem"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "jogo_mensagens_validarmensagem",
+      "target": "jogo_mensagens_possuicaracteresrepetidosemsequencia"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "domain_jogo_mmr_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "jogo_mmr_calcularajustepdranalista"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "jogo_mmr_calcularajustepdrjogador"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "jogo_mmr_calcularbonusparticipacao"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "domain_jogo_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "jogo_mmr_test_criarjogadorbase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "jogo_mmr_test_jogador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L150",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "jogo_mmr_test_humanodisfarce"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "jogo_mmr_test_iadisfarce"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "jogo_mmr_test_humanonormal"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_ts",
+      "target": "domain_jogo_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_ts",
+      "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_ts",
+      "target": "jogo_mmr_calcularajustepdranalista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_ts",
+      "target": "jogo_mmr_calcularajustepdrjogador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_ts",
+      "target": "jogo_mmr_calcularbonusparticipacao"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "domain_jogo_mmr_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_mmr_calcularajustepdranalista"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_mmr_calcularajustepdrjogador"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_mmr_calcularbonusparticipacao"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_test_ts",
+      "target": "jogo_partida_test_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_test_ts",
+      "target": "jogo_partida_test_cores"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_test_ts",
+      "target": "jogo_partida_test_analista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L150",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_test_ts",
+      "target": "jogo_partida_test_original"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.test.ts",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_test_ts",
+      "target": "jogo_partida_test_reiniciada"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_ts",
+      "target": "domain_jogo_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_ts",
+      "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_ts",
+      "target": "jogo_tipos_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_ts",
+      "target": "jogo_partida_criarpartidapoc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_ts",
+      "target": "jogo_partida_buscarparticipanteobrigatorio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_ts",
+      "target": "jogo_partida_calcularsegundosrestantes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_ts",
+      "target": "jogo_partida_avancarparaveredito"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_ts",
+      "target": "jogo_partida_atualizarfaseportempo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L128",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_ts",
+      "target": "jogo_partida_reiniciarpartida"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L129",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "jogo_partida_reiniciarpartida",
+      "target": "jogo_partida_criarpartidapoc"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "jogo_veredito_test_criarpartidateste",
+      "target": "jogo_partida_criarpartidapoc"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "jogo_partida_atualizarfaseportempo",
+      "target": "jogo_partida_calcularsegundosrestantes"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "jogo_partida_atualizarfaseportempo",
+      "target": "jogo_partida_avancarparaveredito"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_fasepartida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_papelparticipante"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_corparticipante"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_naturezaparticipante"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_controleparticipante"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_missaosecreta"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_vereditoanalista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_vereditoanalistaparcial"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_mensagempartida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_resultadovalidacao"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_resultadovalidacaoveredito"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L65",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_resultadoparticipante"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/tipos.ts",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_tipos_ts",
+      "target": "jogo_tipos_resultadopartida"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "domain_jogo_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_tipos_naturezaparticipante"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_tipos_vereditoanalista"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_tipos_vereditoanalistaparcial"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_tipos_partida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_tipos_resultadovalidacaoveredito"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_tipos_resultadopartida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_test_criarpartidateste"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_test_buscarporcor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L214",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_test_resultado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L199",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_test_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L209",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_test_finalizada"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L200",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_test_azul"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L215",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_test_resultadoazul"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L167",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_test_vermelho"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L176",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_test_resultadovermelho"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L203",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_test_dataenvio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_buscarporcor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_missaofoicumprida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_obternaturezaoposta"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_validarvereditoanalista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_finalizarpartidacomveredito"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L90",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_finalizarpartidaportempoveredito"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_veredito_calcularresultadopartida"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "jogo_veredito_finalizarpartidaportempoveredito",
+      "target": "jogo_veredito_buscarporcor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "jogo_veredito_calcularresultadopartida",
+      "target": "jogo_veredito_buscarporcor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L101",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "jogo_veredito_finalizarpartidaportempoveredito",
+      "target": "jogo_veredito_obternaturezaoposta"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "jogo_veredito_finalizarpartidacomveredito",
+      "target": "jogo_veredito_validarvereditoanalista"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L98",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "jogo_veredito_finalizarpartidaportempoveredito",
+      "target": "jogo_veredito_finalizarpartidacomveredito"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/use-mobile.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hooks_use_mobile_ts",
+      "target": "hooks_use_mobile_useismobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_supabase_ts",
+      "target": "lib_supabase_supabase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/utils.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_utils_ts",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_index_ts",
+      "target": "lib_ia_provedor_fake_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_index_ts",
+      "target": "ia_provedor_fake_provedorfakeia"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_index_ts",
+      "target": "lib_ia_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_index_ts",
+      "target": "ia_tipos_provedoria"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_index_ts",
+      "target": "ia_index_provedores_ia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/index.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_index_ts",
+      "target": "ia_index_obterprovedoria"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-ia.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_ia_test_ts",
+      "target": "lib_ia_index_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-ia.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_ia_test_ts",
+      "target": "ia_index_obterprovedoria"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_test_ts",
+      "target": "lib_ia_provedor_fake_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_test_ts",
+      "target": "ia_provedor_fake_provedorfakeia"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.test.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_test_ts",
+      "target": "lib_ia_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.test.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_test_ts",
+      "target": "ia_tipos_solicitarrespostaiaparametros"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.test.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_test_ts",
+      "target": "ia_provedor_fake_test_criarparametrosbase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.test.ts",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_test_ts",
+      "target": "ia_provedor_fake_test_parametros"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_ts",
+      "target": "lib_ia_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_ts",
+      "target": "ia_tipos_provedoria"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_ts",
+      "target": "ia_tipos_respostaia"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_ts",
+      "target": "ia_tipos_solicitarrespostaiaparametros"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_ts",
+      "target": "ia_provedor_fake_respostas_convencer_humano"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_ts",
+      "target": "ia_provedor_fake_respostas_convencer_ia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_ts",
+      "target": "ia_provedor_fake_obterultimamensagemdoanalista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_ts",
+      "target": "ia_provedor_fake_escolherresposta"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_ts",
+      "target": "ia_provedor_fake_limitarresposta"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_fake_ts",
+      "target": "ia_provedor_fake_provedorfakeia"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-fake.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ia_provedor_fake_escolherresposta",
+      "target": "ia_provedor_fake_obterultimamensagemdoanalista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/provedor-ia.test.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_provedor_ia_test_ts",
+      "target": "ia_provedor_ia_test_provedor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/tipos.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_tipos_ts",
+      "target": "ia_tipos_solicitarrespostaiaparametros"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/tipos.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_tipos_ts",
+      "target": "ia_tipos_respostaia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/ia/tipos.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_ia_tipos_ts",
+      "target": "ia_tipos_provedoria"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/game.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_game_ts",
+      "target": "types_game_userprofile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/game.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_game_ts",
+      "target": "types_game_matchstatus"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/game.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_game_ts",
+      "target": "types_game_playertype"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/game.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_game_ts",
+      "target": "types_game_playerrole"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/game.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_game_ts",
+      "target": "types_game_playercolor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/game.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_game_ts",
+      "target": "types_game_secretmission"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/game.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_game_ts",
+      "target": "types_game_match"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/game.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_game_ts",
+      "target": "types_game_matchparticipant"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/game.ts",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "types_game_ts",
+      "target": "types_game_chatmessage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRD.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "prd_game_of_turing",
+      "target": "prd_analista"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRD.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "prd_game_of_turing",
+      "target": "prd_jogador"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRD.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "prd_game_of_turing",
+      "target": "prd_llm"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "prd_game_of_turing",
+      "target": "readme_nextjs"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "prd_game_of_turing",
+      "target": "readme_supabase"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRD.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "prd_game_of_turing",
+      "target": "prd_strategy_pattern"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "adr_0001",
+      "target": "prd_game_of_turing"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "walkthrough_renomeacao",
+      "target": "prd_jogador"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "domain_jogo_mmr",
+      "target": "prd_pdr"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "domain_jogo_mmr",
+      "target": "prd_mmr"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRD.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "prd_strategy_pattern",
+      "target": "readme_groq"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "adr_0002",
+      "target": "prd_strategy_pattern"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "domain_jogo_partida",
+      "target": "domain_jogo_tipos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "domain_jogo_mensagens",
+      "target": "domain_jogo_tipos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "walkthrough_renomeacao",
+      "target": "domain_jogo_tipos"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "f82d6386f601157dbb458223202387da8253553e"
+}
