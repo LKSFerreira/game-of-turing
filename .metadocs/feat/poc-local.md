@@ -8,7 +8,7 @@ Validar o loop central do Game of Turing sem autenticação, banco ou realtime.
 
 - Lobby local sem login.
 - Partida como Analista.
-- Interlocutores Azul e Vermelho controlados por IA fake/local.
+- Jogadores Azul e Vermelho controlados por IA fake/local.
 - Chat com limite de caracteres e cooldown.
 - Timer e avanço manual para veredito.
 - Veredito para Azul e Vermelho.

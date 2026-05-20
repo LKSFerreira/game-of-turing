@@ -72,28 +72,35 @@ Regras centrais da experiência:
 O projeto separa experiência, regras e infraestrutura para evitar que o jogo fique preso à UI ou a um provider específico.
 
 ```text
-app/
-  api/ai/              # Rotas server-side para integração com IA
-  game/[matchId]/      # Experiência de partida
-  layout.tsx           # Layout raiz
-  page.tsx             # Entrada/lobby
+src/
+  app/
+    api/ai/            # Rotas server-side para integração com IA
+    game/[matchId]/    # Experiência de partida
+    layout.tsx         # Layout raiz
+    page.tsx           # Entrada/lobby
 
-components/
-  ui/                  # Componentes reutilizáveis de interface
-  Auth.tsx             # Autenticação mock da PoC atual
+  components/
+    ui/                # Componentes reutilizáveis de interface
+    Auth.tsx           # Autenticação mock da PoC atual
 
-domain/jogo/
-  constantes.ts        # Parâmetros centrais da partida
-  estatisticas.ts      # Métricas de participação
-  mensagens.ts         # Validação e regras de mensagem
-  mmr.ts               # Cálculo de PDR visível e MMR oculto
-  partida.ts           # Criação e transição de partida
-  tipos.ts             # Tipos do domínio
-  veredito.ts          # Avaliação de vitória e derrota
+  domain/jogo/
+    constantes.ts      # Parâmetros centrais da partida
+    estatisticas.ts    # Métricas de participação
+    mensagens.ts       # Validação e regras de mensagem
+    mmr.ts             # Cálculo de PDR visível e MMR oculto
+    partida.ts         # Criação e transição de partida
+    tipos.ts           # Tipos do domínio
+    veredito.ts        # Avaliação de vitória e derrota
 
-lib/
-  supabase.ts          # Cliente Supabase reservado para milestones futuras
-  utils.ts             # Utilitários compartilhados
+  hooks/               # Custom hooks React
+  lib/
+    ia/                # Providers de IA com Strategy Pattern
+    utils.ts           # Utilitários compartilhados
+  types/               # Definições de tipos globais
+
+test/
+  domain/jogo/         # Testes unitários do motor de regras
+  lib/ia/              # Testes unitários dos providers de IA
 
 .metadocs/
   roadmap.md           # Fonte de verdade da evolução do produto

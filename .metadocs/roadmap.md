@@ -73,7 +73,7 @@ Escopo:
 Critérios de aceite:
 
 - [x] O jogador inicia a partida sem passar por login.
-- [x] O Analista conversa com pelo menos um interlocutor IA.
+- [x] O Analista conversa com pelo menos um jogador IA.
 - [x] O jogo chega até veredito e revelação.
 - [x] Regras principais têm testes unitários.
 
@@ -89,7 +89,7 @@ Módulos:
 - [x] Papéis e missões.
 - [x] Validação de mensagem: mínimo 15, máximo 150 e bloqueio de mais de 5 caracteres repetidos em sequência.
 - [x] Cooldown.
-- [x] Orçamento total de caracteres dos interlocutores.
+- [x] Orçamento total de caracteres dos jogadores.
 - [x] Fases: lobby, em andamento, veredito, revelação e encerrada.
 - [x] Cálculo de vitória.
 - [x] Cálculo inicial de PDR visível e MMR oculto.
@@ -131,7 +131,7 @@ Escopo:
 
 - [ ] Supabase Auth.
 - [ ] Login, cadastro, logout e sessão persistente.
-- [ ] Perfil com username, MMR de Analista, MMR de Interlocutor e saldo cosmético.
+- [ ] Perfil com username, MMR de Analista, MMR de Jogador e saldo cosmético.
 - [ ] Termos de uso no cadastro.
 - [ ] Tratamento claro de erros.
 
@@ -176,7 +176,7 @@ Escopo:
 Critérios de aceite:
 
 - [ ] Dois humanos participam da mesma partida.
-- [ ] IA completa mesa quando faltar interlocutor.
+- [ ] IA completa mesa quando faltar jogador.
 - [ ] Chat e veredito sincronizam entre clientes.
 
 ## M7 - Métricas, Ranking e Balanceamento
