@@ -18,6 +18,17 @@
       "components_ui_select_tsx",
       "lib_utils_cn",
       "lib_utils_ts",
+      "src_app_layout_tsx",
+      "src_components_ui_avatar_tsx",
+      "src_components_ui_badge_tsx",
+      "src_components_ui_button_tsx",
+      "src_components_ui_card_tsx",
+      "src_components_ui_dialog_tsx",
+      "src_components_ui_input_tsx",
+      "src_components_ui_label_tsx",
+      "src_components_ui_scroll_area_tsx",
+      "src_components_ui_select_tsx",
+      "src_lib_utils_ts",
       "ui_avatar_avatar",
       "ui_avatar_avatarbadge",
       "ui_avatar_avatarfallback",
@@ -60,21 +71,16 @@
       "ui_select_selectvalue"
     ],
     "1": [
-      "domain_jogo_estatisticas_test_ts",
       "domain_jogo_estatisticas_ts",
+      "domain_jogo_index_ts",
       "domain_jogo_mmr_test_ts",
       "domain_jogo_mmr_ts",
       "domain_jogo_tipos_ts",
+      "domain_jogo_veredito_test_ts",
       "domain_jogo_veredito_ts",
       "jogo_estatisticas_calcularestatisticasparticipante",
       "jogo_estatisticas_contarpalavras",
       "jogo_estatisticas_estatisticasparticipante",
-      "jogo_estatisticas_test_analista",
-      "jogo_estatisticas_test_azul",
-      "jogo_estatisticas_test_buscarporcor",
-      "jogo_estatisticas_test_partida",
-      "jogo_estatisticas_test_stats",
-      "jogo_estatisticas_test_vermelho",
       "jogo_mmr_calcularajustepdranalista",
       "jogo_mmr_calcularajustepdrjogador",
       "jogo_mmr_calcularbonusparticipacao",
@@ -106,6 +112,7 @@
       "jogo_veredito_obternaturezaoposta",
       "jogo_veredito_test_azul",
       "jogo_veredito_test_buscarporcor",
+      "jogo_veredito_test_criarpartidateste",
       "jogo_veredito_test_dataenvio",
       "jogo_veredito_test_finalizada",
       "jogo_veredito_test_partida",
@@ -113,9 +120,59 @@
       "jogo_veredito_test_resultadoazul",
       "jogo_veredito_test_resultadovermelho",
       "jogo_veredito_test_vermelho",
-      "jogo_veredito_validarvereditoanalista"
+      "jogo_veredito_validarvereditoanalista",
+      "src_domain_jogo_estatisticas_ts",
+      "src_domain_jogo_mmr_ts",
+      "src_domain_jogo_tipos_ts",
+      "test_domain_jogo_mmr_test_ts"
     ],
     "2": [
+      "game_of_turing_prd_10_comunica\u00e7\u00e3o_em_tempo_real_supabase_realtime",
+      "game_of_turing_prd_1_vis\u00e3o_geral_do_produto",
+      "game_of_turing_prd_2_objetivos",
+      "game_of_turing_prd_3_1_pap\u00e9is_condi\u00e7\u00f5es_de_vit\u00f3ria_e_composi\u00e7\u00e3o_da_mesa",
+      "game_of_turing_prd_3_2_din\u00e2mica_e_regras_da_partida_o_jogo_do_engano",
+      "game_of_turing_prd_3_3_sistema_de_rank_pdr_e_mmr",
+      "game_of_turing_prd_3_regras_de_neg\u00f3cio_e_mec\u00e2nicas_core",
+      "game_of_turing_prd_4_design_e_experi\u00eancia_do_usu\u00e1rio_ui_ux_e_monetiza\u00e7\u00e3o",
+      "game_of_turing_prd_5_1_front_end_cliente",
+      "game_of_turing_prd_5_2_back_end_e_infraestrutura_serverless_baas",
+      "game_of_turing_prd_5_3_integra\u00e7\u00e3o_com_ia_arquitetura_flex\u00edvel",
+      "game_of_turing_prd_5_requisitos_funcionais_e_t\u00e9cnicos_escopo_inicial",
+      "game_of_turing_prd_6_desafios_e_riscos_a_mitigar",
+      "game_of_turing_prd_7_roteiro_de_desenvolvimento_poc_e_mvp",
+      "game_of_turing_prd_8_1_stack_tecnol\u00f3gica_confirmada",
+      "game_of_turing_prd_8_2_monitoramento_de_custos_e_seguran\u00e7a",
+      "game_of_turing_prd_8_3_analytics_e_telemetria_avaliando_o_tcc_mvp",
+      "game_of_turing_prd_8_4_privacidade_e_termos_de_uso_legal",
+      "game_of_turing_prd_8_requisitos_de_entrega_e_opera\u00e7\u00e3o_infraestrutura_devops_e_m\u00e9tricas",
+      "game_of_turing_prd_9_arquitetura_de_dados_inicial_supabase_postgresql",
+      "game_of_turing_prd_a_grande_revela\u00e7\u00e3o_tela_final",
+      "game_of_turing_prd_a_sala_dimensional_gameplay",
+      "game_of_turing_prd_comportamento_do_llm_quebra_de_personagem",
+      "game_of_turing_prd_custos_de_api_do_llm",
+      "game_of_turing_prd_fase_1_proof_of_concept_poc_a_valida\u00e7\u00e3o_da_divers\u00e3o",
+      "game_of_turing_prd_fase_2_minimum_viable_product_mvp_o_jogo_funcional",
+      "game_of_turing_prd_fase_3_vers\u00e3o_alpha_o_jogo_gamificado",
+      "game_of_turing_prd_fim_do_tempo_fase_de_veredito_15_segundos",
+      "game_of_turing_prd_in\u00edcio_da_partida_timer_de_3_minutos",
+      "game_of_turing_prd_limita\u00e7\u00f5es_anti_spam_e_anti_bot_crucial",
+      "game_of_turing_prd_mec\u00e2nica_do_chat_e_gest\u00e3o_de_recursos",
+      "game_of_turing_prd_o_analista_sempre_1_por_mesa",
+      "game_of_turing_prd_o_rank_das_ias_leaderboard_p\u00fablico",
+      "game_of_turing_prd_os_jogadores_jogador_azul_e_jogador_vermelho",
+      "game_of_turing_prd_passe_de_batalha_mensal_e_loja_monetiza\u00e7\u00e3o_cosm\u00e9tica",
+      "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "game_of_turing_prd_rank_de_analista_foco_em_dedu\u00e7\u00e3o",
+      "game_of_turing_prd_rank_de_jogador_foco_em_atua\u00e7\u00e3o_engano",
+      "game_of_turing_prd_tabela_match_participants_participantes_da_partida",
+      "game_of_turing_prd_tabela_matches_partidas",
+      "game_of_turing_prd_tabela_messages_log_do_chat",
+      "game_of_turing_prd_tabela_users_perfis",
+      "game_of_turing_prd_valida\u00e7\u00e3o_de_perfil_humano_anti_bot",
+      "prd_md"
+    ],
+    "3": [
       "ai_route_corporequisicaoia",
       "ai_route_iscorjogador",
       "ai_route_ismissaosecreta",
@@ -140,9 +197,100 @@
       "lib_ia_provedor_fake_test_ts",
       "lib_ia_provedor_fake_ts",
       "lib_ia_provedor_ia_test_ts",
-      "lib_ia_tipos_ts"
+      "lib_ia_tipos_ts",
+      "src_app_api_ai_route_ts",
+      "src_lib_ia_index_ts",
+      "src_lib_ia_provedor_fake_ts",
+      "src_lib_ia_tipos_ts",
+      "test_lib_ia_provedor_fake_test_ts",
+      "test_lib_ia_provedor_ia_test_ts"
     ],
-    "3": [
+    "4": [
+      "domain_jogo_constantes_ts",
+      "domain_jogo_mensagens_test_ts",
+      "domain_jogo_mensagens_ts",
+      "domain_jogo_partida_ts",
+      "jogo_mensagens_possuicaracteresrepetidosemsequencia",
+      "jogo_mensagens_registrarmensagem",
+      "jogo_mensagens_test_analista",
+      "jogo_mensagens_test_analistaatualizado",
+      "jogo_mensagens_test_azul",
+      "jogo_mensagens_test_azulatualizado",
+      "jogo_mensagens_test_buscarporcor",
+      "jogo_mensagens_test_conteudo",
+      "jogo_mensagens_test_criarpartidateste",
+      "jogo_mensagens_test_partida",
+      "jogo_mensagens_test_partidaatualizada",
+      "jogo_mensagens_test_partidacommensagem",
+      "jogo_mensagens_test_partidacommensagemanalista",
+      "jogo_mensagens_test_resultado",
+      "jogo_mensagens_test_tresegundosdepois",
+      "jogo_mensagens_test_vermelhoatualizado",
+      "jogo_mensagens_test_zerosegundosdepois",
+      "jogo_mensagens_validarmensagem",
+      "jogo_partida_atualizarfaseportempo",
+      "jogo_partida_avancarparaveredito",
+      "jogo_partida_buscarparticipanteobrigatorio",
+      "jogo_partida_calcularsegundosrestantes",
+      "jogo_partida_criarpartidapoc",
+      "jogo_partida_reiniciarpartida",
+      "src_domain_jogo_constantes_ts",
+      "src_domain_jogo_partida_ts"
+    ],
+    "5": [
+      "game_of_turing_readme_ambiente",
+      "game_of_turing_readme_arquitetura",
+      "game_of_turing_readme_codeblock_1",
+      "game_of_turing_readme_codeblock_2",
+      "game_of_turing_readme_codeblock_3",
+      "game_of_turing_readme_codeblock_4",
+      "game_of_turing_readme_codeblock_5",
+      "game_of_turing_readme_codeblock_6",
+      "game_of_turing_readme_codeblock_7",
+      "game_of_turing_readme_come\u00e7ando",
+      "game_of_turing_readme_como_o_jogo_funciona",
+      "game_of_turing_readme_dire\u00e7\u00e3o_de_produto",
+      "game_of_turing_readme_documenta\u00e7\u00e3o",
+      "game_of_turing_readme_estado_atual",
+      "game_of_turing_readme_execu\u00e7\u00e3o_local",
+      "game_of_turing_readme_game_of_turing",
+      "game_of_turing_readme_instala\u00e7\u00e3o",
+      "game_of_turing_readme_pr\u00e9_requisitos",
+      "game_of_turing_readme_qualidade_e_seguran\u00e7a",
+      "game_of_turing_readme_roadmap",
+      "game_of_turing_readme_scripts",
+      "game_of_turing_readme_stack",
+      "game_of_turing_readme_vari\u00e1veis_de_ambiente",
+      "game_of_turing_readme_vis\u00e3o_geral",
+      "readme_md"
+    ],
+    "6": [
+      "adr_0001",
+      "adr_0001_gameplay_primeiro",
+      "adr_0001_gameplay_primeiro_consequ\u00eancias",
+      "adr_0001_gameplay_primeiro_contexto",
+      "adr_0001_gameplay_primeiro_decis\u00e3o",
+      "adr_0001_gameplay_primeiro_status",
+      "adr_0002",
+      "adr_0002_ia_com_strategy_pattern_consequ\u00eancias",
+      "adr_0002_ia_com_strategy_pattern_contexto",
+      "adr_0002_ia_com_strategy_pattern_decis\u00e3o",
+      "adr_0002_ia_com_strategy_pattern_status",
+      "lib_ia_strategy",
+      "metadocs_adr_0001_gameplay_primeiro_md",
+      "metadocs_adr_0002_ia_com_strategy_pattern_md",
+      "prd_analista",
+      "prd_analyst",
+      "prd_game_of_turing",
+      "prd_llm",
+      "prd_player",
+      "prd_strategy_pattern",
+      "prd_word_budget",
+      "readme_groq",
+      "readme_nextjs",
+      "readme_supabase"
+    ],
+    "7": [
       "app_page_botaomodo",
       "app_page_home",
       "app_page_modos_lobby",
@@ -154,6 +302,10 @@
       "app_page_tsx",
       "components_auth_auth",
       "components_auth_tsx",
+      "prd_secret_mission",
+      "src_app_page_tsx",
+      "src_components_auth_tsx",
+      "src_types_game_ts",
       "types_game_chatmessage",
       "types_game_match",
       "types_game_matchparticipant",
@@ -161,51 +313,10 @@
       "types_game_playercolor",
       "types_game_playerrole",
       "types_game_playertype",
-      "types_game_secretmission",
       "types_game_ts",
       "types_game_userprofile"
     ],
-    "4": [
-      "domain_jogo_mensagens_ts",
-      "jogo_mensagens_possuicaracteresrepetidosemsequencia",
-      "jogo_mensagens_registrarmensagem",
-      "jogo_mensagens_test_analista",
-      "jogo_mensagens_test_analistaatualizado",
-      "jogo_mensagens_test_azul",
-      "jogo_mensagens_test_azulatualizado",
-      "jogo_mensagens_test_buscarporcor",
-      "jogo_mensagens_test_conteudo",
-      "jogo_mensagens_test_partida",
-      "jogo_mensagens_test_partidaatualizada",
-      "jogo_mensagens_test_partidacommensagem",
-      "jogo_mensagens_test_partidacommensagemanalista",
-      "jogo_mensagens_test_resultado",
-      "jogo_mensagens_test_tresegundosdepois",
-      "jogo_mensagens_test_vermelhoatualizado",
-      "jogo_mensagens_test_zerosegundosdepois",
-      "jogo_mensagens_validarmensagem"
-    ],
-    "5": [
-      "domain_jogo_index_ts",
-      "domain_jogo_jogo_test_ts",
-      "domain_jogo_partida_test_ts",
-      "jogo_jogo_test_analista",
-      "jogo_jogo_test_azul",
-      "jogo_jogo_test_buscarporcor",
-      "jogo_jogo_test_estatisticas",
-      "jogo_jogo_test_partida",
-      "jogo_jogo_test_partidacommensagem",
-      "jogo_jogo_test_partidafinalizada",
-      "jogo_jogo_test_resultado",
-      "jogo_jogo_test_vermelho",
-      "jogo_jogo_test_vermelhoatualizado",
-      "jogo_partida_test_analista",
-      "jogo_partida_test_cores",
-      "jogo_partida_test_original",
-      "jogo_partida_test_partida",
-      "jogo_partida_test_reiniciada"
-    ],
-    "6": [
+    "8": [
       "app_game_matchid_page_tsx",
       "matchid_page_botaonatureza",
       "matchid_page_buscarparticipanteporcor",
@@ -222,165 +333,251 @@
       "matchid_page_obterrotulopapel",
       "matchid_page_participantevisivel",
       "matchid_page_respostaapiia",
-      "matchid_page_rotulos_cor"
+      "matchid_page_rotulos_cor",
+      "src_app_game_matchid_page_tsx"
     ],
-    "7": [
-      "adr_0001",
-      "adr_0002",
+    "9": [
+      "metadocs_roadmap_documenta\u00e7\u00e3o_obrigat\u00f3ria",
+      "metadocs_roadmap_estado_atual",
+      "metadocs_roadmap_m0_saneamento_e_roadmap",
+      "metadocs_roadmap_m1_poc_jog\u00e1vel_sem_auth",
+      "metadocs_roadmap_m2_motor_de_regras",
+      "metadocs_roadmap_m3_mvp_local_completo",
+      "metadocs_roadmap_m4_autentica\u00e7\u00e3o_e_perfis",
+      "metadocs_roadmap_m5_persist\u00eancia_e_banco",
+      "metadocs_roadmap_m6_multiplayer_e_tempo_real",
+      "metadocs_roadmap_m7_m\u00e9tricas_ranking_e_balanceamento",
+      "metadocs_roadmap_m8_alpha_saas",
+      "metadocs_roadmap_md",
+      "metadocs_roadmap_norte_do_projeto",
+      "metadocs_roadmap_princ\u00edpios_de_arquitetura",
+      "metadocs_roadmap_problemas_identificados",
+      "metadocs_roadmap_pr\u00f3xima_entrega",
+      "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "metadocs_roadmap_testes_e_qualidade"
+    ],
+    "10": [
       "domain_jogo_mensagens",
       "domain_jogo_partida",
       "domain_jogo_tipos",
-      "prd_analista",
-      "prd_game_of_turing",
+      "metadocs_walkthrough_renomeacao_jogador_md",
       "prd_jogador",
-      "prd_llm",
-      "prd_strategy_pattern",
-      "readme_groq",
-      "readme_nextjs",
-      "readme_supabase",
-      "walkthrough_renomeacao"
+      "readme_architecture",
+      "walkthrough_reestruturacao_diretorios",
+      "walkthrough_renomeacao",
+      "walkthrough_renomeacao_jogador",
+      "walkthrough_renomeacao_jogador_1_dom\u00ednio_domain_jogo",
+      "walkthrough_renomeacao_jogador_2_testes_unit\u00e1rios_domain_jogo_jogo_test_ts",
+      "walkthrough_renomeacao_jogador_3_apis_e_interfaces_app",
+      "walkthrough_renomeacao_jogador_4_banco_de_dados_e_nomenclaturas_em_ingl\u00eas",
+      "walkthrough_renomeacao_jogador_5_documenta\u00e7\u00e3o_geral",
+      "walkthrough_renomeacao_jogador_codeblock_1",
+      "walkthrough_renomeacao_jogador_contexto_da_demanda",
+      "walkthrough_renomeacao_jogador_mudan\u00e7as_realizadas",
+      "walkthrough_renomeacao_jogador_valida\u00e7\u00e3o_executada"
     ],
-    "8": [
-      "domain_jogo_constantes_ts",
-      "domain_jogo_partida_ts",
+    "11": [
+      "domain_jogo_estatisticas_test_ts",
+      "domain_jogo_partida_test_ts",
+      "jogo_estatisticas_test_analista",
+      "jogo_estatisticas_test_azul",
+      "jogo_estatisticas_test_buscarporcor",
       "jogo_estatisticas_test_criarpartidateste",
-      "jogo_jogo_test_criarpartidateste",
-      "jogo_mensagens_test_criarpartidateste",
-      "jogo_partida_atualizarfaseportempo",
-      "jogo_partida_avancarparaveredito",
-      "jogo_partida_buscarparticipanteobrigatorio",
-      "jogo_partida_calcularsegundosrestantes",
-      "jogo_partida_criarpartidapoc",
-      "jogo_partida_reiniciarpartida",
-      "jogo_veredito_test_criarpartidateste"
+      "jogo_estatisticas_test_partida",
+      "jogo_estatisticas_test_stats",
+      "jogo_estatisticas_test_vermelho",
+      "jogo_partida_test_analista",
+      "jogo_partida_test_cores",
+      "jogo_partida_test_original",
+      "jogo_partida_test_partida",
+      "jogo_partida_test_reiniciada",
+      "src_domain_jogo_index_ts",
+      "test_domain_jogo_estatisticas_test_ts",
+      "test_domain_jogo_partida_test_ts"
     ],
-    "9": [
+    "12": [
+      "domain_jogo_jogo_test_ts",
+      "jogo_jogo_test_analista",
+      "jogo_jogo_test_azul",
+      "jogo_jogo_test_buscarporcor",
+      "jogo_jogo_test_criarpartidateste",
+      "jogo_jogo_test_estatisticas",
+      "jogo_jogo_test_partida",
+      "jogo_jogo_test_partidacommensagem",
+      "jogo_jogo_test_partidafinalizada",
+      "jogo_jogo_test_resultado",
+      "jogo_jogo_test_vermelho",
+      "jogo_jogo_test_vermelhoatualizado",
+      "test_domain_jogo_jogo_test_ts"
+    ],
+    "13": [
+      "metadocs_walkthrough_reestruturacao_diretorios_md",
+      "walkthrough_reestruturacao_diretorios_1_movimenta\u00e7\u00e3o_de_pastas_de_produ\u00e7\u00e3o",
+      "walkthrough_reestruturacao_diretorios_2_isolamento_de_su\u00edtes_de_testes",
+      "walkthrough_reestruturacao_diretorios_3_ajuste_de_configura\u00e7\u00f5es_de_compila\u00e7\u00e3o_e_aliases",
+      "walkthrough_reestruturacao_diretorios_4_refatora\u00e7\u00e3o_de_imports_nos_testes",
+      "walkthrough_reestruturacao_diretorios_5_ajuste_visual_do_sagu\u00e3o_ui",
+      "walkthrough_reestruturacao_diretorios_codeblock_1",
+      "walkthrough_reestruturacao_diretorios_contexto_da_demanda",
+      "walkthrough_reestruturacao_diretorios_mudan\u00e7as_realizadas",
+      "walkthrough_reestruturacao_diretorios_valida\u00e7\u00e3o_executada",
+      "walkthrough_reestruturacao_diretorios_walkthrough_reestrutura\u00e7\u00e3o_de_diret\u00f3rios_src_e_test"
+    ],
+    "14": [
+      "metadocs_walkthrough_correcao_inconsistencias_e_problemas_md",
+      "walkthrough_correcao_inconsistencias_e_problemas_1_roadmap_metadocs_roadmap_md",
+      "walkthrough_correcao_inconsistencias_e_problemas_2_testes_unit\u00e1rios_domain_jogo_veredito_test_ts",
+      "walkthrough_correcao_inconsistencias_e_problemas_codeblock_1",
+      "walkthrough_correcao_inconsistencias_e_problemas_codeblock_2",
+      "walkthrough_correcao_inconsistencias_e_problemas_contexto_da_demanda",
+      "walkthrough_correcao_inconsistencias_e_problemas_mudan\u00e7as_realizadas",
+      "walkthrough_correcao_inconsistencias_e_problemas_valida\u00e7\u00e3o_executada",
+      "walkthrough_correcao_inconsistencias_e_problemas_walkthrough_corre\u00e7\u00e3o_de_inconsist\u00eancias_e_problemas"
+    ],
+    "15": [
+      "feat_poc_local_entregas",
+      "feat_poc_local_feature_poc_local_jog\u00e1vel",
+      "feat_poc_local_fora_de_escopo",
+      "feat_poc_local_objetivo",
+      "feat_poc_local_valida\u00e7\u00e3o",
+      "metadocs_feat_poc_local_md"
+    ],
+    "16": [
       "domain_jogo_mmr",
+      "domain_jogo_veredito",
       "prd_mmr",
       "prd_pdr"
     ],
-    "10": [
+    "17": [
       "hooks_use_mobile_ts",
-      "hooks_use_mobile_useismobile"
+      "hooks_use_mobile_useismobile",
+      "src_hooks_use_mobile_ts"
     ],
-    "11": [
+    "18": [
       "lib_supabase_supabase",
-      "lib_supabase_ts"
+      "lib_supabase_ts",
+      "src_lib_supabase_ts"
+    ],
+    "19": [
+      "metadocs_historico_entradas",
+      "metadocs_historico_hist\u00f3rico",
+      "metadocs_historico_md"
+    ],
+    "20": [
+      "readme_stack"
     ]
   },
   "cohesion": {
-    "0": 0.06578947368421052,
-    "1": 0.058001397624039136,
-    "2": 0.13333333333333333,
-    "3": 0.10476190476190476,
-    "4": 0.11764705882352941,
-    "5": 0.1111111111111111,
-    "6": 0.15441176470588236,
-    "7": 0.14285714285714285,
-    "8": 0.21212121212121213,
-    "9": 0.6666666666666666,
-    "10": 1.0,
-    "11": 1.0
+    "0": 0.07594381035996488,
+    "1": 0.09154437456324249,
+    "2": 0.045454545454545456,
+    "3": 0.16129032258064516,
+    "4": 0.12413793103448276,
+    "5": 0.08,
+    "6": 0.08333333333333333,
+    "7": 0.15942028985507245,
+    "8": 0.24183006535947713,
+    "9": 0.1111111111111111,
+    "10": 0.1111111111111111,
+    "11": 0.19117647058823528,
+    "12": 0.28205128205128205,
+    "13": 0.18181818181818182,
+    "14": 0.2222222222222222,
+    "15": 0.3333333333333333,
+    "16": 0.6666666666666666,
+    "17": 0.6666666666666666,
+    "18": 0.6666666666666666,
+    "19": 0.6666666666666666,
+    "20": 1.0
   },
   "gods": [
     {
       "id": "lib_utils_cn",
       "label": "cn()",
-      "degree": 46
+      "degree": 57
     },
     {
       "id": "jogo_tipos_participantepartida",
       "label": "ParticipantePartida",
-      "degree": 9
+      "degree": 18
+    },
+    {
+      "id": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "label": "Roadmap Robusto: Game of Turing",
+      "degree": 17
     },
     {
       "id": "jogo_tipos_partida",
       "label": "Partida",
-      "degree": 7
+      "degree": 14
+    },
+    {
+      "id": "game_of_turing_readme_game_of_turing",
+      "label": "Game of Turing",
+      "degree": 13
+    },
+    {
+      "id": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "label": "Product Requirements Document (PRD): Game of Turing",
+      "degree": 11
     },
     {
       "id": "prd_game_of_turing",
       "label": "Game of Turing",
-      "degree": 7
+      "degree": 10
     },
     {
       "id": "matchid_page_gameroom",
       "label": "GameRoom()",
-      "degree": 6
+      "degree": 7
     },
     {
       "id": "jogo_partida_criarpartidapoc",
       "label": "criarPartidaPoc()",
-      "degree": 6
-    },
-    {
-      "id": "ai_route_validarcorporequisicao",
-      "label": "validarCorpoRequisicao()",
-      "degree": 4
-    },
-    {
-      "id": "ui_button_button",
-      "label": "Button()",
-      "degree": 4
-    },
-    {
-      "id": "jogo_veredito_finalizarpartidaportempoveredito",
-      "label": "finalizarPartidaPorTempoVeredito()",
-      "degree": 4
+      "degree": 7
     },
     {
       "id": "ia_index_obterprovedoria",
       "label": "obterProvedorIa()",
-      "degree": 4
+      "degree": 7
     }
   ],
   "surprises": [
     {
-      "source": "GameRoom()",
-      "target": "calcularResultadoPartida()",
-      "source_files": [
-        "app/game/[matchId]/page.tsx",
-        "domain/jogo/veredito.ts"
-      ],
-      "confidence": "INFERRED",
-      "relation": "calls",
-      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
-    },
-    {
-      "source": "Game of Turing",
-      "target": "Supabase",
-      "source_files": [
-        "PRD.md",
-        "README.md"
-      ],
-      "confidence": "INFERRED",
-      "relation": "implements",
-      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `Supabase` unexpectedly reaches hub `Game of Turing`"
-    },
-    {
-      "source": "domain/jogo/mmr.ts",
+      "source": "Verdict Logic",
       "target": "PDR (Pontua\u00e7\u00e3o Vis\u00edvel)",
       "source_files": [
-        "domain/jogo/mmr.ts",
+        "src/domain/jogo/veredito.ts",
         "PRD.md"
       ],
-      "confidence": "EXTRACTED",
+      "confidence": "INFERRED",
       "relation": "implements",
-      "why": "crosses file types (doc \u2194 code); connects across different repos/directories"
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 code); connects across different repos/directories"
     },
     {
-      "source": "domain/jogo/mmr.ts",
+      "source": "Verdict Logic",
       "target": "MMR (Pontua\u00e7\u00e3o Oculta)",
       "source_files": [
-        "domain/jogo/mmr.ts",
+        "src/domain/jogo/veredito.ts",
         "PRD.md"
       ],
-      "confidence": "EXTRACTED",
+      "confidence": "INFERRED",
       "relation": "implements",
-      "why": "crosses file types (doc \u2194 code); connects across different repos/directories"
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 code); connects across different repos/directories"
     },
     {
-      "source": "Walkthrough: Renomea\u00e7\u00e3o de Interlocutor para Jogador",
+      "source": "Project Architecture",
+      "target": "domain/jogo/tipos.ts",
+      "source_files": [
+        "README.md",
+        "domain/jogo/tipos.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (code \u2194 doc); connects across different repos/directories; peripheral node `Project Architecture` unexpectedly reaches hub `domain/jogo/tipos.ts`"
+    },
+    {
+      "source": "Renaming Interlocutor to Player",
       "target": "domain/jogo/tipos.ts",
       "source_files": [
         ".metadocs/walkthrough/renomeacao_jogador.md",
@@ -388,11 +585,22 @@
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "crosses file types (code \u2194 doc); connects across different repos/directories"
+      "why": "crosses file types (code \u2194 doc); connects across different repos/directories; peripheral node `Renaming Interlocutor to Player` unexpectedly reaches hub `domain/jogo/tipos.ts`"
+    },
+    {
+      "source": "AI Strategy Implementation",
+      "target": "ADR 0002 - IA Com Strategy Pattern",
+      "source_files": [
+        "src/lib/ia/provedor-ia.ts",
+        ".metadocs/adr/0002-ia-com-strategy-pattern.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "implements",
+      "why": "crosses file types (doc \u2194 code); connects across different repos/directories; peripheral node `AI Strategy Implementation` unexpectedly reaches hub `ADR 0002 - IA Com Strategy Pattern`"
     }
   ],
   "tokens": {
-    "input": 12938,
-    "output": 2021
+    "input": 15631,
+    "output": 2918
   }
 }
