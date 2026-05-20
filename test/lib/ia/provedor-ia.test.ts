@@ -1,8 +1,13 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { obterProvedorIa } from '@/lib/ia';
 
-describe('obterProvedorIa', () => {
+// Reset do cache do orquestrador entre testes
+afterEach(() => {
+  vi.unstubAllEnvs();
+});
+
+describe('obterProvedorIa (compatibilidade retroativa)', () => {
   it('retorna provedor fake por padrão quando nenhum nome é passado', () => {
     const provedor = obterProvedorIa(undefined);
 
@@ -31,5 +36,23 @@ describe('obterProvedorIa', () => {
     const provedor = obterProvedorIa();
 
     expect(typeof provedor.gerarResposta).toBe('function');
+  });
+
+  it('retorna provedor groq quando solicitado', () => {
+    const provedor = obterProvedorIa('groq');
+
+    expect(provedor.nome).toBe('groq');
+  });
+
+  it('retorna provedor openrouter quando solicitado', () => {
+    const provedor = obterProvedorIa('openrouter');
+
+    expect(provedor.nome).toBe('openrouter');
+  });
+
+  it('retorna provedor gemini quando solicitado', () => {
+    const provedor = obterProvedorIa('gemini');
+
+    expect(provedor.nome).toBe('gemini');
   });
 });

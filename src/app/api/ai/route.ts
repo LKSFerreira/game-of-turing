@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { LIMITE_MAXIMO_CARACTERES_MENSAGEM } from '@/domain/jogo';
 import type { CorParticipante, MensagemPartida, MissaoSecreta } from '@/domain/jogo';
-import { obterProvedorIa } from '@/lib/ia';
+import { ErroIndisponibilidadeIa, obterOrquestrador } from '@/lib/ia';
 
 type CorpoRequisicaoIa = {
   cor: Extract<CorParticipante, 'azul' | 'vermelho'>;
@@ -47,14 +47,21 @@ function validarCorpoRequisicao(corpo: unknown): CorpoRequisicaoIa {
 export async function POST(requisicao: NextRequest) {
   try {
     const corpo = validarCorpoRequisicao(await requisicao.json());
-    const provedorIa = obterProvedorIa();
-    const resposta = await provedorIa.gerarResposta({
+    const orquestrador = obterOrquestrador();
+    const resposta = await orquestrador.gerarResposta({
       ...corpo,
       limiteCaracteres: LIMITE_MAXIMO_CARACTERES_MENSAGEM,
     });
 
     return NextResponse.json(resposta);
   } catch (erro) {
+    if (erro instanceof ErroIndisponibilidadeIa) {
+      return NextResponse.json(
+        { error: erro.message, codigo: 'INDISPONIBILIDADE_IA' },
+        { status: 503 },
+      );
+    }
+
     const mensagem = erro instanceof Error ? erro.message : 'Erro desconhecido ao acionar IA.';
 
     return NextResponse.json({ error: mensagem }, { status: 400 });
