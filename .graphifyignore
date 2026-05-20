@@ -13,18 +13,10 @@ coverage/
 *
 
 # Permitir pastas do projeto
-!app/
-!app/**
-!components/
-!components/**
-!domain/
-!domain/**
-!hooks/
-!hooks/**
-!lib/
-!lib/**
-!types/
-!types/**
+!src/
+!src/**
+!test/
+!test/**
 !.metadocs/
 !.metadocs/**
 
@@ -32,3 +24,5 @@ coverage/
 !README.md
 !PRD.md
 !database_schema.sql
+
+.obsidian/
