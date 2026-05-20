@@ -5,8 +5,8 @@ import {
   criarPartidaPoc,
   registrarMensagem,
   buscarParticipanteObrigatorio,
-} from './index';
-import type { ParticipantePartida, Partida } from './tipos';
+} from '@/domain/jogo';
+import type { ParticipantePartida, Partida } from '@/domain/jogo/tipos';
 
 const DATA_BASE = '2026-05-16T12:00:00.000Z';
 

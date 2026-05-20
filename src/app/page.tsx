@@ -336,11 +336,8 @@ export default function Home() {
         </div>
 
         <aside className="col-start-1 row-span-2 row-start-1 border-r border-slate-800 bg-[#070913]/95">
-          <div className="border-b border-slate-800 px-5 py-5">
-            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cyan-300">
-              Modos
-            </div>
-            <h1 className="mt-2 font-mono text-2xl font-black uppercase tracking-widest text-slate-100">
+          <div className="flex h-16 items-center border-b border-slate-800 px-5">
+            <h1 className="font-mono text-lg font-black uppercase tracking-widest text-slate-100">
               Saguão
             </h1>
           </div>

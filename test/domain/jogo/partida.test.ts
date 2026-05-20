@@ -11,7 +11,7 @@ import {
   calcularSegundosRestantes,
   criarPartidaPoc,
   reiniciarPartida,
-} from './index';
+} from '@/domain/jogo';
 
 const DATA_BASE = '2026-05-16T12:00:00.000Z';
 

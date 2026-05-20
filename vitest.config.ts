@@ -4,11 +4,11 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   resolve: {
     alias: {
-      '@': resolve(__dirname, '.'),
+      '@': resolve(__dirname, './src'),
     },
   },
   test: {
-    include: ['**/*.test.ts'],
+    include: ['test/**/*.test.ts'],
     exclude: ['node_modules', '.next'],
   },
 });

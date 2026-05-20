@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { obterProvedorIa } from './index';
+import { obterProvedorIa } from '@/lib/ia';
 
 describe('obterProvedorIa', () => {
   it('retorna provedor fake por padrão quando nenhum nome é passado', () => {

@@ -750,8 +750,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                   Objetivo imediato
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-200">
-                  Faça perguntas aos jogadores e decida se Azul e Vermelho são humanos ou
-                  IAs. Nesta PoC, ambos respondem por provider fake local.
+                  Faça perguntas aos jogadores Azul e Vermelho e decida se são humanos ou IAs.
                 </p>
               </div>
 

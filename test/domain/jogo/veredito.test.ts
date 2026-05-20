@@ -8,8 +8,8 @@ import {
   finalizarPartidaPorTempoVeredito,
   registrarMensagem,
   validarVereditoAnalista,
-} from './index';
-import type { ParticipantePartida, Partida } from './tipos';
+} from '@/domain/jogo';
+import type { ParticipantePartida, Partida } from '@/domain/jogo/tipos';
 
 const DATA_BASE = '2026-05-16T12:00:00.000Z';
 const DATA_ENCERRAMENTO = '2026-05-16T12:01:00.000Z';
@@ -201,7 +201,7 @@ describe('calcularResultadoPartida — bônus de participação', () => {
 
     for (let indice = 0; indice < 6; indice++) {
       const dataEnvio = new Date(new Date(DATA_BASE).getTime() + (indice + 1) * 5000).toISOString();
-      const msg = `Mensagem número ${String(indice + 1).padStart(2, '0')} de teste`;
+      const msg = `Mensagem longa de teste número ${String(indice + 1).padStart(2, '0')} contendo caracteres suficientes para atingir a meta necessária do orçamento.`;
       partida = registrarMensagem(partida, azul, msg, dataEnvio);
       azul = buscarPorCor(partida, 'azul');
     }

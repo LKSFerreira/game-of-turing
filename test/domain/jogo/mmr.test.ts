@@ -6,8 +6,8 @@ import {
   calcularAjustePdrAnalista,
   calcularAjustePdrJogador,
   calcularBonusParticipacao,
-} from './mmr';
-import type { ParticipantePartida } from './tipos';
+} from '@/domain/jogo/mmr';
+import type { ParticipantePartida } from '@/domain/jogo/tipos';
 
 function criarJogadorBase(overrides: Partial<ParticipantePartida> = {}): ParticipantePartida {
   return {

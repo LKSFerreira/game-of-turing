@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { provedorFakeIa } from './provedor-fake';
-import type { SolicitarRespostaIaParametros } from './tipos';
+import { provedorFakeIa } from '@/lib/ia/provedor-fake';
+import type { SolicitarRespostaIaParametros } from '@/lib/ia/tipos';
 
 function criarParametrosBase(
   overrides: Partial<SolicitarRespostaIaParametros> = {},
