@@ -160,7 +160,11 @@ http://localhost:3000
 | Variável | Obrigatória | Uso |
 | --- | --- | --- |
 | `APP_URL` | Não | URL base da aplicação local ou deploy |
-| `AI_PROVIDER` | Sim | Define o provider de IA: `fake`, `groq`, `openrouter` ou `gemini` |
+| `AI_PROVIDER` | Dev local | Define um único provider de IA: `fake`, `groq`, `openrouter` ou `gemini` |
+| `AI_PROVIDERS` | Produção | Providers ativos separados por vírgula, em ordem de prioridade (ex: `gemini,groq,openrouter`). Tem prioridade sobre `AI_PROVIDER` |
+| `AI_PROVIDER_WEIGHTS` | Não | Pesos dos providers na mesma ordem de `AI_PROVIDERS` (ex: `5,3,2`). Defaults internos se omitido |
+| `AI_CIRCUIT_BREAKER_THRESHOLD` | Não | Falhas consecutivas para abrir o circuit breaker (default: `3`) |
+| `AI_CIRCUIT_BREAKER_RECOVERY_MS` | Não | Tempo em ms antes de tentar um provider bloqueado (default: `30000`) |
 | `GROQ_API_KEY` | Apenas com Groq | Chave server-side para Groq |
 | `OPENROUTER_API_KEY` | Apenas com OpenRouter | Chave server-side para OpenRouter |
 | `GEMINI_API_KEY` | Apenas com Gemini | Chave server-side para Gemini |

@@ -103,6 +103,40 @@ Critérios de aceite:
 
 Status: concluída.
 
+## M3.5 - IA Agêntica Multi-Provider
+
+Objetivo: fazer a IA jogar de verdade como jogador, com prompt engineering robusto e infraestrutura resiliente de múltiplos providers funcionando simultaneamente.
+
+Orquestrador:
+
+- [x] Seleção de provider por Weighted Round-Robin com pesos configuráveis.
+- [x] Circuit breaker por provider (fechado → aberto → meio-aberto).
+- [x] Health check passivo com rastreamento de latência e taxa de erro.
+- [x] Fallback automático sequencial por peso quando um provider falha.
+- [x] Encerramento gracioso quando todos os providers falham: erro tipado, partida sem vencedor, sem prejuízo ao rank.
+
+Providers:
+
+- [x] Gemini (Gemini 2.5 Flash via SDK oficial) — prioridade máxima, peso 5.
+- [x] Groq (Llama 3.3 70B) — segunda prioridade, peso 3.
+- [x] OpenRouter (Llama 3.3 70B Instruct) — terceira prioridade, peso 2.
+- [x] Configuração de providers ativos e pesos via variáveis de ambiente server-side.
+
+Prompt Engineering Agêntico:
+
+- [x] System prompt com persona, regras do jogo, missão secreta e instruções de blefe.
+- [x] Contexto multi-turno com histórico das últimas 20 mensagens.
+- [x] Calibração de tom para naturalidade e cadência humana.
+- [x] Validação de limite de caracteres na resposta.
+
+Critérios de aceite:
+
+- [x] Testes unitários do orquestrador, prompt agêntico e providers.
+- [x] `typecheck`, `lint` e `test` passam.
+- [x] ADR documentando a decisão arquitetural.
+
+Status: concluída.
+
 ## M3 - MVP Local Completo
 
 Objetivo: ter um jogo completo antes de autenticação e banco.
