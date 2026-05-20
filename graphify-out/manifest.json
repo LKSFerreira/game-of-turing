@@ -4,189 +4,54 @@
     "ast_hash": "2930405865a8fbf16e9047df11e8abe6",
     "semantic_hash": "2930405865a8fbf16e9047df11e8abe6"
   },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\app\\layout.tsx": {
-    "mtime": 1778860353.1585307,
-    "ast_hash": "d36213b06a84e1f84d8bbecdc4cf60d5",
-    "semantic_hash": "d36213b06a84e1f84d8bbecdc4cf60d5"
+  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\PRD.md": {
+    "mtime": 1778981877.2696357,
+    "ast_hash": "b215290e2c51da44d5a52ca4e31a7f8b",
+    "semantic_hash": ""
   },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\app\\page.tsx": {
-    "mtime": 1778982557.9102077,
-    "ast_hash": "33fd048cb05b05b83ed6cadc626e6c67",
-    "semantic_hash": "33fd048cb05b05b83ed6cadc626e6c67"
+  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\README.md": {
+    "mtime": 1778981867.6899486,
+    "ast_hash": "7bd18926c00ffcb77d112c87d395cfd6",
+    "semantic_hash": ""
   },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\app\\api\\ai\\route.ts": {
-    "mtime": 1778981840.4534678,
-    "ast_hash": "8813b2281cdefe654c5bca0ef091d4fd",
-    "semantic_hash": "8813b2281cdefe654c5bca0ef091d4fd"
+  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\.metadocs\\historico.md": {
+    "mtime": 1779239520.193504,
+    "ast_hash": "49ea92be403319877911a020ee97a4af",
+    "semantic_hash": ""
   },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\app\\game\\[matchId]\\page.tsx": {
-    "mtime": 1778983974.6191916,
-    "ast_hash": "b1c31eaec1e92b6635419680276341b6",
-    "semantic_hash": "b1c31eaec1e92b6635419680276341b6"
+  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\.metadocs\\roadmap.md": {
+    "mtime": 1779235687.0198967,
+    "ast_hash": "20ce1049ec40ed8546da08f5b4bd6743",
+    "semantic_hash": ""
   },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\components\\Auth.tsx": {
-    "mtime": 1778974376.80376,
-    "ast_hash": "275b427bd025068d430f0dfdf59381f0",
-    "semantic_hash": "275b427bd025068d430f0dfdf59381f0"
+  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\.metadocs\\adr\\0001-gameplay-primeiro.md": {
+    "mtime": 1778862419.8012547,
+    "ast_hash": "24984948a3cf88a02936968d012db386",
+    "semantic_hash": ""
   },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\components\\ui\\avatar.tsx": {
-    "mtime": 1778860353.330043,
-    "ast_hash": "8b41492907a73176027427a3f0fd2302",
-    "semantic_hash": "8b41492907a73176027427a3f0fd2302"
+  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\.metadocs\\adr\\0002-ia-com-strategy-pattern.md": {
+    "mtime": 1778862428.209561,
+    "ast_hash": "184293fe33933c56694c8d2b69edb06a",
+    "semantic_hash": ""
   },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\components\\ui\\badge.tsx": {
-    "mtime": 1778860353.3458514,
-    "ast_hash": "e4ec840217040d5630ee6ed7213a1d72",
-    "semantic_hash": "e4ec840217040d5630ee6ed7213a1d72"
+  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\.metadocs\\feat\\poc-local.md": {
+    "mtime": 1778862438.8903165,
+    "ast_hash": "dc1f6dd9e30cefce0a2b4b113f6a8321",
+    "semantic_hash": ""
   },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\components\\ui\\button.tsx": {
-    "mtime": 1778860353.3143947,
-    "ast_hash": "705bf3552a39e0c722665ccbecb30654",
-    "semantic_hash": "705bf3552a39e0c722665ccbecb30654"
+  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\.metadocs\\walkthrough\\renomeacao_jogador.md": {
+    "mtime": 1778981911.2210007,
+    "ast_hash": "7d51eed1b483b46a4e47fd663a27e436",
+    "semantic_hash": ""
   },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\components\\ui\\card.tsx": {
-    "mtime": 1778860353.3618495,
-    "ast_hash": "77a10bd948ca424972a28e704a3df604",
-    "semantic_hash": "77a10bd948ca424972a28e704a3df604"
+  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\.metadocs\\walkthrough\\correcao_inconsistencias_e_problemas.md": {
+    "mtime": 1779236117.2914312,
+    "ast_hash": "f977708901bf511554c0e8a0658fdef7",
+    "semantic_hash": ""
   },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\components\\ui\\dialog.tsx": {
-    "mtime": 1778860353.3458514,
-    "ast_hash": "d9618a63d34473ec512321cc12d43692",
-    "semantic_hash": "d9618a63d34473ec512321cc12d43692"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\components\\ui\\input.tsx": {
-    "mtime": 1778860353.3618495,
-    "ast_hash": "0607b02d99a2e92f9509223f36ccc6ec",
-    "semantic_hash": "0607b02d99a2e92f9509223f36ccc6ec"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\components\\ui\\label.tsx": {
-    "mtime": 1778860353.330043,
-    "ast_hash": "a70440da86bfc6a07f15197cca48cb08",
-    "semantic_hash": "a70440da86bfc6a07f15197cca48cb08"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\components\\ui\\scroll-area.tsx": {
-    "mtime": 1778860353.377525,
-    "ast_hash": "ac8fc719d0fd13c77c933474827337da",
-    "semantic_hash": "ac8fc719d0fd13c77c933474827337da"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\components\\ui\\select.tsx": {
-    "mtime": 1778860353.3143947,
-    "ast_hash": "ab95f478cb74d1906b07425c15b124cc",
-    "semantic_hash": "ab95f478cb74d1906b07425c15b124cc"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\constantes.ts": {
-    "mtime": 1778981796.572448,
-    "ast_hash": "92bbd900dedcd0ec4ae26e8fc99cd0c9",
-    "semantic_hash": "92bbd900dedcd0ec4ae26e8fc99cd0c9"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\estatisticas.test.ts": {
-    "mtime": 1778984197.8639216,
-    "ast_hash": "aa9980988aaee03350c1acec3386c4fb",
-    "semantic_hash": "aa9980988aaee03350c1acec3386c4fb"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\estatisticas.ts": {
-    "mtime": 1778981811.8811812,
-    "ast_hash": "65d26ee0faa5addc66d442ed7fff704e",
-    "semantic_hash": "65d26ee0faa5addc66d442ed7fff704e"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\index.ts": {
-    "mtime": 1778862595.8793375,
-    "ast_hash": "1d1147eb08bf2ab2c96238bbcd5c5586",
-    "semantic_hash": "1d1147eb08bf2ab2c96238bbcd5c5586"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\jogo.test.ts": {
-    "mtime": 1778983904.1031413,
-    "ast_hash": "e422bbdb5d7fbad62d27d80aae7e5dee",
-    "semantic_hash": "e422bbdb5d7fbad62d27d80aae7e5dee"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\mensagens.test.ts": {
-    "mtime": 1778985065.6482925,
-    "ast_hash": "2f7eca2e5adffb998af1a8fa86e1b724",
-    "semantic_hash": "2f7eca2e5adffb998af1a8fa86e1b724"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\mensagens.ts": {
-    "mtime": 1778981807.488204,
-    "ast_hash": "7e62079a5328bc909cc7759b57354c67",
-    "semantic_hash": "7e62079a5328bc909cc7759b57354c67"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\mmr.test.ts": {
-    "mtime": 1778984225.019109,
-    "ast_hash": "4db6a055bcf8e88ded92e8684a0469d4",
-    "semantic_hash": "4db6a055bcf8e88ded92e8684a0469d4"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\mmr.ts": {
-    "mtime": 1778981816.421509,
-    "ast_hash": "797e031442324fdb116a9202e665f6c4",
-    "semantic_hash": "797e031442324fdb116a9202e665f6c4"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\partida.test.ts": {
-    "mtime": 1778984140.8066869,
-    "ast_hash": "c2dc58e8727ef105fb09385739136d1f",
-    "semantic_hash": "c2dc58e8727ef105fb09385739136d1f"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\partida.ts": {
-    "mtime": 1778981801.7684486,
-    "ast_hash": "8998b7d733225f38d2bfa5a4619ab86c",
-    "semantic_hash": "8998b7d733225f38d2bfa5a4619ab86c"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\tipos.ts": {
-    "mtime": 1778981792.127523,
-    "ast_hash": "b5b854dd5d7b8bb3e677f98344927d7f",
-    "semantic_hash": "b5b854dd5d7b8bb3e677f98344927d7f"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\veredito.test.ts": {
-    "mtime": 1778984177.1453424,
-    "ast_hash": "642d0601d5f2092a32ece71cffd9a273",
-    "semantic_hash": "642d0601d5f2092a32ece71cffd9a273"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\domain\\jogo\\veredito.ts": {
-    "mtime": 1778983889.9260619,
-    "ast_hash": "e998cfeb3e83e726f71c01648ec08d3f",
-    "semantic_hash": "e998cfeb3e83e726f71c01648ec08d3f"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\hooks\\use-mobile.ts": {
-    "mtime": 1778860353.223734,
-    "ast_hash": "aa3a24eb716405941c5950d96e415c06",
-    "semantic_hash": "aa3a24eb716405941c5950d96e415c06"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\lib\\supabase.ts": {
-    "mtime": 1778860353.092509,
-    "ast_hash": "0e520c3cce2a1b61828e0debe4e855cb",
-    "semantic_hash": "0e520c3cce2a1b61828e0debe4e855cb"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\lib\\utils.ts": {
-    "mtime": 1778860353.1101413,
-    "ast_hash": "5a6fd53fdcf2be529e9cc0b718fde352",
-    "semantic_hash": "5a6fd53fdcf2be529e9cc0b718fde352"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\lib\\ia\\index.ts": {
-    "mtime": 1778948228.8655896,
-    "ast_hash": "e9e4a3fe19e118cab28ec9844612f0f8",
-    "semantic_hash": "e9e4a3fe19e118cab28ec9844612f0f8"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\lib\\ia\\provedor-fake.test.ts": {
-    "mtime": 1778984241.9662433,
-    "ast_hash": "cfa406b8f602fa25e2096a589971d89f",
-    "semantic_hash": "cfa406b8f602fa25e2096a589971d89f"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\lib\\ia\\provedor-fake.ts": {
-    "mtime": 1778948228.864031,
-    "ast_hash": "c70102c935d031b17ef60c726a329744",
-    "semantic_hash": "c70102c935d031b17ef60c726a329744"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\lib\\ia\\provedor-ia.test.ts": {
-    "mtime": 1778984251.6124384,
-    "ast_hash": "bfee85bc9ca8a752b48666c824e3ad77",
-    "semantic_hash": "bfee85bc9ca8a752b48666c824e3ad77"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\lib\\ia\\tipos.ts": {
-    "mtime": 1778948228.862513,
-    "ast_hash": "ec56a6d0b791bfbe9c1aaa60f6b5ddb9",
-    "semantic_hash": "ec56a6d0b791bfbe9c1aaa60f6b5ddb9"
-  },
-  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\types\\game.ts": {
-    "mtime": 1778981853.4622583,
-    "ast_hash": "8cc3a7c2514fb8cc2ac7104f41ca73a5",
-    "semantic_hash": "8cc3a7c2514fb8cc2ac7104f41ca73a5"
+  "C:\\Users\\LKSFERREIRA\\Documents\\GitHub\\game-of-turing\\.metadocs\\walkthrough\\reestruturacao_diretorios.md": {
+    "mtime": 1779239514.9945226,
+    "ast_hash": "f9bfa8c5d866e2dcc42480ad0a165f18",
+    "semantic_hash": ""
   }
 }

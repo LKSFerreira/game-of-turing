@@ -4,6 +4,1248 @@
   "graph": {},
   "nodes": [
     {
+      "label": "PRD.md",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L1",
+      "id": "prd_md",
+      "community": 8,
+      "norm_label": "prd.md"
+    },
+    {
+      "label": "Product Requirements Document (PRD): Game of Turing",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L1",
+      "id": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "community": 8,
+      "norm_label": "product requirements document (prd): game of turing"
+    },
+    {
+      "label": "1. Vis\u00e3o Geral do Produto",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L3",
+      "id": "game_of_turing_prd_1_vis\u00e3o_geral_do_produto",
+      "community": 8,
+      "norm_label": "1. visao geral do produto"
+    },
+    {
+      "label": "2. Objetivos",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L11",
+      "id": "game_of_turing_prd_2_objetivos",
+      "community": 8,
+      "norm_label": "2. objetivos"
+    },
+    {
+      "label": "3. Regras de Neg\u00f3cio e Mec\u00e2nicas Core",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L18",
+      "id": "game_of_turing_prd_3_regras_de_neg\u00f3cio_e_mec\u00e2nicas_core",
+      "community": 14,
+      "norm_label": "3. regras de negocio e mecanicas core"
+    },
+    {
+      "label": "3.1. Pap\u00e9is, Condi\u00e7\u00f5es de Vit\u00f3ria e Composi\u00e7\u00e3o da Mesa",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L20",
+      "id": "game_of_turing_prd_3_1_pap\u00e9is_condi\u00e7\u00f5es_de_vit\u00f3ria_e_composi\u00e7\u00e3o_da_mesa",
+      "community": 14,
+      "norm_label": "3.1. papeis, condicoes de vitoria e composicao da mesa"
+    },
+    {
+      "label": "O Analista (Sempre 1 por mesa):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L24",
+      "id": "game_of_turing_prd_o_analista_sempre_1_por_mesa",
+      "community": 14,
+      "norm_label": "o analista (sempre 1 por mesa):"
+    },
+    {
+      "label": "Os Jogadores (Jogador Azul e Jogador Vermelho):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L30",
+      "id": "game_of_turing_prd_os_jogadores_jogador_azul_e_jogador_vermelho",
+      "community": 14,
+      "norm_label": "os jogadores (jogador azul e jogador vermelho):"
+    },
+    {
+      "label": "3.2. Din\u00e2mica e Regras da Partida (O Jogo do Engano)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L39",
+      "id": "game_of_turing_prd_3_2_din\u00e2mica_e_regras_da_partida_o_jogo_do_engano",
+      "community": 14,
+      "norm_label": "3.2. dinamica e regras da partida (o jogo do engano)"
+    },
+    {
+      "label": "In\u00edcio da Partida (Timer de 3 Minutos):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L45",
+      "id": "game_of_turing_prd_in\u00edcio_da_partida_timer_de_3_minutos",
+      "community": 14,
+      "norm_label": "inicio da partida (timer de 3 minutos):"
+    },
+    {
+      "label": "Mec\u00e2nica do Chat e Gest\u00e3o de Recursos:",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L49",
+      "id": "game_of_turing_prd_mec\u00e2nica_do_chat_e_gest\u00e3o_de_recursos",
+      "community": 14,
+      "norm_label": "mecanica do chat e gestao de recursos:"
+    },
+    {
+      "label": "Limita\u00e7\u00f5es Anti-Spam e Anti-Bot (Crucial):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L54",
+      "id": "game_of_turing_prd_limita\u00e7\u00f5es_anti_spam_e_anti_bot_crucial",
+      "community": 14,
+      "norm_label": "limitacoes anti-spam e anti-bot (crucial):"
+    },
+    {
+      "label": "Fim do Tempo (Fase de Veredito - 15 Segundos):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L62",
+      "id": "game_of_turing_prd_fim_do_tempo_fase_de_veredito_15_segundos",
+      "community": 14,
+      "norm_label": "fim do tempo (fase de veredito - 15 segundos):"
+    },
+    {
+      "label": "A Grande Revela\u00e7\u00e3o (Tela Final):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L69",
+      "id": "game_of_turing_prd_a_grande_revela\u00e7\u00e3o_tela_final",
+      "community": 14,
+      "norm_label": "a grande revelacao (tela final):"
+    },
+    {
+      "label": "3.3. Sistema de Rank, PDR e MMR",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L76",
+      "id": "game_of_turing_prd_3_3_sistema_de_rank_pdr_e_mmr",
+      "community": 14,
+      "norm_label": "3.3. sistema de rank, pdr e mmr"
+    },
+    {
+      "label": "Rank de Analista (Foco em Dedu\u00e7\u00e3o):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L83",
+      "id": "game_of_turing_prd_rank_de_analista_foco_em_dedu\u00e7\u00e3o",
+      "community": 14,
+      "norm_label": "rank de analista (foco em deducao):"
+    },
+    {
+      "label": "Rank de Jogador (Foco em Atua\u00e7\u00e3o/Engano):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L88",
+      "id": "game_of_turing_prd_rank_de_jogador_foco_em_atua\u00e7\u00e3o_engano",
+      "community": 14,
+      "norm_label": "rank de jogador (foco em atuacao/engano):"
+    },
+    {
+      "label": "O \"Rank das IAs\" (Leaderboard P\u00fablico):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L96",
+      "id": "game_of_turing_prd_o_rank_das_ias_leaderboard_p\u00fablico",
+      "community": 14,
+      "norm_label": "o \"rank das ias\" (leaderboard publico):"
+    },
+    {
+      "label": "4. Design e Experi\u00eancia do Usu\u00e1rio (UI/UX) e Monetiza\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L101",
+      "id": "game_of_turing_prd_4_design_e_experi\u00eancia_do_usu\u00e1rio_ui_ux_e_monetiza\u00e7\u00e3o",
+      "community": 8,
+      "norm_label": "4. design e experiencia do usuario (ui/ux) e monetizacao"
+    },
+    {
+      "label": "A Sala Dimensional (Gameplay):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L106",
+      "id": "game_of_turing_prd_a_sala_dimensional_gameplay",
+      "community": 8,
+      "norm_label": "a sala dimensional (gameplay):"
+    },
+    {
+      "label": "Passe de Batalha Mensal e Loja (Monetiza\u00e7\u00e3o Cosm\u00e9tica):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L112",
+      "id": "game_of_turing_prd_passe_de_batalha_mensal_e_loja_monetiza\u00e7\u00e3o_cosm\u00e9tica",
+      "community": 8,
+      "norm_label": "passe de batalha mensal e loja (monetizacao cosmetica):"
+    },
+    {
+      "label": "5. Requisitos Funcionais e T\u00e9cnicos (Escopo Inicial)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L117",
+      "id": "game_of_turing_prd_5_requisitos_funcionais_e_t\u00e9cnicos_escopo_inicial",
+      "community": 8,
+      "norm_label": "5. requisitos funcionais e tecnicos (escopo inicial)"
+    },
+    {
+      "label": "5.1. Front-end (Cliente)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L119",
+      "id": "game_of_turing_prd_5_1_front_end_cliente",
+      "community": 8,
+      "norm_label": "5.1. front-end (cliente)"
+    },
+    {
+      "label": "5.2. Back-end e Infraestrutura (Serverless/BaaS)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L126",
+      "id": "game_of_turing_prd_5_2_back_end_e_infraestrutura_serverless_baas",
+      "community": 8,
+      "norm_label": "5.2. back-end e infraestrutura (serverless/baas)"
+    },
+    {
+      "label": "5.3. Integra\u00e7\u00e3o com IA (Arquitetura Flex\u00edvel)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L133",
+      "id": "game_of_turing_prd_5_3_integra\u00e7\u00e3o_com_ia_arquitetura_flex\u00edvel",
+      "community": 8,
+      "norm_label": "5.3. integracao com ia (arquitetura flexivel)"
+    },
+    {
+      "label": "6. Desafios e Riscos (A Mitigar)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L140",
+      "id": "game_of_turing_prd_6_desafios_e_riscos_a_mitigar",
+      "community": 8,
+      "norm_label": "6. desafios e riscos (a mitigar)"
+    },
+    {
+      "label": "Valida\u00e7\u00e3o de Perfil Humano (Anti-Bot):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L142",
+      "id": "game_of_turing_prd_valida\u00e7\u00e3o_de_perfil_humano_anti_bot",
+      "community": 8,
+      "norm_label": "validacao de perfil humano (anti-bot):"
+    },
+    {
+      "label": "Custos de API do LLM:",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L146",
+      "id": "game_of_turing_prd_custos_de_api_do_llm",
+      "community": 8,
+      "norm_label": "custos de api do llm:"
+    },
+    {
+      "label": "Comportamento do LLM (Quebra de Personagem):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L150",
+      "id": "game_of_turing_prd_comportamento_do_llm_quebra_de_personagem",
+      "community": 8,
+      "norm_label": "comportamento do llm (quebra de personagem):"
+    },
+    {
+      "label": "7. Roteiro de Desenvolvimento (POC e MVP)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L154",
+      "id": "game_of_turing_prd_7_roteiro_de_desenvolvimento_poc_e_mvp",
+      "community": 8,
+      "norm_label": "7. roteiro de desenvolvimento (poc e mvp)"
+    },
+    {
+      "label": "Fase 1: Proof of Concept (PoC) - \"A Valida\u00e7\u00e3o da Divers\u00e3o\"",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L158",
+      "id": "game_of_turing_prd_fase_1_proof_of_concept_poc_a_valida\u00e7\u00e3o_da_divers\u00e3o",
+      "community": 8,
+      "norm_label": "fase 1: proof of concept (poc) - \"a validacao da diversao\""
+    },
+    {
+      "label": "Fase 2: Minimum Viable Product (MVP) - \"O Jogo Funcional\"",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L165",
+      "id": "game_of_turing_prd_fase_2_minimum_viable_product_mvp_o_jogo_funcional",
+      "community": 8,
+      "norm_label": "fase 2: minimum viable product (mvp) - \"o jogo funcional\""
+    },
+    {
+      "label": "Fase 3: Vers\u00e3o Alpha (O Jogo Gamificado)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L177",
+      "id": "game_of_turing_prd_fase_3_vers\u00e3o_alpha_o_jogo_gamificado",
+      "community": 8,
+      "norm_label": "fase 3: versao alpha (o jogo gamificado)"
+    },
+    {
+      "label": "8. Requisitos de Entrega e Opera\u00e7\u00e3o (Infraestrutura, DevOps e M\u00e9tricas)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L186",
+      "id": "game_of_turing_prd_8_requisitos_de_entrega_e_opera\u00e7\u00e3o_infraestrutura_devops_e_m\u00e9tricas",
+      "community": 8,
+      "norm_label": "8. requisitos de entrega e operacao (infraestrutura, devops e metricas)"
+    },
+    {
+      "label": "8.1. Stack Tecnol\u00f3gica Confirmada",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L190",
+      "id": "game_of_turing_prd_8_1_stack_tecnol\u00f3gica_confirmada",
+      "community": 8,
+      "norm_label": "8.1. stack tecnologica confirmada"
+    },
+    {
+      "label": "8.2. Monitoramento de Custos e Seguran\u00e7a",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L196",
+      "id": "game_of_turing_prd_8_2_monitoramento_de_custos_e_seguran\u00e7a",
+      "community": 8,
+      "norm_label": "8.2. monitoramento de custos e seguranca"
+    },
+    {
+      "label": "8.3. Analytics e Telemetria (Avaliando o TCC/MVP)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L201",
+      "id": "game_of_turing_prd_8_3_analytics_e_telemetria_avaliando_o_tcc_mvp",
+      "community": 8,
+      "norm_label": "8.3. analytics e telemetria (avaliando o tcc/mvp)"
+    },
+    {
+      "label": "8.4. Privacidade e Termos de Uso (Legal)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L209",
+      "id": "game_of_turing_prd_8_4_privacidade_e_termos_de_uso_legal",
+      "community": 8,
+      "norm_label": "8.4. privacidade e termos de uso (legal)"
+    },
+    {
+      "label": "9. Arquitetura de Dados Inicial (Supabase / PostgreSQL)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L216",
+      "id": "game_of_turing_prd_9_arquitetura_de_dados_inicial_supabase_postgresql",
+      "community": 8,
+      "norm_label": "9. arquitetura de dados inicial (supabase / postgresql)"
+    },
+    {
+      "label": "Tabela `users` (Perfis):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L220",
+      "id": "game_of_turing_prd_tabela_users_perfis",
+      "community": 8,
+      "norm_label": "tabela `users` (perfis):"
+    },
+    {
+      "label": "Tabela `matches` (Partidas):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L227",
+      "id": "game_of_turing_prd_tabela_matches_partidas",
+      "community": 8,
+      "norm_label": "tabela `matches` (partidas):"
+    },
+    {
+      "label": "Tabela `match_participants` (Participantes da Partida):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L233",
+      "id": "game_of_turing_prd_tabela_match_participants_participantes_da_partida",
+      "community": 8,
+      "norm_label": "tabela `match_participants` (participantes da partida):"
+    },
+    {
+      "label": "Tabela `messages` (Log do Chat):",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L240",
+      "id": "game_of_turing_prd_tabela_messages_log_do_chat",
+      "community": 8,
+      "norm_label": "tabela `messages` (log do chat):"
+    },
+    {
+      "label": "10. Comunica\u00e7\u00e3o em Tempo Real (Supabase Realtime)",
+      "file_type": "document",
+      "source_file": "PRD.md",
+      "source_location": "L247",
+      "id": "game_of_turing_prd_10_comunica\u00e7\u00e3o_em_tempo_real_supabase_realtime",
+      "community": 8,
+      "norm_label": "10. comunicacao em tempo real (supabase realtime)"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "readme_md",
+      "community": 12,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Game of Turing",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "game_of_turing_readme_game_of_turing",
+      "community": 12,
+      "norm_label": "game of turing"
+    },
+    {
+      "label": "Vis\u00e3o Geral",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L15",
+      "id": "game_of_turing_readme_vis\u00e3o_geral",
+      "community": 12,
+      "norm_label": "visao geral"
+    },
+    {
+      "label": "Estado Atual",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L21",
+      "id": "game_of_turing_readme_estado_atual",
+      "community": 12,
+      "norm_label": "estado atual"
+    },
+    {
+      "label": "Como o Jogo Funciona",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L37",
+      "id": "game_of_turing_readme_como_o_jogo_funciona",
+      "community": 12,
+      "norm_label": "como o jogo funciona"
+    },
+    {
+      "label": "Stack",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L57",
+      "id": "game_of_turing_readme_stack",
+      "community": 12,
+      "norm_label": "stack"
+    },
+    {
+      "label": "Arquitetura",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L70",
+      "id": "game_of_turing_readme_arquitetura",
+      "community": 12,
+      "norm_label": "arquitetura"
+    },
+    {
+      "label": "code:text (app/)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L74",
+      "id": "game_of_turing_readme_codeblock_1",
+      "community": 12,
+      "norm_label": "code:text (app/)"
+    },
+    {
+      "label": "Come\u00e7ando",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L106",
+      "id": "game_of_turing_readme_come\u00e7ando",
+      "community": 12,
+      "norm_label": "comecando"
+    },
+    {
+      "label": "Pr\u00e9-requisitos",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L108",
+      "id": "game_of_turing_readme_pr\u00e9_requisitos",
+      "community": 12,
+      "norm_label": "pre-requisitos"
+    },
+    {
+      "label": "Instala\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L113",
+      "id": "game_of_turing_readme_instala\u00e7\u00e3o",
+      "community": 12,
+      "norm_label": "instalacao"
+    },
+    {
+      "label": "code:bash (npm install)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L115",
+      "id": "game_of_turing_readme_codeblock_2",
+      "community": 12,
+      "norm_label": "code:bash (npm install)"
+    },
+    {
+      "label": "Ambiente",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L119",
+      "id": "game_of_turing_readme_ambiente",
+      "community": 12,
+      "norm_label": "ambiente"
+    },
+    {
+      "label": "code:powershell (Copy-Item .env.example .env.local)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L123",
+      "id": "game_of_turing_readme_codeblock_3",
+      "community": 12,
+      "norm_label": "code:powershell (copy-item .env.example .env.local)"
+    },
+    {
+      "label": "code:bash (cp .env.example .env.local)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L129",
+      "id": "game_of_turing_readme_codeblock_4",
+      "community": 12,
+      "norm_label": "code:bash (cp .env.example .env.local)"
+    },
+    {
+      "label": "code:env (AI_PROVIDER=fake)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L135",
+      "id": "game_of_turing_readme_codeblock_5",
+      "community": 12,
+      "norm_label": "code:env (ai_provider=fake)"
+    },
+    {
+      "label": "Execu\u00e7\u00e3o local",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L139",
+      "id": "game_of_turing_readme_execu\u00e7\u00e3o_local",
+      "community": 12,
+      "norm_label": "execucao local"
+    },
+    {
+      "label": "code:bash (npm run dev)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L141",
+      "id": "game_of_turing_readme_codeblock_6",
+      "community": 12,
+      "norm_label": "code:bash (npm run dev)"
+    },
+    {
+      "label": "code:text (http://localhost:3000)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L147",
+      "id": "game_of_turing_readme_codeblock_7",
+      "community": 12,
+      "norm_label": "code:text (http://localhost:3000)"
+    },
+    {
+      "label": "Vari\u00e1veis de Ambiente",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L151",
+      "id": "game_of_turing_readme_vari\u00e1veis_de_ambiente",
+      "community": 12,
+      "norm_label": "variaveis de ambiente"
+    },
+    {
+      "label": "Scripts",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L166",
+      "id": "game_of_turing_readme_scripts",
+      "community": 12,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "Qualidade e Seguran\u00e7a",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L178",
+      "id": "game_of_turing_readme_qualidade_e_seguran\u00e7a",
+      "community": 12,
+      "norm_label": "qualidade e seguranca"
+    },
+    {
+      "label": "Roadmap",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L188",
+      "id": "game_of_turing_readme_roadmap",
+      "community": 12,
+      "norm_label": "roadmap"
+    },
+    {
+      "label": "Documenta\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L204",
+      "id": "game_of_turing_readme_documenta\u00e7\u00e3o",
+      "community": 12,
+      "norm_label": "documentacao"
+    },
+    {
+      "label": "Dire\u00e7\u00e3o de Produto",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L215",
+      "id": "game_of_turing_readme_dire\u00e7\u00e3o_de_produto",
+      "community": 12,
+      "norm_label": "direcao de produto"
+    },
+    {
+      "label": "historico.md",
+      "file_type": "document",
+      "source_file": ".metadocs/historico.md",
+      "source_location": "L1",
+      "id": "metadocs_historico_md",
+      "community": 20,
+      "norm_label": "historico.md"
+    },
+    {
+      "label": "Hist\u00f3rico",
+      "file_type": "document",
+      "source_file": ".metadocs/historico.md",
+      "source_location": "L1",
+      "id": "metadocs_historico_hist\u00f3rico",
+      "community": 20,
+      "norm_label": "historico"
+    },
+    {
+      "label": "Entradas",
+      "file_type": "document",
+      "source_file": ".metadocs/historico.md",
+      "source_location": "L5",
+      "id": "metadocs_historico_entradas",
+      "community": 20,
+      "norm_label": "entradas"
+    },
+    {
+      "label": "roadmap.md",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L1",
+      "id": "metadocs_roadmap_md",
+      "community": 13,
+      "norm_label": "roadmap.md"
+    },
+    {
+      "label": "Roadmap Robusto: Game of Turing",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L1",
+      "id": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "community": 13,
+      "norm_label": "roadmap robusto: game of turing"
+    },
+    {
+      "label": "Norte do Projeto",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L5",
+      "id": "metadocs_roadmap_norte_do_projeto",
+      "community": 13,
+      "norm_label": "norte do projeto"
+    },
+    {
+      "label": "Estado Atual",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L11",
+      "id": "metadocs_roadmap_estado_atual",
+      "community": 13,
+      "norm_label": "estado atual"
+    },
+    {
+      "label": "Problemas Identificados",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L18",
+      "id": "metadocs_roadmap_problemas_identificados",
+      "community": 13,
+      "norm_label": "problemas identificados"
+    },
+    {
+      "label": "Princ\u00edpios de Arquitetura",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L28",
+      "id": "metadocs_roadmap_princ\u00edpios_de_arquitetura",
+      "community": 13,
+      "norm_label": "principios de arquitetura"
+    },
+    {
+      "label": "M0 - Saneamento e Roadmap",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L38",
+      "id": "metadocs_roadmap_m0_saneamento_e_roadmap",
+      "community": 13,
+      "norm_label": "m0 - saneamento e roadmap"
+    },
+    {
+      "label": "M1 - PoC Jog\u00e1vel Sem Auth",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L59",
+      "id": "metadocs_roadmap_m1_poc_jog\u00e1vel_sem_auth",
+      "community": 13,
+      "norm_label": "m1 - poc jogavel sem auth"
+    },
+    {
+      "label": "M2 - Motor de Regras",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L82",
+      "id": "metadocs_roadmap_m2_motor_de_regras",
+      "community": 13,
+      "norm_label": "m2 - motor de regras"
+    },
+    {
+      "label": "M3 - MVP Local Completo",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L106",
+      "id": "metadocs_roadmap_m3_mvp_local_completo",
+      "community": 13,
+      "norm_label": "m3 - mvp local completo"
+    },
+    {
+      "label": "M4 - Autentica\u00e7\u00e3o e Perfis",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L126",
+      "id": "metadocs_roadmap_m4_autentica\u00e7\u00e3o_e_perfis",
+      "community": 13,
+      "norm_label": "m4 - autenticacao e perfis"
+    },
+    {
+      "label": "M5 - Persist\u00eancia e Banco",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L144",
+      "id": "metadocs_roadmap_m5_persist\u00eancia_e_banco",
+      "community": 13,
+      "norm_label": "m5 - persistencia e banco"
+    },
+    {
+      "label": "M6 - Multiplayer e Tempo Real",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L164",
+      "id": "metadocs_roadmap_m6_multiplayer_e_tempo_real",
+      "community": 13,
+      "norm_label": "m6 - multiplayer e tempo real"
+    },
+    {
+      "label": "M7 - M\u00e9tricas, Ranking e Balanceamento",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L182",
+      "id": "metadocs_roadmap_m7_m\u00e9tricas_ranking_e_balanceamento",
+      "community": 13,
+      "norm_label": "m7 - metricas, ranking e balanceamento"
+    },
+    {
+      "label": "M8 - Alpha SaaS",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L202",
+      "id": "metadocs_roadmap_m8_alpha_saas",
+      "community": 13,
+      "norm_label": "m8 - alpha saas"
+    },
+    {
+      "label": "Testes e Qualidade",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L223",
+      "id": "metadocs_roadmap_testes_e_qualidade",
+      "community": 13,
+      "norm_label": "testes e qualidade"
+    },
+    {
+      "label": "Documenta\u00e7\u00e3o Obrigat\u00f3ria",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L231",
+      "id": "metadocs_roadmap_documenta\u00e7\u00e3o_obrigat\u00f3ria",
+      "community": 13,
+      "norm_label": "documentacao obrigatoria"
+    },
+    {
+      "label": "Pr\u00f3xima Entrega",
+      "file_type": "document",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L240",
+      "id": "metadocs_roadmap_pr\u00f3xima_entrega",
+      "community": 13,
+      "norm_label": "proxima entrega"
+    },
+    {
+      "label": "0001-gameplay-primeiro.md",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": "L1",
+      "id": "metadocs_adr_0001_gameplay_primeiro_md",
+      "community": 16,
+      "norm_label": "0001-gameplay-primeiro.md"
+    },
+    {
+      "label": "ADR 0001 - Gameplay Primeiro",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": "L1",
+      "id": "adr_0001_gameplay_primeiro_adr_0001_gameplay_primeiro",
+      "community": 16,
+      "norm_label": "adr 0001 - gameplay primeiro"
+    },
+    {
+      "label": "Status",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": "L3",
+      "id": "adr_0001_gameplay_primeiro_status",
+      "community": 16,
+      "norm_label": "status"
+    },
+    {
+      "label": "Contexto",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": "L7",
+      "id": "adr_0001_gameplay_primeiro_contexto",
+      "community": 16,
+      "norm_label": "contexto"
+    },
+    {
+      "label": "Decis\u00e3o",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": "L11",
+      "id": "adr_0001_gameplay_primeiro_decis\u00e3o",
+      "community": 16,
+      "norm_label": "decisao"
+    },
+    {
+      "label": "Consequ\u00eancias",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": "L15",
+      "id": "adr_0001_gameplay_primeiro_consequ\u00eancias",
+      "community": 16,
+      "norm_label": "consequencias"
+    },
+    {
+      "label": "0002-ia-com-strategy-pattern.md",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": "L1",
+      "id": "metadocs_adr_0002_ia_com_strategy_pattern_md",
+      "community": 17,
+      "norm_label": "0002-ia-com-strategy-pattern.md"
+    },
+    {
+      "label": "ADR 0002 - IA Com Strategy Pattern",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": "L1",
+      "id": "adr_0002_ia_com_strategy_pattern_adr_0002_ia_com_strategy_pattern",
+      "community": 17,
+      "norm_label": "adr 0002 - ia com strategy pattern"
+    },
+    {
+      "label": "Status",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": "L3",
+      "id": "adr_0002_ia_com_strategy_pattern_status",
+      "community": 17,
+      "norm_label": "status"
+    },
+    {
+      "label": "Contexto",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": "L7",
+      "id": "adr_0002_ia_com_strategy_pattern_contexto",
+      "community": 17,
+      "norm_label": "contexto"
+    },
+    {
+      "label": "Decis\u00e3o",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": "L11",
+      "id": "adr_0002_ia_com_strategy_pattern_decis\u00e3o",
+      "community": 17,
+      "norm_label": "decisao"
+    },
+    {
+      "label": "Consequ\u00eancias",
+      "file_type": "document",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": "L15",
+      "id": "adr_0002_ia_com_strategy_pattern_consequ\u00eancias",
+      "community": 17,
+      "norm_label": "consequencias"
+    },
+    {
+      "label": "poc-local.md",
+      "file_type": "document",
+      "source_file": ".metadocs/feat/poc-local.md",
+      "source_location": "L1",
+      "id": "metadocs_feat_poc_local_md",
+      "community": 19,
+      "norm_label": "poc-local.md"
+    },
+    {
+      "label": "Feature - PoC Local Jog\u00e1vel",
+      "file_type": "document",
+      "source_file": ".metadocs/feat/poc-local.md",
+      "source_location": "L1",
+      "id": "feat_poc_local_feature_poc_local_jog\u00e1vel",
+      "community": 19,
+      "norm_label": "feature - poc local jogavel"
+    },
+    {
+      "label": "Objetivo",
+      "file_type": "document",
+      "source_file": ".metadocs/feat/poc-local.md",
+      "source_location": "L3",
+      "id": "feat_poc_local_objetivo",
+      "community": 19,
+      "norm_label": "objetivo"
+    },
+    {
+      "label": "Entregas",
+      "file_type": "document",
+      "source_file": ".metadocs/feat/poc-local.md",
+      "source_location": "L7",
+      "id": "feat_poc_local_entregas",
+      "community": 19,
+      "norm_label": "entregas"
+    },
+    {
+      "label": "Fora de Escopo",
+      "file_type": "document",
+      "source_file": ".metadocs/feat/poc-local.md",
+      "source_location": "L19",
+      "id": "feat_poc_local_fora_de_escopo",
+      "community": 19,
+      "norm_label": "fora de escopo"
+    },
+    {
+      "label": "Valida\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": ".metadocs/feat/poc-local.md",
+      "source_location": "L27",
+      "id": "feat_poc_local_valida\u00e7\u00e3o",
+      "community": 19,
+      "norm_label": "validacao"
+    },
+    {
+      "label": "correcao_inconsistencias_e_problemas.md",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L1",
+      "id": "metadocs_walkthrough_correcao_inconsistencias_e_problemas_md",
+      "community": 18,
+      "norm_label": "correcao_inconsistencias_e_problemas.md"
+    },
+    {
+      "label": "Walkthrough: Corre\u00e7\u00e3o de Inconsist\u00eancias e Problemas",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L1",
+      "id": "walkthrough_correcao_inconsistencias_e_problemas_walkthrough_corre\u00e7\u00e3o_de_inconsist\u00eancias_e_problemas",
+      "community": 18,
+      "norm_label": "walkthrough: correcao de inconsistencias e problemas"
+    },
+    {
+      "label": "Contexto da Demanda",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L5",
+      "id": "walkthrough_correcao_inconsistencias_e_problemas_contexto_da_demanda",
+      "community": 18,
+      "norm_label": "contexto da demanda"
+    },
+    {
+      "label": "Mudan\u00e7as Realizadas",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L11",
+      "id": "walkthrough_correcao_inconsistencias_e_problemas_mudan\u00e7as_realizadas",
+      "community": 18,
+      "norm_label": "mudancas realizadas"
+    },
+    {
+      "label": "1. Roadmap (`.metadocs/roadmap.md`)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L13",
+      "id": "walkthrough_correcao_inconsistencias_e_problemas_1_roadmap_metadocs_roadmap_md",
+      "community": 18,
+      "norm_label": "1. roadmap (`.metadocs/roadmap.md`)"
+    },
+    {
+      "label": "2. Testes Unit\u00e1rios (`domain/jogo/veredito.test.ts`)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L18",
+      "id": "walkthrough_correcao_inconsistencias_e_problemas_2_testes_unit\u00e1rios_domain_jogo_veredito_test_ts",
+      "community": 18,
+      "norm_label": "2. testes unitarios (`domain/jogo/veredito.test.ts`)"
+    },
+    {
+      "label": "Valida\u00e7\u00e3o Executada",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L24",
+      "id": "walkthrough_correcao_inconsistencias_e_problemas_valida\u00e7\u00e3o_executada",
+      "community": 18,
+      "norm_label": "validacao executada"
+    },
+    {
+      "label": "code:text (\u2713 lib/ia/provedor-fake.test.ts (6 tests) 8ms)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L28",
+      "id": "walkthrough_correcao_inconsistencias_e_problemas_codeblock_1",
+      "community": 18,
+      "norm_label": "code:text (\u2713 lib/ia/provedor-fake.test.ts (6 tests) 8ms)"
+    },
+    {
+      "label": "code:text (Creating an optimized production build ...)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L44",
+      "id": "walkthrough_correcao_inconsistencias_e_problemas_codeblock_2",
+      "community": 18,
+      "norm_label": "code:text (creating an optimized production build ...)"
+    },
+    {
+      "label": "reestruturacao_diretorios.md",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L1",
+      "id": "metadocs_walkthrough_reestruturacao_diretorios_md",
+      "community": 22,
+      "norm_label": "reestruturacao_diretorios.md"
+    },
+    {
+      "label": "Walkthrough: Reestrutura\u00e7\u00e3o de Diret\u00f3rios (`src/` e `test/`)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L1",
+      "id": "walkthrough_reestruturacao_diretorios_walkthrough_reestrutura\u00e7\u00e3o_de_diret\u00f3rios_src_e_test",
+      "community": 22,
+      "norm_label": "walkthrough: reestruturacao de diretorios (`src/` e `test/`)"
+    },
+    {
+      "label": "Contexto da Demanda",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L5",
+      "id": "walkthrough_reestruturacao_diretorios_contexto_da_demanda",
+      "community": 22,
+      "norm_label": "contexto da demanda"
+    },
+    {
+      "label": "Mudan\u00e7as Realizadas",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L15",
+      "id": "walkthrough_reestruturacao_diretorios_mudan\u00e7as_realizadas",
+      "community": 22,
+      "norm_label": "mudancas realizadas"
+    },
+    {
+      "label": "1. Movimenta\u00e7\u00e3o de Pastas de Produ\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L17",
+      "id": "walkthrough_reestruturacao_diretorios_1_movimenta\u00e7\u00e3o_de_pastas_de_produ\u00e7\u00e3o",
+      "community": 22,
+      "norm_label": "1. movimentacao de pastas de producao"
+    },
+    {
+      "label": "2. Isolamento de Su\u00edtes de Testes",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L26",
+      "id": "walkthrough_reestruturacao_diretorios_2_isolamento_de_su\u00edtes_de_testes",
+      "community": 22,
+      "norm_label": "2. isolamento de suites de testes"
+    },
+    {
+      "label": "3. Ajuste de Configura\u00e7\u00f5es de Compila\u00e7\u00e3o e Aliases",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L31",
+      "id": "walkthrough_reestruturacao_diretorios_3_ajuste_de_configura\u00e7\u00f5es_de_compila\u00e7\u00e3o_e_aliases",
+      "community": 22,
+      "norm_label": "3. ajuste de configuracoes de compilacao e aliases"
+    },
+    {
+      "label": "code:json (\"@/*\": [\"./src/*\"])",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L34",
+      "id": "walkthrough_reestruturacao_diretorios_codeblock_1",
+      "community": 22,
+      "norm_label": "code:json (\"@/*\": [\"./src/*\"])"
+    },
+    {
+      "label": "4. Refatora\u00e7\u00e3o de Imports nos Testes",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L42",
+      "id": "walkthrough_reestruturacao_diretorios_4_refatora\u00e7\u00e3o_de_imports_nos_testes",
+      "community": 22,
+      "norm_label": "4. refatoracao de imports nos testes"
+    },
+    {
+      "label": "Valida\u00e7\u00e3o Executada",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L49",
+      "id": "walkthrough_reestruturacao_diretorios_valida\u00e7\u00e3o_executada",
+      "community": 22,
+      "norm_label": "validacao executada"
+    },
+    {
+      "label": "renomeacao_jogador.md",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L1",
+      "id": "metadocs_walkthrough_renomeacao_jogador_md",
+      "community": 15,
+      "norm_label": "renomeacao_jogador.md"
+    },
+    {
+      "label": "Walkthrough: Renomea\u00e7\u00e3o de Interlocutor para Jogador",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L1",
+      "id": "walkthrough_renomeacao_jogador_walkthrough_renomea\u00e7\u00e3o_de_interlocutor_para_jogador",
+      "community": 15,
+      "norm_label": "walkthrough: renomeacao de interlocutor para jogador"
+    },
+    {
+      "label": "Contexto da Demanda",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L5",
+      "id": "walkthrough_renomeacao_jogador_contexto_da_demanda",
+      "community": 15,
+      "norm_label": "contexto da demanda"
+    },
+    {
+      "label": "Mudan\u00e7as Realizadas",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L9",
+      "id": "walkthrough_renomeacao_jogador_mudan\u00e7as_realizadas",
+      "community": 15,
+      "norm_label": "mudancas realizadas"
+    },
+    {
+      "label": "1. Dom\u00ednio (`domain/jogo/`)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L13",
+      "id": "walkthrough_renomeacao_jogador_1_dom\u00ednio_domain_jogo",
+      "community": 15,
+      "norm_label": "1. dominio (`domain/jogo/`)"
+    },
+    {
+      "label": "2. Testes Unit\u00e1rios (`domain/jogo/jogo.test.ts`)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L20",
+      "id": "walkthrough_renomeacao_jogador_2_testes_unit\u00e1rios_domain_jogo_jogo_test_ts",
+      "community": 15,
+      "norm_label": "2. testes unitarios (`domain/jogo/jogo.test.ts`)"
+    },
+    {
+      "label": "3. APIs e Interfaces (`app/`)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L24",
+      "id": "walkthrough_renomeacao_jogador_3_apis_e_interfaces_app",
+      "community": 15,
+      "norm_label": "3. apis e interfaces (`app/`)"
+    },
+    {
+      "label": "4. Banco de Dados e Nomenclaturas em Ingl\u00eas",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L29",
+      "id": "walkthrough_renomeacao_jogador_4_banco_de_dados_e_nomenclaturas_em_ingl\u00eas",
+      "community": 15,
+      "norm_label": "4. banco de dados e nomenclaturas em ingles"
+    },
+    {
+      "label": "5. Documenta\u00e7\u00e3o Geral",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L33",
+      "id": "walkthrough_renomeacao_jogador_5_documenta\u00e7\u00e3o_geral",
+      "community": 15,
+      "norm_label": "5. documentacao geral"
+    },
+    {
+      "label": "Valida\u00e7\u00e3o Executada",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L37",
+      "id": "walkthrough_renomeacao_jogador_valida\u00e7\u00e3o_executada",
+      "community": 15,
+      "norm_label": "validacao executada"
+    },
+    {
+      "label": "code:text (\u2713 domain/jogo/jogo.test.ts (10 tests) 16ms)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L41",
+      "id": "walkthrough_renomeacao_jogador_codeblock_1",
+      "community": 15,
+      "norm_label": "code:text (\u2713 domain/jogo/jogo.test.ts (10 tests) 16ms)"
+    },
+    {
       "label": "layout.tsx",
       "file_type": "code",
       "source_file": "app/layout.tsx",
@@ -200,6 +1442,15 @@
       "community": 6,
       "norm_label": "page.tsx",
       "id": "app_game_matchid_page_tsx"
+    },
+    {
+      "label": "CorJogador",
+      "file_type": "code",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L30",
+      "community": 6,
+      "norm_label": "corjogador",
+      "id": "matchid_page_corjogador"
     },
     {
       "label": "CorVisual",
@@ -809,7 +2060,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/constantes.ts",
       "source_location": "L1",
-      "community": 8,
+      "community": 5,
       "norm_label": "constantes.ts",
       "id": "domain_jogo_constantes_ts"
     },
@@ -818,7 +2069,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/estatisticas.test.ts",
       "source_location": "L1",
-      "community": 1,
+      "community": 5,
       "norm_label": "estatisticas.test.ts",
       "id": "domain_jogo_estatisticas_test_ts"
     },
@@ -827,7 +2078,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/estatisticas.test.ts",
       "source_location": "L13",
-      "community": 8,
+      "community": 5,
       "norm_label": "criarpartidateste()",
       "id": "jogo_estatisticas_test_criarpartidateste"
     },
@@ -836,7 +2087,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/estatisticas.test.ts",
       "source_location": "L17",
-      "community": 1,
+      "community": 5,
       "norm_label": "buscarporcor()",
       "id": "jogo_estatisticas_test_buscarporcor"
     },
@@ -845,7 +2096,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/estatisticas.test.ts",
       "source_location": "L23",
-      "community": 1,
+      "community": 5,
       "norm_label": "partida",
       "id": "jogo_estatisticas_test_partida"
     },
@@ -854,7 +2105,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/estatisticas.test.ts",
       "source_location": "L24",
-      "community": 1,
+      "community": 5,
       "norm_label": "azul",
       "id": "jogo_estatisticas_test_azul"
     },
@@ -863,7 +2114,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/estatisticas.test.ts",
       "source_location": "L25",
-      "community": 1,
+      "community": 5,
       "norm_label": "stats",
       "id": "jogo_estatisticas_test_stats"
     },
@@ -872,7 +2123,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/estatisticas.test.ts",
       "source_location": "L35",
-      "community": 1,
+      "community": 5,
       "norm_label": "analista",
       "id": "jogo_estatisticas_test_analista"
     },
@@ -881,7 +2132,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/estatisticas.test.ts",
       "source_location": "L63",
-      "community": 1,
+      "community": 5,
       "norm_label": "vermelho",
       "id": "jogo_estatisticas_test_vermelho"
     },
@@ -926,7 +2177,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/index.ts",
       "source_location": "L1",
-      "community": 5,
+      "community": 1,
       "norm_label": "index.ts",
       "id": "domain_jogo_index_ts"
     },
@@ -935,7 +2186,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L1",
-      "community": 5,
+      "community": 21,
       "norm_label": "jogo.test.ts",
       "id": "domain_jogo_jogo_test_ts"
     },
@@ -944,7 +2195,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L26",
-      "community": 8,
+      "community": 5,
       "norm_label": "criarpartidateste()",
       "id": "jogo_jogo_test_criarpartidateste"
     },
@@ -953,7 +2204,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L34",
-      "community": 5,
+      "community": 21,
       "norm_label": "buscarporcor()",
       "id": "jogo_jogo_test_buscarporcor"
     },
@@ -962,7 +2213,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L48",
-      "community": 5,
+      "community": 21,
       "norm_label": "partida",
       "id": "jogo_jogo_test_partida"
     },
@@ -971,7 +2222,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L49",
-      "community": 5,
+      "community": 21,
       "norm_label": "analista",
       "id": "jogo_jogo_test_analista"
     },
@@ -980,7 +2231,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L50",
-      "community": 5,
+      "community": 21,
       "norm_label": "resultado",
       "id": "jogo_jogo_test_resultado"
     },
@@ -989,7 +2240,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L66",
-      "community": 5,
+      "community": 21,
       "norm_label": "partidacommensagem",
       "id": "jogo_jogo_test_partidacommensagem"
     },
@@ -998,7 +2249,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L124",
-      "community": 5,
+      "community": 21,
       "norm_label": "azul",
       "id": "jogo_jogo_test_azul"
     },
@@ -1007,7 +2258,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L167",
-      "community": 5,
+      "community": 21,
       "norm_label": "partidafinalizada",
       "id": "jogo_jogo_test_partidafinalizada"
     },
@@ -1016,7 +2267,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L212",
-      "community": 5,
+      "community": 21,
       "norm_label": "vermelho",
       "id": "jogo_jogo_test_vermelho"
     },
@@ -1025,7 +2276,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L219",
-      "community": 5,
+      "community": 21,
       "norm_label": "vermelhoatualizado",
       "id": "jogo_jogo_test_vermelhoatualizado"
     },
@@ -1034,16 +2285,25 @@
       "file_type": "code",
       "source_file": "domain/jogo/jogo.test.ts",
       "source_location": "L223",
-      "community": 5,
+      "community": 21,
       "norm_label": "estatisticas",
       "id": "jogo_jogo_test_estatisticas"
+    },
+    {
+      "label": "mensagens.test.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "mensagens.test.ts",
+      "id": "domain_jogo_mensagens_test_ts"
     },
     {
       "label": "criarPartidaTeste()",
       "file_type": "code",
       "source_file": "domain/jogo/mensagens.test.ts",
       "source_location": "L13",
-      "community": 8,
+      "community": 4,
       "norm_label": "criarpartidateste()",
       "id": "jogo_mensagens_test_criarpartidateste"
     },
@@ -1136,6 +2396,15 @@
       "community": 4,
       "norm_label": "azul",
       "id": "jogo_mensagens_test_azul"
+    },
+    {
+      "label": "partidaComMensagemAzul",
+      "file_type": "code",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L188",
+      "community": 4,
+      "norm_label": "partidacommensagemazul",
+      "id": "jogo_mensagens_test_partidacommensagemazul"
     },
     {
       "label": "azulAtualizado",
@@ -1291,6 +2560,24 @@
       "id": "jogo_mmr_calcularajustepdrjogador"
     },
     {
+      "label": "calcularAjusteMmrAnalista()",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L23",
+      "community": 1,
+      "norm_label": "calcularajustemmranalista()",
+      "id": "jogo_mmr_calcularajustemmranalista"
+    },
+    {
+      "label": "calcularAjusteMmrJogador()",
+      "file_type": "code",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L27",
+      "community": 1,
+      "norm_label": "calcularajustemmrjogador()",
+      "id": "jogo_mmr_calcularajustemmrjogador"
+    },
+    {
       "label": "calcularBonusParticipacao()",
       "file_type": "code",
       "source_file": "domain/jogo/mmr.ts",
@@ -1304,7 +2591,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.test.ts",
       "source_location": "L1",
-      "community": 5,
+      "community": 23,
       "norm_label": "partida.test.ts",
       "id": "domain_jogo_partida_test_ts"
     },
@@ -1313,7 +2600,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.test.ts",
       "source_location": "L20",
-      "community": 5,
+      "community": 23,
       "norm_label": "partida",
       "id": "jogo_partida_test_partida"
     },
@@ -1322,7 +2609,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.test.ts",
       "source_location": "L41",
-      "community": 5,
+      "community": 23,
       "norm_label": "cores",
       "id": "jogo_partida_test_cores"
     },
@@ -1331,7 +2618,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.test.ts",
       "source_location": "L49",
-      "community": 5,
+      "community": 23,
       "norm_label": "analista",
       "id": "jogo_partida_test_analista"
     },
@@ -1340,7 +2627,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.test.ts",
       "source_location": "L143",
-      "community": 5,
+      "community": 23,
       "norm_label": "original",
       "id": "jogo_partida_test_original"
     },
@@ -1349,7 +2636,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.test.ts",
       "source_location": "L144",
-      "community": 5,
+      "community": 23,
       "norm_label": "reiniciada",
       "id": "jogo_partida_test_reiniciada"
     },
@@ -1358,16 +2645,25 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.ts",
       "source_location": "L1",
-      "community": 8,
+      "community": 5,
       "norm_label": "partida.ts",
       "id": "domain_jogo_partida_ts"
+    },
+    {
+      "label": "CriarPartidaPocParametros",
+      "file_type": "code",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L9",
+      "community": 5,
+      "norm_label": "criarpartidapocparametros",
+      "id": "jogo_partida_criarpartidapocparametros"
     },
     {
       "label": "criarPartidaPoc()",
       "file_type": "code",
       "source_file": "domain/jogo/partida.ts",
       "source_location": "L15",
-      "community": 8,
+      "community": 5,
       "norm_label": "criarpartidapoc()",
       "id": "jogo_partida_criarpartidapoc"
     },
@@ -1376,7 +2672,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.ts",
       "source_location": "L80",
-      "community": 8,
+      "community": 5,
       "norm_label": "buscarparticipanteobrigatorio()",
       "id": "jogo_partida_buscarparticipanteobrigatorio"
     },
@@ -1385,7 +2681,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.ts",
       "source_location": "L95",
-      "community": 8,
+      "community": 5,
       "norm_label": "calcularsegundosrestantes()",
       "id": "jogo_partida_calcularsegundosrestantes"
     },
@@ -1394,7 +2690,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.ts",
       "source_location": "L105",
-      "community": 8,
+      "community": 5,
       "norm_label": "avancarparaveredito()",
       "id": "jogo_partida_avancarparaveredito"
     },
@@ -1403,7 +2699,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.ts",
       "source_location": "L116",
-      "community": 8,
+      "community": 5,
       "norm_label": "atualizarfaseportempo()",
       "id": "jogo_partida_atualizarfaseportempo"
     },
@@ -1412,7 +2708,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.ts",
       "source_location": "L128",
-      "community": 8,
+      "community": 5,
       "norm_label": "reiniciarpartida()",
       "id": "jogo_partida_reiniciarpartida"
     },
@@ -1520,7 +2816,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/tipos.ts",
       "source_location": "L42",
-      "community": 1,
+      "community": 4,
       "norm_label": "partida",
       "id": "jogo_tipos_partida"
     },
@@ -1561,11 +2857,20 @@
       "id": "jogo_tipos_resultadopartida"
     },
     {
+      "label": "veredito.test.ts",
+      "file_type": "code",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "veredito.test.ts",
+      "id": "domain_jogo_veredito_test_ts"
+    },
+    {
       "label": "criarPartidaTeste()",
       "file_type": "code",
       "source_file": "domain/jogo/veredito.test.ts",
       "source_location": "L17",
-      "community": 8,
+      "community": 1,
       "norm_label": "criarpartidateste()",
       "id": "jogo_veredito_test_criarpartidateste"
     },
@@ -2261,6 +3566,1286 @@
   ],
   "links": [
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "prd_md",
+      "target": "game_of_turing_prd_product_requirements_document_prd_game_of_turing"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "target": "game_of_turing_prd_1_vis\u00e3o_geral_do_produto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "target": "game_of_turing_prd_2_objetivos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "target": "game_of_turing_prd_3_regras_de_neg\u00f3cio_e_mec\u00e2nicas_core"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L101",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "target": "game_of_turing_prd_4_design_e_experi\u00eancia_do_usu\u00e1rio_ui_ux_e_monetiza\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L117",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "target": "game_of_turing_prd_5_requisitos_funcionais_e_t\u00e9cnicos_escopo_inicial"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L140",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "target": "game_of_turing_prd_6_desafios_e_riscos_a_mitigar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L154",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "target": "game_of_turing_prd_7_roteiro_de_desenvolvimento_poc_e_mvp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "target": "game_of_turing_prd_8_requisitos_de_entrega_e_opera\u00e7\u00e3o_infraestrutura_devops_e_m\u00e9tricas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L216",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "target": "game_of_turing_prd_9_arquitetura_de_dados_inicial_supabase_postgresql"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L247",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_product_requirements_document_prd_game_of_turing",
+      "target": "game_of_turing_prd_10_comunica\u00e7\u00e3o_em_tempo_real_supabase_realtime"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_3_regras_de_neg\u00f3cio_e_mec\u00e2nicas_core",
+      "target": "game_of_turing_prd_3_1_pap\u00e9is_condi\u00e7\u00f5es_de_vit\u00f3ria_e_composi\u00e7\u00e3o_da_mesa"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_3_regras_de_neg\u00f3cio_e_mec\u00e2nicas_core",
+      "target": "game_of_turing_prd_3_2_din\u00e2mica_e_regras_da_partida_o_jogo_do_engano"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_3_regras_de_neg\u00f3cio_e_mec\u00e2nicas_core",
+      "target": "game_of_turing_prd_3_3_sistema_de_rank_pdr_e_mmr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_3_1_pap\u00e9is_condi\u00e7\u00f5es_de_vit\u00f3ria_e_composi\u00e7\u00e3o_da_mesa",
+      "target": "game_of_turing_prd_o_analista_sempre_1_por_mesa"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_3_1_pap\u00e9is_condi\u00e7\u00f5es_de_vit\u00f3ria_e_composi\u00e7\u00e3o_da_mesa",
+      "target": "game_of_turing_prd_os_jogadores_jogador_azul_e_jogador_vermelho"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_3_2_din\u00e2mica_e_regras_da_partida_o_jogo_do_engano",
+      "target": "game_of_turing_prd_in\u00edcio_da_partida_timer_de_3_minutos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_3_2_din\u00e2mica_e_regras_da_partida_o_jogo_do_engano",
+      "target": "game_of_turing_prd_fim_do_tempo_fase_de_veredito_15_segundos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_3_2_din\u00e2mica_e_regras_da_partida_o_jogo_do_engano",
+      "target": "game_of_turing_prd_a_grande_revela\u00e7\u00e3o_tela_final"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_in\u00edcio_da_partida_timer_de_3_minutos",
+      "target": "game_of_turing_prd_mec\u00e2nica_do_chat_e_gest\u00e3o_de_recursos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_in\u00edcio_da_partida_timer_de_3_minutos",
+      "target": "game_of_turing_prd_limita\u00e7\u00f5es_anti_spam_e_anti_bot_crucial"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_3_3_sistema_de_rank_pdr_e_mmr",
+      "target": "game_of_turing_prd_rank_de_analista_foco_em_dedu\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_3_3_sistema_de_rank_pdr_e_mmr",
+      "target": "game_of_turing_prd_rank_de_jogador_foco_em_atua\u00e7\u00e3o_engano"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_3_3_sistema_de_rank_pdr_e_mmr",
+      "target": "game_of_turing_prd_o_rank_das_ias_leaderboard_p\u00fablico"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_4_design_e_experi\u00eancia_do_usu\u00e1rio_ui_ux_e_monetiza\u00e7\u00e3o",
+      "target": "game_of_turing_prd_a_sala_dimensional_gameplay"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_4_design_e_experi\u00eancia_do_usu\u00e1rio_ui_ux_e_monetiza\u00e7\u00e3o",
+      "target": "game_of_turing_prd_passe_de_batalha_mensal_e_loja_monetiza\u00e7\u00e3o_cosm\u00e9tica"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L119",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_5_requisitos_funcionais_e_t\u00e9cnicos_escopo_inicial",
+      "target": "game_of_turing_prd_5_1_front_end_cliente"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_5_requisitos_funcionais_e_t\u00e9cnicos_escopo_inicial",
+      "target": "game_of_turing_prd_5_2_back_end_e_infraestrutura_serverless_baas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L133",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_5_requisitos_funcionais_e_t\u00e9cnicos_escopo_inicial",
+      "target": "game_of_turing_prd_5_3_integra\u00e7\u00e3o_com_ia_arquitetura_flex\u00edvel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L142",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_6_desafios_e_riscos_a_mitigar",
+      "target": "game_of_turing_prd_valida\u00e7\u00e3o_de_perfil_humano_anti_bot"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_6_desafios_e_riscos_a_mitigar",
+      "target": "game_of_turing_prd_custos_de_api_do_llm"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L150",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_6_desafios_e_riscos_a_mitigar",
+      "target": "game_of_turing_prd_comportamento_do_llm_quebra_de_personagem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L158",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_7_roteiro_de_desenvolvimento_poc_e_mvp",
+      "target": "game_of_turing_prd_fase_1_proof_of_concept_poc_a_valida\u00e7\u00e3o_da_divers\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L165",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_7_roteiro_de_desenvolvimento_poc_e_mvp",
+      "target": "game_of_turing_prd_fase_2_minimum_viable_product_mvp_o_jogo_funcional"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L177",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_7_roteiro_de_desenvolvimento_poc_e_mvp",
+      "target": "game_of_turing_prd_fase_3_vers\u00e3o_alpha_o_jogo_gamificado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L190",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_8_requisitos_de_entrega_e_opera\u00e7\u00e3o_infraestrutura_devops_e_m\u00e9tricas",
+      "target": "game_of_turing_prd_8_1_stack_tecnol\u00f3gica_confirmada"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L196",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_8_requisitos_de_entrega_e_opera\u00e7\u00e3o_infraestrutura_devops_e_m\u00e9tricas",
+      "target": "game_of_turing_prd_8_2_monitoramento_de_custos_e_seguran\u00e7a"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L201",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_8_requisitos_de_entrega_e_opera\u00e7\u00e3o_infraestrutura_devops_e_m\u00e9tricas",
+      "target": "game_of_turing_prd_8_3_analytics_e_telemetria_avaliando_o_tcc_mvp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L209",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_8_requisitos_de_entrega_e_opera\u00e7\u00e3o_infraestrutura_devops_e_m\u00e9tricas",
+      "target": "game_of_turing_prd_8_4_privacidade_e_termos_de_uso_legal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L220",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_9_arquitetura_de_dados_inicial_supabase_postgresql",
+      "target": "game_of_turing_prd_tabela_users_perfis"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L227",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_9_arquitetura_de_dados_inicial_supabase_postgresql",
+      "target": "game_of_turing_prd_tabela_matches_partidas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L233",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_9_arquitetura_de_dados_inicial_supabase_postgresql",
+      "target": "game_of_turing_prd_tabela_match_participants_participantes_da_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRD.md",
+      "source_location": "L240",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_prd_9_arquitetura_de_dados_inicial_supabase_postgresql",
+      "target": "game_of_turing_prd_tabela_messages_log_do_chat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "game_of_turing_readme_game_of_turing"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_vis\u00e3o_geral"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_estado_atual"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_como_o_jogo_funciona"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_stack"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_arquitetura"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_come\u00e7ando"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_vari\u00e1veis_de_ambiente"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L166",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_scripts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L178",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_qualidade_e_seguran\u00e7a"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L188",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_roadmap"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L204",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_documenta\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L215",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_game_of_turing",
+      "target": "game_of_turing_readme_dire\u00e7\u00e3o_de_produto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_arquitetura",
+      "target": "game_of_turing_readme_codeblock_1"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_come\u00e7ando",
+      "target": "game_of_turing_readme_pr\u00e9_requisitos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_come\u00e7ando",
+      "target": "game_of_turing_readme_instala\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L119",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_come\u00e7ando",
+      "target": "game_of_turing_readme_ambiente"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L139",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_come\u00e7ando",
+      "target": "game_of_turing_readme_execu\u00e7\u00e3o_local"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L115",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_instala\u00e7\u00e3o",
+      "target": "game_of_turing_readme_codeblock_2"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L123",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_ambiente",
+      "target": "game_of_turing_readme_codeblock_3"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L129",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_ambiente",
+      "target": "game_of_turing_readme_codeblock_4"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L135",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_ambiente",
+      "target": "game_of_turing_readme_codeblock_5"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L141",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_execu\u00e7\u00e3o_local",
+      "target": "game_of_turing_readme_codeblock_6"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L147",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "game_of_turing_readme_execu\u00e7\u00e3o_local",
+      "target": "game_of_turing_readme_codeblock_7"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/historico.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_historico_md",
+      "target": "metadocs_historico_hist\u00f3rico"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/historico.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_historico_hist\u00f3rico",
+      "target": "metadocs_historico_entradas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_md",
+      "target": "metadocs_roadmap_roadmap_robusto_game_of_turing"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_norte_do_projeto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_estado_atual"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_problemas_identificados"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_princ\u00edpios_de_arquitetura"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_m0_saneamento_e_roadmap"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_m1_poc_jog\u00e1vel_sem_auth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_m2_motor_de_regras"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_m3_mvp_local_completo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_m4_autentica\u00e7\u00e3o_e_perfis"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L144",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_m5_persist\u00eancia_e_banco"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L164",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_m6_multiplayer_e_tempo_real"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L182",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_m7_m\u00e9tricas_ranking_e_balanceamento"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L202",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_m8_alpha_saas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L223",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_testes_e_qualidade"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L231",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_documenta\u00e7\u00e3o_obrigat\u00f3ria"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/roadmap.md",
+      "source_location": "L240",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_roadmap_roadmap_robusto_game_of_turing",
+      "target": "metadocs_roadmap_pr\u00f3xima_entrega"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_adr_0001_gameplay_primeiro_md",
+      "target": "adr_0001_gameplay_primeiro_adr_0001_gameplay_primeiro"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "adr_0001_gameplay_primeiro_adr_0001_gameplay_primeiro",
+      "target": "adr_0001_gameplay_primeiro_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "adr_0001_gameplay_primeiro_adr_0001_gameplay_primeiro",
+      "target": "adr_0001_gameplay_primeiro_contexto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "adr_0001_gameplay_primeiro_adr_0001_gameplay_primeiro",
+      "target": "adr_0001_gameplay_primeiro_decis\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/adr/0001-gameplay-primeiro.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "adr_0001_gameplay_primeiro_adr_0001_gameplay_primeiro",
+      "target": "adr_0001_gameplay_primeiro_consequ\u00eancias"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_adr_0002_ia_com_strategy_pattern_md",
+      "target": "adr_0002_ia_com_strategy_pattern_adr_0002_ia_com_strategy_pattern"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "adr_0002_ia_com_strategy_pattern_adr_0002_ia_com_strategy_pattern",
+      "target": "adr_0002_ia_com_strategy_pattern_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "adr_0002_ia_com_strategy_pattern_adr_0002_ia_com_strategy_pattern",
+      "target": "adr_0002_ia_com_strategy_pattern_contexto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "adr_0002_ia_com_strategy_pattern_adr_0002_ia_com_strategy_pattern",
+      "target": "adr_0002_ia_com_strategy_pattern_decis\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/adr/0002-ia-com-strategy-pattern.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "adr_0002_ia_com_strategy_pattern_adr_0002_ia_com_strategy_pattern",
+      "target": "adr_0002_ia_com_strategy_pattern_consequ\u00eancias"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/feat/poc-local.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_feat_poc_local_md",
+      "target": "feat_poc_local_feature_poc_local_jog\u00e1vel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/feat/poc-local.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "feat_poc_local_feature_poc_local_jog\u00e1vel",
+      "target": "feat_poc_local_objetivo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/feat/poc-local.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "feat_poc_local_feature_poc_local_jog\u00e1vel",
+      "target": "feat_poc_local_entregas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/feat/poc-local.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "feat_poc_local_feature_poc_local_jog\u00e1vel",
+      "target": "feat_poc_local_fora_de_escopo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/feat/poc-local.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "feat_poc_local_feature_poc_local_jog\u00e1vel",
+      "target": "feat_poc_local_valida\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_walkthrough_correcao_inconsistencias_e_problemas_md",
+      "target": "walkthrough_correcao_inconsistencias_e_problemas_walkthrough_corre\u00e7\u00e3o_de_inconsist\u00eancias_e_problemas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_correcao_inconsistencias_e_problemas_walkthrough_corre\u00e7\u00e3o_de_inconsist\u00eancias_e_problemas",
+      "target": "walkthrough_correcao_inconsistencias_e_problemas_contexto_da_demanda"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_correcao_inconsistencias_e_problemas_walkthrough_corre\u00e7\u00e3o_de_inconsist\u00eancias_e_problemas",
+      "target": "walkthrough_correcao_inconsistencias_e_problemas_mudan\u00e7as_realizadas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_correcao_inconsistencias_e_problemas_walkthrough_corre\u00e7\u00e3o_de_inconsist\u00eancias_e_problemas",
+      "target": "walkthrough_correcao_inconsistencias_e_problemas_valida\u00e7\u00e3o_executada"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_correcao_inconsistencias_e_problemas_mudan\u00e7as_realizadas",
+      "target": "walkthrough_correcao_inconsistencias_e_problemas_1_roadmap_metadocs_roadmap_md"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_correcao_inconsistencias_e_problemas_mudan\u00e7as_realizadas",
+      "target": "walkthrough_correcao_inconsistencias_e_problemas_2_testes_unit\u00e1rios_domain_jogo_veredito_test_ts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_correcao_inconsistencias_e_problemas_valida\u00e7\u00e3o_executada",
+      "target": "walkthrough_correcao_inconsistencias_e_problemas_codeblock_1"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_correcao_inconsistencias_e_problemas_valida\u00e7\u00e3o_executada",
+      "target": "walkthrough_correcao_inconsistencias_e_problemas_codeblock_2"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "metadocs_walkthrough_reestruturacao_diretorios_md",
+      "target": "walkthrough_reestruturacao_diretorios_walkthrough_reestrutura\u00e7\u00e3o_de_diret\u00f3rios_src_e_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "walkthrough_reestruturacao_diretorios_walkthrough_reestrutura\u00e7\u00e3o_de_diret\u00f3rios_src_e_test",
+      "target": "walkthrough_reestruturacao_diretorios_contexto_da_demanda",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "walkthrough_reestruturacao_diretorios_walkthrough_reestrutura\u00e7\u00e3o_de_diret\u00f3rios_src_e_test",
+      "target": "walkthrough_reestruturacao_diretorios_mudan\u00e7as_realizadas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "walkthrough_reestruturacao_diretorios_walkthrough_reestrutura\u00e7\u00e3o_de_diret\u00f3rios_src_e_test",
+      "target": "walkthrough_reestruturacao_diretorios_valida\u00e7\u00e3o_executada",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "walkthrough_reestruturacao_diretorios_mudan\u00e7as_realizadas",
+      "target": "walkthrough_reestruturacao_diretorios_1_movimenta\u00e7\u00e3o_de_pastas_de_produ\u00e7\u00e3o",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "walkthrough_reestruturacao_diretorios_mudan\u00e7as_realizadas",
+      "target": "walkthrough_reestruturacao_diretorios_2_isolamento_de_su\u00edtes_de_testes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "walkthrough_reestruturacao_diretorios_mudan\u00e7as_realizadas",
+      "target": "walkthrough_reestruturacao_diretorios_3_ajuste_de_configura\u00e7\u00f5es_de_compila\u00e7\u00e3o_e_aliases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "walkthrough_reestruturacao_diretorios_mudan\u00e7as_realizadas",
+      "target": "walkthrough_reestruturacao_diretorios_4_refatora\u00e7\u00e3o_de_imports_nos_testes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/reestruturacao_diretorios.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "walkthrough_reestruturacao_diretorios_3_ajuste_de_configura\u00e7\u00f5es_de_compila\u00e7\u00e3o_e_aliases",
+      "target": "walkthrough_reestruturacao_diretorios_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_walkthrough_renomeacao_jogador_md",
+      "target": "walkthrough_renomeacao_jogador_walkthrough_renomea\u00e7\u00e3o_de_interlocutor_para_jogador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_renomeacao_jogador_walkthrough_renomea\u00e7\u00e3o_de_interlocutor_para_jogador",
+      "target": "walkthrough_renomeacao_jogador_contexto_da_demanda"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_renomeacao_jogador_walkthrough_renomea\u00e7\u00e3o_de_interlocutor_para_jogador",
+      "target": "walkthrough_renomeacao_jogador_mudan\u00e7as_realizadas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_renomeacao_jogador_walkthrough_renomea\u00e7\u00e3o_de_interlocutor_para_jogador",
+      "target": "walkthrough_renomeacao_jogador_valida\u00e7\u00e3o_executada"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_renomeacao_jogador_mudan\u00e7as_realizadas",
+      "target": "walkthrough_renomeacao_jogador_1_dom\u00ednio_domain_jogo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_renomeacao_jogador_mudan\u00e7as_realizadas",
+      "target": "walkthrough_renomeacao_jogador_2_testes_unit\u00e1rios_domain_jogo_jogo_test_ts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_renomeacao_jogador_mudan\u00e7as_realizadas",
+      "target": "walkthrough_renomeacao_jogador_3_apis_e_interfaces_app"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_renomeacao_jogador_mudan\u00e7as_realizadas",
+      "target": "walkthrough_renomeacao_jogador_4_banco_de_dados_e_nomenclaturas_em_ingl\u00eas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_renomeacao_jogador_mudan\u00e7as_realizadas",
+      "target": "walkthrough_renomeacao_jogador_5_documenta\u00e7\u00e3o_geral"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/renomeacao_jogador.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_renomeacao_jogador_valida\u00e7\u00e3o_executada",
+      "target": "walkthrough_renomeacao_jogador_codeblock_1"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -2592,6 +5177,16 @@
       "confidence_score": 1.0,
       "source": "app_game_matchid_page_tsx",
       "target": "domain_jogo_index_ts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/game/[matchId]/page.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_game_matchid_page_tsx",
+      "target": "matchid_page_corjogador"
     },
     {
       "relation": "contains",
@@ -4140,7 +6735,7 @@
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "domain_jogo_mensagens_ts",
+      "source": "domain_jogo_mensagens_test_ts",
       "target": "domain_jogo_index_ts"
     },
     {
@@ -4162,7 +6757,7 @@
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "domain_jogo_veredito_ts",
+      "source": "domain_jogo_veredito_test_ts",
       "target": "domain_jogo_index_ts"
     },
     {
@@ -4174,6 +6769,28 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "lib_ia_tipos_ts",
+      "target": "domain_jogo_index_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "domain_jogo_index_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
       "target": "domain_jogo_index_ts"
     },
     {
@@ -4341,14 +6958,197 @@
       "target": "jogo_jogo_test_partidacommensagem"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "domain_jogo_tipos_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_tipos_partida"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "domain/jogo/mensagens.test.ts",
       "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "domain_jogo_mensagens_ts",
+      "source": "domain_jogo_mensagens_test_ts",
       "target": "jogo_mensagens_test_criarpartidateste"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_buscarporcor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L227",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L212",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_analista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L175",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_resultado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_conteudo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L215",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_partidacommensagem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L205",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_analistaatualizado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_tresegundosdepois"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L133",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_zerosegundosdepois"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L228",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_azul"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L188",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_partidacommensagemazul"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L189",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_azulatualizado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L193",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_partidacommensagemanalista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L230",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_partidaatualizada"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L231",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_test_ts",
+      "target": "jogo_mensagens_test_vermelhoatualizado"
     },
     {
       "relation": "calls",
@@ -4360,6 +7160,16 @@
       "weight": 1.0,
       "source": "jogo_mensagens_test_criarpartidateste",
       "target": "jogo_partida_criarpartidapoc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.test.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_mensagens_test_criarpartidateste"
     },
     {
       "relation": "contains",
@@ -4521,6 +7331,17 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "domain_jogo_mensagens_ts",
+      "target": "jogo_tipos_mensagempartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mensagens.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mensagens_ts",
       "target": "jogo_tipos_participantepartida"
     },
     {
@@ -4533,17 +7354,6 @@
       "confidence_score": 1.0,
       "source": "domain_jogo_mensagens_ts",
       "target": "jogo_tipos_partida"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "domain/jogo/mensagens.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "domain_jogo_mensagens_ts",
-      "target": "jogo_tipos_mensagempartida"
     },
     {
       "relation": "imports",
@@ -4607,6 +7417,28 @@
       "confidence_score": 1.0,
       "source": "domain_jogo_mmr_test_ts",
       "target": "domain_jogo_mmr_ts"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "jogo_mmr_calcularajustemmranalista"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_test_ts",
+      "target": "jogo_mmr_calcularajustemmrjogador"
     },
     {
       "relation": "imports",
@@ -4759,6 +7591,26 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_ts",
+      "target": "jogo_mmr_calcularajustemmranalista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_mmr_ts",
+      "target": "jogo_mmr_calcularajustemmrjogador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/mmr.ts",
       "source_location": "L44",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4797,6 +7649,28 @@
       "confidence_score": 1.0,
       "source": "domain_jogo_veredito_ts",
       "target": "jogo_mmr_calcularajustepdrjogador"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_mmr_calcularajustemmranalista"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_ts",
+      "target": "jogo_mmr_calcularajustemmrjogador"
     },
     {
       "relation": "imports",
@@ -4891,6 +7765,16 @@
       "confidence_score": 1.0,
       "source": "domain_jogo_partida_ts",
       "target": "jogo_tipos_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/partida.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_partida_ts",
+      "target": "jogo_partida_criarpartidapocparametros"
     },
     {
       "relation": "contains",
@@ -5150,6 +8034,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "domain_jogo_tipos_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "domain/jogo/veredito.ts",
       "source_location": "L9",
       "weight": 1.0,
@@ -5194,12 +8089,34 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "domain/jogo/veredito.ts",
       "source_location": "L9",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "domain_jogo_veredito_ts",
       "target": "jogo_tipos_participantepartida"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_tipos_partida"
     },
     {
       "relation": "imports",
@@ -5233,6 +8150,106 @@
       "confidence_score": 1.0,
       "source": "domain_jogo_veredito_ts",
       "target": "jogo_tipos_resultadopartida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_veredito_test_criarpartidateste"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_veredito_test_buscarporcor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L214",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_veredito_test_resultado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L199",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_veredito_test_partida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L209",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_veredito_test_finalizada"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L200",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_veredito_test_azul"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L215",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_veredito_test_resultadoazul"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L167",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_veredito_test_vermelho"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L176",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_veredito_test_resultadovermelho"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "domain/jogo/veredito.test.ts",
+      "source_location": "L203",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "domain_jogo_veredito_test_ts",
+      "target": "jogo_veredito_test_dataenvio"
     },
     {
       "relation": "contains",
@@ -6036,5 +9053,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f82d6386f601157dbb458223202387da8253553e"
+  "built_at_commit": "8abc6bce0afda70989ccc52806151b5017d5128f"
 }
