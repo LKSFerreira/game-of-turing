@@ -17,7 +17,7 @@ Este projeto possui um grafo de conhecimento gerado pelo Graphify sob a pasta `g
    - Evite fazer buscas cegas com `grep` de texto ou ler arquivos de ponta a ponta quando puder direcionar a busca via query.
 
 2. **Visão Geral e Contexto de Alto Nível:**
-   - Para mapear comunidades, entender a arquitetura conceitual ou em processos de inicialização de contexto (como `/novo_chat`), leia o arquivo estático [GRAPH_REPORT.md](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-of-turing/graphify-out/GRAPH_REPORT.md). Ele dá um panorama rápido de comunidades e acoplamentos (*God Nodes*) sem exigir execuções de terminal.
+   - Para mapear comunidades, entender a arquitetura conceitual ou em processos de inicialização de contexto (como `/novo_chat`), leia o arquivo estático `graphify-out/GRAPH_REPORT.md`. Ele dá um panorama rápido de comunidades e acoplamentos (*God Nodes*) sem exigir execuções de terminal.
 
 3. **Uso de Integração MCP (Server):**
    - Caso o servidor MCP do Graphify esteja ativo nas ferramentas declaradas do agente, prefira usar as ferramentas nativas (`query_graph`, `get_node`, `get_neighbors`, `shortest_path`, `list_prs`, `get_pr_impact`, `triage_prs`) em vez do CLI via terminal, economizando requisições manuais de aprovação.

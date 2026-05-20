@@ -18,7 +18,7 @@ Se necessário, leia os arquivos abaixo:
 1. `AGENTS.md`
 2. `.agents/rules/workflow.md`
 3. `.agents/rules/code.md`
-4. [graphify-out/GRAPH_REPORT.md](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-of-turing/graphify-out/GRAPH_REPORT.md), para obter o mapeamento arquitetural e comunidades
+4. `graphify-out/GRAPH_REPORT.md`, para obter o mapeamento arquitetural e comunidades
 5. `.metadocs/roadmap.md`, se existir
 6. `.metadocs/historico.md`, se existir
 7. `README.md`
@@ -26,7 +26,7 @@ Se necessário, leia os arquivos abaixo:
 
 ## 2. Auditoria
 
-- Com o apoio do [graphify-out/GRAPH_REPORT.md](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-of-turing/graphify-out/GRAPH_REPORT.md), analise a coesão das comunidades de arquivos relevantes ao escopo.
+- Com o apoio do `graphify-out/GRAPH_REPORT.md`, analise a coesão das comunidades de arquivos relevantes ao escopo.
 - Caso o roadmap mencione pendências ou termos de negócio específicos, execute `graphify query "<termo>"` para localizar onde e como esses elementos estão conectados no código.
 - Compare o roadmap com arquivos reais.
 - Identifique tarefas concluídas, pendências e documentação desatualizada.
