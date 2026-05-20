@@ -69,7 +69,6 @@ Escopo:
 - [x] Timer, chat, missões secretas, veredito e revelação.
 - [x] IA via Strategy Pattern.
 - [x] Provider fake/local obrigatório para testes, fallback e desenvolvimento sem custo.
-- [ ] Providers Groq e OpenRouter preparados para uso via API server-side.
 
 Critérios de aceite:
 
@@ -77,6 +76,8 @@ Critérios de aceite:
 - [x] O Analista conversa com pelo menos um interlocutor IA.
 - [x] O jogo chega até veredito e revelação.
 - [x] Regras principais têm testes unitários.
+
+Status: concluída.
 
 ## M2 - Motor de Regras
 
@@ -100,6 +101,8 @@ Critérios de aceite:
 - [x] UI usa o motor em vez de duplicar regras.
 - [x] Casos extremos cobertos: tempo esgotado, mensagem inválida, veredito parcial e jogador inativo.
 
+Status: concluída.
+
 ## M3 - MVP Local Completo
 
 Objetivo: ter um jogo completo antes de autenticação e banco.
@@ -110,6 +113,7 @@ Escopo:
 - [ ] UI refinada com a estética cyber/neon atual.
 - [ ] Estados claros de erro, loading, cooldown e bloqueio.
 - [ ] Seleção configurável de provider IA.
+- [ ] Providers Groq e OpenRouter preparados para uso via API server-side.
 - [ ] Histórico em memória.
 - [ ] Documentação de como jogar e validar.
 
