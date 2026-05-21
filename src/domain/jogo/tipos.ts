@@ -52,6 +52,7 @@ export type Partida = {
   participantes: ParticipantePartida[];
   mensagens: MensagemPartida[];
   vereditoAnalista: VereditoAnalista | null;
+  motivoEncerramento?: 'wo_inatividade' | 'veredito';
 };
 
 export type ResultadoValidacao =
@@ -76,6 +77,7 @@ export type ResultadoParticipante = {
 
 export type ResultadoPartida = {
   analistaVenceu: boolean;
+  analistaInativoWo?: boolean;
   vereditoCorretoAzul: boolean;
   vereditoCorretoVermelho: boolean;
   participantes: ResultadoParticipante[];

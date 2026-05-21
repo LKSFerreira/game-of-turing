@@ -128,7 +128,21 @@ describe('atualizarFasePorTempo', () => {
   });
 
   it('avança para veredito quando tempo esgota', () => {
-    const partida = criarPartidaPoc({ criadaEm: DATA_BASE, duracaoSegundos: 60 });
+    const partidaBase = criarPartidaPoc({ criadaEm: DATA_BASE, duracaoSegundos: 60 });
+    const partida = {
+      ...partidaBase,
+      mensagens: [
+        ...partidaBase.mensagens,
+        {
+          id: 'msg-analista',
+          partidaId: partidaBase.id,
+          remetenteId: 'analista-local',
+          remetenteCor: 'analista',
+          conteudo: 'Ola jogadores',
+          criadaEm: DATA_BASE,
+        }
+      ]
+    };
     expect(atualizarFasePorTempo(partida, new Date('2026-05-16T12:01:00.000Z')).fase).toBe('veredito');
   });
 

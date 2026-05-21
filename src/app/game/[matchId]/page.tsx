@@ -26,6 +26,17 @@ import type {
   Partida,
   ResultadoPartida,
 } from '@/domain/jogo';
+import {
+  CHANCE_PROATIVIDADE_IA,
+  CHANCE_DIGITACAO_FAKE,
+  DELAY_BASE_DIGITACAO_MS,
+  DELAY_VARIACAO_DIGITACAO_MS,
+  INTERVALO_CHECAGEM_INATIVIDADE_MS,
+  LIMITE_INATIVIDADE_SEGUNDOS,
+  MAXIMO_MENSAGENS_CONTEXTO_API,
+  TEMPO_MAXIMO_DIGITACAO_FAKE_MS,
+  TEMPO_MINIMO_DIGITACAO_FAKE_MS,
+} from '@/lib/ia/constantes';
 
 type CorJogador = Extract<CorParticipante, 'azul' | 'vermelho'>;
 type CorVisual = Extract<CorParticipante, 'analista' | 'azul' | 'vermelho'>;
@@ -239,7 +250,11 @@ function BotaoNatureza({
 export default function GameRoom({ params }: { params: Promise<{ matchId: string }> }) {
   const matchId = use(params).matchId;
   const router = useRouter();
+  const enviandoMensagemRef = useRef(false);
+  const sequenciaIaVersaoRef = useRef(0);
   const [partida, setPartida] = useState(() => criarPartidaPoc({ id: matchId }));
+  const partidaRef = useRef(partida);
+  partidaRef.current = partida;
   const [entradaMensagem, setEntradaMensagem] = useState('');
   const [segundosRestantes, setSegundosRestantes] = useState(partida.duracaoSegundos);
   const [segundosVereditoRestantes, setSegundosVereditoRestantes] = useState(
@@ -257,7 +272,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
   const participanteAzul = buscarParticipantePorCor(partida, 'azul');
   const participanteVermelho = buscarParticipantePorCor(partida, 'vermelho');
   const resultado =
-    partida.fase === 'revelacao' && partida.vereditoAnalista
+    partida.fase === 'revelacao' && (partida.vereditoAnalista || partida.motivoEncerramento === 'wo_inatividade')
       ? calcularResultadoPartida(partida)
       : null;
   const estilosAnalista = ESTILOS_PARTICIPANTE.analista;
@@ -318,96 +333,307 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     return () => window.clearTimeout(timeout);
   }, [partida.fase, segundosVereditoRestantes]);
 
+  async function executarMensagemIaEspontanea(corJogador: CorJogador) {
+    if (partidaRef.current.fase !== 'em_andamento') return;
+
+    setJogadoresPensando(atuais =>
+      atuais.includes(corJogador) ? atuais : [...atuais, corJogador],
+    );
+
+    try {
+      const botParticipante = corJogador === 'azul' ? participanteAzul : participanteVermelho;
+      const startTempo = Date.now();
+
+      if (partidaRef.current.fase !== 'em_andamento') {
+        return;
+      }
+
+      const resposta = await fetch('/api/ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          cor: corJogador,
+          missaoSecreta: botParticipante.missaoSecreta,
+          historico: partida.mensagens.slice(-MAXIMO_MENSAGENS_CONTEXTO_API),
+        }),
+      });
+
+      if (partidaRef.current.fase !== 'em_andamento') {
+        return;
+      }
+
+      const dados = (await resposta.json()) as RespostaApiIa;
+      const tempoGastoFetch = Date.now() - startTempo;
+
+      const tamanhoResposta = dados.texto?.length ?? 0;
+      const caracteresPorSegundoDigitacao = 6; // Velocidade bem lenta e realista (média humano digitando no celular)
+      const delayDesejadoMs = DELAY_BASE_DIGITACAO_MS + (tamanhoResposta / caracteresPorSegundoDigitacao) * 1000 + Math.random() * DELAY_VARIACAO_DIGITACAO_MS;
+      const delayRestante = Math.max(0, delayDesejadoMs - tempoGastoFetch);
+
+      if (delayRestante > 0) {
+        await new Promise(resolve => window.setTimeout(resolve, delayRestante));
+      }
+
+      if (partidaRef.current.fase !== 'em_andamento') {
+        return;
+      }
+
+      if (resposta.status === 503 || !resposta.ok || !dados.texto) {
+        console.error(`[GAME ESPONTANEO] Falha crítica de IA no bot ${corJogador.toUpperCase()}. Redirecionando para rota offline.`);
+        router.push('/offline');
+        return;
+      }
+
+      const criadaEm = new Date().toISOString();
+      setPartida(partidaAtual => {
+        if (partidaAtual.fase !== 'em_andamento') return partidaAtual;
+
+        const participanteAtual = buscarParticipanteObrigatorio(
+          partidaAtual,
+          botParticipante.id,
+        );
+        const validacao = validarMensagem(
+          partidaAtual,
+          participanteAtual,
+          dados.texto!,
+          new Date(criadaEm),
+        );
+
+        if (!validacao.valido) {
+          console.error(
+            `[GAME ESPONTANEO] Mensagem gerada pelo bot ${corJogador.toUpperCase()} foi considerada inválida pelo motor. Motivo: ${validacao.motivo}`,
+          );
+          window.setTimeout(() => router.push('/offline'), 0);
+          return partidaAtual;
+        }
+
+        const partidaNova = registrarMensagem(
+          partidaAtual,
+          participanteAtual,
+          validacao.conteudoNormalizado,
+          criadaEm,
+        );
+
+        window.setTimeout(rolarChatParaFim, 50);
+        return partidaNova;
+      });
+    } catch (erro) {
+      console.error(`[GAME ESPONTANEO] Falha de conexão de rede ou exceção ao acionar bot ${corJogador.toUpperCase()}:`, erro);
+      router.push('/offline');
+    } finally {
+      setJogadoresPensando(atuais => atuais.filter(corAtual => corAtual !== corJogador));
+    }
+  }
+
+  // Monitor de inatividade de chat para proatividade de IA
+  useEffect(() => {
+    if (exibirModalPapel || partida.fase !== 'em_andamento') {
+      return;
+    }
+
+    const intervaloId = window.setInterval(() => {
+      if (partida.mensagens.length === 0) return;
+      const ultimaMensagem = partida.mensagens[partida.mensagens.length - 1];
+      const tempoUltimaMensagem = new Date(ultimaMensagem.criadaEm).getTime();
+      const agora = new Date().getTime();
+      const segundosDesdeUltimaMensagem = (agora - tempoUltimaMensagem) / 1000;
+
+      if (segundosDesdeUltimaMensagem >= LIMITE_INATIVIDADE_SEGUNDOS && jogadoresPensando.length === 0) {
+        if (Math.random() < CHANCE_PROATIVIDADE_IA) {
+          const corUltimoRemetente = ultimaMensagem.remetenteCor;
+          let botEscolhido: CorJogador = 'azul';
+
+          if (corUltimoRemetente === 'azul') {
+            botEscolhido = 'vermelho';
+          } else if (corUltimoRemetente === 'vermelho') {
+            botEscolhido = 'azul';
+          } else {
+            botEscolhido = Math.random() < 0.5 ? 'azul' : 'vermelho';
+          }
+
+          executarMensagemIaEspontanea(botEscolhido);
+        }
+      }
+    }, INTERVALO_CHECAGEM_INATIVIDADE_MS);
+
+    return () => window.clearInterval(intervaloId);
+  }, [exibirModalPapel, partida, jogadoresPensando]);
+
   function rolarChatParaFim() {
     window.setTimeout(() => scrollRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
   }
 
-  function agendarRespostaIa(
-    partidaReferencia: Partida,
-    participanteIa: ParticipantePartida,
-    atrasoMs: number,
-  ) {
-    if (!isCorJogador(participanteIa.cor) || !participanteIa.missaoSecreta) {
-      return;
+  async function executarSequenciaRespostasIa(partidaAposAnalista: Partida) {
+    const versaoAtual = ++sequenciaIaVersaoRef.current;
+    const bots = [
+      { participante: participanteAzul, cor: 'azul' },
+      { participante: participanteVermelho, cor: 'vermelho' },
+    ];
+
+    // Sorteia quem responde primeiro para manter dinâmica humana
+    if (Math.random() < 0.5) {
+      bots.reverse();
     }
 
-    const corJogador = participanteIa.cor;
+    let partidaAtualizada = partidaAposAnalista;
+    let algumBotRespondeu = false;
 
-    setJogadoresPensando(jogadoresAtuais =>
-      jogadoresAtuais.includes(corJogador)
-        ? jogadoresAtuais
-        : [...jogadoresAtuais, corJogador],
-    );
+    for (let indice = 0; indice < bots.length; indice++) {
+      const bot = bots[indice];
+      const corJogador = bot.cor as CorJogador;
 
-    window.setTimeout(async () => {
+      // 1. Tempo de Leitura Silenciosa
+      const tamanhoUltimaMensagem = partidaAtualizada.mensagens.length > 0 ? partidaAtualizada.mensagens[partidaAtualizada.mensagens.length - 1].conteudo.length : 0;
+      const caracteresPorSegundoLeitura = 12; // Leitura super atenciosa
+      const tempoLeituraMs = (tamanhoUltimaMensagem / caracteresPorSegundoLeitura) * 1000;
+      
+      if (tempoLeituraMs > 0) {
+        await new Promise(resolve => window.setTimeout(resolve, tempoLeituraMs));
+      }
+
+      if (versaoAtual !== sequenciaIaVersaoRef.current || partidaRef.current.fase !== 'em_andamento') {
+        setJogadoresPensando([]);
+        return;
+      }
+
+      // 1.5 Simular Hesitação (Digitando Fake)
+      // Se for o último bot e ninguém respondeu ainda, nós FORÇAMOS a resposta real (não aplicamos a hesitação).
+      const deveForcarResposta = !algumBotRespondeu && indice === bots.length - 1;
+
+      if (!deveForcarResposta && Math.random() < CHANCE_DIGITACAO_FAKE) {
+        // Ativa indicador de digitando
+        setJogadoresPensando(atuais =>
+          atuais.includes(corJogador) ? atuais : [...atuais, corJogador],
+        );
+
+        const tempoFakeMs = TEMPO_MINIMO_DIGITACAO_FAKE_MS + Math.random() * (TEMPO_MAXIMO_DIGITACAO_FAKE_MS - TEMPO_MINIMO_DIGITACAO_FAKE_MS);
+        await new Promise(resolve => window.setTimeout(resolve, tempoFakeMs));
+
+        // Desativa indicador de digitando
+        setJogadoresPensando(atuais => atuais.filter(corAtual => corAtual !== corJogador));
+
+        if (versaoAtual !== sequenciaIaVersaoRef.current || partidaRef.current.fase !== 'em_andamento') {
+          setJogadoresPensando([]);
+          return;
+        }
+
+        // Pula a resposta deste bot simulando que ele desistiu
+        continue;
+      }
+
+      // 2. Iniciar Indicação Visual de Digitação
+      setJogadoresPensando(atuais =>
+        atuais.includes(corJogador) ? atuais : [...atuais, corJogador],
+      );
+
       try {
+        const startTempo = Date.now();
+
+        if (partidaRef.current.fase !== 'em_andamento') {
+          setJogadoresPensando([]);
+          return;
+        }
+
         const resposta = await fetch('/api/ai', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             cor: corJogador,
-            missaoSecreta: participanteIa.missaoSecreta,
-            historico: partidaReferencia.mensagens.slice(-12),
+            missaoSecreta: bot.participante.missaoSecreta,
+            historico: partidaAtualizada.mensagens.slice(-MAXIMO_MENSAGENS_CONTEXTO_API),
           }),
         });
-        const dados = (await resposta.json()) as RespostaApiIa;
 
-        if (!resposta.ok || !dados.texto) {
-          throw new Error(dados.error ?? 'Provider de IA não retornou resposta.');
+        if (versaoAtual !== sequenciaIaVersaoRef.current || partidaRef.current.fase !== 'em_andamento') {
+          setJogadoresPensando([]);
+          return;
         }
 
-        setPartida(partidaAtual => {
-          if (partidaAtual.fase !== 'em_andamento') {
-            return partidaAtual;
-          }
+        const dados = (await resposta.json()) as RespostaApiIa;
+        const tempoGastoFetch = Date.now() - startTempo;
 
-          const participanteAtual = buscarParticipanteObrigatorio(
-            partidaAtual,
-            participanteIa.id,
-          );
-          const criadaEm = new Date().toISOString();
-          const validacao = validarMensagem(
-            partidaAtual,
-            participanteAtual,
-            dados.texto!,
-            new Date(criadaEm),
-          );
+        const tamanhoResposta = dados.texto?.length ?? 0;
+        const caracteresPorSegundoDigitacao = 6; // Velocidade de digitação realista de celular
+        const tempoDigitacaoMs = (tamanhoResposta / caracteresPorSegundoDigitacao) * 1000;
 
-          if (!validacao.valido) {
-            return partidaAtual;
-          }
+        const delayDesejadoMs = DELAY_BASE_DIGITACAO_MS + tempoDigitacaoMs + Math.random() * DELAY_VARIACAO_DIGITACAO_MS;
+        const delayRestante = Math.max(0, delayDesejadoMs - tempoGastoFetch);
 
-          return registrarMensagem(
-            partidaAtual,
-            participanteAtual,
-            validacao.conteudoNormalizado,
-            criadaEm,
+        if (delayRestante > 0) {
+          await new Promise(resolve => window.setTimeout(resolve, delayRestante));
+        }
+
+        if (versaoAtual !== sequenciaIaVersaoRef.current || partidaRef.current.fase !== 'em_andamento') {
+          setJogadoresPensando([]);
+          return;
+        }
+
+        if (resposta.status === 503 || !resposta.ok || !dados.texto) {
+          console.error(`[GAME] Falha crítica de IA no bot ${bot.cor.toUpperCase()}. Redirecionando para rota offline.`);
+          router.push('/offline');
+          return;
+        }
+
+        const criadaEm = new Date().toISOString();
+        const participanteAtual = buscarParticipanteObrigatorio(
+          partidaAtualizada,
+          bot.participante.id,
+        );
+        const validacao = validarMensagem(
+          partidaAtualizada,
+          participanteAtual,
+          dados.texto,
+          new Date(criadaEm),
+        );
+
+        if (!validacao.valido) {
+          console.error(
+            `[GAME] Mensagem gerada pelo bot ${bot.cor.toUpperCase()} foi considerada inválida pelo motor. Motivo: ${validacao.motivo}`,
           );
-        });
+          router.push('/offline');
+          return;
+        }
+
+        partidaAtualizada = registrarMensagem(
+          partidaAtualizada,
+          participanteAtual,
+          validacao.conteudoNormalizado,
+          criadaEm,
+        );
+
+        setPartida(stateAnterior => registrarMensagem(
+          stateAnterior,
+          participanteAtual,
+          validacao.conteudoNormalizado,
+          criadaEm
+        ));
+        algumBotRespondeu = true;
         rolarChatParaFim();
       } catch (erro) {
-        const mensagem = erro instanceof Error ? erro.message : 'Falha ao acionar IA fake.';
-        setErroMensagem(mensagem);
+        console.error(`[GAME] Falha de conexão de rede ou exceção ao acionar bot ${bot.cor.toUpperCase()}:`, erro);
+        router.push('/offline');
+        return;
       } finally {
-        setJogadoresPensando(jogadoresAtuais =>
-          jogadoresAtuais.filter(corAtual => corAtual !== corJogador),
-        );
+        setJogadoresPensando(atuais => atuais.filter(corAtual => corAtual !== corJogador));
       }
-    }, atrasoMs);
+    }
   }
 
   function enviarMensagem(evento: React.FormEvent<HTMLFormElement>) {
     evento.preventDefault();
 
-    if (partida.fase !== 'em_andamento' || segundosCooldown > 0) {
+    if (partida.fase !== 'em_andamento' || segundosCooldown > 0 || enviandoMensagemRef.current) {
       return;
     }
+
+    enviandoMensagemRef.current = true;
 
     const enviadaEm = new Date();
     const validacao = validarMensagem(partida, analista, entradaMensagem, enviadaEm);
 
     if (!validacao.valido) {
       setErroMensagem(validacao.motivo);
+      enviandoMensagemRef.current = false;
       return;
     }
 
@@ -422,9 +648,13 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     setEntradaMensagem('');
     setErroMensagem(null);
     setSegundosCooldown(partida.cooldownSegundos);
-    agendarRespostaIa(partidaComMensagem, participanteAzul, 1200);
-    agendarRespostaIa(partidaComMensagem, participanteVermelho, 2200);
+
+    executarSequenciaRespostasIa(partidaComMensagem);
     rolarChatParaFim();
+
+    window.setTimeout(() => {
+      enviandoMensagemRef.current = false;
+    }, 500);
   }
 
   function encerrarInterrogatorio() {
@@ -584,7 +814,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                         <div className="font-mono text-[10px] uppercase tracking-widest text-slate-500">
                           {mensagem.conteudo}
                         </div>
-                        <div className="mt-1 font-mono text-[9px] uppercase tracking-widest text-slate-700">
+                        <div className="mt-1 font-mono text-[9px] uppercase tracking-widest text-slate-700" suppressHydrationWarning>
                           {formatarTimestamp(mensagem.criadaEm)}
                         </div>
                       </div>
@@ -601,7 +831,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                   >
                     {isAnalista ? (
                       <div className="mb-2 flex w-full max-w-[56%] flex-col items-center gap-1">
-                        <span className="font-mono text-[9px] uppercase tracking-widest text-slate-600">
+                        <span className="font-mono text-[9px] uppercase tracking-widest text-slate-600" suppressHydrationWarning>
                           {formatarTimestamp(mensagem.criadaEm)}
                         </span>
                         <span
@@ -617,7 +847,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                         }`}
                       >
                         {isVermelho && (
-                          <span className="font-mono text-[9px] uppercase tracking-widest text-slate-600">
+                          <span className="font-mono text-[9px] uppercase tracking-widest text-slate-600" suppressHydrationWarning>
                             {formatarTimestamp(mensagem.criadaEm)}
                           </span>
                         )}
@@ -627,7 +857,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                           {ROTULOS_COR[remetenteCor]}
                         </span>
                         {isAzul && (
-                          <span className="font-mono text-[9px] uppercase tracking-widest text-slate-600">
+                          <span className="font-mono text-[9px] uppercase tracking-widest text-slate-600" suppressHydrationWarning>
                             {formatarTimestamp(mensagem.criadaEm)}
                           </span>
                         )}
@@ -643,20 +873,24 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
               })}
             </AnimatePresence>
             {jogadoresPensando.length > 0 && partida.fase === 'em_andamento' && (
-              <div className="flex flex-wrap gap-2 px-1">
+              <div className="flex flex-col gap-2 w-full px-1">
                 {jogadoresPensando.map(corJogador => {
                   const isAzulPensando = corJogador === 'azul';
 
                   return (
                     <div
-                      className={`rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-widest ${
-                        isAzulPensando
-                          ? 'border-cyan-500/30 bg-cyan-950/30 text-cyan-400'
-                          : 'border-red-500/30 bg-red-950/30 text-red-500'
-                      }`}
+                      className={`flex w-full ${isAzulPensando ? 'justify-start' : 'justify-end'}`}
                       key={corJogador}
                     >
-                      {ROTULOS_COR[corJogador]} está digitando...
+                      <div
+                        className={`rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-widest ${
+                          isAzulPensando
+                            ? 'border-cyan-500/30 bg-cyan-950/30 text-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.08)]'
+                            : 'border-red-500/30 bg-red-950/30 text-red-500 shadow-[0_0_12px_rgba(239,68,68,0.08)]'
+                        }`}
+                      >
+                        {ROTULOS_COR[corJogador]} está digitando...
+                      </div>
                     </div>
                   );
                 })}
@@ -668,40 +902,52 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
           {partida.fase === 'em_andamento' && (
             <div className="border-t border-slate-800 bg-slate-900/50 p-4">
               <form className="relative flex items-center" onSubmit={enviarMensagem}>
-                <textarea
-                  className="h-16 w-full resize-none rounded-lg border border-slate-700 bg-slate-950 p-3 pr-28 font-mono text-sm text-slate-300 transition-colors focus:border-cyan-500/50 focus:outline-none"
-                  disabled={segundosCooldown > 0}
-                  maxLength={150}
-                  onChange={evento => setEntradaMensagem(evento.target.value)}
-                  onKeyDown={evento => {
-                    if (evento.key === 'Enter' && !evento.shiftKey) {
-                      evento.preventDefault();
-                      evento.currentTarget.form?.requestSubmit();
-                    }
-                  }}
-                  onPaste={evento => {
-                    evento.preventDefault();
-                    setErroMensagem('Colar conteúdo foi desativado por segurança.');
-                  }}
-                  placeholder={
-                    segundosCooldown > 0
-                      ? `Aguarde (${segundosCooldown}s)...`
-                      : 'Digite a pergunta do Analista...'
-                  }
-                  value={entradaMensagem}
-                />
-                <div className="absolute right-3 flex items-center gap-3">
-                  <span className="hidden font-mono text-[10px] text-slate-500 sm:inline">
-                    {entradaMensagem.length}/150
-                  </span>
-                  <button
-                    className="rounded bg-yellow-500 px-4 py-2 text-xs font-bold uppercase text-black shadow-[0_0_10px_rgba(234,179,8,0.3)] transition-colors hover:bg-yellow-400 disabled:opacity-50 disabled:shadow-none"
-                    disabled={segundosCooldown > 0 || !entradaMensagem.trim()}
-                    type="submit"
-                  >
-                    Enviar
-                  </button>
-                </div>
+                {/* PREPARAÇÃO MULTIPLAYER: O participante local na PoC atual é sempre o analista, mas essa lógica impedirá fisicamente humanos em outros papéis de interagirem */}
+                {(() => {
+                  const participanteLocal = analista;
+                  const analistaJaInteragiu = partida.mensagens.some(m => m.remetenteCor === 'analista');
+                  const bloqueadoEsperandoAnalista = participanteLocal.papel === 'jogador' && !analistaJaInteragiu;
+                  const desabilitado = segundosCooldown > 0 || bloqueadoEsperandoAnalista;
+
+                  let placeholder = 'Digite a mensagem...';
+                  if (bloqueadoEsperandoAnalista) placeholder = 'Aguarde o Analista iniciar o interrogatório...';
+                  else if (segundosCooldown > 0) placeholder = `Aguarde (${segundosCooldown}s)...`;
+
+                  return (
+                    <>
+                      <textarea
+                        className="h-16 w-full resize-none rounded-lg border border-slate-700 bg-slate-950 p-3 pr-28 font-mono text-sm text-slate-300 transition-colors focus:border-cyan-500/50 focus:outline-none disabled:opacity-60 disabled:cursor-not-allowed"
+                        disabled={desabilitado}
+                        maxLength={150}
+                        onChange={evento => setEntradaMensagem(evento.target.value)}
+                        onKeyDown={evento => {
+                          if (evento.key === 'Enter' && !evento.shiftKey) {
+                            evento.preventDefault();
+                            if (!desabilitado) evento.currentTarget.form?.requestSubmit();
+                          }
+                        }}
+                        onPaste={evento => {
+                          evento.preventDefault();
+                          setErroMensagem('Colar conteúdo foi desativado por segurança.');
+                        }}
+                        placeholder={placeholder}
+                        value={entradaMensagem}
+                      />
+                      <div className="absolute right-3 flex items-center gap-3">
+                        <span className="hidden font-mono text-[10px] text-slate-500 sm:inline">
+                          {entradaMensagem.length}/150
+                        </span>
+                        <button
+                          className="rounded bg-yellow-500 px-4 py-2 text-xs font-bold uppercase text-black shadow-[0_0_10px_rgba(234,179,8,0.3)] transition-colors hover:bg-yellow-400 disabled:opacity-50 disabled:shadow-none"
+                          disabled={desabilitado || !entradaMensagem.trim()}
+                          type="submit"
+                        >
+                          Enviar
+                        </button>
+                      </div>
+                    </>
+                  );
+                })()}
               </form>
               <div className="mt-3 flex items-center justify-between gap-4 px-1">
                 <div className="font-mono text-[10px] text-red-400">
@@ -751,6 +997,9 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-200">
                   Faça perguntas aos jogadores Azul e Vermelho e decida se são humanos ou IAs.
+                  <br />
+                  <br />
+                  <span className="font-bold text-yellow-400">REGRA DO JOGO:</span> Você obrigatoriamente deve enviar a primeira mensagem do chat. Os Jogadores não conseguem enviar mensagens até a primeira interação do analisa acontecer.
                 </p>
               </div>
 
@@ -836,23 +1085,30 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
             <div className="w-full max-w-lg rounded-xl border-2 border-slate-800 bg-[#050508] p-6 text-white shadow-[0_0_50px_rgba(6,182,212,0.1)]">
               <div className="mb-6 text-center">
                 <h2 className="font-mono text-3xl font-black uppercase tracking-widest text-slate-100">
-                  Revelação
+                  {resultado.analistaInativoWo ? 'W.O. Inatividade' : 'Revelação'}
                 </h2>
                 <p
                   className={`mt-2 font-mono text-sm uppercase tracking-widest ${
                     resultado.analistaVenceu ? 'text-green-500' : 'text-red-500'
                   }`}
                 >
-                  {resultado.analistaVenceu ? 'Analista venceu' : 'Analista perdeu'}
+                  {resultado.analistaInativoWo ? 'Analista desclassificado' : resultado.analistaVenceu ? 'Analista venceu' : 'Analista perdeu'}
                 </p>
+                {resultado.analistaInativoWo && (
+                  <p className="mt-2 text-xs text-red-400">
+                    O Analista não interagiu na partida. <br/>
+                    Jogadores recebem apenas metade da pontuação.
+                  </p>
+                )}
               </div>
 
               <div className="space-y-4 py-4 font-mono">
                 {[participanteAzul, participanteVermelho].map(participante => {
-                  const veredito =
-                    participante.cor === 'azul'
-                      ? partida.vereditoAnalista!.azul
-                      : partida.vereditoAnalista!.vermelho;
+                  const veredito = partida.vereditoAnalista
+                    ? participante.cor === 'azul'
+                      ? partida.vereditoAnalista.azul
+                      : partida.vereditoAnalista.vermelho
+                    : null;
                   const participanteVenceu = obterResultadoParticipante(resultado, participante);
                   const corTexto =
                     participante.cor === 'azul' ? 'text-cyan-400' : 'text-red-500';
@@ -872,10 +1128,10 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                         <span>Classificado como:</span>
                         <span
                           className={
-                            veredito === participante.natureza ? 'text-green-500' : 'text-red-500'
+                            !veredito ? 'text-slate-400' : veredito === participante.natureza ? 'text-green-500' : 'text-red-500'
                           }
                         >
-                          {obterNatureza(veredito)}
+                          {veredito ? obterNatureza(veredito) : 'W.O.'}
                         </span>
                       </div>
                       <div className="flex items-center justify-between text-[10px] text-slate-500">
@@ -883,9 +1139,9 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
                         <span className="text-slate-300">{obterDiretriz(participante)}</span>
                       </div>
                       <div className="flex items-center justify-between text-[10px] text-slate-500">
-                        <span>Resultado do jogador:</span>
+                        <span>Resultado da missão:</span>
                         <span className={participanteVenceu?.venceu ? 'text-green-500' : 'text-red-500'}>
-                          {participanteVenceu?.venceu ? 'Venceu' : 'Perdeu'}
+                          {participanteVenceu?.venceu ? 'Sucesso' : 'Fracasso'}
                         </span>
                       </div>
                       <div className="flex items-center justify-between text-[10px] text-slate-500">

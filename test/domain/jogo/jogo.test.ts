@@ -18,6 +18,7 @@ import {
   validarMensagem,
   validarVereditoAnalista,
   LIMITE_MINIMO_CARACTERES_MENSAGEM,
+  LIMITE_MAXIMO_CARACTERES_MENSAGEM,
 } from '@/domain/jogo';
 import type { ParticipantePartida, Partida } from '@/domain/jogo/tipos';
 
@@ -74,7 +75,7 @@ describe('validação e registro de mensagens', () => {
       valido: false,
       motivo: `A mensagem precisa ter pelo menos ${LIMITE_MINIMO_CARACTERES_MENSAGEM} caracteres.`,
     });
-    expect(validarMensagem(partida, analista, 'x'.repeat(151), new Date(DATA_BASE))).toMatchObject(
+    expect(validarMensagem(partida, analista, 'x'.repeat(LIMITE_MAXIMO_CARACTERES_MENSAGEM + 1), new Date(DATA_BASE))).toMatchObject(
       {
         valido: false,
       },
@@ -100,26 +101,38 @@ describe('validação e registro de mensagens', () => {
     });
   });
 
-  it('bloqueia mais de 5 caracteres repetidos em sequência', () => {
+  it('bloqueia mais de 10 caracteres repetidos em sequência', () => {
     const partida = criarPartidaTeste();
     const analista = buscarPorCor(partida, 'analista');
 
     expect(
-      validarMensagem(partida, analista, 'Isso tem aaaaaa repetido', new Date(DATA_BASE)),
+      validarMensagem(partida, analista, 'Isso tem aaaaaaaaaaa repetido', new Date(DATA_BASE)),
     ).toEqual({
       valido: false,
       motivo: 'A mensagem não pode ter mais de 5 caracteres repetidos em sequência.',
     });
-    expect(validarMensagem(partida, analista, 'Cinco aaaaa passam', new Date(DATA_BASE))).toEqual({
+    expect(validarMensagem(partida, analista, 'Dez aaaaaaaaaa passam', new Date(DATA_BASE))).toEqual({
       valido: true,
-      conteudoNormalizado: 'Cinco aaaaa passam',
+      conteudoNormalizado: 'Dez aaaaaaaaaa passam',
     });
   });
 
   it('controla orçamento de caracteres apenas para jogadores', () => {
+    const partidaBase = criarPartidaTeste();
     const partida = {
-      ...criarPartidaTeste(),
+      ...partidaBase,
       orcamentoCaracteresJogador: 10,
+      mensagens: [
+        ...partidaBase.mensagens,
+        {
+          id: 'msg-analista-inicial',
+          partidaId: partidaBase.id,
+          remetenteId: 'analista-local',
+          remetenteCor: 'analista',
+          conteudo: 'Ola jogadores',
+          criadaEm: DATA_BASE,
+        }
+      ]
     };
     const azul = {
       ...buscarPorCor(partida, 'azul'),
@@ -140,7 +153,21 @@ describe('validação e registro de mensagens', () => {
 
 describe('veredito, estatísticas e MMR', () => {
   it('avança para veredito quando o tempo da partida esgota', () => {
-    const partida = criarPartidaTeste();
+    const partidaBase = criarPartidaTeste();
+    const partida = {
+      ...partidaBase,
+      mensagens: [
+        ...partidaBase.mensagens,
+        {
+          id: 'msg-analista-inicial',
+          partidaId: partidaBase.id,
+          remetenteId: 'analista-local',
+          remetenteCor: 'analista',
+          conteudo: 'Ola jogadores',
+          criadaEm: DATA_BASE,
+        }
+      ]
+    };
 
     expect(atualizarFasePorTempo(partida, new Date('2026-05-16T12:00:59.000Z')).fase).toBe(
       'em_andamento',
@@ -164,6 +191,9 @@ describe('veredito, estatísticas e MMR', () => {
 
   it('calcula vitória do analista e resultados dos jogadores pelo domínio', () => {
     const partida = criarPartidaTeste();
+    partida.participantes.find(p => p.cor === 'azul')!.missaoSecreta = 'convencer_humano';
+    partida.participantes.find(p => p.cor === 'vermelho')!.missaoSecreta = 'convencer_ia';
+
     const partidaFinalizada = finalizarPartidaComVeredito(
       avancarParaVeredito(partida),
       { azul: 'ia', vermelho: 'ia' },
@@ -177,11 +207,13 @@ describe('veredito, estatísticas e MMR', () => {
     expect(
       resultado.participantes.find(participante => participante.participanteId === 'analista-local'),
     ).toMatchObject({ venceu: true, ajustePdr: 25, ajusteMmr: 18 });
+    // Azul tinha convencer_humano mas foi rotulado como IA → fracasso
     expect(
       resultado.participantes.find(
         participante => participante.participanteId === 'interlocutor-azul',
       ),
     ).toMatchObject({ venceu: false, ajustePdr: -10, ajusteMmr: -8 });
+    // Vermelho tinha convencer_ia e foi rotulado como IA → sucesso
     expect(
       resultado.participantes.find(
         participante => participante.participanteId === 'interlocutor-vermelho',

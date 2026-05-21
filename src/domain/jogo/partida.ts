@@ -46,7 +46,7 @@ export function criarPartidaPoc(parametros: CriarPartidaPocParametros = {}): Par
       cor: 'vermelho',
       natureza: 'ia',
       controle: 'ia',
-      missaoSecreta: 'convencer_ia',
+      missaoSecreta: 'convencer_humano',
       caracteresUsados: 0,
       ultimoEnvioEm: null,
     },
@@ -120,6 +120,19 @@ export function atualizarFasePorTempo(partida: Partida, agora: Date): Partida {
 
   if (calcularSegundosRestantes(partida, agora) > 0) {
     return partida;
+  }
+
+  const analistaEnviouMensagem = partida.mensagens.some(
+    mensagem => Math.abs(mensagem.conteudo.length) > 0 && mensagem.remetenteCor === 'analista'
+  );
+
+  if (!analistaEnviouMensagem) {
+    return {
+      ...partida,
+      fase: 'revelacao',
+      motivoEncerramento: 'wo_inatividade',
+      encerradaEm: agora.toISOString(),
+    };
   }
 
   return avancarParaVeredito(partida);

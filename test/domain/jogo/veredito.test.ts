@@ -148,6 +148,9 @@ describe('calcularResultadoPartida — cenários de vitória e derrota', () => {
 describe('calcularResultadoPartida — missões secretas dos jogadores', () => {
   it('jogador com convencer_humano vence quando analista o rotula como humano', () => {
     const partida = criarPartidaTeste();
+    const azulParticipante = partida.participantes.find(p => p.cor === 'azul')!;
+    azulParticipante.missaoSecreta = 'convencer_humano';
+
     const azul = buscarPorCor(partida, 'azul');
     expect(azul.missaoSecreta).toBe('convencer_humano');
 
@@ -164,6 +167,9 @@ describe('calcularResultadoPartida — missões secretas dos jogadores', () => {
 
   it('jogador com convencer_ia vence quando analista o rotula como ia', () => {
     const partida = criarPartidaTeste();
+    const vermelhoParticipante = partida.participantes.find(p => p.cor === 'vermelho')!;
+    vermelhoParticipante.missaoSecreta = 'convencer_ia';
+
     const vermelho = buscarPorCor(partida, 'vermelho');
     expect(vermelho.missaoSecreta).toBe('convencer_ia');
 
@@ -180,6 +186,9 @@ describe('calcularResultadoPartida — missões secretas dos jogadores', () => {
 
   it('jogador com convencer_humano perde quando analista o rotula como ia', () => {
     const partida = criarPartidaTeste();
+    const azulParticipante = partida.participantes.find(p => p.cor === 'azul')!;
+    azulParticipante.missaoSecreta = 'convencer_humano';
+
     const azul = buscarPorCor(partida, 'azul');
 
     const finalizada = finalizarPartidaComVeredito(

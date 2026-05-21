@@ -106,7 +106,9 @@ export function finalizarPartidaPorTempoVeredito(partida: Partida, encerradaEm: 
 }
 
 export function calcularResultadoPartida(partida: Partida): ResultadoPartida {
-  if (!partida.vereditoAnalista) {
+  const isWoInatividade = partida.motivoEncerramento === 'wo_inatividade';
+
+  if (!partida.vereditoAnalista && !isWoInatividade) {
     throw new Error('Não é possível calcular resultado sem veredito.');
   }
 
@@ -120,10 +122,11 @@ export function calcularResultadoPartida(partida: Partida): ResultadoPartida {
     throw new Error('Participante analista não encontrado.');
   }
 
-  const vereditoCorretoAzul = partida.vereditoAnalista.azul === participanteAzul.natureza;
+  const vereditoCorretoAzul =
+    !isWoInatividade && partida.vereditoAnalista!.azul === participanteAzul.natureza;
   const vereditoCorretoVermelho =
-    partida.vereditoAnalista.vermelho === participanteVermelho.natureza;
-  const analistaVenceu = vereditoCorretoAzul && vereditoCorretoVermelho;
+    !isWoInatividade && partida.vereditoAnalista!.vermelho === participanteVermelho.natureza;
+  const analistaVenceu = !isWoInatividade && vereditoCorretoAzul && vereditoCorretoVermelho;
 
   const participantes = partida.participantes.map(participante => {
     const estatisticas = calcularEstatisticasParticipante(partida, participante);
@@ -142,20 +145,26 @@ export function calcularResultadoPartida(partida: Partida): ResultadoPartida {
       };
     }
 
-    const rotuloRecebido =
-      participante.cor === 'azul' ? partida.vereditoAnalista!.azul : partida.vereditoAnalista!.vermelho;
-    const venceu = missaoFoiCumprida(participante, rotuloRecebido);
+    const rotuloRecebido = isWoInatividade
+      ? null
+      : participante.cor === 'azul'
+        ? partida.vereditoAnalista!.azul
+        : partida.vereditoAnalista!.vermelho;
+        
+    const venceu = isWoInatividade ? true : missaoFoiCumprida(participante, rotuloRecebido!);
     const bonusParticipacao = calcularBonusParticipacao(
       estatisticas.mensagensEnviadas,
       estatisticas.percentualOrcamentoUsado,
     );
 
+    const divisorPenalidadeWo = isWoInatividade ? 2 : 1;
+
     return {
       participanteId: participante.id,
       venceu,
       inativo: estatisticas.inativo,
-      ajustePdr: calcularAjustePdrJogador(participante, venceu, bonusParticipacao),
-      ajusteMmr: calcularAjusteMmrJogador(participante, venceu, bonusParticipacao),
+      ajustePdr: Math.floor(calcularAjustePdrJogador(participante, venceu, bonusParticipacao) / divisorPenalidadeWo),
+      ajusteMmr: Math.floor(calcularAjusteMmrJogador(participante, venceu, bonusParticipacao) / divisorPenalidadeWo),
       bonusParticipacao,
       caracteresUsados: participante.caracteresUsados,
       mensagensEnviadas: estatisticas.mensagensEnviadas,
@@ -165,6 +174,7 @@ export function calcularResultadoPartida(partida: Partida): ResultadoPartida {
 
   return {
     analistaVenceu,
+    analistaInativoWo: isWoInatividade,
     vereditoCorretoAzul,
     vereditoCorretoVermelho,
     participantes,
