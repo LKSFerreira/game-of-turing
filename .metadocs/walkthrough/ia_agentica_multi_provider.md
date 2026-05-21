@@ -43,9 +43,10 @@ Criado [prompt-agentico.ts](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-o
 
 ### 4. Providers Reais
 
-- [provedor-gemini.ts](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-of-turing/src/lib/ia/provedor-gemini.ts) — Gemini 2.5 Flash via SDK `@google/genai`, peso 5.
-- [provedor-groq.ts](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-of-turing/src/lib/ia/provedor-groq.ts) — Llama 3.3 70B via fetch nativo, peso 3.
-- [provedor-openrouter.ts](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-of-turing/src/lib/ia/provedor-openrouter.ts) — Llama 3.3 70B Instruct via fetch nativo, peso 2.
+- [provedor-github.ts](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-of-turing/src/lib/ia/provedor-github.ts) — OpenAI GPT-5 Nano via GitHub Models API oficial, peso 100 (Provedor Principal Absoluto).
+- [provedor-gemini.ts](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-of-turing/src/lib/ia/provedor-gemini.ts) — Gemini 2.5 Flash via SDK `@google/genai`, peso 3 (Fallback Primário).
+- [provedor-groq.ts](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-of-turing/src/lib/ia/provedor-groq.ts) — Llama 3.3 70B via fetch nativo, peso 2 (Fallback Secundário).
+- [provedor-openrouter.ts](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-of-turing/src/lib/ia/provedor-openrouter.ts) — Llama 3.3 70B Instruct via fetch nativo, peso 1 (Fallback Terciário).
 
 Todos respeitam a interface `ProvedorIa`, usam o módulo de prompt agêntico e truncam respostas que excedam o limite de caracteres.
 
@@ -54,7 +55,7 @@ Todos respeitam a interface `ProvedorIa`, usam o módulo de prompt agêntico e t
 Refatorado [index.ts](file:///c:/Users/LKSFERREIRA/Documents/GitHub/game-of-turing/src/lib/ia/index.ts):
 - `obterOrquestrador()`: ponto de entrada principal, configura providers via `AI_PROVIDERS` e `AI_PROVIDER_WEIGHTS`.
 - `obterProvedorIa()`: mantida para compatibilidade retroativa (testes e dev local).
-- Mapa de providers registra todos os 4 providers (fake, groq, openrouter, gemini).
+- Mapa de providers registra todos os 5 providers (fake, github, groq, openrouter, gemini).
 - Cache de instância do orquestrador para evitar recriação.
 
 ### 6. API Route

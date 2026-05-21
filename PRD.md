@@ -130,12 +130,12 @@ O sistema de Rank é global e categorizado. Um jogador possui estatísticas sepa
 - **Tempo Real (Real-time):** Utilização do Supabase Realtime (que lida com WebSockets por baixo dos panos) ou Server-Sent Events via Vercel Functions para gerenciar o chat da partida e estado da sala sem a necessidade de configurar um servidor Socket.io dedicado.
 - **Lógica de Jogo:** Funções Serverless (Edge Functions na Vercel ou Supabase) para controlar timers, aplicar cooldowns (validação no servidor), processar turnos de mensagem e avaliar condições de vitória com segurança (evitando trapaças do lado do cliente).
 
-### 5.3. Integração com IA (Arquitetura Flexível)
+### 5.3. Integração com IA (Arquitetura Atual)
 
-- **Padrão Strategy (Strategy Pattern):** A integração com os LLMs será desenhada com o padrão Strategy. Isso permite trocar o provedor de IA facilmente sem reescrever a lógica do jogo.
-- **Provedor Inicial (Cost-Effective):** Integração com APIs como a Groq (utilizando modelos open-source rápidos e gratuitos/baratos no free tier como Llama 3 ou Mixtral) para garantir latência baixíssima na resposta (WPM realista) sem custo alto no MVP.
-- **Escalabilidade (Provedores Futuros):** Conforme a receita gerada pelo Passe de Batalha/Loja aumentar, o Strategy Pattern permitirá ativar facilmente modelos da OpenAI, Anthropic ou Gemini para popular as mesas com "níveis de dificuldade" de IA variados.
-- **Sistema de Prompts Dinâmicos:** O backend envia o contexto do chat em tempo real para a IA e reforça a missão secreta no system prompt.
+- **Orquestrador e Circuit Breaker:** O backend já possui um orquestrador agnóstico que distribui chamadas usando *Weighted Round-Robin* (balanceamento de carga) e um sistema de *Circuit Breaker* para tolerância a falhas.
+- **Provedores Atuais:** O sistema atualmente suporta Groq (ex: Llama 3), Gemini e OpenRouter. Foi adicionada sanitização de texto para garantir fluidez.
+- **Provedor Futuro Principal (GitHub Models):** Está planejada a integração com os LLMs gratuitos fornecidos via GitHub Marketplace (Azure Inference), utilizando os modelos da família GPT-4o-mini para equilibrar baixo custo e alta inteligência.
+- **Sistema de Prompts Dinâmicos e Missões:** O backend passa a missão secreta no System Prompt, atualmente padronizada para *convencer_humano*, garantindo consistência no comportamento da IA.
 
 ## 6. Desafios e Riscos (A Mitigar)
 
@@ -155,24 +155,20 @@ O sistema de Rank é global e categorizado. Um jogador possui estatísticas sepa
 
 Para viabilizar o projeto (especialmente para um TCC), o desenvolvimento será dividido em fases:
 
-### Fase 1: Proof of Concept (PoC) - "A Validação da Diversão"
+### Fase 1: Proof of Concept (PoC) - "A Validação da Diversão" (✅ CONCLUÍDO)
 
-- **Objetivo:** Testar se a mecânica central (Dedução + Missões Secretas + LLM) é realmente divertida.
-- **O que terá:** Sem gráficos isométricos. Apenas uma interface web muito básica (estilo Discord ou terminal).
-- **Mecânicas:** Apenas 1 tipo de mesa engessada (1 Humano Analista vs 1 Humano vs 1 LLM). Salas criadas manualmente (compartilhando link).
-- **Validação:** Fazer playtests com amigos/colegas de faculdade para ver se o Analista consegue descobrir e se o sistema de blefe funciona.
+- **Estado Atual:** A mecânica central de Dedução + Missões Secretas + IA foi validada localmente. O motor de jogo foi separado da UI (Domain-Driven Design), com validações estritas de mensagens, W.O. por inatividade, e simulação orgânica de tempo de digitação baseada em CPS (Characters Per Second).
+- **O que foi feito:** Interface isométrica na UI base para a sala; orquestrador robusto de IAs (Groq, Gemini, OpenRouter) operante e sistema de Game Over / Veredito com cálculo dinâmico de pontuação (PDR) e penalidades.
 
-### Fase 2: Minimum Viable Product (MVP) - "O Jogo Funcional"
+### Fase 2: Minimum Viable Product (MVP) - "O Jogo Funcional" (🚧 EM ANDAMENTO)
 
-- **Objetivo:** Criar um loop de jogo completo que possa ser jogado por estranhos na internet.
-- **O que terá:**
-  - Contas de usuário e login básico.
-  - Botão "Buscar Partida" com Matchmaking funcional.
-  - O servidor completa mesas com LLMs dinamicamente.
-  - Chat em tempo real com todas as travas de segurança (cooldown, anti-paste, limite de caracteres de 2 a 150 e orçamento total).
-  - Telas de Vitória/Derrota e cálculo de PDR visível, MMR oculto para matchmaking e bônus de participação.
-  - Interface 2D limpa e bonita (mas ainda sem customização profunda isométrica).
-- **Lançamento:** Hospedagem em nuvem (Vercel) e divulgação inicial para coletar métricas reais.
+- **Objetivo:** Criar a infraestrutura de tempo real (multiplayer) e persistência.
+- **O que será implementado:**
+  - Websockets ou SSE nativo para o multiplayer, permitindo 3 pessoas simultâneas no chat.
+  - Banco de Dados (ex: Supabase ou Firebase) para contas de usuário e login básico.
+  - O servidor conectará clientes à fila de Matchmaking e instanciará os LLMs (agora utilizando GitHub Models para alta performance e estabilidade).
+  - Bloqueio físico e lógico da UI do Chat sincronizado para todos os participantes.
+- **Lançamento Inicial:** Hospedagem na nuvem com divulgação interna para playtests reais.
 
 ### Fase 3: Versão Alpha (O Jogo Gamificado)
 

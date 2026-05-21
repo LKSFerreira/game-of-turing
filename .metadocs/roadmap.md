@@ -87,7 +87,7 @@ Módulos:
 
 - [x] Criação de partida.
 - [x] Papéis e missões.
-- [x] Validação de mensagem: mínimo 15, máximo 150 e bloqueio de mais de 5 caracteres repetidos em sequência.
+- [x] Validação de mensagem: limites ajustados (mínimo 10, máximo 200, máximo 10 repetidos) e filtro robusto de palavras impróprias para jogadores humanos (com prevenção de Leet Speak/evasão e livre de falsos positivos).
 - [x] Cooldown.
 - [x] Orçamento total de caracteres dos jogadores.
 - [x] Fases: lobby, em andamento, veredito, revelação e encerrada.
