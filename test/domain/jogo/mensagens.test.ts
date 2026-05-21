@@ -64,7 +64,7 @@ describe('validarMensagem — limites de caracteres', () => {
   it('rejeita mensagem com um caractere a mais que o máximo', () => {
     const partida = criarPartidaTeste();
     const analista = buscarPorCor(partida, 'analista');
-    const conteudo = 'abcde'.repeat(30) + 'x';
+    const conteudo = 'x'.repeat(LIMITE_MAXIMO_CARACTERES_MENSAGEM + 1);
 
     const resultado = validarMensagem(partida, analista, conteudo, new Date(DATA_BASE));
 
@@ -148,7 +148,22 @@ describe('validarMensagem — cooldown', () => {
 
 describe('validarMensagem — orçamento de caracteres', () => {
   it('aceita mensagem que consome exatamente o orçamento restante', () => {
-    const partida = { ...criarPartidaTeste(), orcamentoCaracteresJogador: 30 };
+    const partidaBase = criarPartidaTeste();
+    const partida: Partida = {
+      ...partidaBase,
+      orcamentoCaracteresJogador: 30,
+      mensagens: [
+        ...partidaBase.mensagens,
+        {
+          id: 'msg-analista-inicial',
+          partidaId: partidaBase.id,
+          remetenteId: 'analista-local',
+          remetenteCor: 'analista',
+          conteudo: 'Ola jogadores',
+          criadaEm: DATA_BASE,
+        }
+      ]
+    };
     const azul = { ...buscarPorCor(partida, 'azul'), caracteresUsados: 20 };
     const conteudo = 'abcdefghij';
 
@@ -158,7 +173,22 @@ describe('validarMensagem — orçamento de caracteres', () => {
   });
 
   it('rejeita quando ultrapassa orçamento por um único caractere', () => {
-    const partida = { ...criarPartidaTeste(), orcamentoCaracteresJogador: 20 };
+    const partidaBase = criarPartidaTeste();
+    const partida: Partida = {
+      ...partidaBase,
+      orcamentoCaracteresJogador: 20,
+      mensagens: [
+        ...partidaBase.mensagens,
+        {
+          id: 'msg-analista-inicial',
+          partidaId: partidaBase.id,
+          remetenteId: 'analista-local',
+          remetenteCor: 'analista',
+          conteudo: 'Ola jogadores',
+          criadaEm: DATA_BASE,
+        }
+      ]
+    };
     const azul = { ...buscarPorCor(partida, 'azul'), caracteresUsados: 10 };
     const conteudoQueEstoura = 'abcde123456';
 
@@ -207,10 +237,9 @@ describe('registrarMensagem — efeitos colaterais', () => {
     expect(analistaAtualizado.ultimoEnvioEm).toBe(dataEnvio);
   });
 
-  it('gera ID de mensagem sequencial', () => {
+  it('gera ID de mensagem único com prefixo da partida', () => {
     const partida = criarPartidaTeste();
     const analista = buscarPorCor(partida, 'analista');
-    const totalMensagensInicial = partida.mensagens.length;
 
     const partidaComMensagem = registrarMensagem(
       partida,
@@ -220,7 +249,7 @@ describe('registrarMensagem — efeitos colaterais', () => {
     );
     const novaMensagem = partidaComMensagem.mensagens[partidaComMensagem.mensagens.length - 1];
 
-    expect(novaMensagem.id).toBe(`${partida.id}-mensagem-${totalMensagensInicial + 1}`);
+    expect(novaMensagem.id).toContain(`${partida.id}-mensagem-`);
   });
 
   it('não altera caracteres de outros participantes', () => {
@@ -232,5 +261,112 @@ describe('registrarMensagem — efeitos colaterais', () => {
 
     expect(vermelhoAtualizado.caracteresUsados).toBe(0);
     expect(vermelhoAtualizado.ultimoEnvioEm).toBeNull();
+  });
+});
+
+describe('validarMensagem — filtro de palavras impróprias para humanos', () => {
+  it('permite mensagens sem termos ofensivos', () => {
+    const partida = criarPartidaTeste();
+    const analista = buscarPorCor(partida, 'analista');
+    const conteudo = 'Tudo bem com vocês? Espero que sim!';
+
+    const resultado = validarMensagem(partida, analista, conteudo, new Date(DATA_BASE));
+
+    expect(resultado).toEqual({ valido: true, conteudoNormalizado: conteudo });
+  });
+
+  it('rejeita mensagens do analista contendo palavrão em minúsculo', () => {
+    const partida = criarPartidaTeste();
+    const analista = buscarPorCor(partida, 'analista');
+    const conteudo = 'Que porra é essa aqui?';
+
+    const resultado = validarMensagem(partida, analista, conteudo, new Date(DATA_BASE));
+
+    expect(resultado).toEqual({
+      valido: false,
+      motivo: 'Sua mensagem contém palavras ou termos considerados impróprios para o jogo.',
+    });
+  });
+
+  it('rejeita mensagens do analista contendo palavrão com acentuação ou caixa mista', () => {
+    const partida = criarPartidaTeste();
+    const analista = buscarPorCor(partida, 'analista');
+    const conteudo = 'Isso é um CÁRÁLHÓ mesmo!';
+
+    const resultado = validarMensagem(partida, analista, conteudo, new Date(DATA_BASE));
+
+    expect(resultado.valido).toBe(false);
+  });
+
+  it('rejeita mensagens burladas com pontuação', () => {
+    const partida = criarPartidaTeste();
+    const analista = buscarPorCor(partida, 'analista');
+    const conteudo = 'Vai se f.o.d.e.r!';
+
+    const resultado = validarMensagem(partida, analista, conteudo, new Date(DATA_BASE));
+
+    expect(resultado.valido).toBe(false);
+  });
+
+  it('rejeita mensagens contendo Leet Speak de palavrões', () => {
+    const partida = criarPartidaTeste();
+    const analista = buscarPorCor(partida, 'analista');
+
+    expect(validarMensagem(partida, analista, 'Que p0rr4 é essa', new Date(DATA_BASE)).valido).toBe(false);
+    expect(validarMensagem(partida, analista, 'Esse cara é um v14d0!', new Date(DATA_BASE)).valido).toBe(false);
+    expect(validarMensagem(partida, analista, 'Vai se f0d3r de verdade', new Date(DATA_BASE)).valido).toBe(false);
+    expect(validarMensagem(partida, analista, 'Que c4r4lh0 é esse', new Date(DATA_BASE)).valido).toBe(false);
+  });
+
+  it('rejeita palavrões com espaçamento variável', () => {
+    const partida = criarPartidaTeste();
+    const analista = buscarPorCor(partida, 'analista');
+
+    expect(validarMensagem(partida, analista, 'Vai se p o r r a', new Date(DATA_BASE)).valido).toBe(false);
+    expect(validarMensagem(partida, analista, 'vai se p   o  r r a', new Date(DATA_BASE)).valido).toBe(false);
+  });
+
+  it('rejeita palavrões com mistura de símbolos, leet speak e espaços', () => {
+    const partida = criarPartidaTeste();
+    const analista = buscarPorCor(partida, 'analista');
+
+    expect(validarMensagem(partida, analista, 'vai se p_0_r_r_4', new Date(DATA_BASE)).valido).toBe(false);
+    expect(validarMensagem(partida, analista, 'vai se p*0*r*r*4', new Date(DATA_BASE)).valido).toBe(false);
+    expect(validarMensagem(partida, analista, 'f.0.d.4-s.3!', new Date(DATA_BASE)).valido).toBe(false);
+  });
+
+  it('rejeita palavrões com repetições excessivas de letras internas', () => {
+    const partida = criarPartidaTeste();
+    const analista = buscarPorCor(partida, 'analista');
+
+    expect(validarMensagem(partida, analista, 'Que pooorrrraaa é essa', new Date(DATA_BASE)).valido).toBe(false);
+    expect(validarMensagem(partida, analista, 'Que carrraaalllhhooo', new Date(DATA_BASE)).valido).toBe(false);
+  });
+
+  it('não causa falso positivo em palavras normais contendo trechos dos palavrões', () => {
+    const partida = criarPartidaTeste();
+    const analista = buscarPorCor(partida, 'analista');
+
+    expect(validarMensagem(partida, analista, 'Vou ligar o computador agora.', new Date(DATA_BASE)).valido).toBe(true);
+    expect(validarMensagem(partida, analista, 'Faça um recuo estratégico.', new Date(DATA_BASE)).valido).toBe(true);
+    expect(validarMensagem(partida, analista, 'Ele é um deputado federal.', new Date(DATA_BASE)).valido).toBe(true);
+    expect(validarMensagem(partida, analista, 'Vamos disputar a partida.', new Date(DATA_BASE)).valido).toBe(true);
+  });
+
+  it('não aplica o filtro de palavrões a bots se o controle for ia', () => {
+    const partida = criarPartidaTeste();
+    const botAzul = buscarPorCor(partida, 'azul');
+    
+    // Adiciona uma mensagem do analista primeiro para poder validar mensagens de jogador
+    const partidaComMensagemAnalista = registrarMensagem(partida, buscarPorCor(partida, 'analista'), 'Primeira pergunta do analista', DATA_BASE);
+    const botAzulAtualizado = buscarPorCor(partidaComMensagemAnalista, 'azul');
+    
+    // Força o controle a ser 'ia'
+    const botIa = { ...botAzulAtualizado, controle: 'ia' as const };
+    const conteudo = 'Isso é uma merda';
+
+    const resultado = validarMensagem(partidaComMensagemAnalista, botIa, conteudo, new Date(DATA_BASE));
+
+    expect(resultado.valido).toBe(true);
   });
 });

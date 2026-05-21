@@ -2,6 +2,7 @@ import {
   LIMITE_MAXIMO_CARACTERES_MENSAGEM,
   LIMITE_MAXIMO_CARACTERES_REPETIDOS_SEQUENCIA,
   LIMITE_MINIMO_CARACTERES_MENSAGEM,
+  PALAVRAS_BLOQUEADAS,
 } from './constantes';
 import type { MensagemPartida, ParticipantePartida, Partida, ResultadoValidacao } from './tipos';
 
@@ -23,6 +24,43 @@ function possuiCaracteresRepetidosEmSequencia(conteudo: string): boolean {
   }
 
   return false;
+}
+
+function decodificarLeetSpeak(texto: string): string {
+  return texto
+    .replace(/[4@ª]/g, 'a')
+    .replace(/[3€]/g, 'e')
+    .replace(/[1|]/g, 'i')
+    .replace(/!(?=[a-z0-9])/gi, 'i')
+    .replace(/0/g, 'o')
+    .replace(/[5$]/g, 's')
+    .replace(/7/g, 't')
+    .replace(/8/g, 'b');
+}
+
+export function contemPalavraBloqueada(conteudo: string): boolean {
+  const textoNormalizado = decodificarLeetSpeak(conteudo)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+
+  return PALAVRAS_BLOQUEADAS.some(palavra => {
+    const palavraNormalizada = decodificarLeetSpeak(palavra)
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+
+    const caracteres = palavraNormalizada.split('');
+    const padraoRegex = caracteres
+      .map(caractere => {
+        const caractereEscapado = caractere.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+        return `${caractereEscapado}+`;
+      })
+      .join('\\s*[^a-z0-9]*\\s*');
+
+    const expressaoRegular = new RegExp(`(?:^|[^a-z0-9])${padraoRegex}(?:[^a-z0-9]|$)`, 'i');
+    return expressaoRegular.test(textoNormalizado);
+  });
 }
 
 export function validarMensagem(
@@ -52,7 +90,20 @@ export function validarMensagem(
     };
   }
 
+  if (participante.controle === 'humano' && contemPalavraBloqueada(conteudoNormalizado)) {
+    return {
+      valido: false,
+      motivo: 'Sua mensagem contém palavras ou termos considerados impróprios para o jogo.',
+    };
+  }
+
   if (participante.papel === 'jogador') {
+    const analistaJaInteragiu = partida.mensagens.some(m => m.remetenteCor === 'analista');
+
+    if (!analistaJaInteragiu) {
+      return { valido: false, motivo: 'Você deve aguardar a primeira mensagem do analista.' };
+    }
+
     const proximoTotalCaracteres = participante.caracteresUsados + conteudoNormalizado.length;
 
     if (proximoTotalCaracteres > partida.orcamentoCaracteresJogador) {
@@ -60,7 +111,7 @@ export function validarMensagem(
     }
   }
 
-  if (participante.ultimoEnvioEm) {
+  if (participante.controle === 'humano' && participante.ultimoEnvioEm) {
     const ultimoEnvioEmMilissegundos = new Date(participante.ultimoEnvioEm).getTime();
     const enviadaEmMilissegundos = enviadaEm.getTime();
     const segundosDesdeUltimoEnvio = Math.floor(
@@ -85,8 +136,9 @@ export function registrarMensagem(
   conteudo: string,
   criadaEm: string,
 ): Partida {
+  const uniqId = Math.random().toString(36).substring(2, 9);
   const mensagem: MensagemPartida = {
-    id: `${partida.id}-mensagem-${partida.mensagens.length + 1}`,
+    id: `${partida.id}-mensagem-${Date.now()}-${uniqId}`,
     partidaId: partida.id,
     remetenteId: participante.id,
     remetenteCor: participante.cor,
