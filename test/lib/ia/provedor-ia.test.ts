@@ -8,28 +8,22 @@ afterEach(() => {
 });
 
 describe('obterProvedorIa (compatibilidade retroativa)', () => {
-  it('retorna provedor fake por padrão quando nenhum nome é passado', () => {
+  it('retorna o provedor gemini por padrão quando nenhum nome é passado', () => {
     const provedor = obterProvedorIa(undefined);
 
-    expect(provedor.nome).toBe('fake');
+    expect(provedor.nome).toBe('gemini');
   });
 
-  it('retorna provedor fake com string vazia', () => {
+  it('retorna o provedor gemini com string vazia', () => {
     const provedor = obterProvedorIa('');
 
-    expect(provedor.nome).toBe('fake');
+    expect(provedor.nome).toBe('gemini');
   });
 
-  it('retorna provedor fake quando nome é desconhecido', () => {
+  it('retorna o primeiro provedor configurado (github) se solicitado desconhecido', () => {
     const provedor = obterProvedorIa('provedor-inexistente');
 
-    expect(provedor.nome).toBe('fake');
-  });
-
-  it('retorna provedor fake com case insensitive', () => {
-    const provedor = obterProvedorIa('FAKE');
-
-    expect(provedor.nome).toBe('fake');
+    expect(provedor.nome).toBe('github');
   });
 
   it('provedor retornado tem método gerarResposta', () => {
@@ -56,3 +50,4 @@ describe('obterProvedorIa (compatibilidade retroativa)', () => {
     expect(provedor.nome).toBe('gemini');
   });
 });
+

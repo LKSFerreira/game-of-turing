@@ -47,7 +47,10 @@ export const provedorOpenRouter: ProvedorIa = {
     }
 
     const dados: RespostaApiOpenRouter = await resposta.json();
-    const textoGerado = dados.choices[0]?.message?.content?.trim() ?? '';
+    let textoGerado = (dados.choices[0].message.content as string).trim();
+
+    // Limpeza de aspas residuais comuns em modelos fechados
+    textoGerado = textoGerado.replace(/^["']|["']$/g, '').trim();
 
     if (!textoGerado) {
       throw new Error('OpenRouter retornou resposta vazia.');
@@ -56,7 +59,7 @@ export const provedorOpenRouter: ProvedorIa = {
     const textoLimitado =
       textoGerado.length <= parametros.limiteCaracteres
         ? textoGerado
-        : textoGerado.slice(0, parametros.limiteCaracteres - 1).trimEnd() + '…';
+        : textoGerado.slice(0, parametros.limiteCaracteres).trimEnd();
 
     return { texto: textoLimitado, provider: this.nome };
   },

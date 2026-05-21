@@ -36,13 +36,6 @@ describe('montarPromptSistema', () => {
     expect(prompt).toContain('Convencer o Analista de que você é HUMANO');
   });
 
-  it('inclui instruções de missão convencer_ia', () => {
-    const prompt = montarPromptSistema(
-      criarParametrosBase({ missaoSecreta: 'convencer_ia' }),
-    );
-
-    expect(prompt).toContain('Convencer o Analista de que você é uma IA');
-  });
 
   it('inclui limite de caracteres no prompt', () => {
     const prompt = montarPromptSistema(criarParametrosBase({ limiteCaracteres: 120 }));

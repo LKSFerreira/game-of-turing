@@ -45,25 +45,43 @@ function validarCorpoRequisicao(corpo: unknown): CorpoRequisicaoIa {
 }
 
 export async function POST(requisicao: NextRequest) {
+  let jogadorInfo = 'desconhecido';
   try {
-    const corpo = validarCorpoRequisicao(await requisicao.json());
+    const json = await requisicao.json();
+    const corpo = validarCorpoRequisicao(json);
+    jogadorInfo = `${corpo.cor.toUpperCase()} (Missão: ${corpo.missaoSecreta})`;
+    
+    console.log(`[POST /api/ai] 📥 Requisição recebida para jogador ${jogadorInfo}. Histórico com ${corpo.historico.length} mensagens.`);
+    
+    const ultimaMensagemAnalista = [...corpo.historico]
+      .reverse()
+      .find(mensagem => mensagem.remetenteCor === 'analista');
+
+    if (ultimaMensagemAnalista) {
+      console.log(`[POST /api/ai] 💬 Mensagem mais recente do Analista: "${ultimaMensagemAnalista.conteudo}"`);
+    }
+    
     const orquestrador = obterOrquestrador();
     const resposta = await orquestrador.gerarResposta({
       ...corpo,
       limiteCaracteres: LIMITE_MAXIMO_CARACTERES_MENSAGEM,
     });
 
+    console.log(`[POST /api/ai] 📤 Respondendo com sucesso para ${corpo.cor.toUpperCase()} via provedor [${resposta.provider.toUpperCase()}]. Texto: "${resposta.texto}"`);
+
     return NextResponse.json(resposta);
   } catch (erro) {
+    const mensagem = erro instanceof Error ? erro.message : 'Erro desconhecido ao acionar IA.';
+    
     if (erro instanceof ErroIndisponibilidadeIa) {
+      console.error(`[POST /api/ai] ❌ Erro de INDISPONIBILIDADE_IA para jogador ${jogadorInfo}: ${mensagem}`);
       return NextResponse.json(
         { error: erro.message, codigo: 'INDISPONIBILIDADE_IA' },
         { status: 503 },
       );
     }
 
-    const mensagem = erro instanceof Error ? erro.message : 'Erro desconhecido ao acionar IA.';
-
+    console.error(`[POST /api/ai] ❌ Erro de processamento para jogador ${jogadorInfo}: ${mensagem}`);
     return NextResponse.json({ error: mensagem }, { status: 400 });
   }
 }

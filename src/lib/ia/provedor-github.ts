@@ -1,57 +1,57 @@
 import { montarPromptSistema, montarPromptUsuario } from './prompt-agentico';
 import type { ProvedorIa, RespostaIa, SolicitarRespostaIaParametros } from './tipos';
 
-const URL_API_GROQ = 'https://api.groq.com/openai/v1/chat/completions';
-const MODELO_PADRAO_GROQ = 'llama-3.3-70b-versatile';
+// GitHub Models via API Oficial do GitHub Inference
+const URL_API_GITHUB_MODELS = 'https://models.github.ai/inference/chat/completions';
+const MODELO_PADRAO_GITHUB = 'openai/gpt-4o-mini';
 
-type RespostaApiGroq = {
+type RespostaApiGithub = {
   choices: { message: { content: string } }[];
 };
 
-export const provedorGroq: ProvedorIa = {
-  nome: 'groq',
+export const provedorGithub: ProvedorIa = {
+  nome: 'github',
 
   async gerarResposta(parametros: SolicitarRespostaIaParametros): Promise<RespostaIa> {
-    const chaveApi = process.env.GROQ_API_KEY;
+    const chaveApi = process.env.GITHUB_TOKEN;
 
     if (!chaveApi) {
-      throw new Error('Variável de ambiente GROQ_API_KEY não configurada.');
+      throw new Error('Variável de ambiente GITHUB_TOKEN não configurada.');
     }
 
     const promptSistema = montarPromptSistema(parametros);
     const promptUsuario = montarPromptUsuario(parametros);
 
-    const resposta = await fetch(URL_API_GROQ, {
+    const resposta = await fetch(URL_API_GITHUB_MODELS, {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${chaveApi}`,
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${chaveApi}`,
       },
       body: JSON.stringify({
-        model: MODELO_PADRAO_GROQ,
+        model: MODELO_PADRAO_GITHUB,
         messages: [
           { role: 'system', content: promptSistema },
           { role: 'user', content: promptUsuario },
         ],
-        max_completion_tokens: 200,
+        max_tokens: 200,
         temperature: 0.9,
-        stream: false,
       }),
     });
 
     if (!resposta.ok) {
       const corpo = await resposta.text();
-      throw new Error(`Groq retornou status ${resposta.status}: ${corpo}`);
+      throw new Error(`GitHub Models retornou status ${resposta.status}: ${corpo}`);
     }
 
-    const dados: RespostaApiGroq = await resposta.json();
+    const dados: RespostaApiGithub = await resposta.json();
     let textoGerado = (dados.choices[0].message.content as string).trim();
 
-    // Limpeza de aspas residuais comuns em modelos fechados
+    // Limpeza de aspas residuais
     textoGerado = textoGerado.replace(/^["']|["']$/g, '').trim();
 
     if (!textoGerado) {
-      throw new Error('Groq retornou resposta vazia.');
+      throw new Error('GitHub Models retornou resposta vazia.');
     }
 
     const textoLimitado =

@@ -5,10 +5,11 @@ import type {
   RegistroProvider,
 } from './tipos-orquestrador';
 import { ErroIndisponibilidadeIa } from './tipos-orquestrador';
-
-const TEMPO_RECUPERACAO_PADRAO = 30_000;
-const LIMITE_ERROS_PADRAO = 3;
-const JANELA_LATENCIA = 10;
+import {
+  JANELA_LATENCIA_MEDIA,
+  LIMITE_FALHAS_CIRCUIT_BREAKER,
+  TEMPO_RECUPERACAO_CIRCUIT_BREAKER_MS,
+} from './constantes';
 
 function criarEstadoSaudeInicial(): EstadoSaude {
   return {
@@ -27,8 +28,8 @@ function criarRegistroProvider(configuracao: ConfiguracaoProviderComInstancia): 
     configuracao: {
       nome: configuracao.provedor.nome,
       peso: configuracao.peso,
-      tempoRecuperacao: configuracao.tempoRecuperacao ?? TEMPO_RECUPERACAO_PADRAO,
-      limiteErros: configuracao.limiteErros ?? LIMITE_ERROS_PADRAO,
+      tempoRecuperacao: configuracao.tempoRecuperacao ?? TEMPO_RECUPERACAO_CIRCUIT_BREAKER_MS,
+      limiteErros: configuracao.limiteErros ?? LIMITE_FALHAS_CIRCUIT_BREAKER,
     },
     saude: criarEstadoSaudeInicial(),
   };
@@ -61,7 +62,7 @@ function registrarSucesso(registro: RegistroProvider, latenciaMs: number): void 
 
   // Rolling average da latência
   const totalAnterior = registro.saude.totalRequisicoes - 1;
-  const amostras = Math.min(totalAnterior, JANELA_LATENCIA);
+  const amostras = Math.min(totalAnterior, JANELA_LATENCIA_MEDIA);
   registro.saude.latenciaMedia =
     (registro.saude.latenciaMedia * amostras + latenciaMs) / (amostras + 1);
 }
@@ -131,16 +132,32 @@ export function criarOrquestrador(
     parametros: SolicitarRespostaIaParametros,
   ): Promise<RespostaIa> {
     const inicio = Date.now();
+    const nomeProvider = registro.configuracao.nome.toUpperCase();
+    console.log(`[IA ORCHESTRATOR] 🚀 Iniciando chamada para o provedor ${nomeProvider} (Cor: ${parametros.cor})`);
 
     try {
       const resposta = await registro.provedor.gerarResposta(parametros);
       const latencia = Date.now() - inicio;
 
+      console.log(`[IA ORCHESTRATOR] ✅ Provedor ${nomeProvider} respondeu com sucesso em ${latencia}ms`);
+      console.log(`[IA ORCHESTRATOR] 💬 Resposta do ${nomeProvider}: "${resposta.texto}"`);
+
       registrarSucesso(registro, latencia);
 
       return resposta;
     } catch (erro) {
+      const latencia = Date.now() - inicio;
+      const mensagemErro = erro instanceof Error ? erro.message : String(erro);
+      console.error(`[IA ORCHESTRATOR] ❌ Falha no provedor ${nomeProvider} após ${latencia}ms. Erro: ${mensagemErro}`);
+      
+      const cbAntes = registro.saude.circuitBreaker;
       registrarFalha(registro, Date.now());
+      const cbDepois = registro.saude.circuitBreaker;
+      
+      if (cbAntes !== cbDepois) {
+        console.warn(`[CIRCUIT BREAKER] ⚠️ Provedor ${nomeProvider} alterou estado: ${cbAntes.toUpperCase()} -> ${cbDepois.toUpperCase()} (Falhas consecutivas: ${registro.saude.falhasConsecutivas})`);
+      }
+
       throw erro;
     }
   }
@@ -153,22 +170,31 @@ export function criarOrquestrador(
       (registroA, registroB) => registroB.configuracao.peso - registroA.configuracao.peso,
     );
 
+    console.log(`[IA ORCHESTRATOR] 🔍 Nova requisição de resposta de IA. Provedores configurados: ${registros.map(r => `${r.configuracao.nome.toUpperCase()}(CB:${r.saude.circuitBreaker})`).join(', ')}`);
+
     // Tenta o provider selecionado por peso, com fallback sequencial
     const providerSelecionado = selecionarProvider(registros, agora);
 
     if (providerSelecionado) {
+      console.log(`[IA ORCHESTRATOR] 🎯 Provedor selecionado por Weighted Round-Robin: ${providerSelecionado.configuracao.nome.toUpperCase()}`);
       try {
         return await tentarProvider(providerSelecionado, parametros);
-      } catch {
-        // Falhou, tenta os outros em ordem de peso
+      } catch (erro) {
+        console.log(`[IA ORCHESTRATOR] 🔄 Iniciando fallback de falha do provedor ${providerSelecionado.configuracao.nome.toUpperCase()}`);
       }
+    } else {
+      console.warn(`[IA ORCHESTRATOR] ⚠️ Nenhum provedor disponível inicialmente via Round-Robin.`);
     }
 
     // Fallback sequencial pelos restantes disponíveis
     for (const registro of providersOrdenados) {
       if (registro === providerSelecionado) continue;
-      if (!verificarDisponibilidade(registro, Date.now())) continue;
+      if (!verificarDisponibilidade(registro, Date.now())) {
+        console.log(`[IA ORCHESTRATOR] 🚫 Provedor ${registro.configuracao.nome.toUpperCase()} ignorado no fallback pois seu Circuit Breaker está aberto.`);
+        continue;
+      }
 
+      console.log(`[IA ORCHESTRATOR] 🔄 Tentando fallback no provedor: ${registro.configuracao.nome.toUpperCase()}`);
       try {
         return await tentarProvider(registro, parametros);
       } catch {
@@ -176,6 +202,7 @@ export function criarOrquestrador(
       }
     }
 
+    console.error(`[IA ORCHESTRATOR] 🔥 CRÍTICO: Todos os provedores de IA falharam ou estão indisponíveis!`);
     throw new ErroIndisponibilidadeIa();
   }
 

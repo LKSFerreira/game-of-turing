@@ -29,7 +29,10 @@ export const provedorGemini: ProvedorIa = {
       },
     });
 
-    const textoGerado = resposta.text?.trim() ?? '';
+    let textoGerado = resposta.text?.trim() ?? '';
+
+    // Limpeza de aspas residuais comuns em modelos fechados
+    textoGerado = textoGerado.replace(/^["']|["']$/g, '').trim();
 
     if (!textoGerado) {
       throw new Error('Gemini retornou resposta vazia.');
@@ -38,7 +41,7 @@ export const provedorGemini: ProvedorIa = {
     const textoLimitado =
       textoGerado.length <= parametros.limiteCaracteres
         ? textoGerado
-        : textoGerado.slice(0, parametros.limiteCaracteres - 1).trimEnd() + '…';
+        : textoGerado.slice(0, parametros.limiteCaracteres).trimEnd();
 
     return { texto: textoLimitado, provider: this.nome };
   },
