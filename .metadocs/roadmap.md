@@ -24,6 +24,10 @@ A estratégia é gameplay primeiro, arquitetura limpa desde o início e infraest
 - [ ] Policies Supabase estão permissivas demais para produção.
 - [ ] Chaves de IA precisam ser sempre server-side.
 - [ ] Testes precisam nascer junto com o motor de regras.
+- [ ] O estado do jogo roda 100% no client-side (PoC local), vazando a natureza real das entidades (cheat fácil via DevTools e inspeção de state).
+- [ ] Temporizadores e cooldowns de mensagens gerenciados no cliente, vulneráveis a manipulações e bypass.
+- [ ] Perda total do estado da partida se o usuário recarregar a página (F5) por falta de persistência/memória server-side.
+- [ ] Arquitetura client-side inviabiliza o desenvolvimento multiplayer síncrono.
 
 ## Princípios de Arquitetura
 
@@ -204,7 +208,7 @@ Escopo:
 - [ ] Salas por link ou matchmaking simples.
 - [ ] Supabase Realtime para chat e presença.
 - [ ] Reconexão básica.
-- [ ] Controle server-side das ações críticas.
+- [ ] Controle server-side das ações críticas (migrando a máquina de estado da partida para o servidor e aplicando Data Masking para que identidades reais das IAs fiquem ocultas no client-side).
 - [ ] Encerramento por desconexão ou abandono.
 
 Critérios de aceite:

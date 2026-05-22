@@ -144,7 +144,7 @@
       "source_file": "src/app/api/ai/route.ts",
       "source_location": "L1",
       "id": "src_app_api_ai_route_ts",
-      "community": 29,
+      "community": 8,
       "norm_label": "route.ts"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "src/app/api/ai/route.ts",
       "source_location": "L7",
       "id": "ai_route_corporequisicaoia",
-      "community": 29,
+      "community": 8,
       "norm_label": "corporequisicaoia"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "src/app/api/ai/route.ts",
       "source_location": "L13",
       "id": "ai_route_iscorjogador",
-      "community": 29,
+      "community": 8,
       "norm_label": "iscorjogador()"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "src/app/api/ai/route.ts",
       "source_location": "L17",
       "id": "ai_route_ismissaosecreta",
-      "community": 29,
+      "community": 8,
       "norm_label": "ismissaosecreta()"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "src/app/api/ai/route.ts",
       "source_location": "L21",
       "id": "ai_route_validarcorporequisicao",
-      "community": 29,
+      "community": 8,
       "norm_label": "validarcorporequisicao()"
     },
     {
@@ -189,8 +189,35 @@
       "source_file": "src/app/api/ai/route.ts",
       "source_location": "L47",
       "id": "ai_route_post",
-      "community": 29,
+      "community": 8,
       "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/match/event/route.ts",
+      "source_location": "L1",
+      "id": "src_app_api_match_event_route_ts",
+      "community": 28,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/match/event/route.ts",
+      "source_location": "L3",
+      "id": "event_route_post",
+      "community": 28,
+      "norm_label": "post()"
+    },
+    {
+      "label": "constantes.ts",
+      "file_type": "code",
+      "source_file": "src/app/game/[matchId]/constantes.ts",
+      "source_location": "L1",
+      "id": "src_app_game_matchid_constantes_ts",
+      "community": 8,
+      "norm_label": "constantes.ts"
     },
     {
       "label": "page.tsx",
@@ -205,7 +232,7 @@
       "label": "CorJogador",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L41",
+      "source_location": "L48",
       "id": "matchid_page_corjogador",
       "community": 8,
       "norm_label": "corjogador"
@@ -214,7 +241,7 @@
       "label": "CorVisual",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L42",
+      "source_location": "L49",
       "id": "matchid_page_corvisual",
       "community": 8,
       "norm_label": "corvisual"
@@ -223,7 +250,7 @@
       "label": "ParticipanteVisivel",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L44",
+      "source_location": "L51",
       "id": "matchid_page_participantevisivel",
       "community": 8,
       "norm_label": "participantevisivel"
@@ -232,7 +259,7 @@
       "label": "RespostaApiIa",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L51",
+      "source_location": "L58",
       "id": "matchid_page_respostaapiia",
       "community": 8,
       "norm_label": "respostaapiia"
@@ -241,7 +268,7 @@
       "label": "ROTULOS_COR",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L57",
+      "source_location": "L64",
       "id": "matchid_page_rotulos_cor",
       "community": 8,
       "norm_label": "rotulos_cor"
@@ -250,7 +277,7 @@
       "label": "ESTILOS_PARTICIPANTE",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L64",
+      "source_location": "L71",
       "id": "matchid_page_estilos_participante",
       "community": 8,
       "norm_label": "estilos_participante"
@@ -259,7 +286,7 @@
       "label": "buscarParticipantePorCor()",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L94",
+      "source_location": "L101",
       "id": "matchid_page_buscarparticipanteporcor",
       "community": 8,
       "norm_label": "buscarparticipanteporcor()"
@@ -268,7 +295,7 @@
       "label": "isCorJogador()",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L106",
+      "source_location": "L113",
       "id": "matchid_page_iscorjogador",
       "community": 8,
       "norm_label": "iscorjogador()"
@@ -277,7 +304,7 @@
       "label": "obterRotuloPapel()",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L110",
+      "source_location": "L117",
       "id": "matchid_page_obterrotulopapel",
       "community": 8,
       "norm_label": "obterrotulopapel()"
@@ -286,7 +313,7 @@
       "label": "obterDiretriz()",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L118",
+      "source_location": "L125",
       "id": "matchid_page_obterdiretriz",
       "community": 8,
       "norm_label": "obterdiretriz()"
@@ -295,7 +322,7 @@
       "label": "obterNatureza()",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L128",
+      "source_location": "L135",
       "id": "matchid_page_obternatureza",
       "community": 8,
       "norm_label": "obternatureza()"
@@ -304,7 +331,7 @@
       "label": "obterResultadoParticipante()",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L132",
+      "source_location": "L139",
       "id": "matchid_page_obterresultadoparticipante",
       "community": 8,
       "norm_label": "obterresultadoparticipante()"
@@ -313,7 +340,7 @@
       "label": "formatarTempo()",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L141",
+      "source_location": "L148",
       "id": "matchid_page_formatartempo",
       "community": 8,
       "norm_label": "formatartempo()"
@@ -322,7 +349,7 @@
       "label": "formatarTimestamp()",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L150",
+      "source_location": "L157",
       "id": "matchid_page_formatartimestamp",
       "community": 8,
       "norm_label": "formatartimestamp()"
@@ -331,7 +358,7 @@
       "label": "CartaoParticipante()",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L162",
+      "source_location": "L169",
       "id": "matchid_page_cartaoparticipante",
       "community": 8,
       "norm_label": "cartaoparticipante()"
@@ -340,7 +367,7 @@
       "label": "BotaoNatureza()",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L196",
+      "source_location": "L203",
       "id": "matchid_page_botaonatureza",
       "community": 8,
       "norm_label": "botaonatureza()"
@@ -349,7 +376,7 @@
       "label": "GameRoom()",
       "file_type": "code",
       "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L250",
+      "source_location": "L257",
       "id": "matchid_page_gameroom",
       "community": 8,
       "norm_label": "gameroom()"
@@ -1350,7 +1377,7 @@
       "source_file": "src/lib/ia/constantes.ts",
       "source_location": "L1",
       "id": "src_lib_ia_constantes_ts",
-      "community": 27,
+      "community": 3,
       "norm_label": "constantes.ts"
     },
     {
@@ -1359,7 +1386,7 @@
       "source_file": "src/lib/ia/index.ts",
       "source_location": "L1",
       "id": "src_lib_ia_index_ts",
-      "community": 31,
+      "community": 3,
       "norm_label": "index.ts"
     },
     {
@@ -1368,7 +1395,7 @@
       "source_file": "src/lib/ia/index.ts",
       "source_location": "L10",
       "id": "ia_index_mapa_providers",
-      "community": 31,
+      "community": 3,
       "norm_label": "mapa_providers"
     },
     {
@@ -1377,7 +1404,7 @@
       "source_file": "src/lib/ia/index.ts",
       "source_location": "L17",
       "id": "ia_index_pesos_padrao",
-      "community": 31,
+      "community": 3,
       "norm_label": "pesos_padrao"
     },
     {
@@ -1386,7 +1413,7 @@
       "source_file": "src/lib/ia/index.ts",
       "source_location": "L26",
       "id": "ia_index_parseprovidersativos",
-      "community": 31,
+      "community": 3,
       "norm_label": "parseprovidersativos()"
     },
     {
@@ -1395,7 +1422,7 @@
       "source_file": "src/lib/ia/index.ts",
       "source_location": "L106",
       "id": "ia_index_obterorquestrador",
-      "community": 31,
+      "community": 3,
       "norm_label": "obterorquestrador()"
     },
     {
@@ -1404,7 +1431,7 @@
       "source_file": "src/lib/ia/index.ts",
       "source_location": "L120",
       "id": "ia_index_obterprovedoria",
-      "community": 29,
+      "community": 8,
       "norm_label": "obterprovedoria()"
     },
     {
@@ -1413,79 +1440,88 @@
       "source_file": "src/lib/ia/orquestrador.ts",
       "source_location": "L1",
       "id": "src_lib_ia_orquestrador_ts",
-      "community": 27,
+      "community": 3,
       "norm_label": "orquestrador.ts"
+    },
+    {
+      "label": "TRADUCOES_CB",
+      "file_type": "code",
+      "source_file": "src/lib/ia/orquestrador.ts",
+      "source_location": "L14",
+      "id": "ia_orquestrador_traducoes_cb",
+      "community": 3,
+      "norm_label": "traducoes_cb"
     },
     {
       "label": "criarEstadoSaudeInicial()",
       "file_type": "code",
       "source_file": "src/lib/ia/orquestrador.ts",
-      "source_location": "L14",
+      "source_location": "L20",
       "id": "ia_orquestrador_criarestadosaudeinicial",
-      "community": 27,
+      "community": 3,
       "norm_label": "criarestadosaudeinicial()"
     },
     {
       "label": "criarRegistroProvider()",
       "file_type": "code",
       "source_file": "src/lib/ia/orquestrador.ts",
-      "source_location": "L25",
+      "source_location": "L31",
       "id": "ia_orquestrador_criarregistroprovider",
-      "community": 27,
+      "community": 3,
       "norm_label": "criarregistroprovider()"
     },
     {
       "label": "verificarDisponibilidade()",
       "file_type": "code",
       "source_file": "src/lib/ia/orquestrador.ts",
-      "source_location": "L38",
+      "source_location": "L44",
       "id": "ia_orquestrador_verificardisponibilidade",
-      "community": 27,
+      "community": 3,
       "norm_label": "verificardisponibilidade()"
     },
     {
       "label": "registrarSucesso()",
       "file_type": "code",
       "source_file": "src/lib/ia/orquestrador.ts",
-      "source_location": "L58",
+      "source_location": "L64",
       "id": "ia_orquestrador_registrarsucesso",
-      "community": 27,
+      "community": 3,
       "norm_label": "registrarsucesso()"
     },
     {
       "label": "registrarFalha()",
       "file_type": "code",
       "source_file": "src/lib/ia/orquestrador.ts",
-      "source_location": "L70",
+      "source_location": "L76",
       "id": "ia_orquestrador_registrarfalha",
-      "community": 27,
+      "community": 3,
       "norm_label": "registrarfalha()"
     },
     {
       "label": "selecionarProvider()",
       "file_type": "code",
       "source_file": "src/lib/ia/orquestrador.ts",
-      "source_location": "L86",
+      "source_location": "L92",
       "id": "ia_orquestrador_selecionarprovider",
-      "community": 27,
+      "community": 3,
       "norm_label": "selecionarprovider()"
     },
     {
       "label": "OrquestradorIa",
       "file_type": "code",
       "source_file": "src/lib/ia/orquestrador.ts",
-      "source_location": "L112",
+      "source_location": "L118",
       "id": "ia_orquestrador_orquestradoria",
-      "community": 27,
+      "community": 3,
       "norm_label": "orquestradoria"
     },
     {
       "label": "criarOrquestrador()",
       "file_type": "code",
       "source_file": "src/lib/ia/orquestrador.ts",
-      "source_location": "L121",
+      "source_location": "L127",
       "id": "ia_orquestrador_criarorquestrador",
-      "community": 31,
+      "community": 3,
       "norm_label": "criarorquestrador()"
     },
     {
@@ -1557,7 +1593,7 @@
       "source_file": "src/lib/ia/provedor-gemini.ts",
       "source_location": "L8",
       "id": "ia_provedor_gemini_provedorgemini",
-      "community": 31,
+      "community": 3,
       "norm_label": "provedorgemini"
     },
     {
@@ -1584,7 +1620,7 @@
       "source_file": "src/lib/ia/provedor-github.ts",
       "source_location": "L12",
       "id": "ia_provedor_github_provedorgithub",
-      "community": 31,
+      "community": 3,
       "norm_label": "provedorgithub"
     },
     {
@@ -1611,7 +1647,7 @@
       "source_file": "src/lib/ia/provedor-groq.ts",
       "source_location": "L11",
       "id": "ia_provedor_groq_provedorgroq",
-      "community": 31,
+      "community": 3,
       "norm_label": "provedorgroq"
     },
     {
@@ -1638,7 +1674,7 @@
       "source_file": "src/lib/ia/provedor-openrouter.ts",
       "source_location": "L11",
       "id": "ia_provedor_openrouter_provedoropenrouter",
-      "community": 31,
+      "community": 3,
       "norm_label": "provedoropenrouter"
     },
     {
@@ -1647,7 +1683,7 @@
       "source_file": "src/lib/ia/tipos-orquestrador.ts",
       "source_location": "L1",
       "id": "src_lib_ia_tipos_orquestrador_ts",
-      "community": 27,
+      "community": 3,
       "norm_label": "tipos-orquestrador.ts"
     },
     {
@@ -1656,7 +1692,7 @@
       "source_file": "src/lib/ia/tipos-orquestrador.ts",
       "source_location": "L3",
       "id": "ia_tipos_orquestrador_estadocircuitbreaker",
-      "community": 27,
+      "community": 3,
       "norm_label": "estadocircuitbreaker"
     },
     {
@@ -1665,7 +1701,7 @@
       "source_file": "src/lib/ia/tipos-orquestrador.ts",
       "source_location": "L5",
       "id": "ia_tipos_orquestrador_estadosaude",
-      "community": 27,
+      "community": 3,
       "norm_label": "estadosaude"
     },
     {
@@ -1674,7 +1710,7 @@
       "source_file": "src/lib/ia/tipos-orquestrador.ts",
       "source_location": "L14",
       "id": "ia_tipos_orquestrador_configuracaoprovider",
-      "community": 27,
+      "community": 3,
       "norm_label": "configuracaoprovider"
     },
     {
@@ -1683,7 +1719,7 @@
       "source_file": "src/lib/ia/tipos-orquestrador.ts",
       "source_location": "L21",
       "id": "ia_tipos_orquestrador_registroprovider",
-      "community": 27,
+      "community": 3,
       "norm_label": "registroprovider"
     },
     {
@@ -1692,7 +1728,7 @@
       "source_file": "src/lib/ia/tipos-orquestrador.ts",
       "source_location": "L27",
       "id": "ia_tipos_orquestrador_configuracaoorquestrador",
-      "community": 27,
+      "community": 3,
       "norm_label": "configuracaoorquestrador"
     },
     {
@@ -1701,7 +1737,7 @@
       "source_file": "src/lib/ia/tipos-orquestrador.ts",
       "source_location": "L33",
       "id": "ia_tipos_orquestrador_configuracaoprovidercominstancia",
-      "community": 27,
+      "community": 3,
       "norm_label": "configuracaoprovidercominstancia"
     },
     {
@@ -1710,7 +1746,7 @@
       "source_file": "src/lib/ia/tipos-orquestrador.ts",
       "source_location": "L40",
       "id": "ia_tipos_orquestrador_erroindisponibilidadeia",
-      "community": 27,
+      "community": 3,
       "norm_label": "erroindisponibilidadeia"
     },
     {
@@ -1719,7 +1755,7 @@
       "source_file": "src/lib/ia/tipos-orquestrador.ts",
       "source_location": "L41",
       "id": "ia_tipos_orquestrador_erroindisponibilidadeia_constructor",
-      "community": 27,
+      "community": 3,
       "norm_label": ".constructor()"
     },
     {
@@ -2286,7 +2322,7 @@
       "source_file": "test/domain/jogo/partida.test.ts",
       "source_location": "L1",
       "id": "test_domain_jogo_partida_test_ts",
-      "community": 33,
+      "community": 35,
       "norm_label": "partida.test.ts"
     },
     {
@@ -2295,7 +2331,7 @@
       "source_file": "test/domain/jogo/partida.test.ts",
       "source_location": "L20",
       "id": "jogo_partida_test_partida",
-      "community": 33,
+      "community": 35,
       "norm_label": "partida"
     },
     {
@@ -2304,7 +2340,7 @@
       "source_file": "test/domain/jogo/partida.test.ts",
       "source_location": "L41",
       "id": "jogo_partida_test_cores",
-      "community": 33,
+      "community": 35,
       "norm_label": "cores"
     },
     {
@@ -2313,7 +2349,7 @@
       "source_file": "test/domain/jogo/partida.test.ts",
       "source_location": "L49",
       "id": "jogo_partida_test_analista",
-      "community": 33,
+      "community": 35,
       "norm_label": "analista"
     },
     {
@@ -2322,7 +2358,7 @@
       "source_file": "test/domain/jogo/partida.test.ts",
       "source_location": "L131",
       "id": "jogo_partida_test_partidabase",
-      "community": 33,
+      "community": 35,
       "norm_label": "partidabase"
     },
     {
@@ -2331,7 +2367,7 @@
       "source_file": "test/domain/jogo/partida.test.ts",
       "source_location": "L157",
       "id": "jogo_partida_test_original",
-      "community": 33,
+      "community": 35,
       "norm_label": "original"
     },
     {
@@ -2340,7 +2376,7 @@
       "source_file": "test/domain/jogo/partida.test.ts",
       "source_location": "L158",
       "id": "jogo_partida_test_reiniciada",
-      "community": 33,
+      "community": 35,
       "norm_label": "reiniciada"
     },
     {
@@ -2448,7 +2484,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L1",
       "id": "test_lib_ia_orquestrador_test_ts",
-      "community": 28,
+      "community": 3,
       "norm_label": "orquestrador.test.ts"
     },
     {
@@ -2457,7 +2493,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L7",
       "id": "ia_orquestrador_test_criarparametrosbase",
-      "community": 28,
+      "community": 3,
       "norm_label": "criarparametrosbase()"
     },
     {
@@ -2466,7 +2502,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L19",
       "id": "ia_orquestrador_test_criarprovedormock",
-      "community": 28,
+      "community": 3,
       "norm_label": "criarprovedormock()"
     },
     {
@@ -2475,7 +2511,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L36",
       "id": "ia_orquestrador_test_provedor",
-      "community": 28,
+      "community": 3,
       "norm_label": "provedor"
     },
     {
@@ -2484,7 +2520,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L37",
       "id": "ia_orquestrador_test_orquestrador",
-      "community": 28,
+      "community": 3,
       "norm_label": "orquestrador"
     },
     {
@@ -2493,7 +2529,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L46",
       "id": "ia_orquestrador_test_provedorprimario",
-      "community": 28,
+      "community": 3,
       "norm_label": "provedorprimario"
     },
     {
@@ -2502,7 +2538,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L47",
       "id": "ia_orquestrador_test_provedorsecundario",
-      "community": 28,
+      "community": 3,
       "norm_label": "provedorsecundario"
     },
     {
@@ -2511,7 +2547,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L74",
       "id": "ia_orquestrador_test_erro",
-      "community": 28,
+      "community": 3,
       "norm_label": "erro"
     },
     {
@@ -2520,7 +2556,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L85",
       "id": "ia_orquestrador_test_provedorunico",
-      "community": 28,
+      "community": 3,
       "norm_label": "provedorunico"
     },
     {
@@ -2529,7 +2565,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L94",
       "id": "ia_orquestrador_test_estados",
-      "community": 28,
+      "community": 3,
       "norm_label": "estados"
     },
     {
@@ -2538,7 +2574,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L95",
       "id": "ia_orquestrador_test_estadogroq",
-      "community": 28,
+      "community": 3,
       "norm_label": "estadogroq"
     },
     {
@@ -2547,7 +2583,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L101",
       "id": "ia_orquestrador_test_provedorinstavel",
-      "community": 28,
+      "community": 3,
       "norm_label": "provedorinstavel"
     },
     {
@@ -2556,7 +2592,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L102",
       "id": "ia_orquestrador_test_provedorestavel",
-      "community": 28,
+      "community": 3,
       "norm_label": "provedorestavel"
     },
     {
@@ -2565,7 +2601,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L130",
       "id": "ia_orquestrador_test_estadoatualizado",
-      "community": 28,
+      "community": 3,
       "norm_label": "estadoatualizado"
     },
     {
@@ -2574,7 +2610,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L145",
       "id": "ia_orquestrador_test_provedora",
-      "community": 28,
+      "community": 3,
       "norm_label": "provedora"
     },
     {
@@ -2583,7 +2619,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L146",
       "id": "ia_orquestrador_test_provedorb",
-      "community": 28,
+      "community": 3,
       "norm_label": "provedorb"
     },
     {
@@ -2592,7 +2628,7 @@
       "source_file": "test/lib/ia/orquestrador.test.ts",
       "source_location": "L184",
       "id": "ia_orquestrador_test_resultados",
-      "community": 28,
+      "community": 3,
       "norm_label": "resultados"
     },
     {
@@ -2637,7 +2673,7 @@
       "source_file": "test/lib/ia/provedor-ia.test.ts",
       "source_location": "L1",
       "id": "test_lib_ia_provedor_ia_test_ts",
-      "community": 29,
+      "community": 8,
       "norm_label": "provedor-ia.test.ts"
     },
     {
@@ -2646,7 +2682,7 @@
       "source_file": "test/lib/ia/provedor-ia.test.ts",
       "source_location": "L12",
       "id": "ia_provedor_ia_test_provedor",
-      "community": 29,
+      "community": 8,
       "norm_label": "provedor"
     },
     {
@@ -3346,7 +3382,7 @@
       "label": "Princ\u00edpios de Arquitetura",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L28",
+      "source_location": "L32",
       "id": "metadocs_roadmap_princ\u00edpios_de_arquitetura",
       "community": 9,
       "norm_label": "principios de arquitetura"
@@ -3355,7 +3391,7 @@
       "label": "M0 - Saneamento e Roadmap",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L38",
+      "source_location": "L42",
       "id": "metadocs_roadmap_m0_saneamento_e_roadmap",
       "community": 9,
       "norm_label": "m0 - saneamento e roadmap"
@@ -3364,7 +3400,7 @@
       "label": "M1 - PoC Jog\u00e1vel Sem Auth",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L59",
+      "source_location": "L63",
       "id": "metadocs_roadmap_m1_poc_jog\u00e1vel_sem_auth",
       "community": 9,
       "norm_label": "m1 - poc jogavel sem auth"
@@ -3373,7 +3409,7 @@
       "label": "M2 - Motor de Regras",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L82",
+      "source_location": "L86",
       "id": "metadocs_roadmap_m2_motor_de_regras",
       "community": 9,
       "norm_label": "m2 - motor de regras"
@@ -3382,7 +3418,7 @@
       "label": "M3.5 - IA Ag\u00eantica Multi-Provider",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L106",
+      "source_location": "L110",
       "id": "metadocs_roadmap_m3_5_ia_ag\u00eantica_multi_provider",
       "community": 9,
       "norm_label": "m3.5 - ia agentica multi-provider"
@@ -3391,7 +3427,7 @@
       "label": "M3 - MVP Local Completo",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L140",
+      "source_location": "L144",
       "id": "metadocs_roadmap_m3_mvp_local_completo",
       "community": 9,
       "norm_label": "m3 - mvp local completo"
@@ -3400,7 +3436,7 @@
       "label": "M4 - Autentica\u00e7\u00e3o e Perfis",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L160",
+      "source_location": "L164",
       "id": "metadocs_roadmap_m4_autentica\u00e7\u00e3o_e_perfis",
       "community": 9,
       "norm_label": "m4 - autenticacao e perfis"
@@ -3409,7 +3445,7 @@
       "label": "M5 - Persist\u00eancia e Banco",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L178",
+      "source_location": "L182",
       "id": "metadocs_roadmap_m5_persist\u00eancia_e_banco",
       "community": 9,
       "norm_label": "m5 - persistencia e banco"
@@ -3418,7 +3454,7 @@
       "label": "M6 - Multiplayer e Tempo Real",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L198",
+      "source_location": "L202",
       "id": "metadocs_roadmap_m6_multiplayer_e_tempo_real",
       "community": 9,
       "norm_label": "m6 - multiplayer e tempo real"
@@ -3427,7 +3463,7 @@
       "label": "M7 - M\u00e9tricas, Ranking e Balanceamento",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L216",
+      "source_location": "L220",
       "id": "metadocs_roadmap_m7_m\u00e9tricas_ranking_e_balanceamento",
       "community": 9,
       "norm_label": "m7 - metricas, ranking e balanceamento"
@@ -3436,7 +3472,7 @@
       "label": "M8 - Alpha SaaS",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L236",
+      "source_location": "L240",
       "id": "metadocs_roadmap_m8_alpha_saas",
       "community": 9,
       "norm_label": "m8 - alpha saas"
@@ -3445,7 +3481,7 @@
       "label": "Testes e Qualidade",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L257",
+      "source_location": "L261",
       "id": "metadocs_roadmap_testes_e_qualidade",
       "community": 9,
       "norm_label": "testes e qualidade"
@@ -3454,7 +3490,7 @@
       "label": "Documenta\u00e7\u00e3o Obrigat\u00f3ria",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L265",
+      "source_location": "L269",
       "id": "metadocs_roadmap_documenta\u00e7\u00e3o_obrigat\u00f3ria",
       "community": 9,
       "norm_label": "documentacao obrigatoria"
@@ -3463,7 +3499,7 @@
       "label": "Pr\u00f3xima Entrega",
       "file_type": "document",
       "source_file": ".metadocs/roadmap.md",
-      "source_location": "L274",
+      "source_location": "L278",
       "id": "metadocs_roadmap_pr\u00f3xima_entrega",
       "community": 9,
       "norm_label": "proxima entrega"
@@ -5026,6 +5062,114 @@
       "norm_label": "consideracao importante: modelo `:free` em producao"
     },
     {
+      "label": "calibracao_e_observabilidade.md",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L1",
+      "id": "metadocs_walkthrough_calibracao_e_observabilidade_md",
+      "community": 31,
+      "norm_label": "calibracao_e_observabilidade.md"
+    },
+    {
+      "label": "Walkthrough: Calibra\u00e7\u00e3o de Tempos da IA, Bug do Veredito e Observabilidade no Backend",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L1",
+      "id": "walkthrough_calibracao_e_observabilidade_walkthrough_calibra\u00e7\u00e3o_de_tempos_da_ia_bug_do_veredito_e_observabilidade_no_backend",
+      "community": 31,
+      "norm_label": "walkthrough: calibracao de tempos da ia, bug do veredito e observabilidade no backend"
+    },
+    {
+      "label": "Contexto da Demanda",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L5",
+      "id": "walkthrough_calibracao_e_observabilidade_contexto_da_demanda",
+      "community": 31,
+      "norm_label": "contexto da demanda"
+    },
+    {
+      "label": "Mudan\u00e7as Realizadas",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L11",
+      "id": "walkthrough_calibracao_e_observabilidade_mudan\u00e7as_realizadas",
+      "community": 31,
+      "norm_label": "mudancas realizadas"
+    },
+    {
+      "label": "1. Observabilidade: Centraliza\u00e7\u00e3o de Logs no Backend",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L13",
+      "id": "walkthrough_calibracao_e_observabilidade_1_observabilidade_centraliza\u00e7\u00e3o_de_logs_no_backend",
+      "community": 31,
+      "norm_label": "1. observabilidade: centralizacao de logs no backend"
+    },
+    {
+      "label": "2. Corre\u00e7\u00e3o do Bug do Veredito por Tempo Esgotado",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L25",
+      "id": "walkthrough_calibracao_e_observabilidade_2_corre\u00e7\u00e3o_do_bug_do_veredito_por_tempo_esgotado",
+      "community": 31,
+      "norm_label": "2. correcao do bug do veredito por tempo esgotado"
+    },
+    {
+      "label": "3. Calibra\u00e7\u00e3o de Tempos de IA & Resolu\u00e7\u00e3o de Closures",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L30",
+      "id": "walkthrough_calibracao_e_observabilidade_3_calibra\u00e7\u00e3o_de_tempos_de_ia_resolu\u00e7\u00e3o_de_closures",
+      "community": 31,
+      "norm_label": "3. calibracao de tempos de ia & resolucao de closures"
+    },
+    {
+      "label": "4. Resolu\u00e7\u00e3o de Avisos do Linter (ESLint)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L48",
+      "id": "walkthrough_calibracao_e_observabilidade_4_resolu\u00e7\u00e3o_de_avisos_do_linter_eslint",
+      "community": 31,
+      "norm_label": "4. resolucao de avisos do linter (eslint)"
+    },
+    {
+      "label": "Valida\u00e7\u00e3o Executada",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L51",
+      "id": "walkthrough_calibracao_e_observabilidade_valida\u00e7\u00e3o_executada",
+      "community": 31,
+      "norm_label": "validacao executada"
+    },
+    {
+      "label": "code:text (> game-of-turing@0.1.0 typecheck)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L55",
+      "id": "walkthrough_calibracao_e_observabilidade_codeblock_1",
+      "community": 31,
+      "norm_label": "code:text (> game-of-turing@0.1.0 typecheck)"
+    },
+    {
+      "label": "code:text (> game-of-turing@0.1.0 lint)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L62",
+      "id": "walkthrough_calibracao_e_observabilidade_codeblock_2",
+      "community": 31,
+      "norm_label": "code:text (> game-of-turing@0.1.0 lint)"
+    },
+    {
+      "label": "code:text (Re-extracting code files in . (no LLM needed)...)",
+      "file_type": "document",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L69",
+      "id": "walkthrough_calibracao_e_observabilidade_codeblock_3",
+      "community": 31,
+      "norm_label": "code:text (re-extracting code files in . (no llm needed)...)"
+    },
+    {
       "label": "correcao_inconsistencias_e_problemas.md",
       "file_type": "document",
       "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
@@ -5525,7 +5669,7 @@
       "file_type": "code",
       "source_file": "src/lib/ia/index.ts",
       "source_location": "L4",
-      "community": 31,
+      "community": 3,
       "norm_label": "provedores_ia",
       "id": "ia_index_provedores_ia"
     },
@@ -5534,7 +5678,7 @@
       "file_type": "code",
       "source_file": "src/lib/ia/provedor-fake.ts",
       "source_location": "L1",
-      "community": 30,
+      "community": 3,
       "norm_label": "provedor-fake.ts",
       "id": "src_lib_ia_provedor_fake_ts"
     },
@@ -5543,7 +5687,7 @@
       "file_type": "code",
       "source_file": "src/lib/ia/provedor-fake.ts",
       "source_location": "L3",
-      "community": 30,
+      "community": 3,
       "norm_label": "respostas_convencer_humano",
       "id": "ia_provedor_fake_respostas_convencer_humano"
     },
@@ -5552,7 +5696,7 @@
       "file_type": "code",
       "source_file": "src/lib/ia/provedor-fake.ts",
       "source_location": "L10",
-      "community": 30,
+      "community": 3,
       "norm_label": "respostas_convencer_ia",
       "id": "ia_provedor_fake_respostas_convencer_ia"
     },
@@ -5561,7 +5705,7 @@
       "file_type": "code",
       "source_file": "src/lib/ia/provedor-fake.ts",
       "source_location": "L17",
-      "community": 30,
+      "community": 3,
       "norm_label": "obterultimamensagemdoanalista()",
       "id": "ia_provedor_fake_obterultimamensagemdoanalista"
     },
@@ -5570,7 +5714,7 @@
       "file_type": "code",
       "source_file": "src/lib/ia/provedor-fake.ts",
       "source_location": "L25",
-      "community": 30,
+      "community": 3,
       "norm_label": "escolherresposta()",
       "id": "ia_provedor_fake_escolherresposta"
     },
@@ -5579,7 +5723,7 @@
       "file_type": "code",
       "source_file": "src/lib/ia/provedor-fake.ts",
       "source_location": "L38",
-      "community": 30,
+      "community": 3,
       "norm_label": "limitarresposta()",
       "id": "ia_provedor_fake_limitarresposta"
     },
@@ -5588,7 +5732,7 @@
       "file_type": "code",
       "source_file": "src/lib/ia/provedor-fake.ts",
       "source_location": "L46",
-      "community": 30,
+      "community": 3,
       "norm_label": "provedorfakeia",
       "id": "ia_provedor_fake_provedorfakeia"
     },
@@ -5597,7 +5741,7 @@
       "file_type": "code",
       "source_file": "test/lib/ia/provedor-fake.test.ts",
       "source_location": "L1",
-      "community": 30,
+      "community": 3,
       "norm_label": "provedor-fake.test.ts",
       "id": "test_lib_ia_provedor_fake_test_ts"
     },
@@ -5606,7 +5750,7 @@
       "file_type": "code",
       "source_file": "test/lib/ia/provedor-fake.test.ts",
       "source_location": "L6",
-      "community": 30,
+      "community": 3,
       "norm_label": "criarparametrosbase()",
       "id": "ia_provedor_fake_test_criarparametrosbase"
     },
@@ -5615,7 +5759,7 @@
       "file_type": "code",
       "source_file": "test/lib/ia/provedor-fake.test.ts",
       "source_location": "L63",
-      "community": 30,
+      "community": 3,
       "norm_label": "parametros",
       "id": "ia_provedor_fake_test_parametros"
     },
@@ -5642,7 +5786,7 @@
       "file_type": "code",
       "source_file": "app/api/ai/route.ts",
       "source_location": "L1",
-      "community": 29,
+      "community": 8,
       "norm_label": "route.ts",
       "id": "app_api_ai_route_ts"
     },
@@ -5831,7 +5975,7 @@
       "file_type": "code",
       "source_file": "domain/jogo/partida.test.ts",
       "source_location": "L1",
-      "community": 33,
+      "community": 35,
       "norm_label": "partida.test.ts",
       "id": "domain_jogo_partida_test_ts"
     },
@@ -5903,7 +6047,7 @@
       "file_type": "code",
       "source_file": "lib/ia/index.ts",
       "source_location": "L1",
-      "community": 29,
+      "community": 3,
       "norm_label": "index.ts",
       "id": "lib_ia_index_ts"
     },
@@ -5912,7 +6056,7 @@
       "file_type": "code",
       "source_file": "lib/ia/provedor-fake.test.ts",
       "source_location": "L1",
-      "community": 30,
+      "community": 3,
       "norm_label": "provedor-fake.test.ts",
       "id": "lib_ia_provedor_fake_test_ts"
     },
@@ -5921,7 +6065,7 @@
       "file_type": "code",
       "source_file": "lib/ia/provedor-fake.ts",
       "source_location": "L1",
-      "community": 30,
+      "community": 3,
       "norm_label": "provedor-fake.ts",
       "id": "lib_ia_provedor_fake_ts"
     },
@@ -5930,7 +6074,7 @@
       "file_type": "code",
       "source_file": "lib/ia/provedor-ia.test.ts",
       "source_location": "L1",
-      "community": 29,
+      "community": 8,
       "norm_label": "provedor-ia.test.ts",
       "id": "lib_ia_provedor_ia_test_ts"
     },
@@ -6195,7 +6339,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "player role (blue/red)",
       "id": "prd_player"
     },
@@ -6221,7 +6365,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "word budget",
       "id": "prd_word_budget"
     },
@@ -6853,15 +6997,14 @@
       "target": "ai_route_post"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/app/game/[matchId]/page.tsx",
-      "source_location": "L21",
+      "source_file": "src/app/api/match/event/route.ts",
+      "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "src_app_game_matchid_page_tsx",
-      "target": "src_domain_jogo_index_ts"
+      "source": "src_app_api_match_event_route_ts",
+      "target": "event_route_post"
     },
     {
       "relation": "imports_from",
@@ -6872,7 +7015,18 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_app_game_matchid_page_tsx",
-      "target": "src_lib_ia_constantes_ts"
+      "target": "src_app_game_matchid_constantes_ts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/game/[matchId]/page.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_game_matchid_page_tsx",
+      "target": "src_domain_jogo_index_ts"
     },
     {
       "relation": "contains",
@@ -7043,6 +7197,17 @@
       "confidence_score": 1.0,
       "source": "src_app_game_matchid_page_tsx",
       "target": "matchid_page_gameroom"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/game/[matchId]/page.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_game_matchid_page_tsx",
+      "target": "src_lib_ia_constantes_ts"
     },
     {
       "relation": "contains",
@@ -8755,9 +8920,9 @@
       "source_file": "src/domain/jogo/constantes.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_domain_jogo_constantes_ts",
-      "target": "jogo_constantes_palavras_bloqueadas",
-      "confidence_score": 1.0
+      "target": "jogo_constantes_palavras_bloqueadas"
     },
     {
       "relation": "imports_from",
@@ -8799,9 +8964,9 @@
       "source_file": "src/domain/jogo/mensagens.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_domain_jogo_mensagens_ts",
-      "target": "jogo_constantes_palavras_bloqueadas",
-      "confidence_score": 1.0
+      "target": "jogo_constantes_palavras_bloqueadas"
     },
     {
       "relation": "imports_from",
@@ -9132,9 +9297,9 @@
       "source_file": "src/domain/jogo/mensagens.ts",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_domain_jogo_mensagens_ts",
-      "target": "jogo_mensagens_decodificarleetspeak",
-      "confidence_score": 1.0
+      "target": "jogo_mensagens_decodificarleetspeak"
     },
     {
       "relation": "contains",
@@ -9142,9 +9307,9 @@
       "source_file": "src/domain/jogo/mensagens.ts",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_domain_jogo_mensagens_ts",
-      "target": "jogo_mensagens_contempalavrabloqueada",
-      "confidence_score": 1.0
+      "target": "jogo_mensagens_contempalavrabloqueada"
     },
     {
       "relation": "contains",
@@ -9194,9 +9359,9 @@
       "source_file": "src/domain/jogo/mensagens.ts",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "jogo_mensagens_contempalavrabloqueada",
-      "target": "jogo_mensagens_decodificarleetspeak",
-      "confidence_score": 1.0
+      "target": "jogo_mensagens_decodificarleetspeak"
     },
     {
       "relation": "calls",
@@ -9205,9 +9370,9 @@
       "source_file": "src/domain/jogo/mensagens.ts",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "jogo_mensagens_validarmensagem",
-      "target": "jogo_mensagens_contempalavrabloqueada",
-      "confidence_score": 1.0
+      "target": "jogo_mensagens_contempalavrabloqueada"
     },
     {
       "relation": "contains",
@@ -11068,9 +11233,9 @@
       "source_file": "src/lib/ia/index.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_ia_index_ts",
-      "target": "src_lib_ia_provedor_github_ts",
-      "confidence_score": 1.0
+      "target": "src_lib_ia_provedor_github_ts"
     },
     {
       "relation": "imports",
@@ -11079,9 +11244,9 @@
       "source_file": "src/lib/ia/index.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_ia_index_ts",
-      "target": "ia_provedor_github_provedorgithub",
-      "confidence_score": 1.0
+      "target": "ia_provedor_github_provedorgithub"
     },
     {
       "relation": "imports_from",
@@ -11421,6 +11586,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/ia/orquestrador.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_lib_ia_orquestrador_ts",
+      "target": "ia_orquestrador_traducoes_cb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/ia/orquestrador.ts",
       "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -11598,9 +11773,9 @@
       "source_file": "src/lib/ia/provedor-github.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_ia_provedor_github_ts",
-      "target": "src_lib_ia_prompt_agentico_ts",
-      "confidence_score": 1.0
+      "target": "src_lib_ia_prompt_agentico_ts"
     },
     {
       "relation": "imports_from",
@@ -11675,9 +11850,9 @@
       "source_file": "src/lib/ia/provedor-github.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_ia_provedor_github_ts",
-      "target": "ia_prompt_agentico_montarpromptsistema",
-      "confidence_score": 1.0
+      "target": "ia_prompt_agentico_montarpromptsistema"
     },
     {
       "relation": "imports",
@@ -11730,9 +11905,9 @@
       "source_file": "src/lib/ia/provedor-github.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_ia_provedor_github_ts",
-      "target": "ia_prompt_agentico_montarpromptusuario",
-      "confidence_score": 1.0
+      "target": "ia_prompt_agentico_montarpromptusuario"
     },
     {
       "relation": "imports",
@@ -11828,9 +12003,9 @@
       "source_file": "src/lib/ia/provedor-github.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_ia_provedor_github_ts",
-      "target": "src_lib_ia_tipos_ts",
-      "confidence_score": 1.0
+      "target": "src_lib_ia_tipos_ts"
     },
     {
       "relation": "imports",
@@ -11839,9 +12014,9 @@
       "source_file": "src/lib/ia/provedor-github.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_ia_provedor_github_ts",
-      "target": "ia_tipos_provedoria",
-      "confidence_score": 1.0
+      "target": "ia_tipos_provedoria"
     },
     {
       "relation": "imports",
@@ -11850,9 +12025,9 @@
       "source_file": "src/lib/ia/provedor-github.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_ia_provedor_github_ts",
-      "target": "ia_tipos_respostaia",
-      "confidence_score": 1.0
+      "target": "ia_tipos_respostaia"
     },
     {
       "relation": "imports",
@@ -11861,9 +12036,9 @@
       "source_file": "src/lib/ia/provedor-github.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_ia_provedor_github_ts",
-      "target": "ia_tipos_solicitarrespostaiaparametros",
-      "confidence_score": 1.0
+      "target": "ia_tipos_solicitarrespostaiaparametros"
     },
     {
       "relation": "contains",
@@ -11871,9 +12046,9 @@
       "source_file": "src/lib/ia/provedor-github.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_ia_provedor_github_ts",
-      "target": "ia_provedor_github_respostaapigithub",
-      "confidence_score": 1.0
+      "target": "ia_provedor_github_respostaapigithub"
     },
     {
       "relation": "contains",
@@ -11881,9 +12056,9 @@
       "source_file": "src/lib/ia/provedor-github.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_ia_provedor_github_ts",
-      "target": "ia_provedor_github_provedorgithub",
-      "confidence_score": 1.0
+      "target": "ia_provedor_github_provedorgithub"
     },
     {
       "relation": "imports_from",
@@ -12781,9 +12956,9 @@
       "source_file": "test/domain/jogo/jogo.test.ts",
       "source_location": "L156",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "test_domain_jogo_jogo_test_ts",
-      "target": "jogo_jogo_test_partidabase",
-      "confidence_score": 1.0
+      "target": "jogo_jogo_test_partidabase"
     },
     {
       "relation": "contains",
@@ -13071,9 +13246,9 @@
       "source_file": "test/domain/jogo/mensagens.test.ts",
       "source_location": "L176",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "test_domain_jogo_mensagens_test_ts",
-      "target": "jogo_mensagens_test_partidabase",
-      "confidence_score": 1.0
+      "target": "jogo_mensagens_test_partidabase"
     },
     {
       "relation": "contains",
@@ -13141,9 +13316,9 @@
       "source_file": "test/domain/jogo/mensagens.test.ts",
       "source_location": "L358",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "test_domain_jogo_mensagens_test_ts",
-      "target": "jogo_mensagens_test_botazul",
-      "confidence_score": 1.0
+      "target": "jogo_mensagens_test_botazul"
     },
     {
       "relation": "contains",
@@ -13151,9 +13326,9 @@
       "source_file": "test/domain/jogo/mensagens.test.ts",
       "source_location": "L362",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "test_domain_jogo_mensagens_test_ts",
-      "target": "jogo_mensagens_test_botazulatualizado",
-      "confidence_score": 1.0
+      "target": "jogo_mensagens_test_botazulatualizado"
     },
     {
       "relation": "contains",
@@ -13161,9 +13336,9 @@
       "source_file": "test/domain/jogo/mensagens.test.ts",
       "source_location": "L365",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "test_domain_jogo_mensagens_test_ts",
-      "target": "jogo_mensagens_test_botia",
-      "confidence_score": 1.0
+      "target": "jogo_mensagens_test_botia"
     },
     {
       "relation": "contains",
@@ -13601,9 +13776,9 @@
       "source_file": "test/domain/jogo/partida.test.ts",
       "source_location": "L131",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "test_domain_jogo_partida_test_ts",
-      "target": "jogo_partida_test_partidabase",
-      "confidence_score": 1.0
+      "target": "jogo_partida_test_partidabase"
     },
     {
       "relation": "contains",
@@ -14471,9 +14646,9 @@
       "source_file": "PRD.md",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_of_turing_prd_5_requisitos_funcionais_e_t\u00e9cnicos_escopo_inicial",
-      "target": "game_of_turing_prd_5_3_integra\u00e7\u00e3o_com_ia_arquitetura_atual",
-      "confidence_score": 1.0
+      "target": "game_of_turing_prd_5_3_integra\u00e7\u00e3o_com_ia_arquitetura_atual"
     },
     {
       "relation": "contains",
@@ -14521,9 +14696,9 @@
       "source_file": "PRD.md",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_of_turing_prd_7_roteiro_de_desenvolvimento_poc_e_mvp",
-      "target": "game_of_turing_prd_fase_1_proof_of_concept_poc_a_valida\u00e7\u00e3o_da_divers\u00e3o_conclu\u00eddo",
-      "confidence_score": 1.0
+      "target": "game_of_turing_prd_fase_1_proof_of_concept_poc_a_valida\u00e7\u00e3o_da_divers\u00e3o_conclu\u00eddo"
     },
     {
       "relation": "contains",
@@ -14531,9 +14706,9 @@
       "source_file": "PRD.md",
       "source_location": "L163",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "game_of_turing_prd_7_roteiro_de_desenvolvimento_poc_e_mvp",
-      "target": "game_of_turing_prd_fase_2_minimum_viable_product_mvp_o_jogo_funcional_em_andamento",
-      "confidence_score": 1.0
+      "target": "game_of_turing_prd_fase_2_minimum_viable_product_mvp_o_jogo_funcional_em_andamento"
     },
     {
       "relation": "contains",
@@ -15781,9 +15956,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "metadocs_references_github_models_api_md",
-      "target": "references_github_models_api_github_models_api_reference",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_github_models_api_reference"
     },
     {
       "relation": "contains",
@@ -15791,9 +15966,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_github_models_api_reference",
-      "target": "references_github_models_api_1_vis\u00e3o_geral_e_autentica\u00e7\u00e3o",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_1_vis\u00e3o_geral_e_autentica\u00e7\u00e3o"
     },
     {
       "relation": "contains",
@@ -15801,9 +15976,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_github_models_api_reference",
-      "target": "references_github_models_api_2_modelos_suportados_destaques",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_2_modelos_suportados_destaques"
     },
     {
       "relation": "contains",
@@ -15811,9 +15986,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_github_models_api_reference",
-      "target": "references_github_models_api_3_exemplo_de_uso_curl_fetch",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_3_exemplo_de_uso_curl_fetch"
     },
     {
       "relation": "contains",
@@ -15821,9 +15996,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_github_models_api_reference",
-      "target": "references_github_models_api_4_limites_de_taxa_rate_limits_do_free_tier",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_4_limites_de_taxa_rate_limits_do_free_tier"
     },
     {
       "relation": "contains",
@@ -15831,9 +16006,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_github_models_api_reference",
-      "target": "references_github_models_api_5_implementa\u00e7\u00e3o_no_projeto_game_of_turing",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_5_implementa\u00e7\u00e3o_no_projeto_game_of_turing"
     },
     {
       "relation": "contains",
@@ -15841,9 +16016,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_github_models_api_reference",
-      "target": "references_github_models_api_6_documenta\u00e7\u00e3o_completa_refer\u00eancia_oficial",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_6_documenta\u00e7\u00e3o_completa_refer\u00eancia_oficial"
     },
     {
       "relation": "contains",
@@ -15851,9 +16026,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_1_vis\u00e3o_geral_e_autentica\u00e7\u00e3o",
-      "target": "references_github_models_api_headers_obrigat\u00f3rios",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_headers_obrigat\u00f3rios"
     },
     {
       "relation": "contains",
@@ -15861,9 +16036,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_3_exemplo_de_uso_curl_fetch",
-      "target": "references_github_models_api_codeblock_1",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_codeblock_1"
     },
     {
       "relation": "contains",
@@ -15871,9 +16046,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_6_documenta\u00e7\u00e3o_completa_refer\u00eancia_oficial",
-      "target": "references_github_models_api_sobre_modelos_de_github",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_sobre_modelos_de_github"
     },
     {
       "relation": "contains",
@@ -15881,9 +16056,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_6_documenta\u00e7\u00e3o_completa_refer\u00eancia_oficial",
-      "target": "references_github_models_api_prototipagem_com_modelos_de_ia",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_prototipagem_com_modelos_de_ia"
     },
     {
       "relation": "contains",
@@ -15891,9 +16066,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_6_documenta\u00e7\u00e3o_completa_refer\u00eancia_oficial",
-      "target": "references_github_models_api_como_otimizar_seu_aplicativo_alimentado_por_ia_com_modelos",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_como_otimizar_seu_aplicativo_alimentado_por_ia_com_modelos"
     },
     {
       "relation": "contains",
@@ -15901,9 +16076,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_6_documenta\u00e7\u00e3o_completa_refer\u00eancia_oficial",
-      "target": "references_github_models_api_faturamento_e_entrar_em_produ\u00e7\u00e3o",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_faturamento_e_entrar_em_produ\u00e7\u00e3o"
     },
     {
       "relation": "contains",
@@ -15911,9 +16086,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_sobre_modelos_de_github",
-      "target": "references_github_models_api_funcionalidades",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_funcionalidades"
     },
     {
       "relation": "contains",
@@ -15921,9 +16096,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_prototipagem_com_modelos_de_ia",
-      "target": "references_github_models_api_encontrar_modelos_de_ia",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_encontrar_modelos_de_ia"
     },
     {
       "relation": "contains",
@@ -15931,9 +16106,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_prototipagem_com_modelos_de_ia",
-      "target": "references_github_models_api_experimentar_com_modelos_de_ia_no_playground",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_experimentar_com_modelos_de_ia_no_playground"
     },
     {
       "relation": "contains",
@@ -15941,9 +16116,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_prototipagem_com_modelos_de_ia",
-      "target": "references_github_models_api_comparando_modelos",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_comparando_modelos"
     },
     {
       "relation": "contains",
@@ -15951,9 +16126,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_prototipagem_com_modelos_de_ia",
-      "target": "references_github_models_api_como_salvar_e_compartilhar_seus_experimentos_de_playground",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_como_salvar_e_compartilhar_seus_experimentos_de_playground"
     },
     {
       "relation": "contains",
@@ -15961,9 +16136,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_como_otimizar_seu_aplicativo_alimentado_por_ia_com_modelos",
-      "target": "references_github_models_api_testar_varia\u00e7\u00f5es_de_prompt_com_um_modelo_espec\u00edfico",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_testar_varia\u00e7\u00f5es_de_prompt_com_um_modelo_espec\u00edfico"
     },
     {
       "relation": "contains",
@@ -15971,9 +16146,9 @@
       "source_file": ".metadocs/references/github-models-api.md",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "references_github_models_api_como_otimizar_seu_aplicativo_alimentado_por_ia_com_modelos",
-      "target": "references_github_models_api_avaliar_a_sa\u00edda_do_modelo",
-      "confidence_score": 1.0
+      "target": "references_github_models_api_avaliar_a_sa\u00edda_do_modelo"
     },
     {
       "relation": "contains",
@@ -16838,6 +17013,116 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadocs_walkthrough_calibracao_e_observabilidade_md",
+      "target": "walkthrough_calibracao_e_observabilidade_walkthrough_calibra\u00e7\u00e3o_de_tempos_da_ia_bug_do_veredito_e_observabilidade_no_backend"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_calibracao_e_observabilidade_walkthrough_calibra\u00e7\u00e3o_de_tempos_da_ia_bug_do_veredito_e_observabilidade_no_backend",
+      "target": "walkthrough_calibracao_e_observabilidade_contexto_da_demanda"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_calibracao_e_observabilidade_walkthrough_calibra\u00e7\u00e3o_de_tempos_da_ia_bug_do_veredito_e_observabilidade_no_backend",
+      "target": "walkthrough_calibracao_e_observabilidade_mudan\u00e7as_realizadas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_calibracao_e_observabilidade_walkthrough_calibra\u00e7\u00e3o_de_tempos_da_ia_bug_do_veredito_e_observabilidade_no_backend",
+      "target": "walkthrough_calibracao_e_observabilidade_valida\u00e7\u00e3o_executada"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_calibracao_e_observabilidade_mudan\u00e7as_realizadas",
+      "target": "walkthrough_calibracao_e_observabilidade_1_observabilidade_centraliza\u00e7\u00e3o_de_logs_no_backend"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_calibracao_e_observabilidade_mudan\u00e7as_realizadas",
+      "target": "walkthrough_calibracao_e_observabilidade_2_corre\u00e7\u00e3o_do_bug_do_veredito_por_tempo_esgotado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_calibracao_e_observabilidade_mudan\u00e7as_realizadas",
+      "target": "walkthrough_calibracao_e_observabilidade_3_calibra\u00e7\u00e3o_de_tempos_de_ia_resolu\u00e7\u00e3o_de_closures"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_calibracao_e_observabilidade_mudan\u00e7as_realizadas",
+      "target": "walkthrough_calibracao_e_observabilidade_4_resolu\u00e7\u00e3o_de_avisos_do_linter_eslint"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_calibracao_e_observabilidade_valida\u00e7\u00e3o_executada",
+      "target": "walkthrough_calibracao_e_observabilidade_codeblock_1"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_calibracao_e_observabilidade_valida\u00e7\u00e3o_executada",
+      "target": "walkthrough_calibracao_e_observabilidade_codeblock_2"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".metadocs/walkthrough/calibracao_e_observabilidade.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "walkthrough_calibracao_e_observabilidade_valida\u00e7\u00e3o_executada",
+      "target": "walkthrough_calibracao_e_observabilidade_codeblock_3"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": ".metadocs/walkthrough/correcao_inconsistencias_e_problemas.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -16921,9 +17206,9 @@
       "source_file": ".metadocs/walkthrough/filtro_palavras_improprias.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "metadocs_walkthrough_filtro_palavras_improprias_md",
-      "target": "walkthrough_filtro_palavras_improprias_walkthrough_filtro_de_palavras_impr\u00f3prias",
-      "confidence_score": 1.0
+      "target": "walkthrough_filtro_palavras_improprias_walkthrough_filtro_de_palavras_impr\u00f3prias"
     },
     {
       "relation": "contains",
@@ -16931,9 +17216,9 @@
       "source_file": ".metadocs/walkthrough/filtro_palavras_improprias.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "walkthrough_filtro_palavras_improprias_walkthrough_filtro_de_palavras_impr\u00f3prias",
-      "target": "walkthrough_filtro_palavras_improprias_contexto_da_demanda",
-      "confidence_score": 1.0
+      "target": "walkthrough_filtro_palavras_improprias_contexto_da_demanda"
     },
     {
       "relation": "contains",
@@ -16941,9 +17226,9 @@
       "source_file": ".metadocs/walkthrough/filtro_palavras_improprias.md",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "walkthrough_filtro_palavras_improprias_walkthrough_filtro_de_palavras_impr\u00f3prias",
-      "target": "walkthrough_filtro_palavras_improprias_mudan\u00e7as_realizadas",
-      "confidence_score": 1.0
+      "target": "walkthrough_filtro_palavras_improprias_mudan\u00e7as_realizadas"
     },
     {
       "relation": "contains",
@@ -16951,9 +17236,9 @@
       "source_file": ".metadocs/walkthrough/filtro_palavras_improprias.md",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "walkthrough_filtro_palavras_improprias_walkthrough_filtro_de_palavras_impr\u00f3prias",
-      "target": "walkthrough_filtro_palavras_improprias_valida\u00e7\u00e3o_executada",
-      "confidence_score": 1.0
+      "target": "walkthrough_filtro_palavras_improprias_valida\u00e7\u00e3o_executada"
     },
     {
       "relation": "contains",
@@ -16961,9 +17246,9 @@
       "source_file": ".metadocs/walkthrough/filtro_palavras_improprias.md",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "walkthrough_filtro_palavras_improprias_mudan\u00e7as_realizadas",
-      "target": "walkthrough_filtro_palavras_improprias_1_constantes_src_domain_jogo_constantes_ts",
-      "confidence_score": 1.0
+      "target": "walkthrough_filtro_palavras_improprias_1_constantes_src_domain_jogo_constantes_ts"
     },
     {
       "relation": "contains",
@@ -16971,9 +17256,9 @@
       "source_file": ".metadocs/walkthrough/filtro_palavras_improprias.md",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "walkthrough_filtro_palavras_improprias_mudan\u00e7as_realizadas",
-      "target": "walkthrough_filtro_palavras_improprias_2_algoritmo_de_valida\u00e7\u00e3o_src_domain_jogo_mensagens_ts",
-      "confidence_score": 1.0
+      "target": "walkthrough_filtro_palavras_improprias_2_algoritmo_de_valida\u00e7\u00e3o_src_domain_jogo_mensagens_ts"
     },
     {
       "relation": "contains",
@@ -16981,9 +17266,9 @@
       "source_file": ".metadocs/walkthrough/filtro_palavras_improprias.md",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "walkthrough_filtro_palavras_improprias_mudan\u00e7as_realizadas",
-      "target": "walkthrough_filtro_palavras_improprias_3_testes_unit\u00e1rios_test_domain_jogo_mensagens_test_ts",
-      "confidence_score": 1.0
+      "target": "walkthrough_filtro_palavras_improprias_3_testes_unit\u00e1rios_test_domain_jogo_mensagens_test_ts"
     },
     {
       "relation": "contains",
@@ -16991,9 +17276,9 @@
       "source_file": ".metadocs/walkthrough/filtro_palavras_improprias.md",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "walkthrough_filtro_palavras_improprias_valida\u00e7\u00e3o_executada",
-      "target": "walkthrough_filtro_palavras_improprias_codeblock_1",
-      "confidence_score": 1.0
+      "target": "walkthrough_filtro_palavras_improprias_codeblock_1"
     },
     {
       "relation": "contains",
@@ -18337,5 +18622,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4754a9275eaee12df3ac3da1178cea512a41c0f6"
+  "built_at_commit": "f7589400dc43ba1db1193de61b7697ba203ffd64"
 }

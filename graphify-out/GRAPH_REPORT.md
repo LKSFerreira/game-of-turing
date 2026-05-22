@@ -1,16 +1,16 @@
 # Graph Report - game-of-turing  (2026-05-21)
 
 ## Corpus Check
-- 64 files · ~36,570 words
+- 67 files · ~38,141 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 689 nodes · 1167 edges · 34 communities (30 shown, 4 thin omitted)
+- 705 nodes · 1181 edges · 31 communities (27 shown, 4 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4754a927`
+- Built from commit: `f7589400`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -41,13 +41,9 @@
 - [[_COMMUNITY_Community 23|Community 23]]
 - [[_COMMUNITY_Community 24|Community 24]]
 - [[_COMMUNITY_Community 26|Community 26]]
-- [[_COMMUNITY_Community 27|Community 27]]
-- [[_COMMUNITY_Community 28|Community 28]]
-- [[_COMMUNITY_Community 29|Community 29]]
-- [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
 - [[_COMMUNITY_Community 32|Community 32]]
-- [[_COMMUNITY_Community 33|Community 33]]
+- [[_COMMUNITY_Community 35|Community 35]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 57 edges
@@ -73,7 +69,7 @@
 - `AI Strategy Implementation` --implements--> `ADR 0002 - IA Com Strategy Pattern`  [EXTRACTED]
   src/lib/ia/provedor-ia.ts → .metadocs/adr/0002-ia-com-strategy-pattern.md
 
-## Communities (34 total, 4 thin omitted)
+## Communities (31 total, 4 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.08
@@ -88,8 +84,8 @@ Cohesion: 0.04
 Nodes (46): 10. Comunicação em Tempo Real (Supabase Realtime), 1. Visão Geral do Produto, 2. Objetivos, 3.1. Papéis, Condições de Vitória e Composição da Mesa, 3.2. Dinâmica e Regras da Partida (O Jogo do Engano), 3.3. Sistema de Rank, PDR e MMR, 3. Regras de Negócio e Mecânicas Core, 4. Design e Experiência do Usuário (UI/UX) e Monetização (+38 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.23
-Nodes (13): formatarHistorico(), montarPromptSistema(), montarPromptUsuario(), obterInstrucaoMissao(), ParametrosPrompt, historico, prompt, RespostaApiGithub (+5 more)
+Cohesion: 0.05
+Nodes (56): MAPA_PROVIDERS, obterOrquestrador(), parseProvidersAtivos(), PESOS_PADRAO, PROVEDORES_IA, criarEstadoSaudeInicial(), criarOrquestrador(), criarRegistroProvider() (+48 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.14
@@ -100,16 +96,16 @@ Cohesion: 0.08
 Nodes (24): Ambiente, Arquitetura, code:text (src/), code:bash (npm install), code:powershell (Copy-Item .env.example .env.local), code:bash (cp .env.example .env.local), code:env (AI_PROVIDER=fake), code:bash (npm run dev) (+16 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.10
-Nodes (25): ADR 0001 - Gameplay Primeiro, ADR 0001: Gameplay First, ADR 0001 - Gameplay Primeiro, Consequências, Contexto, Decisão, Status, ADR 0002 - IA Com Strategy Pattern (+17 more)
+Cohesion: 0.11
+Nodes (23): ADR 0001 - Gameplay Primeiro, ADR 0001: Gameplay First, ADR 0001 - Gameplay Primeiro, Consequências, Contexto, Decisão, Status, ADR 0002 - IA Com Strategy Pattern (+15 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.15
-Nodes (19): BotaoModo(), Home(), MODOS_LOBBY, PERFIL_LOCAL_POC, PortalPareamento(), PreferenciaFila, PREFERENCIAS, REGRAS_CHAVE (+11 more)
+Cohesion: 0.13
+Nodes (21): BotaoModo(), Home(), MODOS_LOBBY, PERFIL_LOCAL_POC, PortalPareamento(), PreferenciaFila, PREFERENCIAS, REGRAS_CHAVE (+13 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.22
-Nodes (17): BotaoNatureza(), buscarParticipantePorCor(), CartaoParticipante(), CorJogador, CorVisual, ESTILOS_PARTICIPANTE, formatarTempo(), formatarTimestamp() (+9 more)
+Cohesion: 0.13
+Nodes (24): CorpoRequisicaoIa, isCorJogador(), isMissaoSecreta(), POST(), validarCorpoRequisicao(), obterProvedorIa(), provedor, BotaoNatureza() (+16 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.11
@@ -163,36 +159,20 @@ Nodes (5): ADR 0003 - Orquestrador Multi-Provider de IA, Consequências, Context
 Cohesion: 0.15
 Nodes (18): analista, azul, buscarPorCor(), criarPartidaTeste(), estatisticas, partida, partidaBase, partidaFinalizada (+10 more)
 
-### Community 27 - "Community 27"
-Cohesion: 0.14
-Nodes (10): criarEstadoSaudeInicial(), criarRegistroProvider(), OrquestradorIa, ConfiguracaoOrquestrador, ConfiguracaoProvider, ConfiguracaoProviderComInstancia, ErroIndisponibilidadeIa, EstadoCircuitBreaker (+2 more)
-
-### Community 28 - "Community 28"
-Cohesion: 0.12
-Nodes (14): erro, estadoAtualizado, estadoGroq, estados, orquestrador, provedor, provedorA, provedorB (+6 more)
-
-### Community 29 - "Community 29"
-Cohesion: 0.35
-Nodes (7): CorpoRequisicaoIa, isCorJogador(), isMissaoSecreta(), POST(), validarCorpoRequisicao(), obterProvedorIa(), provedor
-
-### Community 30 - "Community 30"
-Cohesion: 0.32
-Nodes (8): escolherResposta(), limitarResposta(), obterUltimaMensagemDoAnalista(), provedorFakeIa, RESPOSTAS_CONVENCER_HUMANO, RESPOSTAS_CONVENCER_IA, criarParametrosBase(), parametros
-
 ### Community 31 - "Community 31"
-Cohesion: 0.22
-Nodes (10): MAPA_PROVIDERS, obterOrquestrador(), parseProvidersAtivos(), PESOS_PADRAO, PROVEDORES_IA, criarOrquestrador(), provedorGemini, provedorGithub (+2 more)
+Cohesion: 0.17
+Nodes (11): 1. Observabilidade: Centralização de Logs no Backend, 2. Correção do Bug do Veredito por Tempo Esgotado, 3. Calibração de Tempos de IA & Resolução de Closures, 4. Resolução de Avisos do Linter (ESLint), code:text (> game-of-turing@0.1.0 typecheck), code:text (> game-of-turing@0.1.0 lint), code:text (Re-extracting code files in . (no LLM needed)...), Contexto da Demanda (+3 more)
 
 ### Community 32 - "Community 32"
 Cohesion: 0.22
 Nodes (8): 1. Constantes (`src/domain/jogo/constantes.ts`), 2. Algoritmo de Validação (`src/domain/jogo/mensagens.ts`), 3. Testes Unitários (`test/domain/jogo/mensagens.test.ts`), code:text (✓ test/domain/jogo/partida.test.ts (20 tests) 25ms), Contexto da Demanda, Mudanças Realizadas, Validação Executada, Walkthrough: Filtro de Palavras Impróprias
 
-### Community 33 - "Community 33"
+### Community 35 - "Community 35"
 Cohesion: 0.39
 Nodes (6): analista, cores, original, partida, partidaBase, reiniciada
 
 ## Knowledge Gaps
-- **258 isolated node(s):** `CorJogador`, `CriarPartidaPocParametros`, `MAPA_PROVIDERS`, `PESOS_PADRAO`, `ParametrosPrompt` (+253 more)
+- **267 isolated node(s):** `CorJogador`, `CriarPartidaPocParametros`, `MAPA_PROVIDERS`, `PESOS_PADRAO`, `TRADUCOES_CB` (+262 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -201,15 +181,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `ParticipantePartida` connect `Community 1` to `Community 26`, `Community 4`?**
   _High betweenness centrality (0.010) - this node is a cross-community bridge._
+- **Why does `Game of Turing` connect `Community 6` to `Community 7`?**
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
 - **What connects `CorJogador`, `CriarPartidaPocParametros`, `MAPA_PROVIDERS` to the rest of the system?**
-  _260 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _269 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.07594381035996488 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.08560140474100088 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
-- **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.1350806451612903 - nodes in this community are weakly interconnected._
-- **Should `Community 5` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
+- **Should `Community 3` be split into smaller, more focused modules?**
+  _Cohesion score 0.051189400782896716 - nodes in this community are weakly interconnected._
