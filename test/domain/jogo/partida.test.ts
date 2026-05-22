@@ -137,7 +137,7 @@ describe('atualizarFasePorTempo', () => {
           id: 'msg-analista',
           partidaId: partidaBase.id,
           remetenteId: 'analista-local',
-          remetenteCor: 'analista',
+          remetenteCor: 'analista' as const,
           conteudo: 'Ola jogadores',
           criadaEm: DATA_BASE,
         }

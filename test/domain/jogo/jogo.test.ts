@@ -128,7 +128,7 @@ describe('validação e registro de mensagens', () => {
           id: 'msg-analista-inicial',
           partidaId: partidaBase.id,
           remetenteId: 'analista-local',
-          remetenteCor: 'analista',
+          remetenteCor: 'analista' as const,
           conteudo: 'Ola jogadores',
           criadaEm: DATA_BASE,
         }
@@ -162,7 +162,7 @@ describe('veredito, estatísticas e MMR', () => {
           id: 'msg-analista-inicial',
           partidaId: partidaBase.id,
           remetenteId: 'analista-local',
-          remetenteCor: 'analista',
+          remetenteCor: 'analista' as const,
           conteudo: 'Ola jogadores',
           criadaEm: DATA_BASE,
         }

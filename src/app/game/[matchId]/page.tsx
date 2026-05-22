@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'motion/react';
 import { BrainCircuit, Cpu, User } from 'lucide-react';
-import { use, useEffect, useRef, useState } from 'react';
+import { use, useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import {
@@ -29,14 +29,21 @@ import type {
 import {
   CHANCE_PROATIVIDADE_IA,
   CHANCE_DIGITACAO_FAKE,
-  DELAY_BASE_DIGITACAO_MS,
-  DELAY_VARIACAO_DIGITACAO_MS,
   INTERVALO_CHECAGEM_INATIVIDADE_MS,
   LIMITE_INATIVIDADE_SEGUNDOS,
   MAXIMO_MENSAGENS_CONTEXTO_API,
   TEMPO_MAXIMO_DIGITACAO_FAKE_MS,
   TEMPO_MINIMO_DIGITACAO_FAKE_MS,
-} from '@/lib/ia/constantes';
+  CARACTERES_POR_SEGUNDO_LEITURA,
+  CARACTERES_POR_SEGUNDO_DIGITACAO,
+  TEMPO_MAXIMO_DIGITACAO_UI_MS,
+  NOVO_DELAY_BASE_DIGITACAO_MS,
+  NOVO_DELAY_VARIACAO_DIGITACAO_MS,
+  TEMPO_PENSAMENTO_MINIMO_IA_MS,
+  TEMPO_PENSAMENTO_VARIACAO_IA_MS,
+  TEMPO_HESITACAO_PROATIVIDADE_MINIMO_MS,
+  TEMPO_HESITACAO_PROATIVIDADE_VARIACAO_MS,
+} from './constantes';
 
 type CorJogador = Extract<CorParticipante, 'azul' | 'vermelho'>;
 type CorVisual = Extract<CorParticipante, 'analista' | 'azul' | 'vermelho'>;
@@ -268,6 +275,34 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
   const [jogadoresPensando, setJogadoresPensando] = useState<CorJogador[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  const vereditoAzulRef = useRef(vereditoAzul);
+  vereditoAzulRef.current = vereditoAzul;
+  const vereditoVermelhoRef = useRef(vereditoVermelho);
+  vereditoVermelhoRef.current = vereditoVermelho;
+  const jogadoresPensandoRef = useRef(jogadoresPensando);
+  jogadoresPensandoRef.current = jogadoresPensando;
+
+  const enviarEventoBackend = useCallback(async (tipoEvento: string, detalhes?: any) => {
+    try {
+      await fetch('/api/match/event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          tipoEvento,
+          partidaId: matchId,
+          detalhes,
+        }),
+      });
+    } catch (erro) {
+      console.error(`Erro ao reportar evento de domínio ${tipoEvento} for o servidor:`, erro);
+    }
+  }, [matchId]);
+
+  // Envia evento de início da partida ao carregar
+  useEffect(() => {
+    enviarEventoBackend('PARTIDA_INICIADA');
+  }, [enviarEventoBackend]);
+
   const analista = buscarParticipantePorCor(partida, 'analista');
   const participanteAzul = buscarParticipantePorCor(partida, 'azul');
   const participanteVermelho = buscarParticipantePorCor(partida, 'vermelho');
@@ -283,17 +318,32 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     }
 
     const intervalo = window.setInterval(() => {
-      const proximosSegundosRestantes = calcularSegundosRestantes(partida, new Date());
+      const partidaAtual = partidaRef.current;
+      const proximosSegundosRestantes = calcularSegundosRestantes(partidaAtual, new Date());
       setSegundosRestantes(proximosSegundosRestantes);
 
       if (proximosSegundosRestantes <= 0) {
-        setSegundosVereditoRestantes(partida.faseVereditoSegundos);
-        setPartida(partidaAtual => atualizarFasePorTempo(partidaAtual, new Date()));
+        setSegundosVereditoRestantes(partidaAtual.faseVereditoSegundos);
+        const proximaPartida = atualizarFasePorTempo(partidaAtual, new Date());
+
+        if (proximaPartida.fase !== partidaAtual.fase) {
+          if (proximaPartida.fase === 'veredito') {
+            enviarEventoBackend('FASE_VEREDITO');
+          } else if (proximaPartida.fase === 'revelacao') {
+            const res = calcularResultadoPartida(proximaPartida);
+            enviarEventoBackend('PARTIDA_FINALIZADA', {
+              analistaVenceu: res.analistaVenceu,
+              analistaInativoWo: res.analistaInativoWo,
+              participantes: res.participantes,
+            });
+          }
+          setPartida(proximaPartida);
+        }
       }
     }, 1000);
 
     return () => window.clearInterval(intervalo);
-  }, [exibirModalPapel, partida]);
+  }, [exibirModalPapel, partida.fase, enviarEventoBackend]);
 
   useEffect(() => {
     if (segundosCooldown <= 0) {
@@ -313,29 +363,58 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     }
 
     const timeout = window.setTimeout(() => {
-      setSegundosVereditoRestantes(segundosAtuais => {
-        if (segundosAtuais <= 1) {
-          setPartida(partidaAtual => {
-            if (partidaAtual.fase !== 'veredito') {
-              return partidaAtual;
-            }
+      if (segundosVereditoRestantes <= 1) {
+        const partidaAtual = partidaRef.current;
+        if (partidaAtual.fase === 'veredito') {
+          const pAzul = buscarParticipantePorCor(partidaAtual, 'azul');
+          const pVermelho = buscarParticipantePorCor(partidaAtual, 'vermelho');
 
-            return finalizarPartidaPorTempoVeredito(partidaAtual, new Date().toISOString());
+          const obterNaturezaOpostaLocal = (nat: NaturezaParticipante): NaturezaParticipante =>
+            nat === 'humano' ? 'ia' : 'humano';
+
+          const escolhaAzul = vereditoAzulRef.current || obterNaturezaOpostaLocal(pAzul.natureza);
+          const escolhaVermelho = vereditoVermelhoRef.current || obterNaturezaOpostaLocal(pVermelho.natureza);
+
+          enviarEventoBackend('VEREDITO_SUBMETIDO', {
+            azul: vereditoAzulRef.current || 'NENHUM (tempo esgotado)',
+            vermelho: vereditoVermelhoRef.current || 'NENHUM (tempo esgotado)',
           });
-          setErroMensagem('Tempo esgotado. O Analista perdeu a análise.');
-          return 0;
-        }
 
-        return segundosAtuais - 1;
-      });
+          const partidaFinalizada = finalizarPartidaComVeredito(
+            partidaAtual,
+            { azul: escolhaAzul, vermelho: escolhaVermelho },
+            new Date().toISOString(),
+          );
+
+          const res = calcularResultadoPartida(partidaFinalizada);
+          enviarEventoBackend('PARTIDA_FINALIZADA', {
+            analistaVenceu: res.analistaVenceu,
+            analistaInativoWo: res.analistaInativoWo,
+            participantes: res.participantes,
+          });
+
+          setPartida(partidaFinalizada);
+          setErroMensagem('Tempo esgotado. O Analista perdeu a análise.');
+        }
+        setSegundosVereditoRestantes(0);
+      } else {
+        setSegundosVereditoRestantes(segundosAtuais => segundosAtuais - 1);
+      }
     }, 1000);
 
     return () => window.clearTimeout(timeout);
-  }, [partida.fase, segundosVereditoRestantes]);
+  }, [partida.fase, segundosVereditoRestantes, enviarEventoBackend]);
 
   async function executarMensagemIaEspontanea(corJogador: CorJogador) {
     if (partidaRef.current.fase !== 'em_andamento') return;
 
+    // 1. Delay Cognitivo Silencioso Inicial antes de começar a digitar
+    const tempoPensamentoMs = TEMPO_HESITACAO_PROATIVIDADE_MINIMO_MS + Math.random() * TEMPO_HESITACAO_PROATIVIDADE_VARIACAO_MS;
+    await new Promise(resolve => window.setTimeout(resolve, tempoPensamentoMs));
+
+    if (partidaRef.current.fase !== 'em_andamento') return;
+
+    // 2. Iniciar Indicação Visual de Digitação ("pensando")
     setJogadoresPensando(atuais =>
       atuais.includes(corJogador) ? atuais : [...atuais, corJogador],
     );
@@ -354,7 +433,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
         body: JSON.stringify({
           cor: corJogador,
           missaoSecreta: botParticipante.missaoSecreta,
-          historico: partida.mensagens.slice(-MAXIMO_MENSAGENS_CONTEXTO_API),
+          historico: partidaRef.current.mensagens.slice(-MAXIMO_MENSAGENS_CONTEXTO_API),
         }),
       });
 
@@ -366,8 +445,8 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
       const tempoGastoFetch = Date.now() - startTempo;
 
       const tamanhoResposta = dados.texto?.length ?? 0;
-      const caracteresPorSegundoDigitacao = 6; // Velocidade bem lenta e realista (média humano digitando no celular)
-      const delayDesejadoMs = DELAY_BASE_DIGITACAO_MS + (tamanhoResposta / caracteresPorSegundoDigitacao) * 1000 + Math.random() * DELAY_VARIACAO_DIGITACAO_MS;
+      const tempoDigitacaoMs = Math.min(TEMPO_MAXIMO_DIGITACAO_UI_MS, (tamanhoResposta / CARACTERES_POR_SEGUNDO_DIGITACAO) * 1000);
+      const delayDesejadoMs = NOVO_DELAY_BASE_DIGITACAO_MS + tempoDigitacaoMs + Math.random() * NOVO_DELAY_VARIACAO_DIGITACAO_MS;
       const delayRestante = Math.max(0, delayDesejadoMs - tempoGastoFetch);
 
       if (delayRestante > 0) {
@@ -385,38 +464,42 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
       }
 
       const criadaEm = new Date().toISOString();
-      setPartida(partidaAtual => {
-        if (partidaAtual.fase !== 'em_andamento') return partidaAtual;
+      const partidaAtual = partidaRef.current;
+      if (partidaAtual.fase !== 'em_andamento') return;
 
-        const participanteAtual = buscarParticipanteObrigatorio(
-          partidaAtual,
-          botParticipante.id,
+      const participanteAtual = buscarParticipanteObrigatorio(
+        partidaAtual,
+        botParticipante.id,
+      );
+      const validacao = validarMensagem(
+        partidaAtual,
+        participanteAtual,
+        dados.texto!,
+        new Date(criadaEm),
+      );
+
+      if (!validacao.valido) {
+        console.error(
+          `[GAME ESPONTANEO] Mensagem gerada pelo bot ${corJogador.toUpperCase()} foi considerada inválida pelo motor. Motivo: ${validacao.motivo}`,
         );
-        const validacao = validarMensagem(
-          partidaAtual,
-          participanteAtual,
-          dados.texto!,
-          new Date(criadaEm),
-        );
+        router.push('/offline');
+        return;
+      }
 
-        if (!validacao.valido) {
-          console.error(
-            `[GAME ESPONTANEO] Mensagem gerada pelo bot ${corJogador.toUpperCase()} foi considerada inválida pelo motor. Motivo: ${validacao.motivo}`,
-          );
-          window.setTimeout(() => router.push('/offline'), 0);
-          return partidaAtual;
-        }
+      const partidaNova = registrarMensagem(
+        partidaAtual,
+        participanteAtual,
+        validacao.conteudoNormalizado,
+        criadaEm,
+      );
 
-        const partidaNova = registrarMensagem(
-          partidaAtual,
-          participanteAtual,
-          validacao.conteudoNormalizado,
-          criadaEm,
-        );
-
-        window.setTimeout(rolarChatParaFim, 50);
-        return partidaNova;
+      enviarEventoBackend('MENSAGEM_REGISTRADA', {
+        remetenteCor: botParticipante.cor,
+        conteudo: validacao.conteudoNormalizado,
       });
+
+      setPartida(partidaNova);
+      rolarChatParaFim();
     } catch (erro) {
       console.error(`[GAME ESPONTANEO] Falha de conexão de rede ou exceção ao acionar bot ${corJogador.toUpperCase()}:`, erro);
       router.push('/offline');
@@ -425,39 +508,48 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     }
   }
 
-  // Monitor de inatividade de chat para proatividade de IA
+  // Monitor de inatividade de chat para proatividade de IA (baseado em setTimeout e refs estáveis)
   useEffect(() => {
     if (exibirModalPapel || partida.fase !== 'em_andamento') {
       return;
     }
 
-    const intervaloId = window.setInterval(() => {
-      if (partida.mensagens.length === 0) return;
-      const ultimaMensagem = partida.mensagens[partida.mensagens.length - 1];
-      const tempoUltimaMensagem = new Date(ultimaMensagem.criadaEm).getTime();
-      const agora = new Date().getTime();
-      const segundosDesdeUltimaMensagem = (agora - tempoUltimaMensagem) / 1000;
+    if (partida.mensagens.length === 0) return;
+    const ultimaMensagemAoIniciarTimer = partida.mensagens[partida.mensagens.length - 1];
 
-      if (segundosDesdeUltimaMensagem >= LIMITE_INATIVIDADE_SEGUNDOS && jogadoresPensando.length === 0) {
-        if (Math.random() < CHANCE_PROATIVIDADE_IA) {
-          const corUltimoRemetente = ultimaMensagem.remetenteCor;
-          let botEscolhido: CorJogador = 'azul';
+    const timerId = window.setTimeout(() => {
+      const partidaAtual = partidaRef.current;
 
-          if (corUltimoRemetente === 'azul') {
-            botEscolhido = 'vermelho';
-          } else if (corUltimoRemetente === 'vermelho') {
-            botEscolhido = 'azul';
-          } else {
-            botEscolhido = Math.random() < 0.5 ? 'azul' : 'vermelho';
-          }
+      // Valida se ainda está na fase correta
+      if (partidaAtual.fase !== 'em_andamento') return;
 
-          executarMensagemIaEspontanea(botEscolhido);
+      // Valida se nenhuma nova mensagem foi adicionada enquanto o timer corria
+      const ultimaMensagemAtual = partidaAtual.mensagens[partidaAtual.mensagens.length - 1];
+      if (ultimaMensagemAtual.id !== ultimaMensagemAoIniciarTimer.id) return;
+
+      // Valida se nenhuma IA está digitando/pensando no momento
+      if (jogadoresPensandoRef.current.length > 0) return;
+
+      // Aplica a chance de proatividade
+      if (Math.random() < CHANCE_PROATIVIDADE_IA) {
+        const corUltimoRemetente = ultimaMensagemAtual.remetenteCor;
+        let botEscolhido: CorJogador = 'azul';
+
+        if (corUltimoRemetente === 'azul') {
+          botEscolhido = 'vermelho';
+        } else if (corUltimoRemetente === 'vermelho') {
+          botEscolhido = 'azul';
+        } else {
+          botEscolhido = Math.random() < 0.5 ? 'azul' : 'vermelho';
         }
-      }
-    }, INTERVALO_CHECAGEM_INATIVIDADE_MS);
 
-    return () => window.clearInterval(intervaloId);
-  }, [exibirModalPapel, partida, jogadoresPensando]);
+        executarMensagemIaEspontanea(botEscolhido);
+      }
+    }, LIMITE_INATIVIDADE_SEGUNDOS * 1000);
+
+    return () => window.clearTimeout(timerId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [exibirModalPapel, partida.mensagens.length]);
 
   function rolarChatParaFim() {
     window.setTimeout(() => scrollRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
@@ -482,14 +574,12 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
       const bot = bots[indice];
       const corJogador = bot.cor as CorJogador;
 
-      // 1. Tempo de Leitura Silenciosa
+      // 1. Tempo de Leitura Silenciosa e Processamento Cognitivo Realista
       const tamanhoUltimaMensagem = partidaAtualizada.mensagens.length > 0 ? partidaAtualizada.mensagens[partidaAtualizada.mensagens.length - 1].conteudo.length : 0;
-      const caracteresPorSegundoLeitura = 12; // Leitura super atenciosa
-      const tempoLeituraMs = (tamanhoUltimaMensagem / caracteresPorSegundoLeitura) * 1000;
-      
-      if (tempoLeituraMs > 0) {
-        await new Promise(resolve => window.setTimeout(resolve, tempoLeituraMs));
-      }
+      const tempoPensamentoMinimoMs = TEMPO_PENSAMENTO_MINIMO_IA_MS + Math.random() * TEMPO_PENSAMENTO_VARIACAO_IA_MS;
+      const tempoLeituraMs = (tamanhoUltimaMensagem / CARACTERES_POR_SEGUNDO_LEITURA) * 1000 + tempoPensamentoMinimoMs;
+
+      await new Promise(resolve => window.setTimeout(resolve, tempoLeituraMs));
 
       if (versaoAtual !== sequenciaIaVersaoRef.current || partidaRef.current.fase !== 'em_andamento') {
         setJogadoresPensando([]);
@@ -553,10 +643,8 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
         const tempoGastoFetch = Date.now() - startTempo;
 
         const tamanhoResposta = dados.texto?.length ?? 0;
-        const caracteresPorSegundoDigitacao = 6; // Velocidade de digitação realista de celular
-        const tempoDigitacaoMs = (tamanhoResposta / caracteresPorSegundoDigitacao) * 1000;
-
-        const delayDesejadoMs = DELAY_BASE_DIGITACAO_MS + tempoDigitacaoMs + Math.random() * DELAY_VARIACAO_DIGITACAO_MS;
+        const tempoDigitacaoMs = Math.min(TEMPO_MAXIMO_DIGITACAO_UI_MS, (tamanhoResposta / CARACTERES_POR_SEGUNDO_DIGITACAO) * 1000);
+        const delayDesejadoMs = NOVO_DELAY_BASE_DIGITACAO_MS + tempoDigitacaoMs + Math.random() * NOVO_DELAY_VARIACAO_DIGITACAO_MS;
         const delayRestante = Math.max(0, delayDesejadoMs - tempoGastoFetch);
 
         if (delayRestante > 0) {
@@ -600,6 +688,11 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
           validacao.conteudoNormalizado,
           criadaEm,
         );
+
+        enviarEventoBackend('MENSAGEM_REGISTRADA', {
+          remetenteCor: bot.participante.cor,
+          conteudo: validacao.conteudoNormalizado,
+        });
 
         setPartida(stateAnterior => registrarMensagem(
           stateAnterior,
@@ -649,6 +742,11 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     setErroMensagem(null);
     setSegundosCooldown(partida.cooldownSegundos);
 
+    enviarEventoBackend('MENSAGEM_REGISTRADA', {
+      remetenteCor: analista.cor,
+      conteudo: validacao.conteudoNormalizado,
+    });
+
     executarSequenciaRespostasIa(partidaComMensagem);
     rolarChatParaFim();
 
@@ -661,6 +759,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     setSegundosVereditoRestantes(partida.faseVereditoSegundos);
     setPartida(partidaAtual => avancarParaVeredito(partidaAtual));
     setSegundosRestantes(0);
+    enviarEventoBackend('FASE_VEREDITO');
   }
 
   function submeterVeredito() {
@@ -676,6 +775,11 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
       return;
     }
 
+    enviarEventoBackend('VEREDITO_SUBMETIDO', {
+      azul: vereditoAzul,
+      vermelho: vereditoVermelho,
+    });
+
     const partidaFinalizada = finalizarPartidaComVeredito(
       partidaEmVeredito,
       validacaoVeredito.veredito,
@@ -685,6 +789,13 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     setPartida(partidaFinalizada);
     setErroMensagem(null);
     rolarChatParaFim();
+
+    const res = calcularResultadoPartida(partidaFinalizada);
+    enviarEventoBackend('PARTIDA_FINALIZADA', {
+      analistaVenceu: res.analistaVenceu,
+      analistaInativoWo: res.analistaInativoWo,
+      participantes: res.participantes,
+    });
   }
 
   function selecionarVeredito(cor: CorJogador, natureza: NaturezaParticipante) {
@@ -710,6 +821,7 @@ export default function GameRoom({ params }: { params: Promise<{ matchId: string
     setVereditoAzul('');
     setVereditoVermelho('');
     setJogadoresPensando([]);
+    enviarEventoBackend('PARTIDA_INICIADA');
   }
 
   const participantesDaMesa: ParticipanteVisivel[] = [

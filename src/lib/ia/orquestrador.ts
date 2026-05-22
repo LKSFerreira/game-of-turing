@@ -11,6 +11,12 @@ import {
   TEMPO_RECUPERACAO_CIRCUIT_BREAKER_MS,
 } from './constantes';
 
+const TRADUCOES_CB: Record<string, string> = {
+  fechado: 'operando',
+  aberto: 'bloqueado',
+  meio_aberto: 'recuperando',
+};
+
 function criarEstadoSaudeInicial(): EstadoSaude {
   return {
     circuitBreaker: 'fechado',
@@ -155,7 +161,9 @@ export function criarOrquestrador(
       const cbDepois = registro.saude.circuitBreaker;
       
       if (cbAntes !== cbDepois) {
-        console.warn(`[CIRCUIT BREAKER] ⚠️ Provedor ${nomeProvider} alterou estado: ${cbAntes.toUpperCase()} -> ${cbDepois.toUpperCase()} (Falhas consecutivas: ${registro.saude.falhasConsecutivas})`);
+        const estadoAntes = (TRADUCOES_CB[cbAntes] || cbAntes).toUpperCase();
+        const estadoDepois = (TRADUCOES_CB[cbDepois] || cbDepois).toUpperCase();
+        console.warn(`[CIRCUIT BREAKER] ⚠️ Provedor ${nomeProvider} alterou estado: ${estadoAntes} -> ${estadoDepois} (Falhas consecutivas: ${registro.saude.falhasConsecutivas})`);
       }
 
       throw erro;
@@ -170,7 +178,7 @@ export function criarOrquestrador(
       (registroA, registroB) => registroB.configuracao.peso - registroA.configuracao.peso,
     );
 
-    console.log(`[IA ORCHESTRATOR] 🔍 Nova requisição de resposta de IA. Provedores configurados: ${registros.map(r => `${r.configuracao.nome.toUpperCase()}(CB:${r.saude.circuitBreaker})`).join(', ')}`);
+    console.log(`[IA ORCHESTRATOR] 🔍 Nova requisição de resposta de IA. Provedores configurados: ${registros.map(r => `${r.configuracao.nome.toUpperCase()}(CB:${TRADUCOES_CB[r.saude.circuitBreaker] || r.saude.circuitBreaker})`).join(', ')}`);
 
     // Tenta o provider selecionado por peso, com fallback sequencial
     const providerSelecionado = selecionarProvider(registros, agora);
