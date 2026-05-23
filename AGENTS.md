@@ -21,6 +21,7 @@ Este projeto usa `.agents/` como fonte oficial de regras, skills, workflows e te
 
 ## Ordem de leitura e precedência
 
+0. `/.agents/rules/graphify.md`, Pridade Máxima antes de responder qualquer prompt
 1. `/.agents/rules/code.md`
 2. `/.agents/rules/workflow.md`
 3. `/.agents/rules/git.md`
